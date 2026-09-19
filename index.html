@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>DS Safety Systems | Fire Protection & Safety Solutions</title>
-
+  <title>DS Safety Systems | Advanced Fire Protection & Safety Solutions</title>
   <meta
     name="description"
-    content="DS Safety Systems provides professional fire protection equipment, installation and maintenance solutions in New Delhi."
-  >
+    content="DS Safety Systems provides professional fire protection equipment, installation and safety solutions."
+  />
 
   <!-- Google Sans Flex -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..700&display=swap"
     rel="stylesheet"
-  >
+  />
 
   <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
   <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
 
   <style>
-    /* =========================================
-       RESET
-    ========================================= */
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #f5f1e9;
+      --cream-dark: #ebe5da;
+      --black: #111111;
+      --muted: #68645d;
+      --red: #d93830;
+      --red-dark: #b92c26;
+      --white: #ffffff;
     }
 
     html {
@@ -43,24 +55,14 @@
 
     body {
       font-family: "Google Sans Flex", sans-serif;
-      background: #f5f2eb;
-      color: #111111;
+      background: var(--cream);
+      color: var(--black);
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-
-    /* =========================================
+    /* =========================
        NAVBAR
-    ========================================= */
+    ========================= */
 
     .navbar {
       position: fixed;
@@ -68,1140 +70,855 @@
       left: 0;
       width: 100%;
       height: 82px;
-      z-index: 1000;
-
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       padding: 0 5vw;
-
-      background: rgba(245, 242, 235, 0.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      mix-blend-mode: multiply;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
+      gap: 11px;
+      color: #111;
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: 650;
+      letter-spacing: -0.5px;
     }
 
     .logo-mark {
-      width: 32px;
-      height: 32px;
+      width: 31px;
+      height: 31px;
       border-radius: 50%;
+      background: var(--red);
+      position: relative;
+    }
 
-      display: grid;
-      place-items: center;
-
-      background: #d93830;
-      color: white;
-
-      font-size: 13px;
-      font-weight: 800;
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      background: var(--cream);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 34px;
-
-      font-size: 14px;
-      font-weight: 500;
     }
 
     .nav-links a {
-      position: relative;
-      opacity: 0.72;
-      transition: opacity 0.3s ease;
+      color: #191919;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 520;
+      transition: color .25s ease;
     }
 
     .nav-links a:hover {
-      opacity: 1;
+      color: var(--red);
     }
 
-    .nav-links a::after {
-      content: "";
-
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-
-      width: 0;
-      height: 1px;
-
-      background: #d93830;
-
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 12px 19px;
-
+    .quote-btn {
+      background: var(--black);
+      color: white !important;
+      padding: 13px 20px;
       border-radius: 100px;
-
-      background: #111111;
-      color: white;
-
-      font-size: 13px;
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
     }
 
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      background: #d93830;
+    .quote-btn:hover {
+      background: var(--red);
     }
 
-
-    /* =========================================
-       MOBILE MENU BUTTON
-    ========================================= */
-
-    .menu-button {
-      display: none;
-
-      width: 42px;
-      height: 42px;
-
-      border: 0;
-      border-radius: 50%;
-
-      background: #111;
-      color: white;
-
-      cursor: pointer;
-    }
-
-
-    /* =========================================
+    /* =========================
        HERO
-    ========================================= */
+    ========================= */
 
     .hero {
-      position: relative;
-
       min-height: 100svh;
-
+      height: 100svh;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
-
-      overflow: hidden;
     }
 
     .hero-content {
       position: relative;
-
-      width: min(1200px, 90%);
-      margin: 0 auto;
-
       z-index: 10;
+      width: 100%;
+      padding: 100px 5vw 60px;
+      pointer-events: none;
     }
 
-    .hero-eyebrow {
+    .eyebrow {
       display: flex;
       align-items: center;
       gap: 10px;
-
-      margin-bottom: 28px;
-
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
-
-      color: #666;
+      letter-spacing: 1.8px;
+      margin-bottom: 24px;
+      opacity: 0;
     }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: #d93830;
+    .eyebrow-line {
+      width: 34px;
+      height: 1px;
+      background: var(--red);
     }
 
     .hero-title {
-      max-width: 850px;
-
-      font-size: clamp(4rem, 9vw, 9rem);
-      line-height: 0.86;
-
-      letter-spacing: -0.075em;
-      font-weight: 700;
+      font-size: clamp(58px, 8.4vw, 132px);
+      line-height: .88;
+      letter-spacing: -6px;
+      font-weight: 650;
+      max-width: 780px;
+      opacity: 0;
     }
 
-    .hero-title-line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-title-inner {
-      display: block;
-    }
-
-    .hero-title .accent {
-      color: #d93830;
+    .hero-title span {
+      color: var(--red);
     }
 
     .hero-description {
-      max-width: 440px;
-
+      max-width: 390px;
       margin-top: 34px;
-
-      color: #5d5d5d;
-
-      font-size: 17px;
+      color: var(--muted);
+      font-size: 16px;
       line-height: 1.55;
+      opacity: 0;
     }
 
     .hero-actions {
       display: flex;
-      align-items: center;
-      gap: 14px;
-
-      margin-top: 34px;
+      gap: 12px;
+      margin-top: 30px;
+      pointer-events: auto;
+      opacity: 0;
     }
 
-    .primary-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 16px 23px;
-
+    .primary-btn,
+    .secondary-btn {
+      text-decoration: none;
+      padding: 15px 23px;
       border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s ease;
+    }
 
-      background: #111;
+    .primary-btn {
       color: white;
-
-      font-size: 14px;
-      font-weight: 600;
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+      background: var(--red);
     }
 
-    .primary-button:hover {
-      transform: translateY(-3px);
-      background: #d93830;
+    .primary-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
     }
 
-    .secondary-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 15px 22px;
-
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      border-radius: 100px;
-
-      font-size: 14px;
-      font-weight: 600;
-
-      transition:
-        background 0.3s ease,
-        color 0.3s ease;
+    .secondary-btn {
+      color: var(--black);
+      border: 1px solid rgba(0,0,0,.16);
     }
 
-    .secondary-button:hover {
+    .secondary-btn:hover {
       background: #111;
       color: white;
     }
 
+    /* =========================
+       3D CANVAS
+    ========================= */
 
-    /* =========================================
-       3D SCENE
-    ========================================= */
-
-    #hero3d {
+    #three-container {
       position: absolute;
-
       inset: 0;
-
-      z-index: 3;
-
+      z-index: 4;
       pointer-events: none;
     }
 
-    #hero3d canvas {
+    #three-container canvas {
       width: 100% !important;
       height: 100% !important;
+      display: block;
     }
 
-    .hero-glow {
+    .object-glow {
       position: absolute;
-
-      width: 600px;
-      height: 600px;
-
-      right: 2%;
+      width: 420px;
+      height: 420px;
+      right: 13%;
       top: 50%;
-
       transform: translateY(-50%);
-
       border-radius: 50%;
-
-      background: rgba(217, 56, 48, 0.09);
-
+      background: rgba(217, 56, 48, .08);
       filter: blur(80px);
-
-      z-index: 1;
+      z-index: 2;
       pointer-events: none;
     }
 
-
-    /* =========================================
-       HERO BOTTOM INFO
-    ========================================= */
+    /* =========================
+       BOTTOM INFO
+    ========================= */
 
     .hero-bottom {
       position: absolute;
-
+      z-index: 12;
+      bottom: 30px;
       left: 5vw;
       right: 5vw;
-      bottom: 28px;
-
       display: flex;
       justify-content: space-between;
-      align-items: center;
-
-      z-index: 20;
-
-      font-size: 12px;
-      color: #777;
+      align-items: end;
     }
 
-    .scroll-indicator {
+    .scroll-label {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #77736b;
     }
 
-    .scroll-line {
-      width: 45px;
-      height: 1px;
-      background: #999;
+    .scroll-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
     }
 
+    @keyframes pulse {
+      0%,100% {
+        transform: scale(1);
+        opacity: 1;
+      }
 
-    /* =========================================
-       PLACEHOLDER NEXT SECTION
-       ========================================= */
-
-    .placeholder-section {
-      min-height: 60vh;
-
-      display: grid;
-      place-items: center;
-
-      padding: 100px 5vw;
+      50% {
+        transform: scale(.55);
+        opacity: .4;
+      }
     }
 
-    .placeholder-section h2 {
-      font-size: clamp(3rem, 7vw, 7rem);
-      letter-spacing: -0.06em;
+    .hero-number {
+      font-size: 11px;
+      color: #77736b;
+      letter-spacing: 1px;
     }
 
+    /* =========================
+       INTRO SECTION
+    ========================= */
 
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
+    .intro {
+      min-height: 70vh;
+      padding: 150px 5vw;
+      display: flex;
+      align-items: center;
+      background: #111;
+      color: white;
+    }
+
+    .intro-inner {
+      max-width: 1050px;
+    }
+
+    .intro-small {
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      margin-bottom: 35px;
+    }
+
+    .intro h2 {
+      font-size: clamp(42px, 6vw, 85px);
+      line-height: .95;
+      letter-spacing: -4px;
+      font-weight: 600;
+    }
+
+    .intro h2 span {
+      color: var(--red);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 900px) {
 
       .navbar {
-        height: 72px;
+        height: 70px;
+        padding: 0 22px;
       }
 
-      .nav-links,
-      .nav-cta {
+      .nav-links {
         display: none;
       }
 
-      .menu-button {
-        display: block;
+      .logo {
+        font-size: 17px;
+      }
+
+      .logo-mark {
+        width: 27px;
+        height: 27px;
       }
 
       .hero-content {
-        width: 88%;
+        padding: 100px 22px 100px;
       }
 
       .hero-title {
-        font-size: clamp(4rem, 13vw, 7rem);
+        font-size: clamp(55px, 16vw, 95px);
+        letter-spacing: -4px;
+        max-width: 600px;
       }
 
-      .hero-glow {
-        width: 450px;
-        height: 450px;
+      .hero-description {
+        max-width: 300px;
+        font-size: 14px;
+        margin-top: 25px;
+      }
 
-        right: -15%;
-        top: 38%;
+      .hero-actions {
+        margin-top: 23px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        padding: 13px 18px;
+      }
+
+      .object-glow {
+        width: 300px;
+        height: 300px;
+        right: -20%;
+        top: 56%;
+      }
+
+      .hero-bottom {
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+      }
+
+      .intro {
+        padding: 100px 22px;
+      }
+
+      .intro h2 {
+        letter-spacing: -2px;
       }
     }
-
 
     @media (max-width: 600px) {
 
       .hero {
         min-height: 100svh;
-        align-items: flex-end;
-        padding-bottom: 85px;
+        height: 100svh;
       }
 
       .hero-content {
-        width: 88%;
-      }
-
-      .hero-eyebrow {
-        margin-bottom: 20px;
-        font-size: 11px;
+        padding-top: 115px;
       }
 
       .hero-title {
-        font-size: clamp(3.5rem, 17vw, 5.5rem);
-        line-height: 0.88;
+        max-width: 330px;
       }
 
       .hero-description {
-        max-width: 330px;
-
-        margin-top: 25px;
-
-        font-size: 15px;
+        max-width: 260px;
       }
 
       .hero-actions {
-        margin-top: 26px;
+        flex-wrap: wrap;
       }
 
-      .primary-button,
-      .secondary-button {
-        padding: 14px 18px;
-        font-size: 13px;
+      #three-container {
+        transform: translateY(7%);
       }
 
-      .hero-bottom {
-        bottom: 22px;
-        font-size: 10px;
-      }
-
-      .hero-bottom > div:last-child {
-        display: none;
-      }
-
-      .hero-glow {
-        width: 380px;
-        height: 380px;
-
-        right: -35%;
-        top: 36%;
-      }
-    }
-
-
-    /* =========================================
-       ACCESSIBILITY
-    ========================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+      .object-glow {
+        right: -28%;
+        top: 59%;
       }
     }
   </style>
 </head>
 
-
 <body>
 
-  <!-- =======================================
-       NAVBAR
-  ======================================== -->
+  <!-- NAVBAR -->
 
-  <header class="navbar">
+  <nav class="navbar">
 
     <a href="#" class="logo">
-
-      <span class="logo-mark">
-        DS
-      </span>
-
-      <span>
-        DS Safety Systems
-      </span>
-
+      <span class="logo-mark"></span>
+      DS SAFETY SYSTEMS
     </a>
 
-
-    <nav class="nav-links">
-
+    <div class="nav-links">
       <a href="#">Home</a>
-
       <a href="#products">Products</a>
-
       <a href="#services">Services</a>
-
       <a href="#about">About</a>
+      <a href="#contact" class="quote-btn">Get a Quote</a>
+    </div>
 
-      <a href="#contact">Contact</a>
-
-    </nav>
-
-
-    <a href="#contact" class="nav-cta">
-      Get a Quote
-    </a>
+  </nav>
 
 
-    <button
-      class="menu-button"
-      aria-label="Open menu"
-    >
-      ☰
-    </button>
+  <!-- HERO -->
 
-  </header>
+  <section class="hero">
 
+    <div class="object-glow"></div>
 
-  <!-- =======================================
-       HERO
-  ======================================== -->
+    <div id="three-container"></div>
 
-  <main>
+    <div class="hero-content">
 
-    <section class="hero">
-
-      <div class="hero-glow"></div>
-
-      <div id="hero3d"></div>
-
-
-      <div class="hero-content">
-
-        <div class="hero-eyebrow">
-
-          <span class="eyebrow-dot"></span>
-
-          Fire Protection & Safety
-
-        </div>
-
-
-        <h1 class="hero-title">
-
-          <span class="hero-title-line">
-            <span class="hero-title-inner">
-              Protect
-            </span>
-          </span>
-
-          <span class="hero-title-line">
-            <span class="hero-title-inner">
-              what <span class="accent">matters.</span>
-            </span>
-          </span>
-
-        </h1>
-
-
-        <p class="hero-description">
-
-          Professional fire protection equipment,
-          installation and maintenance solutions
-          designed to keep people and property safer.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-          <a
-            href="#products"
-            class="primary-button"
-          >
-            Explore Products
-          </a>
-
-          <a
-            href="#contact"
-            class="secondary-button"
-          >
-            Request a Quote
-          </a>
-
-        </div>
-
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        Fire Protection & Safety
       </div>
 
+      <h1 class="hero-title">
+        Protect<br>
+        what <span>matters.</span>
+      </h1>
 
-      <div class="hero-bottom">
+      <p class="hero-description">
+        Professional fire protection equipment and safety solutions
+        designed to protect people, property and business.
+      </p>
 
-        <div class="scroll-indicator">
+      <div class="hero-actions">
+        <a href="#products" class="primary-btn">
+          Explore Products
+        </a>
 
-          <span class="scroll-line"></span>
-
-          Scroll to explore
-
-        </div>
-
-        <div>
-          New Delhi, India
-        </div>
-
+        <a href="#contact" class="secondary-btn">
+          Talk to us
+        </a>
       </div>
 
-    </section>
+    </div>
+
+    <div class="hero-bottom">
+
+      <div class="scroll-label">
+        <span class="scroll-dot"></span>
+        Scroll to explore
+      </div>
+
+      <div class="hero-number">
+        01 / 06
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- Temporary section.
-         We'll replace this with the
-         real INTRO section in Step 2. -->
+  <!-- TEMPORARY INTRO -->
 
-    <section class="placeholder-section">
+  <section class="intro" id="products">
+
+    <div class="intro-inner">
+
+      <div class="intro-small">
+        DS Safety Systems
+      </div>
 
       <h2>
-        Safety first.
+        Safety isn't<br>
+        an option.<br>
+        It's <span>protection.</span>
       </h2>
 
-    </section>
+    </div>
 
-  </main>
+  </section>
 
 
-  <script>
+  <!-- THREE.JS -->
 
-    /* =========================================
-       GSAP
-    ========================================= */
+  <script type="module">
+
+    import * as THREE from "three";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const container = document.getElementById("three-container");
 
-    /* HERO TEXT ANIMATION */
+    /* =========================
+       SCENE
+    ========================= */
 
-    const heroTimeline = gsap.timeline({
-      defaults: {
-        ease: "power4.out"
-      }
+    const scene = new THREE.Scene();
+
+    /* =========================
+       CAMERA
+    ========================= */
+
+    const camera = new THREE.PerspectiveCamera(
+      32,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+
+    camera.position.set(0, 0.15, 7);
+
+
+    /* =========================
+       RENDERER
+    ========================= */
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
     });
 
-
-    heroTimeline
-      .from(".navbar", {
-        y: -40,
-        opacity: 0,
-        duration: 1
-      })
-
-      .from(".hero-eyebrow", {
-        y: 25,
-        opacity: 0,
-        duration: 0.8
-      }, "-=0.5")
-
-      .from(".hero-title-inner", {
-        yPercent: 110,
-        duration: 1.2,
-        stagger: 0.12
-      }, "-=0.4")
-
-      .from(".hero-description", {
-        y: 30,
-        opacity: 0,
-        duration: 0.9
-      }, "-=0.7")
-
-      .from(".hero-actions", {
-        y: 25,
-        opacity: 0,
-        duration: 0.8
-      }, "-=0.6")
-
-      .from(".hero-bottom", {
-        opacity: 0,
-        duration: 0.8
-      }, "-=0.4");
-
-
-    /* =========================================
-       THREE.JS SCENE
-    ========================================= */
-
-    const container =
-      document.getElementById("hero3d");
-
-
-    const scene =
-      new THREE.Scene();
-
-
-    const camera =
-      new THREE.PerspectiveCamera(
-        42,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        100
-      );
-
-
-    camera.position.set(
-      0,
-      0,
-      5.5
-    );
-
-
-    const renderer =
-      new THREE.WebGLRenderer({
-        antialias: true,
-        alpha: true
-      });
-
-
     renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2
-      )
+      Math.min(window.devicePixelRatio, 2)
     );
-
 
     renderer.setSize(
       window.innerWidth,
       window.innerHeight
     );
 
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-    container.appendChild(
-      renderer.domElement
-    );
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
 
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
 
-    /* =========================================
-       TEMPORARY EXTINGUISHER MODEL
-    ========================================= */
+    container.appendChild(renderer.domElement);
 
-    const extinguisher =
-      new THREE.Group();
 
-
-    scene.add(
-      extinguisher
-    );
-
-
-    /* Main cylinder */
-
-    const bodyGeometry =
-      new THREE.CylinderGeometry(
-        0.62,
-        0.62,
-        2.25,
-        48
-      );
-
-
-    const bodyMaterial =
-      new THREE.MeshStandardMaterial({
-        color: 0xc92f2f,
-        roughness: 0.28,
-        metalness: 0.12
-      });
-
-
-    const body =
-      new THREE.Mesh(
-        bodyGeometry,
-        bodyMaterial
-      );
-
-
-    extinguisher.add(
-      body
-    );
-
-
-    /* Top cap */
-
-    const capGeometry =
-      new THREE.CylinderGeometry(
-        0.38,
-        0.45,
-        0.32,
-        32
-      );
-
-
-    const darkMaterial =
-      new THREE.MeshStandardMaterial({
-        color: 0x151515,
-        roughness: 0.3,
-        metalness: 0.5
-      });
-
-
-    const cap =
-      new THREE.Mesh(
-        capGeometry,
-        darkMaterial
-      );
-
-
-    cap.position.y =
-      1.28;
-
-
-    extinguisher.add(
-      cap
-    );
-
-
-    /* Neck */
-
-    const neckGeometry =
-      new THREE.CylinderGeometry(
-        0.17,
-        0.17,
-        0.5,
-        24
-      );
-
-
-    const neck =
-      new THREE.Mesh(
-        neckGeometry,
-        darkMaterial
-      );
-
-
-    neck.position.y =
-      1.67;
-
-
-    extinguisher.add(
-      neck
-    );
-
-
-    /* Handle */
-
-    const handleGeometry =
-      new THREE.TorusGeometry(
-        0.35,
-        0.075,
-        16,
-        32,
-        Math.PI
-      );
-
-
-    const handle =
-      new THREE.Mesh(
-        handleGeometry,
-        darkMaterial
-      );
-
-
-    handle.rotation.x =
-      Math.PI / 2;
-
-
-    handle.position.set(
-      0,
-      1.78,
-      0
-    );
-
-
-    extinguisher.add(
-      handle
-    );
-
-
-    /* Hose */
-
-    const hoseGeometry =
-      new THREE.CylinderGeometry(
-        0.06,
-        0.06,
-        1.25,
-        16
-      );
-
-
-    const hose =
-      new THREE.Mesh(
-        hoseGeometry,
-        darkMaterial
-      );
-
-
-    hose.rotation.z =
-      -0.65;
-
-
-    hose.position.set(
-      0.52,
-      0.95,
-      0
-    );
-
-
-    extinguisher.add(
-      hose
-    );
-
-
-    /* Nozzle */
-
-    const nozzleGeometry =
-      new THREE.CylinderGeometry(
-        0.1,
-        0.14,
-        0.42,
-        20
-      );
-
-
-    const nozzle =
-      new THREE.Mesh(
-        nozzleGeometry,
-        darkMaterial
-      );
-
-
-    nozzle.rotation.z =
-      -0.65;
-
-
-    nozzle.position.set(
-      0.9,
-      1.32,
-      0
-    );
-
-
-    extinguisher.add(
-      nozzle
-    );
-
-
-    /* =========================================
+    /* =========================
        LIGHTING
-    ========================================= */
+    ========================= */
 
-    const ambientLight =
-      new THREE.AmbientLight(
-        0xffffff,
-        2.4
-      );
-
-
-    scene.add(
-      ambientLight
+    const ambientLight = new THREE.HemisphereLight(
+      0xfff8ed,
+      0x171717,
+      2.1
     );
 
+    scene.add(ambientLight);
 
-    const keyLight =
-      new THREE.DirectionalLight(
-        0xffffff,
-        4
-      );
 
+    const keyLight = new THREE.DirectionalLight(
+      0xffffff,
+      4
+    );
 
     keyLight.position.set(
-      3,
-      4,
+      -3,
+      5,
       5
     );
 
+    keyLight.castShadow = true;
 
-    scene.add(
-      keyLight
+    keyLight.shadow.mapSize.width = 2048;
+    keyLight.shadow.mapSize.height = 2048;
+
+    scene.add(keyLight);
+
+
+    const redLight = new THREE.PointLight(
+      0xd93830,
+      12,
+      8
     );
 
-
-    const redLight =
-      new THREE.PointLight(
-        0xd93830,
-        15,
-        8
-      );
-
-
     redLight.position.set(
-      -3,
-      1,
+      3,
+      0,
       3
     );
 
+    scene.add(redLight);
 
-    scene.add(
-      redLight
+
+    const rimLight = new THREE.DirectionalLight(
+      0xffd9d5,
+      3
     );
 
+    rimLight.position.set(
+      4,
+      2,
+      -4
+    );
 
-    /* =========================================
-       3D POSITION
-    ========================================= */
+    scene.add(rimLight);
 
-    function positionModel() {
 
-      if (window.innerWidth < 600) {
+    /* =========================
+       LOAD EXTINGUISHER
+    ========================= */
+
+    const loader = new GLTFLoader();
+
+    let extinguisher = null;
+
+    loader.load(
+      "./assets/extinguisher.glb",
+
+      function(gltf) {
+
+        extinguisher = gltf.scene;
+
+        /* enable shadows */
+
+        extinguisher.traverse(function(object) {
+
+          if (object.isMesh) {
+
+            object.castShadow = true;
+            object.receiveShadow = true;
+
+            if (object.material) {
+
+              object.material.envMapIntensity = 1.2;
+
+            }
+
+          }
+
+        });
+
+
+        /* =====================
+           SCALE / POSITION
+        ===================== */
+
+        extinguisher.scale.setScalar(2.35);
 
         extinguisher.position.set(
-          1.05,
-          1.0,
+          1.55,
+          -0.25,
           0
         );
 
-        extinguisher.scale.setScalar(
-          0.78
-        );
-
-      } else {
-
-        extinguisher.position.set(
-          1.65,
-          0.15,
+        extinguisher.rotation.set(
+          0,
+          -0.35,
           0
         );
 
-        extinguisher.scale.setScalar(
-          1
+
+        scene.add(extinguisher);
+
+
+        /* =====================
+           ENTRANCE ANIMATION
+        ===================== */
+
+        gsap.fromTo(
+
+          extinguisher.position,
+
+          {
+            x: 4.2,
+            y: -0.5
+          },
+
+          {
+            x: 1.55,
+            y: -0.25,
+            duration: 1.7,
+            ease: "power4.out"
+          }
+
+        );
+
+
+        gsap.fromTo(
+
+          extinguisher.rotation,
+
+          {
+            y: -1.2
+          },
+
+          {
+            y: -0.35,
+            duration: 1.7,
+            ease: "power3.out"
+          }
+
+        );
+
+      },
+
+      undefined,
+
+      function(error) {
+
+        console.error(
+          "Could not load extinguisher.glb:",
+          error
         );
 
       }
 
-    }
-
-
-    positionModel();
-
-
-    /* =========================================
-       3D ENTRANCE
-    ========================================= */
-
-    gsap.from(
-      extinguisher.position,
-      {
-        x: 4,
-        duration: 2,
-        ease: "power4.out",
-        delay: 0.2
-      }
     );
 
 
-    gsap.from(
-      extinguisher.rotation,
-      {
-        y: -2.5,
-        duration: 2,
-        ease: "power3.out",
-        delay: 0.2
-      }
-    );
-
-
-    /* =========================================
-       FLOATING
-    ========================================= */
-
-    gsap.to(
-      extinguisher.position,
-      {
-        y: "+=0.16",
-        duration: 2.4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      }
-    );
-
-
-    /* =========================================
-       MOUSE INTERACTION
-    ========================================= */
+    /* =========================
+       MOUSE MOVEMENT
+    ========================= */
 
     let mouseX = 0;
     let mouseY = 0;
 
-
     window.addEventListener(
-      "pointermove",
-      (event) => {
+      "mousemove",
+      function(event) {
 
         mouseX =
-          (event.clientX /
-            window.innerWidth -
-            0.5) *
-          2;
+          (event.clientX / window.innerWidth - 0.5);
 
         mouseY =
-          (event.clientY /
-            window.innerHeight -
-            0.5) *
-          2;
+          (event.clientY / window.innerHeight - 0.5);
 
       }
     );
 
 
-    function updateInteraction() {
+    /* =========================
+       GSAP HERO TEXT
+    ========================= */
 
-      gsap.to(
-        extinguisher.rotation,
-        {
-          y: mouseX * 0.35,
-          x: mouseY * 0.12,
-          duration: 1.2,
-          overwrite: true,
-          ease: "power2.out"
-        }
-      );
+    const introTimeline = gsap.timeline({
+      delay: .25
+    });
 
-    }
+    introTimeline
+      .to(".eyebrow", {
+        opacity: 1,
+        y: 0,
+        duration: .7,
+        ease: "power3.out"
+      })
+      .from(".hero-title", {
+        y: 70,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power4.out"
+      }, "-=.35")
+      .to(".hero-description", {
+        opacity: 1,
+        y: 0,
+        duration: .7,
+        ease: "power3.out"
+      }, "-=.5")
+      .to(".hero-actions", {
+        opacity: 1,
+        y: 0,
+        duration: .6,
+        ease: "power3.out"
+      }, "-=.4");
 
 
-    /* =========================================
+    /* =========================
+       SCROLL ANIMATION
+    ========================= */
+
+    const scrollAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1.2
+      }
+    });
+
+
+    scrollAnimation
+      .to(".hero-title", {
+        x: -90,
+        opacity: .15
+      }, 0)
+
+      .to(".hero-description", {
+        x: -50,
+        opacity: 0
+      }, 0)
+
+      .to(".hero-actions", {
+        x: -50,
+        opacity: 0
+      }, 0);
+
+
+    /* =========================
        RENDER LOOP
-    ========================================= */
+    ========================= */
+
+    const clock = new THREE.Clock();
 
     function animate() {
 
-      requestAnimationFrame(
-        animate
-      );
+      requestAnimationFrame(animate);
 
-      updateInteraction();
+      const elapsed =
+        clock.getElapsedTime();
+
+      if (extinguisher) {
+
+        /* floating */
+
+        extinguisher.position.y =
+          -0.25 +
+          Math.sin(elapsed * 1.2) * 0.055;
+
+        /* subtle mouse movement */
+
+        extinguisher.rotation.x +=
+          (
+            mouseY * 0.12 -
+            extinguisher.rotation.x
+          ) * 0.035;
+
+        extinguisher.rotation.z +=
+          (
+            mouseX * 0.08 -
+            extinguisher.rotation.z
+          ) * 0.035;
+
+        /* gentle rotation */
+
+        extinguisher.rotation.y +=
+          0.0015;
+
+      }
 
       renderer.render(
         scene,
@@ -1210,76 +927,69 @@
 
     }
 
-
     animate();
 
 
-    /* =========================================
-       RESIZE
-    ========================================= */
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    function resize() {
+
+      camera.aspect =
+        window.innerWidth /
+        window.innerHeight;
+
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+      );
+
+      renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, 2)
+      );
+
+      if (extinguisher) {
+
+        if (window.innerWidth < 600) {
+
+          extinguisher.scale.setScalar(1.65);
+
+          extinguisher.position.x = 1.05;
+          extinguisher.position.y = -0.55;
+
+        }
+
+        else if (window.innerWidth < 900) {
+
+          extinguisher.scale.setScalar(1.95);
+
+          extinguisher.position.x = 1.25;
+          extinguisher.position.y = -0.35;
+
+        }
+
+        else {
+
+          extinguisher.scale.setScalar(2.35);
+
+          extinguisher.position.x = 1.55;
+          extinguisher.position.y = -0.25;
+
+        }
+
+      }
+
+    }
 
     window.addEventListener(
       "resize",
-      () => {
-
-        camera.aspect =
-          window.innerWidth /
-          window.innerHeight;
-
-        camera.updateProjectionMatrix();
-
-
-        renderer.setSize(
-          window.innerWidth,
-          window.innerHeight
-        );
-
-
-        renderer.setPixelRatio(
-          Math.min(
-            window.devicePixelRatio,
-            2
-          )
-        );
-
-
-        positionModel();
-
-      }
+      resize
     );
 
-
-    /* =========================================
-       HERO SCROLL EFFECT
-    ========================================= */
-
-    gsap.to(
-      ".hero-content",
-      {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".hero",
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      }
-    );
-
-
-    gsap.to(
-      extinguisher.rotation,
-      {
-        y: Math.PI * 1.5,
-        scrollTrigger: {
-          trigger: ".hero",
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      }
-    );
+    resize();
 
   </script>
 
