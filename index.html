@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DS Safety Systems | Fire Protection & Safety Solutions</title>
+
+  <meta
+    name="description"
+    content="DS Safety Systems provides professional fire protection equipment, installation and maintenance solutions in New Delhi."
+  >
+
+  <!-- Google Sans Flex -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script>
+
+  <style>
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Google Sans Flex", sans-serif;
+      background: #f5f2eb;
+      color: #111111;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 82px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 5vw;
+
+      background: rgba(245, 242, 235, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background: #d93830;
+      color: white;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      opacity: 0.72;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+
+      width: 0;
+      height: 1px;
+
+      background: #d93830;
+
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 12px 19px;
+
+      border-radius: 100px;
+
+      background: #111111;
+      color: white;
+
+      font-size: 13px;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      background: #d93830;
+    }
+
+
+    /* =========================================
+       MOBILE MENU BUTTON
+    ========================================= */
+
+    .menu-button {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: #111;
+      color: white;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      position: relative;
+
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+
+      width: min(1200px, 90%);
+      margin: 0 auto;
+
+      z-index: 10;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 28px;
+
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      color: #666;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #d93830;
+    }
+
+    .hero-title {
+      max-width: 850px;
+
+      font-size: clamp(4rem, 9vw, 9rem);
+      line-height: 0.86;
+
+      letter-spacing: -0.075em;
+      font-weight: 700;
+    }
+
+    .hero-title-line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hero-title-inner {
+      display: block;
+    }
+
+    .hero-title .accent {
+      color: #d93830;
+    }
+
+    .hero-description {
+      max-width: 440px;
+
+      margin-top: 34px;
+
+      color: #5d5d5d;
+
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-top: 34px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 16px 23px;
+
+      border-radius: 100px;
+
+      background: #111;
+      color: white;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-3px);
+      background: #d93830;
+    }
+
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 15px 22px;
+
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 100px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .secondary-button:hover {
+      background: #111;
+      color: white;
+    }
+
+
+    /* =========================================
+       3D SCENE
+    ========================================= */
+
+    #hero3d {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 3;
+
+      pointer-events: none;
+    }
+
+    #hero3d canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .hero-glow {
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      right: 2%;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border-radius: 50%;
+
+      background: rgba(217, 56, 48, 0.09);
+
+      filter: blur(80px);
+
+      z-index: 1;
+      pointer-events: none;
+    }
+
+
+    /* =========================================
+       HERO BOTTOM INFO
+    ========================================= */
+
+    .hero-bottom {
+      position: absolute;
+
+      left: 5vw;
+      right: 5vw;
+      bottom: 28px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      z-index: 20;
+
+      font-size: 12px;
+      color: #777;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-line {
+      width: 45px;
+      height: 1px;
+      background: #999;
+    }
+
+
+    /* =========================================
+       PLACEHOLDER NEXT SECTION
+       ========================================= */
+
+    .placeholder-section {
+      min-height: 60vh;
+
+      display: grid;
+      place-items: center;
+
+      padding: 100px 5vw;
+    }
+
+    .placeholder-section h2 {
+      font-size: clamp(3rem, 7vw, 7rem);
+      letter-spacing: -0.06em;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .navbar {
+        height: 72px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero-content {
+        width: 88%;
+      }
+
+      .hero-title {
+        font-size: clamp(4rem, 13vw, 7rem);
+      }
+
+      .hero-glow {
+        width: 450px;
+        height: 450px;
+
+        right: -15%;
+        top: 38%;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 100svh;
+        align-items: flex-end;
+        padding-bottom: 85px;
+      }
+
+      .hero-content {
+        width: 88%;
+      }
+
+      .hero-eyebrow {
+        margin-bottom: 20px;
+        font-size: 11px;
+      }
+
+      .hero-title {
+        font-size: clamp(3.5rem, 17vw, 5.5rem);
+        line-height: 0.88;
+      }
+
+      .hero-description {
+        max-width: 330px;
+
+        margin-top: 25px;
+
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        margin-top: 26px;
+      }
+
+      .primary-button,
+      .secondary-button {
+        padding: 14px 18px;
+        font-size: 13px;
+      }
+
+      .hero-bottom {
+        bottom: 22px;
+        font-size: 10px;
+      }
+
+      .hero-bottom > div:last-child {
+        display: none;
+      }
+
+      .hero-glow {
+        width: 380px;
+        height: 380px;
+
+        right: -35%;
+        top: 36%;
+      }
+    }
+
+
+    /* =========================================
+       ACCESSIBILITY
+    ========================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =======================================
+       NAVBAR
+  ======================================== -->
+
+  <header class="navbar">
+
+    <a href="#" class="logo">
+
+      <span class="logo-mark">
+        DS
+      </span>
+
+      <span>
+        DS Safety Systems
+      </span>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+      <a href="#">Home</a>
+
+      <a href="#products">Products</a>
+
+      <a href="#services">Services</a>
+
+      <a href="#about">About</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <a href="#contact" class="nav-cta">
+      Get a Quote
+    </a>
+
+
+    <button
+      class="menu-button"
+      aria-label="Open menu"
+    >
+      ☰
+    </button>
+
+  </header>
+
+
+  <!-- =======================================
+       HERO
+  ======================================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-glow"></div>
+
+      <div id="hero3d"></div>
+
+
+      <div class="hero-content">
+
+        <div class="hero-eyebrow">
+
+          <span class="eyebrow-dot"></span>
+
+          Fire Protection & Safety
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+          <span class="hero-title-line">
+            <span class="hero-title-inner">
+              Protect
+            </span>
+          </span>
+
+          <span class="hero-title-line">
+            <span class="hero-title-inner">
+              what <span class="accent">matters.</span>
+            </span>
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Professional fire protection equipment,
+          installation and maintenance solutions
+          designed to keep people and property safer.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#products"
+            class="primary-button"
+          >
+            Explore Products
+          </a>
+
+          <a
+            href="#contact"
+            class="secondary-button"
+          >
+            Request a Quote
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-bottom">
+
+        <div class="scroll-indicator">
+
+          <span class="scroll-line"></span>
+
+          Scroll to explore
+
+        </div>
+
+        <div>
+          New Delhi, India
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Temporary section.
+         We'll replace this with the
+         real INTRO section in Step 2. -->
+
+    <section class="placeholder-section">
+
+      <h2>
+        Safety first.
+      </h2>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    /* =========================================
+       GSAP
+    ========================================= */
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    /* HERO TEXT ANIMATION */
+
+    const heroTimeline = gsap.timeline({
+      defaults: {
+        ease: "power4.out"
+      }
+    });
+
+
+    heroTimeline
+      .from(".navbar", {
+        y: -40,
+        opacity: 0,
+        duration: 1
+      })
+
+      .from(".hero-eyebrow", {
+        y: 25,
+        opacity: 0,
+        duration: 0.8
+      }, "-=0.5")
+
+      .from(".hero-title-inner", {
+        yPercent: 110,
+        duration: 1.2,
+        stagger: 0.12
+      }, "-=0.4")
+
+      .from(".hero-description", {
+        y: 30,
+        opacity: 0,
+        duration: 0.9
+      }, "-=0.7")
+
+      .from(".hero-actions", {
+        y: 25,
+        opacity: 0,
+        duration: 0.8
+      }, "-=0.6")
+
+      .from(".hero-bottom", {
+        opacity: 0,
+        duration: 0.8
+      }, "-=0.4");
+
+
+    /* =========================================
+       THREE.JS SCENE
+    ========================================= */
+
+    const container =
+      document.getElementById("hero3d");
+
+
+    const scene =
+      new THREE.Scene();
+
+
+    const camera =
+      new THREE.PerspectiveCamera(
+        42,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        100
+      );
+
+
+    camera.position.set(
+      0,
+      0,
+      5.5
+    );
+
+
+    const renderer =
+      new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+      });
+
+
+    renderer.setPixelRatio(
+      Math.min(
+        window.devicePixelRatio,
+        2
+      )
+    );
+
+
+    renderer.setSize(
+      window.innerWidth,
+      window.innerHeight
+    );
+
+
+    container.appendChild(
+      renderer.domElement
+    );
+
+
+    /* =========================================
+       TEMPORARY EXTINGUISHER MODEL
+    ========================================= */
+
+    const extinguisher =
+      new THREE.Group();
+
+
+    scene.add(
+      extinguisher
+    );
+
+
+    /* Main cylinder */
+
+    const bodyGeometry =
+      new THREE.CylinderGeometry(
+        0.62,
+        0.62,
+        2.25,
+        48
+      );
+
+
+    const bodyMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0xc92f2f,
+        roughness: 0.28,
+        metalness: 0.12
+      });
+
+
+    const body =
+      new THREE.Mesh(
+        bodyGeometry,
+        bodyMaterial
+      );
+
+
+    extinguisher.add(
+      body
+    );
+
+
+    /* Top cap */
+
+    const capGeometry =
+      new THREE.CylinderGeometry(
+        0.38,
+        0.45,
+        0.32,
+        32
+      );
+
+
+    const darkMaterial =
+      new THREE.MeshStandardMaterial({
+        color: 0x151515,
+        roughness: 0.3,
+        metalness: 0.5
+      });
+
+
+    const cap =
+      new THREE.Mesh(
+        capGeometry,
+        darkMaterial
+      );
+
+
+    cap.position.y =
+      1.28;
+
+
+    extinguisher.add(
+      cap
+    );
+
+
+    /* Neck */
+
+    const neckGeometry =
+      new THREE.CylinderGeometry(
+        0.17,
+        0.17,
+        0.5,
+        24
+      );
+
+
+    const neck =
+      new THREE.Mesh(
+        neckGeometry,
+        darkMaterial
+      );
+
+
+    neck.position.y =
+      1.67;
+
+
+    extinguisher.add(
+      neck
+    );
+
+
+    /* Handle */
+
+    const handleGeometry =
+      new THREE.TorusGeometry(
+        0.35,
+        0.075,
+        16,
+        32,
+        Math.PI
+      );
+
+
+    const handle =
+      new THREE.Mesh(
+        handleGeometry,
+        darkMaterial
+      );
+
+
+    handle.rotation.x =
+      Math.PI / 2;
+
+
+    handle.position.set(
+      0,
+      1.78,
+      0
+    );
+
+
+    extinguisher.add(
+      handle
+    );
+
+
+    /* Hose */
+
+    const hoseGeometry =
+      new THREE.CylinderGeometry(
+        0.06,
+        0.06,
+        1.25,
+        16
+      );
+
+
+    const hose =
+      new THREE.Mesh(
+        hoseGeometry,
+        darkMaterial
+      );
+
+
+    hose.rotation.z =
+      -0.65;
+
+
+    hose.position.set(
+      0.52,
+      0.95,
+      0
+    );
+
+
+    extinguisher.add(
+      hose
+    );
+
+
+    /* Nozzle */
+
+    const nozzleGeometry =
+      new THREE.CylinderGeometry(
+        0.1,
+        0.14,
+        0.42,
+        20
+      );
+
+
+    const nozzle =
+      new THREE.Mesh(
+        nozzleGeometry,
+        darkMaterial
+      );
+
+
+    nozzle.rotation.z =
+      -0.65;
+
+
+    nozzle.position.set(
+      0.9,
+      1.32,
+      0
+    );
+
+
+    extinguisher.add(
+      nozzle
+    );
+
+
+    /* =========================================
+       LIGHTING
+    ========================================= */
+
+    const ambientLight =
+      new THREE.AmbientLight(
+        0xffffff,
+        2.4
+      );
+
+
+    scene.add(
+      ambientLight
+    );
+
+
+    const keyLight =
+      new THREE.DirectionalLight(
+        0xffffff,
+        4
+      );
+
+
+    keyLight.position.set(
+      3,
+      4,
+      5
+    );
+
+
+    scene.add(
+      keyLight
+    );
+
+
+    const redLight =
+      new THREE.PointLight(
+        0xd93830,
+        15,
+        8
+      );
+
+
+    redLight.position.set(
+      -3,
+      1,
+      3
+    );
+
+
+    scene.add(
+      redLight
+    );
+
+
+    /* =========================================
+       3D POSITION
+    ========================================= */
+
+    function positionModel() {
+
+      if (window.innerWidth < 600) {
+
+        extinguisher.position.set(
+          1.05,
+          1.0,
+          0
+        );
+
+        extinguisher.scale.setScalar(
+          0.78
+        );
+
+      } else {
+
+        extinguisher.position.set(
+          1.65,
+          0.15,
+          0
+        );
+
+        extinguisher.scale.setScalar(
+          1
+        );
+
+      }
+
+    }
+
+
+    positionModel();
+
+
+    /* =========================================
+       3D ENTRANCE
+    ========================================= */
+
+    gsap.from(
+      extinguisher.position,
+      {
+        x: 4,
+        duration: 2,
+        ease: "power4.out",
+        delay: 0.2
+      }
+    );
+
+
+    gsap.from(
+      extinguisher.rotation,
+      {
+        y: -2.5,
+        duration: 2,
+        ease: "power3.out",
+        delay: 0.2
+      }
+    );
+
+
+    /* =========================================
+       FLOATING
+    ========================================= */
+
+    gsap.to(
+      extinguisher.position,
+      {
+        y: "+=0.16",
+        duration: 2.4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      }
+    );
+
+
+    /* =========================================
+       MOUSE INTERACTION
+    ========================================= */
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+
+        mouseX =
+          (event.clientX /
+            window.innerWidth -
+            0.5) *
+          2;
+
+        mouseY =
+          (event.clientY /
+            window.innerHeight -
+            0.5) *
+          2;
+
+      }
+    );
+
+
+    function updateInteraction() {
+
+      gsap.to(
+        extinguisher.rotation,
+        {
+          y: mouseX * 0.35,
+          x: mouseY * 0.12,
+          duration: 1.2,
+          overwrite: true,
+          ease: "power2.out"
+        }
+      );
+
+    }
+
+
+    /* =========================================
+       RENDER LOOP
+    ========================================= */
+
+    function animate() {
+
+      requestAnimationFrame(
+        animate
+      );
+
+      updateInteraction();
+
+      renderer.render(
+        scene,
+        camera
+      );
+
+    }
+
+
+    animate();
+
+
+    /* =========================================
+       RESIZE
+    ========================================= */
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        camera.aspect =
+          window.innerWidth /
+          window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+
+        renderer.setSize(
+          window.innerWidth,
+          window.innerHeight
+        );
+
+
+        renderer.setPixelRatio(
+          Math.min(
+            window.devicePixelRatio,
+            2
+          )
+        );
+
+
+        positionModel();
+
+      }
+    );
+
+
+    /* =========================================
+       HERO SCROLL EFFECT
+    ========================================= */
+
+    gsap.to(
+      ".hero-content",
+      {
+        y: -100,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      }
+    );
+
+
+    gsap.to(
+      extinguisher.rotation,
+      {
+        y: Math.PI * 1.5,
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      }
+    );
+
+  </script>
+
+</body>
+</html>
