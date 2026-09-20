@@ -33,7 +33,7 @@ button{font:inherit}
 .brand-mark{width:30px;height:30px;border-radius:9px;background:var(--red);display:grid;place-items:center}
 .brand-mark:after{content:"";width:9px;height:9px;background:#f4f0e8;border-radius:50%}
 .nav-links{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:550}
-.nav-links a{transition:.25s}
+.nav-links a{transition:.25s}.nav-links.mobile-open{display:flex;position:absolute;top:70px;left:15px;right:15px;padding:18px;flex-direction:column;align-items:stretch;background:rgba(244,240,232,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.12)}
 .nav-links a:hover{color:var(--red)}
 .nav-cta{background:#111;color:#fff;padding:12px 19px;border-radius:99px}
 .nav-cta:hover{background:var(--red)!important;color:#fff!important}
@@ -88,10 +88,10 @@ h1 em{font-style:normal;color:var(--red)}
 .hero{min-height:100svh}.hero-grid{background-size:45px 45px}#scene{transform:translateY(8%)}
 .actions{flex-wrap:wrap}.btn{padding:13px 18px}.statement{letter-spacing:-2.5px}
 }
-</style>
+.top-strip{height:34px;position:fixed;z-index:60;top:0;left:0;right:0;background:#111;color:#d7d2c9;display:flex;align-items:center;justify-content:center;gap:28px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}.top-strip a{color:#fff}.top-strip a:hover{color:var(--red)}.nav{top:34px;background:rgba(244,240,232,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.hero{padding-top:145px}.hero-content{padding-top:145px}.hero-side{position:absolute;z-index:7;right:5vw;bottom:105px;width:230px;color:#777;font-size:11px;line-height:1.6;text-align:right}.hero-side strong{display:block;color:#111;font-size:13px;margin-bottom:5px}.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:55px}.contact-box{border:1px solid rgba(255,255,255,.13);padding:30px;border-radius:22px;background:rgba(255,255,255,.025)}.contact-box a{display:block;font-size:22px;font-weight:600;margin-top:12px}.contact-box a:hover{color:var(--red)}.contact-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#777}.contact-box p{color:#999;line-height:1.6;margin-top:14px;font-size:14px}@media(max-width:900px){.top-strip{display:none}.nav{top:0}.hero{padding-top:100px}.hero-content{padding-top:110px}.hero-side{display:none}.contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}}\n</style>
 </head>
 <body>
-<div id="root"></div>
+<div class="top-strip"><span>New Delhi</span><a href="tel:9818701683">9818701683</a><span>Fire Protection • Installation • AMC</span></div><div id="root"></div>
 
 <script>
 const {useEffect}=React;
@@ -118,7 +118,7 @@ function App(){
     React.createElement("a",{href:"#contact"},"Contact"),
     React.createElement("a",{className:"nav-cta",href:"#contact"},"Get a quote")
    ),
-   React.createElement("button",{className:"menu","aria-label":"Menu"},"☰")
+   React.createElement("button",{className:"menu","aria-label":"Menu",onClick:()=>document.querySelector(".nav-links").classList.toggle("mobile-open")},"☰")
   ),
   React.createElement("main",null,
    React.createElement("section",{className:"hero"},
@@ -134,7 +134,7 @@ function App(){
       React.createElement("a",{className:"btn btn-outline",href:"#contact"},"Talk to us")
      )
     ),
-    React.createElement("div",{className:"hero-meta"},
+    React.createElement("div",{className:"hero-side"},React.createElement("strong",null,"Complete fire protection"),"Equipment, systems and maintenance support designed around your site."),React.createElement("div",{className:"hero-meta"},
      React.createElement("div",null,React.createElement("span",{className:"dot"}),"Safety, installed properly"),
      React.createElement("div",null,"01 / 06")
     )
@@ -160,7 +160,7 @@ function App(){
    React.createElement("section",{className:"section dark",id:"contact"},
     React.createElement("div",{className:"section-label reveal"},"Start a conversation"),
     React.createElement("div",{className:"statement reveal"},"Ready when <span>you are.</span>"),
-    React.createElement("p",{className:"hero-copy reveal",style:{opacity:1,color:"#999",marginTop:"28px"}},"Talk to DS Safety Systems about equipment, installation or annual maintenance."),React.createElement("div",{className:"actions reveal",style:{opacity:1,marginTop:"30px"}},React.createElement("a",{className:"btn btn-red",href:"tel:9818701683"},"Call 9818701683"),React.createElement("a",{className:"btn btn-outline",href:"mailto:Dssafetysystems@hotmail.com"},"Email us"))
+    React.createElement("p",{className:"hero-copy reveal",style:{opacity:1,color:"#999",marginTop:"28px"}},"Talk to DS Safety Systems about equipment, installation or annual maintenance."),React.createElement("div",{className:"contact-grid"},React.createElement("div",{className:"contact-box reveal"},React.createElement("div",{className:"contact-label"},"Call / WhatsApp"),React.createElement("a",{href:"tel:9818701683"},"9818701683"),React.createElement("p",null,"Speak with us about equipment, installation, servicing or AMC requirements.")),React.createElement("div",{className:"contact-box reveal"},React.createElement("div",{className:"contact-label"},"Email / Location"),React.createElement("a",{href:"mailto:Dssafetysystems@hotmail.com"},"Dssafetysystems@hotmail.com"),React.createElement("p",null,"Govind Puri, New Delhi")) )
    )
   ),
   React.createElement("footer",{className:"footer"},React.createElement("div",null,"© 2026 DS SAFETY SYSTEMS"),React.createElement("div",null,"Fire protection • Safety • Maintenance"))
