@@ -1,997 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>DS Safety Systems | Advanced Fire Protection & Safety Solutions</title>
-  <meta
-    name="description"
-    content="DS Safety Systems provides professional fire protection equipment, installation and safety solutions."
-  />
-
-  <!-- Google Sans Flex -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- GSAP -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-
-  <!-- Three.js -->
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-    }
-  }
-  </script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --cream: #f5f1e9;
-      --cream-dark: #ebe5da;
-      --black: #111111;
-      --muted: #68645d;
-      --red: #d93830;
-      --red-dark: #b92c26;
-      --white: #ffffff;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Google Sans Flex", sans-serif;
-      background: var(--cream);
-      color: var(--black);
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 82px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5vw;
-      mix-blend-mode: multiply;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      color: #111;
-      text-decoration: none;
-      font-size: 19px;
-      font-weight: 650;
-      letter-spacing: -0.5px;
-    }
-
-    .logo-mark {
-      width: 31px;
-      height: 31px;
-      border-radius: 50%;
-      background: var(--red);
-      position: relative;
-    }
-
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      background: var(--cream);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-
-    .nav-links a {
-      color: #191919;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 520;
-      transition: color .25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--red);
-    }
-
-    .quote-btn {
-      background: var(--black);
-      color: white !important;
-      padding: 13px 20px;
-      border-radius: 100px;
-    }
-
-    .quote-btn:hover {
-      background: var(--red);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100svh;
-      height: 100svh;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      padding: 100px 5vw 60px;
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      margin-bottom: 24px;
-      opacity: 0;
-    }
-
-    .eyebrow-line {
-      width: 34px;
-      height: 1px;
-      background: var(--red);
-    }
-
-    .hero-title {
-      font-size: clamp(58px, 8.4vw, 132px);
-      line-height: .88;
-      letter-spacing: -6px;
-      font-weight: 650;
-      max-width: 780px;
-      opacity: 0;
-    }
-
-    .hero-title span {
-      color: var(--red);
-    }
-
-    .hero-description {
-      max-width: 390px;
-      margin-top: 34px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-      opacity: 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 30px;
-      pointer-events: auto;
-      opacity: 0;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-      text-decoration: none;
-      padding: 15px 23px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .3s ease;
-    }
-
-    .primary-btn {
-      color: white;
-      background: var(--red);
-    }
-
-    .primary-btn:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    .secondary-btn {
-      color: var(--black);
-      border: 1px solid rgba(0,0,0,.16);
-    }
-
-    .secondary-btn:hover {
-      background: #111;
-      color: white;
-    }
-
-    /* =========================
-       3D CANVAS
-    ========================= */
-
-    #three-container {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
-      pointer-events: none;
-    }
-
-    #three-container canvas {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-    }
-
-    .object-glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      right: 13%;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 50%;
-      background: rgba(217, 56, 48, .08);
-      filter: blur(80px);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* =========================
-       BOTTOM INFO
-    ========================= */
-
-    .hero-bottom {
-      position: absolute;
-      z-index: 12;
-      bottom: 30px;
-      left: 5vw;
-      right: 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-    }
-
-    .scroll-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #77736b;
-    }
-
-    .scroll-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--red);
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(.55);
-        opacity: .4;
-      }
-    }
-
-    .hero-number {
-      font-size: 11px;
-      color: #77736b;
-      letter-spacing: 1px;
-    }
-
-    /* =========================
-       INTRO SECTION
-    ========================= */
-
-    .intro {
-      min-height: 70vh;
-      padding: 150px 5vw;
-      display: flex;
-      align-items: center;
-      background: #111;
-      color: white;
-    }
-
-    .intro-inner {
-      max-width: 1050px;
-    }
-
-    .intro-small {
-      color: #aaa;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 11px;
-      margin-bottom: 35px;
-    }
-
-    .intro h2 {
-      font-size: clamp(42px, 6vw, 85px);
-      line-height: .95;
-      letter-spacing: -4px;
-      font-weight: 600;
-    }
-
-    .intro h2 span {
-      color: var(--red);
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      .navbar {
-        height: 70px;
-        padding: 0 22px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .logo {
-        font-size: 17px;
-      }
-
-      .logo-mark {
-        width: 27px;
-        height: 27px;
-      }
-
-      .hero-content {
-        padding: 100px 22px 100px;
-      }
-
-      .hero-title {
-        font-size: clamp(55px, 16vw, 95px);
-        letter-spacing: -4px;
-        max-width: 600px;
-      }
-
-      .hero-description {
-        max-width: 300px;
-        font-size: 14px;
-        margin-top: 25px;
-      }
-
-      .hero-actions {
-        margin-top: 23px;
-      }
-
-      .primary-btn,
-      .secondary-btn {
-        padding: 13px 18px;
-      }
-
-      .object-glow {
-        width: 300px;
-        height: 300px;
-        right: -20%;
-        top: 56%;
-      }
-
-      .hero-bottom {
-        left: 22px;
-        right: 22px;
-        bottom: 22px;
-      }
-
-      .intro {
-        padding: 100px 22px;
-      }
-
-      .intro h2 {
-        letter-spacing: -2px;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .hero {
-        min-height: 100svh;
-        height: 100svh;
-      }
-
-      .hero-content {
-        padding-top: 115px;
-      }
-
-      .hero-title {
-        max-width: 330px;
-      }
-
-      .hero-description {
-        max-width: 260px;
-      }
-
-      .hero-actions {
-        flex-wrap: wrap;
-      }
-
-      #three-container {
-        transform: translateY(7%);
-      }
-
-      .object-glow {
-        right: -28%;
-        top: 59%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#f4f0e8">
+<title>DS Safety Systems | Fire Protection & Safety</title>
+<meta name="description" content="DS Safety Systems provides professional fire protection equipment, installation and maintenance solutions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f4f0e8;--ink:#101010;--muted:#6d6962;--red:#d93830;--line:rgba(16,16,16,.12)}
+html{scroll-behavior:smooth}
+body{font-family:"Google Sans Flex",sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+::selection{background:var(--red);color:#fff}
+.nav{height:82px;position:fixed;z-index:50;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;mix-blend-mode:multiply}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;letter-spacing:-.5px}
+.brand-mark{width:30px;height:30px;border-radius:9px;background:var(--red);display:grid;place-items:center}
+.brand-mark:after{content:"";width:9px;height:9px;background:#f4f0e8;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:550}
+.nav-links a{transition:.25s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:#111;color:#fff;padding:12px 19px;border-radius:99px}
+.nav-cta:hover{background:var(--red)!important;color:#fff!important}
+.menu{display:none;border:0;background:transparent;font-size:24px}
+.hero{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
+.hero-content{position:relative;z-index:8;padding:120px 5vw 80px;max-width:850px}
+.kicker{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;color:#5e5a54;opacity:0}
+.kicker i{display:block;width:30px;height:1px;background:var(--red)}
+h1{font-size:clamp(62px,9.4vw,144px);line-height:.84;letter-spacing:-7px;font-weight:650;margin-top:25px;max-width:800px}
+h1 em{font-style:normal;color:var(--red)}
+.hero-copy{font-size:17px;line-height:1.55;color:var(--muted);max-width:410px;margin-top:34px;opacity:0}
+.actions{display:flex;gap:11px;margin-top:28px;opacity:0}
+.btn{padding:15px 22px;border-radius:99px;font-size:14px;font-weight:650;transition:.3s}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#b92c26;transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--line)}.btn-outline:hover{background:#111;color:#fff}
+#scene{position:absolute;inset:0;z-index:4;pointer-events:none}
+.glow{position:absolute;z-index:2;width:500px;height:500px;border-radius:50%;right:9%;top:50%;transform:translateY(-50%);background:rgba(217,56,48,.09);filter:blur(85px)}
+.hero-meta{position:absolute;z-index:9;left:5vw;right:5vw;bottom:28px;display:flex;justify-content:space-between;color:#78736b;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
+.dot{display:inline-block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-right:9px}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:45px;min-width:max-content;font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:650}
+.marquee-track span:after{content:"•";color:var(--red);margin-left:45px}
+.section{padding:130px 5vw}
+.dark{background:#111;color:#fff}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#89847b;font-weight:650;margin-bottom:28px}
+.dark .section-label{color:#858078}
+.statement{font-size:clamp(42px,6.5vw,92px);line-height:.94;letter-spacing:-4px;font-weight:600;max-width:1050px}
+.statement span{color:var(--red)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);margin-top:80px}
+.card{background:#111;padding:35px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
+.card-num{font-size:11px;color:#777;letter-spacing:1px}.card h3{font-size:27px;letter-spacing:-1px}.card p{color:#92908b;font-size:14px;line-height:1.6;max-width:280px}.card-arrow{color:var(--red);font-size:24px}
+.products{background:var(--bg)}
+.product-intro{display:flex;justify-content:space-between;gap:40px;align-items:end}
+.product-intro h2{font-size:clamp(42px,6vw,80px);letter-spacing:-4px;line-height:.92}
+.product-intro p{max-width:330px;color:var(--muted);line-height:1.55;font-size:15px}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:55px}
+.product{min-height:360px;background:#ebe6dc;border:1px solid rgba(16,16,16,.08);padding:28px;position:relative;overflow:hidden;transition:transform .35s}
+.product:hover{transform:translateY(-7px)}
+.product-num{font-size:11px;color:#777}.product h3{font-size:25px;letter-spacing:-1px;position:absolute;bottom:27px;left:28px;right:28px}
+.product-visual{height:180px;display:grid;place-items:center;font-size:75px;filter:drop-shadow(0 20px 25px rgba(0,0,0,.12))}
+.product-link{position:absolute;top:26px;right:26px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
+.footer{padding:35px 5vw;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);font-size:12px;color:#777}
+@media(max-width:900px){
+.nav{height:70px;padding:0 22px}.nav-links{display:none}.menu{display:block}.brand{font-size:16px}
+.hero-content{padding:110px 22px 90px}h1{font-size:clamp(57px,15vw,100px);letter-spacing:-5px;max-width:650px}
+.hero-copy{font-size:15px;max-width:310px}.glow{width:330px;height:330px;right:-15%;top:62%}
+.hero-meta{left:22px;right:22px;bottom:20px}.section{padding:95px 22px}.cards,.product-grid{grid-template-columns:1fr}.cards{margin-top:55px}.card{min-height:220px}.product{min-height:320px}
+.product-intro{display:block}.product-intro p{margin-top:25px}.footer{padding:25px 22px;flex-direction:column}
+}
+@media(max-width:600px){
+.hero{min-height:100svh}.hero-grid{background-size:45px 45px}#scene{transform:translateY(8%)}
+.actions{flex-wrap:wrap}.btn{padding:13px 18px}.statement{letter-spacing:-2.5px}
+}
+</style>
 </head>
-
 <body>
-
-  <!-- NAVBAR -->
-
-  <nav class="navbar">
-
-    <a href="#" class="logo">
-      <span class="logo-mark"></span>
-      DS SAFETY SYSTEMS
-    </a>
-
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="quote-btn">Get a Quote</a>
-    </div>
-
-  </nav>
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="object-glow"></div>
-
-    <div id="three-container"></div>
-
-    <div class="hero-content">
-
-      <div class="eyebrow">
-        <span class="eyebrow-line"></span>
-        Fire Protection & Safety
-      </div>
-
-      <h1 class="hero-title">
-        Protect<br>
-        what <span>matters.</span>
-      </h1>
-
-      <p class="hero-description">
-        Professional fire protection equipment and safety solutions
-        designed to protect people, property and business.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#products" class="primary-btn">
-          Explore Products
-        </a>
-
-        <a href="#contact" class="secondary-btn">
-          Talk to us
-        </a>
-      </div>
-
-    </div>
-
-    <div class="hero-bottom">
-
-      <div class="scroll-label">
-        <span class="scroll-dot"></span>
-        Scroll to explore
-      </div>
-
-      <div class="hero-number">
-        01 / 06
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- TEMPORARY INTRO -->
-
-  <section class="intro" id="products">
-
-    <div class="intro-inner">
-
-      <div class="intro-small">
-        DS Safety Systems
-      </div>
-
-      <h2>
-        Safety isn't<br>
-        an option.<br>
-        It's <span>protection.</span>
-      </h2>
-
-    </div>
-
-  </section>
-
-
-  <!-- THREE.JS -->
-
-  <script type="module">
-
-    import * as THREE from "three";
-    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const container = document.getElementById("three-container");
-
-    /* =========================
-       SCENE
-    ========================= */
-
-    const scene = new THREE.Scene();
-
-    /* =========================
-       CAMERA
-    ========================= */
-
-    const camera = new THREE.PerspectiveCamera(
-      32,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      100
-    );
-
-    camera.position.set(0, 0.15, 7);
-
-
-    /* =========================
-       RENDERER
-    ========================= */
-
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      powerPreference: "high-performance"
-    });
-
-    renderer.setPixelRatio(
-      Math.min(window.devicePixelRatio, 2)
-    );
-
-    renderer.setSize(
-      window.innerWidth,
-      window.innerHeight
-    );
-
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
-
-    container.appendChild(renderer.domElement);
-
-
-    /* =========================
-       LIGHTING
-    ========================= */
-
-    const ambientLight = new THREE.HemisphereLight(
-      0xfff8ed,
-      0x171717,
-      2.1
-    );
-
-    scene.add(ambientLight);
-
-
-    const keyLight = new THREE.DirectionalLight(
-      0xffffff,
-      4
-    );
-
-    keyLight.position.set(
-      -3,
-      5,
-      5
-    );
-
-    keyLight.castShadow = true;
-
-    keyLight.shadow.mapSize.width = 2048;
-    keyLight.shadow.mapSize.height = 2048;
-
-    scene.add(keyLight);
-
-
-    const redLight = new THREE.PointLight(
-      0xd93830,
-      12,
-      8
-    );
-
-    redLight.position.set(
-      3,
-      0,
-      3
-    );
-
-    scene.add(redLight);
-
-
-    const rimLight = new THREE.DirectionalLight(
-      0xffd9d5,
-      3
-    );
-
-    rimLight.position.set(
-      4,
-      2,
-      -4
-    );
-
-    scene.add(rimLight);
-
-
-    /* =========================
-       LOAD EXTINGUISHER
-    ========================= */
-
-    const loader = new GLTFLoader();
-
-    let extinguisher = null;
-
-    loader.load(
-      "./assets/extinguisher.glb",
-
-      function(gltf) {
-
-        extinguisher = gltf.scene;
-
-        /* enable shadows */
-
-        extinguisher.traverse(function(object) {
-
-          if (object.isMesh) {
-
-            object.castShadow = true;
-            object.receiveShadow = true;
-
-            if (object.material) {
-
-              object.material.envMapIntensity = 1.2;
-
-            }
-
-          }
-
-        });
-
-
-        /* =====================
-           SCALE / POSITION
-        ===================== */
-
-        extinguisher.scale.setScalar(2.35);
-
-        extinguisher.position.set(
-          1.55,
-          -0.25,
-          0
-        );
-
-        extinguisher.rotation.set(
-          0,
-          -0.35,
-          0
-        );
-
-
-        scene.add(extinguisher);
-
-
-        /* =====================
-           ENTRANCE ANIMATION
-        ===================== */
-
-        gsap.fromTo(
-
-          extinguisher.position,
-
-          {
-            x: 4.2,
-            y: -0.5
-          },
-
-          {
-            x: 1.55,
-            y: -0.25,
-            duration: 1.7,
-            ease: "power4.out"
-          }
-
-        );
-
-
-        gsap.fromTo(
-
-          extinguisher.rotation,
-
-          {
-            y: -1.2
-          },
-
-          {
-            y: -0.35,
-            duration: 1.7,
-            ease: "power3.out"
-          }
-
-        );
-
-      },
-
-      undefined,
-
-      function(error) {
-
-        console.error(
-          "Could not load extinguisher.glb:",
-          error
-        );
-
-      }
-
-    );
-
-
-    /* =========================
-       MOUSE MOVEMENT
-    ========================= */
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    window.addEventListener(
-      "mousemove",
-      function(event) {
-
-        mouseX =
-          (event.clientX / window.innerWidth - 0.5);
-
-        mouseY =
-          (event.clientY / window.innerHeight - 0.5);
-
-      }
-    );
-
-
-    /* =========================
-       GSAP HERO TEXT
-    ========================= */
-
-    const introTimeline = gsap.timeline({
-      delay: .25
-    });
-
-    introTimeline
-      .to(".eyebrow", {
-        opacity: 1,
-        y: 0,
-        duration: .7,
-        ease: "power3.out"
-      })
-      .from(".hero-title", {
-        y: 70,
-        opacity: 0,
-        duration: 1.1,
-        ease: "power4.out"
-      }, "-=.35")
-      .to(".hero-description", {
-        opacity: 1,
-        y: 0,
-        duration: .7,
-        ease: "power3.out"
-      }, "-=.5")
-      .to(".hero-actions", {
-        opacity: 1,
-        y: 0,
-        duration: .6,
-        ease: "power3.out"
-      }, "-=.4");
-
-
-    /* =========================
-       SCROLL ANIMATION
-    ========================= */
-
-    const scrollAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1.2
-      }
-    });
-
-
-    scrollAnimation
-      .to(".hero-title", {
-        x: -90,
-        opacity: .15
-      }, 0)
-
-      .to(".hero-description", {
-        x: -50,
-        opacity: 0
-      }, 0)
-
-      .to(".hero-actions", {
-        x: -50,
-        opacity: 0
-      }, 0);
-
-
-    /* =========================
-       RENDER LOOP
-    ========================= */
-
-    const clock = new THREE.Clock();
-
-    function animate() {
-
-      requestAnimationFrame(animate);
-
-      const elapsed =
-        clock.getElapsedTime();
-
-      if (extinguisher) {
-
-        /* floating */
-
-        extinguisher.position.y =
-          -0.25 +
-          Math.sin(elapsed * 1.2) * 0.055;
-
-        /* subtle mouse movement */
-
-        extinguisher.rotation.x +=
-          (
-            mouseY * 0.12 -
-            extinguisher.rotation.x
-          ) * 0.035;
-
-        extinguisher.rotation.z +=
-          (
-            mouseX * 0.08 -
-            extinguisher.rotation.z
-          ) * 0.035;
-
-        /* gentle rotation */
-
-        extinguisher.rotation.y +=
-          0.0015;
-
-      }
-
-      renderer.render(
-        scene,
-        camera
-      );
-
-    }
-
-    animate();
-
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    function resize() {
-
-      camera.aspect =
-        window.innerWidth /
-        window.innerHeight;
-
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(
-        window.innerWidth,
-        window.innerHeight
-      );
-
-      renderer.setPixelRatio(
-        Math.min(window.devicePixelRatio, 2)
-      );
-
-      if (extinguisher) {
-
-        if (window.innerWidth < 600) {
-
-          extinguisher.scale.setScalar(1.65);
-
-          extinguisher.position.x = 1.05;
-          extinguisher.position.y = -0.55;
-
-        }
-
-        else if (window.innerWidth < 900) {
-
-          extinguisher.scale.setScalar(1.95);
-
-          extinguisher.position.x = 1.25;
-          extinguisher.position.y = -0.35;
-
-        }
-
-        else {
-
-          extinguisher.scale.setScalar(2.35);
-
-          extinguisher.position.x = 1.55;
-          extinguisher.position.y = -0.25;
-
-        }
-
-      }
-
-    }
-
-    window.addEventListener(
-      "resize",
-      resize
-    );
-
-    resize();
-
-  </script>
-
+<div id="root"></div>
+
+<script>
+const {useEffect}=React;
+function App(){
+ useEffect(()=>{
+  gsap.registerPlugin(ScrollTrigger);
+  const tl=gsap.timeline({defaults:{ease:"power4.out"}});
+  tl.to(".kicker",{opacity:1,y:0,duration:.7})
+    .from("h1",{y:75,opacity:0,duration:1.15},"-=.35")
+    .to(".hero-copy",{y:0,opacity:1,duration:.7},"-=.55")
+    .to(".actions",{y:0,opacity:1,duration:.55},"-=.4");
+  gsap.utils.toArray(".reveal").forEach(el=>{
+   gsap.from(el,{y:55,opacity:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 82%"}});
+  });
+  gsap.to(".marquee-track",{xPercent:-25,duration:18,ease:"none",repeat:-1});
+ },[]);
+ return React.createElement(React.Fragment,null,
+  React.createElement("nav",{className:"nav"},
+   React.createElement("a",{className:"brand",href:"#"},React.createElement("span",{className:"brand-mark"}),"DS SAFETY SYSTEMS"),
+   React.createElement("div",{className:"nav-links"},
+    React.createElement("a",{href:"#products"},"Products"),
+    React.createElement("a",{href:"#services"},"Services"),
+    React.createElement("a",{href:"#about"},"About"),
+    React.createElement("a",{href:"#contact"},"Contact"),
+    React.createElement("a",{className:"nav-cta",href:"#contact"},"Get a quote")
+   ),
+   React.createElement("button",{className:"menu","aria-label":"Menu"},"☰")
+  ),
+  React.createElement("main",null,
+   React.createElement("section",{className:"hero"},
+    React.createElement("div",{className:"hero-grid"}),
+    React.createElement("div",{className:"glow"}),
+    React.createElement("div",{id:"scene"}),
+    React.createElement("div",{className:"hero-content"},
+     React.createElement("div",{className:"kicker"},React.createElement("i"),"Fire protection / New Delhi"),
+     React.createElement("h1",null,"Protect"," ",React.createElement("br"),"what ",React.createElement("em",null,"matters.")),
+     React.createElement("p",{className:"hero-copy"},"Fire protection equipment and safety solutions engineered for the moments that matter."),
+     React.createElement("div",{className:"actions"},
+      React.createElement("a",{className:"btn btn-red",href:"#products"},"Explore products"),
+      React.createElement("a",{className:"btn btn-outline",href:"#contact"},"Talk to us")
+     )
+    ),
+    React.createElement("div",{className:"hero-meta"},
+     React.createElement("div",null,React.createElement("span",{className:"dot"}),"Safety, installed properly"),
+     React.createElement("div",null,"01 / 06")
+    )
+   ),
+   React.createElement("div",{className:"marquee"},
+    React.createElement("div",{className:"marquee-track"},
+     ...["Fire extinguishers","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance","Fire extinguishers","Fire alarms"].map((x,i)=>React.createElement("span",{key:i},x))
+    )
+   ),
+   React.createElement("section",{className:"section dark",id:"about"},
+    React.createElement("div",{className:"section-label reveal"},"Why DS Safety Systems"),
+    React.createElement("div",{className:"statement reveal"},"Protection is more than equipment. It's a system built around <span>people.</span>"),
+    React.createElement("div",{className:"cards",id:"services"},
+     [["01","Assess","Understand the site, risks and protection requirements before specifying equipment."],["02","Equip","Supply professional fire-safety products selected for the application."],["03","Maintain","Keep protection ready with inspection, servicing and AMC support."]].map(([n,t,p])=>React.createElement("article",{className:"card reveal",key:n},React.createElement("div",{className:"card-num"},n),React.createElement("div",null,React.createElement("h3",null,t),React.createElement("p",null,p)),React.createElement("div",{className:"card-arrow"},"↗")))
+    )
+   ),
+   React.createElement("section",{className:"section products",id:"products"},
+    React.createElement("div",{className:"product-intro reveal"},React.createElement("h2",null,"Built to protect."),React.createElement("p",null,"A focused range of fire protection equipment for commercial, residential and industrial environments.")),
+    React.createElement("div",{className:"product-grid"},
+     [["01","Extinguishers","🧯"],["02","Fire Alarm Systems","◉"],["03","Hydrant & Sprinkler","◌"]].map(([n,t,v])=>React.createElement("article",{className:"product reveal",key:n},React.createElement("div",{className:"product-num"},n),React.createElement("div",{className:"product-visual"},v),React.createElement("a",{className:"product-link",href:"#contact"},"↗"),React.createElement("h3",null,t)))
+    )
+   ),
+   React.createElement("section",{className:"section dark",id:"contact"},
+    React.createElement("div",{className:"section-label reveal"},"Start a conversation"),
+    React.createElement("div",{className:"statement reveal"},"Ready when <span>you are.</span>"),
+    React.createElement("p",{className:"hero-copy reveal",style:{opacity:1,color:"#999",marginTop:"28px"}},"Talk to DS Safety Systems about equipment, installation or annual maintenance.")
+   )
+  ),
+  React.createElement("footer",{className:"footer"},React.createElement("div",null,"© 2026 DS SAFETY SYSTEMS"),React.createElement("div",null,"Fire protection • Safety • Maintenance"))
+ )
+}
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
+
+const container=document.getElementById("scene");
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(32,innerWidth/innerHeight,.1,100);
+camera.position.set(0,.1,7);
+
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:"high-performance"});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.15;
+container.appendChild(renderer.domElement);
+
+scene.add(new THREE.HemisphereLight(0xfff8ed,0x161616,2.2));
+const key=new THREE.DirectionalLight(0xffffff,4.2);
+key.position.set(-3,5,5);scene.add(key);
+const red=new THREE.PointLight(0xd93830,13,8);
+red.position.set(3,0,3);scene.add(red);
+const rim=new THREE.DirectionalLight(0xffd7d2,3);
+rim.position.set(4,2,-4);scene.add(rim);
+
+let model;
+const loader=new GLTFLoader();
+loader.load("./assets/extinguisher.glb",g=>{
+ model=g.scene;
+ model.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
+ scene.add(model);
+ const box=new THREE.Box3().setFromObject(model);
+ const size=box.getSize(new THREE.Vector3());
+ const center=box.getCenter(new THREE.Vector3());
+ model.position.sub(center);
+ const max=Math.max(size.x,size.y,size.z);
+ const base=2.65/max;
+ model.scale.setScalar(base);
+ model.position.set(innerWidth<600?1.0:innerWidth<900?1.25:1.55,-.2,0);
+ gsap.fromTo(model.scale,{x:base*.72,y:base*.72,z:base*.72},{x:base,y:base,z:base,duration:1.5,ease:"power4.out"});
+ gsap.fromTo(model.position,{x:4.2},{x:innerWidth<600?1.0:innerWidth<900?1.25:1.55,duration:1.5,ease:"power4.out"});
+},undefined,e=>console.error(e));
+
+let mx=0,my=0;
+addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+const clock=new THREE.Clock();
+function tick(){
+ requestAnimationFrame(tick);
+ const t=clock.getElapsedTime();
+ if(model){
+  model.position.y=-.2+Math.sin(t*1.15)*.055;
+  model.rotation.y+=.0015;
+  model.rotation.x+=(my*.1-model.rotation.x)*.035;
+  model.rotation.z+=(mx*.08-model.rotation.z)*.035;
+ }
+ renderer.render(scene,camera);
+}
+tick();
+
+function resize(){
+ camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
+ renderer.setSize(innerWidth,innerHeight);
+ if(model){
+  model.position.x=innerWidth<600?1.0:innerWidth<900?1.25:1.55;
+  model.scale.setScalar(((()=>{const b=new THREE.Box3().setFromObject(model);return Math.max(...[b.max.x-b.min.x,b.max.y-b.min.y,b.max.z-b.min.z])})()>0?model.scale.x:model.scale.x);
+ }
+}
+addEventListener("resize",resize);
+</script>
 </body>
 </html>
