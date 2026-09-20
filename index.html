@@ -609,7 +609,8 @@ function App(){
     button.addEventListener("pointerenter",()=>{button.classList.remove("start");void button.offsetWidth;button.classList.add("start");});
     button.addEventListener("focus",()=>{button.classList.remove("start");void button.offsetWidth;button.classList.add("start");});
     button.addEventListener("pointerleave",()=>button.classList.remove("start"));
-  });\n  return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
+  });
+  return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
  },[]);
  return React.createElement(React.Fragment,null,
   React.createElement("nav",{className:"nav"},
