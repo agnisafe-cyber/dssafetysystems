@@ -13,6 +13,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
@@ -23,7 +24,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#f4f0e8;--ink:#101010;--muted:#6d6962;--red:#d93830;--line:rgba(16,16,16,.12)}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{font-family:"Google Sans Flex",sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button{font:inherit}
@@ -91,13 +92,14 @@ h1 em{font-style:normal;color:var(--red)}
 .top-strip{height:34px;position:fixed;z-index:60;top:0;left:0;right:0;background:#111;color:#d7d2c9;display:flex;align-items:center;justify-content:center;gap:28px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}.top-strip a{color:#fff}.top-strip a:hover{color:var(--red)}.nav{top:34px;background:rgba(244,240,232,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.hero{padding-top:145px}.hero-content{padding-top:145px}.hero-side{position:absolute;z-index:7;right:5vw;bottom:105px;width:230px;color:#777;font-size:11px;line-height:1.6;text-align:right}.hero-side strong{display:block;color:#111;font-size:13px;margin-bottom:5px}.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:55px}.contact-box{border:1px solid rgba(255,255,255,.13);padding:30px;border-radius:22px;background:rgba(255,255,255,.025)}.contact-box a{display:block;font-size:22px;font-weight:600;margin-top:12px}.contact-box a:hover{color:var(--red)}.contact-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#777}.contact-box p{color:#999;line-height:1.6;margin-top:14px;font-size:14px}@media(max-width:900px){.top-strip{display:none}.nav{top:0}.hero{padding-top:100px}.hero-content{padding-top:110px}.hero-side{display:none}.contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}}\n</style>
 </head>
 <body>
-<div class="top-strip"><span>New Delhi</span><a href="tel:9818701683">9818701683</a><span>Fire Protection • Installation • AMC</span></div><div id="root"></div>
+<div class="top-strip"><span>New Delhi</span><a href="tel:9818701683">9818701683</a><span>Fire Protection • Installation • AMC</span></div><div id="smooth-wrapper"><div id="smooth-content"><div id="root"></div></div></div>
 
 <script>
 const {useEffect}=React;
 function App(){
  useEffect(()=>{
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+  const smoother=ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
   const tl=gsap.timeline({defaults:{ease:"power4.out"}});
   tl.to(".kicker",{opacity:1,y:0,duration:.7})
     .from("h1",{y:75,opacity:0,duration:1.15},"-=.35")
@@ -107,6 +109,8 @@ function App(){
    gsap.from(el,{y:55,opacity:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 82%"}});
   });
   gsap.to(".marquee-track",{xPercent:-25,duration:18,ease:"none",repeat:-1});
+  gsap.utils.toArray(".hero-grid,.glow").forEach(el=>gsap.to(el,{yPercent:-10,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}}));
+  return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
  },[]);
  return React.createElement(React.Fragment,null,
   React.createElement("nav",{className:"nav"},
@@ -213,13 +217,15 @@ loader.load("./assets/extinguisher.glb",g=>{
 },undefined,e=>console.error(e));
 
 let mx=0,my=0;
+let sy=0;
 addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
 const clock=new THREE.Clock();
+window.addEventListener("scroll",()=>{sy=window.scrollY||0},{passive:true});
 function tick(){
  requestAnimationFrame(tick);
  const t=clock.getElapsedTime();
  if(model){
-  model.position.y=-.2+Math.sin(t*1.15)*.055;
+  model.position.y=-.2+Math.sin(t*1.15)*.055+Math.min(sy/innerHeight,.9)*.18;
   model.rotation.y+=.0015;
   model.rotation.x+=(my*.1-model.rotation.x)*.035;
   model.rotation.z+=(mx*.08-model.rotation.z)*.035;
@@ -233,7 +239,6 @@ function resize(){
  renderer.setSize(innerWidth,innerHeight);
  if(model){
   model.position.x=innerWidth<600?1.0:innerWidth<900?1.25:1.55;
-  model.scale.setScalar(((()=>{const b=new THREE.Box3().setFromObject(model);return Math.max(...[b.max.x-b.min.x,b.max.y-b.min.y,b.max.z-b.min.z])})()>0?model.scale.x:model.scale.x);
  }
 }
 addEventListener("resize",resize);
