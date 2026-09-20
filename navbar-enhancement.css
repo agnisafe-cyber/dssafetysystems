@@ -1,0 +1,24 @@
+/* DS Safety Systems — premium navbar enhancement */
+.nav{
+  will-change:transform,height,background,box-shadow;
+  transform:translate3d(-50%,0,0);
+}
+.nav.nav-scrolled{
+  height:64px;
+  background:rgba(244,240,232,.92);
+  box-shadow:0 18px 45px rgba(16,16,16,.12);
+}
+.nav-links a{
+  will-change:transform;
+}
+.nav-brand-glow{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  opacity:0;
+  background:radial-gradient(circle at 12% 50%,rgba(217,56,48,.10),transparent 25%);
+}
+@media(max-width:900px){
+  .nav.nav-scrolled{height:62px}
+}
