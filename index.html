@@ -458,6 +458,27 @@ h1 em{font-style:normal;color:var(--red)}
 }
 
 .brand-text{text-transform:none!important;letter-spacing:-.8px!important}
+
+
+/* === COMPANY TITLE — RED / BLACK / CREAM GRADIENT + GLOW === */
+.brand-text{
+  background:linear-gradient(105deg,#d93830 0%,#101010 42%,#101010 62%,#f4f0e8 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  text-shadow:0 0 18px rgba(217,56,48,.18),0 0 34px rgba(217,56,48,.08);
+  filter:drop-shadow(0 0 10px rgba(217,56,48,.14));
+  background-size:180% 100%;
+  animation:companyTitleGlow 5s ease-in-out infinite alternate;
+}
+@keyframes companyTitleGlow{
+  from{background-position:0% 50%;filter:drop-shadow(0 0 8px rgba(217,56,48,.12))}
+  to{background-position:100% 50%;filter:drop-shadow(0 0 16px rgba(217,56,48,.25))}
+}
+@media(max-width:900px){
+  .brand-text{background-size:160% 100%;text-shadow:0 0 12px rgba(217,56,48,.15)}
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
