@@ -49,7 +49,7 @@ h1 em{font-style:normal;color:var(--red)}
 .btn{padding:15px 22px;border-radius:99px;font-size:14px;font-weight:650;transition:.3s}
 .btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#b92c26;transform:translateY(-2px)}
 .btn-outline{border:1px solid var(--line)}.btn-outline:hover{background:#111;color:#fff}
-#scene{position:absolute;inset:0;z-index:4;pointer-events:none}
+#scene{display:none}
 .glow{position:absolute;z-index:2;width:500px;height:500px;border-radius:50%;right:9%;top:50%;transform:translateY(-50%);background:rgba(217,56,48,.09);filter:blur(85px)}
 .hero-meta{position:absolute;z-index:9;left:5vw;right:5vw;bottom:28px;display:flex;justify-content:space-between;color:#78736b;font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
 .dot{display:inline-block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-right:9px}
@@ -114,7 +114,7 @@ function App(){
  },[]);
  return React.createElement(React.Fragment,null,
   React.createElement("nav",{className:"nav"},
-   React.createElement("a",{className:"brand",href:"#"},React.createElement("img",{className:"brand-logo",src:"./assets/logo.png",alt:"DS Safety Systems"}),React.createElement("span",{className:"brand-text"},React.createElement("span",null,"DS SAFETY SYSTEMS"),React.createElement("small",null,"FIRE PROTECTION & SAFETY"))),
+   React.createElement("a",{className:"brand",href:"#"},React.createElement("img",{className:"brand-logo",src:"./assets/DSF_logo_small.png",alt:"DS Safety Systems"}),React.createElement("span",{className:"brand-text"},React.createElement("span",null,"DS SAFETY SYSTEMS"),React.createElement("small",null,"FIRE PROTECTION & SAFETY"))),
    React.createElement("div",{className:"nav-links"},
     React.createElement("a",{href:"products.html"},"Products"),
     React.createElement("a",{href:"services.html"},"Services"),
@@ -128,7 +128,6 @@ function App(){
    React.createElement("section",{className:"hero"},
     React.createElement("div",{className:"hero-grid"}),
     React.createElement("div",{className:"glow"}),
-    React.createElement("div",{id:"scene"}),
     React.createElement("div",{className:"hero-content"},
      React.createElement("div",{className:"kicker"},React.createElement("i"),"Fire protection / New Delhi"),
      React.createElement("h1",null,"Protect"," ",React.createElement("br"),"what ",React.createElement("em",null,"matters.")),
@@ -173,75 +172,6 @@ function App(){
 ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
 </script>
 
-<script type="module">
-import * as THREE from "three";
-import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 
-const container=document.getElementById("scene");
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(32,innerWidth/innerHeight,.1,100);
-camera.position.set(0,.1,7);
-
-const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:"high-performance"});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-renderer.setSize(innerWidth,innerHeight);
-renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.15;
-container.appendChild(renderer.domElement);
-
-scene.add(new THREE.HemisphereLight(0xfff8ed,0x161616,2.2));
-const key=new THREE.DirectionalLight(0xffffff,4.2);
-key.position.set(-3,5,5);scene.add(key);
-const red=new THREE.PointLight(0xd93830,13,8);
-red.position.set(3,0,3);scene.add(red);
-const rim=new THREE.DirectionalLight(0xffd7d2,3);
-rim.position.set(4,2,-4);scene.add(rim);
-
-let model;
-const loader=new GLTFLoader();
-loader.load("./assets/extinguisher.glb",g=>{
- model=g.scene;
- model.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
- scene.add(model);
- const box=new THREE.Box3().setFromObject(model);
- const size=box.getSize(new THREE.Vector3());
- const center=box.getCenter(new THREE.Vector3());
- model.position.sub(center);
- const max=Math.max(size.x,size.y,size.z);
- const base=2.65/max;
- model.scale.setScalar(base);
- model.position.set(innerWidth<600?1.0:innerWidth<900?1.25:1.55,-.2,0);
- gsap.fromTo(model.scale,{x:base*.72,y:base*.72,z:base*.72},{x:base,y:base,z:base,duration:1.5,ease:"power4.out"});
- gsap.fromTo(model.position,{x:4.2},{x:innerWidth<600?1.0:innerWidth<900?1.25:1.55,duration:1.5,ease:"power4.out"});
-},undefined,e=>console.error(e));
-
-let mx=0,my=0;
-let sy=0;
-addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
-const clock=new THREE.Clock();
-window.addEventListener("scroll",()=>{sy=window.scrollY||0},{passive:true});
-function tick(){
- requestAnimationFrame(tick);
- const t=clock.getElapsedTime();
- if(model){
-  model.position.y=-.2+Math.sin(t*1.15)*.055+Math.min(sy/innerHeight,.9)*.18;
-  model.rotation.y+=.0015;
-  model.rotation.x+=(my*.1-model.rotation.x)*.035;
-  model.rotation.z+=(mx*.08-model.rotation.z)*.035;
- }
- renderer.render(scene,camera);
-}
-tick();
-
-function resize(){
- camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
- renderer.setSize(innerWidth,innerHeight);
- if(model){
-  model.position.x=innerWidth<600?1.0:innerWidth<900?1.25:1.55;
- }
-}
-addEventListener("resize",resize);
-</script>
 </body>
 </html>
