@@ -29,11 +29,11 @@ body{font-family:"Google Sans Flex",sans-serif;background:var(--bg);color:var(--
 a{text-decoration:none;color:inherit}
 button{font:inherit}
 ::selection{background:var(--red);color:#fff}
-.nav{height:76px;position:fixed;z-index:50;top:34px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 48px));display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 18px;background:rgba(250,247,241,.82);backdrop-filter:blur(22px) saturate(1.15);-webkit-backdrop-filter:blur(22px) saturate(1.15);border:1px solid rgba(16,16,16,.10);border-radius:18px;box-shadow:0 14px 40px rgba(16,16,16,.08);mix-blend-mode:normal;transition:height .35s,box-shadow .35s,background .35s}
-.brand{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:750;letter-spacing:-.45px;white-space:nowrap}
-.brand-logo{width:42px;height:42px;object-fit:contain;display:block}.brand-text{display:flex;flex-direction:column;line-height:1}.brand-text small{font-size:8px;letter-spacing:1.5px;color:#777;font-weight:650;margin-top:5px}
-.nav-links{display:flex;align-items:center;gap:5px;margin-left:auto;margin-right:8px;font-size:13px;font-weight:600}
-.nav-links a{position:relative;padding:11px 14px;border-radius:11px;transition:color .25s,background .25s}.nav-links a:not(.nav-cta):after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:2px;background:var(--red);border-radius:4px;transform:scaleX(0);transform-origin:center;transition:transform .25s}.nav-links a:hover{background:rgba(16,16,16,.055)}.nav-links a:hover:after{transform:scaleX(1)}.nav-links.mobile-open{display:flex;position:absolute;top:84px;left:0;right:0;padding:14px;flex-direction:column;align-items:stretch;background:rgba(250,247,241,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 22px 55px rgba(0,0,0,.15)}
+.nav{height:78px;position:fixed;z-index:50;top:22px;left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 40px));display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 18px;background:rgba(250,247,241,.82);backdrop-filter:blur(22px) saturate(1.15);-webkit-backdrop-filter:blur(22px) saturate(1.15);border:1px solid rgba(16,16,16,.10);border-radius:22px;box-shadow:0 18px 55px rgba(16,16,16,.10);mix-blend-mode:normal;transition:height .35s,box-shadow .35s,background .35s,transform .35s}
+.brand{display:flex;align-items:center;gap:13px;font-size:16px;font-weight:750;letter-spacing:-.45px;white-space:nowrap}
+.brand-logo{width:50px;height:50px;object-fit:contain;display:block}.brand-text{display:flex;flex-direction:column;line-height:1}.brand-text small{font-size:8px;letter-spacing:1.5px;color:#777;font-weight:650;margin-top:5px}
+.nav-links{display:flex;align-items:center;gap:3px;margin-left:auto;margin-right:8px;font-size:13px;font-weight:600}
+.nav-links a{position:relative;padding:12px 16px;border-radius:11px;transition:color .25s,background .25s}.nav-links a:not(.nav-cta):after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:2px;background:var(--red);border-radius:4px;transform:scaleX(0);transform-origin:center;transition:transform .25s}.nav-links a:hover{background:rgba(16,16,16,.055)}.nav-links a:hover:after{transform:scaleX(1)}.nav-links.mobile-open{display:flex;position:absolute;top:84px;left:0;right:0;padding:14px;flex-direction:column;align-items:stretch;background:rgba(250,247,241,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 22px 55px rgba(0,0,0,.15)}
 .nav-links a:hover{color:var(--red)}
 .nav-cta{background:#111;color:#fff!important;padding:12px 18px!important;border-radius:11px;box-shadow:none;transition:.3s;margin-left:4px}.nav-cta:hover{transform:translateY(-1px);background:var(--red)!important}.nav-cta:after{display:none!important}
 .menu{display:none;border:1px solid rgba(16,16,16,.10);background:#111;color:#fff;width:42px;height:42px;border-radius:12px;font-size:0;cursor:pointer;position:relative}.menu:before,.menu:after{content:"";position:absolute;left:12px;width:17px;height:1.5px;background:#fff;transition:.25s}.menu:before{top:16px}.menu:after{top:24px}.menu.open:before{top:20px;transform:rotate(45deg)}.menu.open:after{top:20px;transform:rotate(-45deg)}
@@ -79,7 +79,7 @@ h1 em{font-style:normal;color:var(--red)}
 @media(max-width:900px){
 .nav{width:calc(100% - 28px);height:68px;padding:0 8px 0 12px;border-radius:16px}.brand-logo{width:38px;height:38px}.brand{font-size:14px}.brand-text small{font-size:7px;margin-top:4px}.menu{display:block}.nav-links{display:none}.nav-links.mobile-open{top:76px}.video-showcase{grid-template-columns:1fr;gap:35px;padding:85px 22px}.video-frame{height:58svh;min-height:300px;border-radius:18px}
 
-.hero-content{padding:110px 22px 90px}h1{font-size:clamp(57px,15vw,100px);letter-spacing:-5px;max-width:650px}
+.hero-content{padding:125px 22px 90px}h1{font-size:clamp(57px,15vw,100px);letter-spacing:-5px;max-width:650px}
 .hero-copy{font-size:15px;max-width:310px}.glow{width:330px;height:330px;right:-15%;top:62%}
 .hero-meta{left:22px;right:22px;bottom:20px}.section{padding:95px 22px}.cards,.product-grid{grid-template-columns:1fr}.cards{margin-top:55px}.card{min-height:220px}.product{min-height:320px}
 .product-intro{display:block}.product-intro p{margin-top:25px}.footer{padding:25px 22px;flex-direction:column}
@@ -88,16 +88,26 @@ h1 em{font-style:normal;color:var(--red)}
 .hero{min-height:100svh}.hero-grid{background-size:45px 45px}#scene{transform:translateY(8%)}
 .actions{flex-wrap:wrap}.btn{padding:13px 18px}.statement{letter-spacing:-2.5px}
 }
-.top-strip{height:34px;position:fixed;z-index:60;top:0;left:0;right:0;background:#111;color:#d7d2c9;display:flex;align-items:center;justify-content:center;gap:28px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}.top-strip a{color:#fff}.top-strip a:hover{color:var(--red)}.nav{top:34px;background:rgba(244,240,232,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.hero{padding-top:145px}.hero-content{padding-top:145px}.hero-side{position:absolute;z-index:7;right:5vw;bottom:105px;width:230px;color:#777;font-size:11px;line-height:1.6;text-align:right}.hero-side strong{display:block;color:#111;font-size:13px;margin-bottom:5px}.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:55px}.contact-box{border:1px solid rgba(255,255,255,.13);padding:30px;border-radius:22px;background:rgba(255,255,255,.025)}.contact-box a{display:block;font-size:22px;font-weight:600;margin-top:12px}.contact-box a:hover{color:var(--red)}.contact-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#777}.contact-box p{color:#999;line-height:1.6;margin-top:14px;font-size:14px}@media(max-width:900px){.top-strip{display:none}.nav{top:0}.hero{padding-top:100px}.hero-content{padding-top:110px}.hero-side{display:none}.contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}}\n</style>
+.nav{top:22px;background:rgba(250,247,241,.78);backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid var(--line)}.hero{padding-top:105px}.hero-content{padding-top:120px}.hero-side{position:absolute;z-index:7;right:5vw;bottom:105px;width:230px;color:#777;font-size:11px;line-height:1.6;text-align:right}.hero-side strong{display:block;color:#111;font-size:13px;margin-bottom:5px}.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:55px}.contact-box{border:1px solid rgba(255,255,255,.13);padding:30px;border-radius:22px;background:rgba(255,255,255,.025)}.contact-box a{display:block;font-size:22px;font-weight:600;margin-top:12px}.contact-box a:hover{color:var(--red)}.contact-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#777}.contact-box p{color:#999;line-height:1.6;margin-top:14px;font-size:14px}@media(max-width:900px){.nav{top:12px}.hero{padding-top:100px}.hero-content{padding-top:110px}.hero-side{display:none}.contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}}\n</style>
 </head>
 <body>
-<div class="top-strip"><span>New Delhi</span><a href="tel:9818701683">9818701683</a><span>Fire Protection • Installation • AMC</span></div><div id="smooth-wrapper"><div id="smooth-content"><div id="root"></div></div></div>
+<div id="smooth-wrapper"><div id="smooth-content"><div id="root"></div></div></div>
 
 <script>
 const {useEffect}=React;
 function App(){
  useEffect(()=>{
   gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+  const nav=document.querySelector(".nav"), brand=document.querySelector(".brand"), logo=document.querySelector(".brand-logo"), navLinks=gsap.utils.toArray(".nav-links > a"), menu=document.querySelector(".menu"), linksWrap=document.querySelector(".nav-links");
+  gsap.set(nav,{y:-35,opacity:0});
+  gsap.set([logo,brand.querySelector(".brand-text"),...navLinks,menu],{y:18,opacity:0});
+  const navIntro=gsap.timeline({delay:.15,defaults:{ease:"power3.out"}});
+  navIntro.to(nav,{y:0,opacity:1,duration:.7}).to(logo,{y:0,opacity:1,duration:.5},"-=.35").to(brand.querySelector(".brand-text"),{y:0,opacity:1,duration:.5},"-=.4").to(navLinks,{y:0,opacity:1,duration:.38,stagger:.07},"-=.35").to(menu,{y:0,opacity:1,duration:.4},"-=.35");
+  let compact=false;
+  ScrollTrigger.create({start:20,onUpdate:self=>{const next=self.scroll()>20;if(next!==compact){compact=next;gsap.to(nav,{height:next?64:78,duration:.35,ease:"power2.out"});gsap.to(logo,{width:next?40:50,height:next?40:50,duration:.35,ease:"power2.out"});gsap.to(nav,{boxShadow:next?"0 20px 55px rgba(16,16,16,.14)":"0 18px 55px rgba(16,16,16,.10)",duration:.35});}}});
+  navLinks.forEach(link=>{link.addEventListener("mouseenter",()=>gsap.to(link,{y:-2,duration:.2,ease:"power2.out"}));link.addEventListener("mouseleave",()=>gsap.to(link,{y:0,duration:.2,ease:"power2.out"}));});
+  menu.addEventListener("click",()=>{const open=linksWrap.classList.contains("mobile-open");linksWrap.classList.toggle("mobile-open",!open);menu.classList.toggle("open",!open);if(!open)gsap.fromTo(linksWrap,{opacity:0,y:-12},{opacity:1,y:0,duration:.35,ease:"power3.out"});});
+
   const smoother=ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
   const tl=gsap.timeline({defaults:{ease:"power4.out"}});
   tl.to(".kicker",{opacity:1,y:0,duration:.7})
@@ -122,7 +132,7 @@ function App(){
     React.createElement("a",{href:"contact.html"},"Contact"),
     React.createElement("a",{className:"nav-cta",href:"contact.html"},"Get a quote")
    ),
-   React.createElement("button",{className:"menu","aria-label":"Menu",onClick:e=>{document.querySelector(".nav-links").classList.toggle("mobile-open");e.currentTarget.classList.toggle("open")}},"☰")
+   React.createElement("button",{className:"menu","aria-label":"Menu",onClick:()=>{}},"☰")
   ),
   React.createElement("main",null,
    React.createElement("section",{className:"hero"},
