@@ -586,7 +586,30 @@ function App(){
   gsap.to(".marquee-track",{xPercent:-25,duration:18,ease:"none",repeat:-1});
   const video=document.getElementById("siteVideo"), fallback=document.querySelector(".video-fallback"), play=document.querySelector(".video-play"); if(video){video.addEventListener("loadeddata",()=>{fallback.style.display="none";video.play().catch(()=>{})});video.addEventListener("error",()=>fallback.style.display="grid");play.addEventListener("click",()=>{video.paused?(video.play(),play.textContent="Ⅱ"):(video.pause(),play.textContent="▶")})}
   gsap.utils.toArray(".hero-grid,.glow").forEach(el=>gsap.to(el,{yPercent:-10,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}}));
-  return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
+
+
+  /* Get a Quote sketch-border interaction */
+  document.querySelectorAll(".sketch-button").forEach((button)=>{
+    if(button.dataset.sketchReady) return;
+    button.dataset.sketchReady="true";
+    const style=getComputedStyle(button);
+    const radius=parseInt(style.borderRadius,10)||12;
+    const makeSVG=()=>{
+      const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+      const rect=document.createElementNS("http://www.w3.org/2000/svg","rect");
+      svg.setAttribute("viewBox",`0 0 ${button.offsetWidth} ${button.offsetHeight}`);
+      svg.setAttribute("preserveAspectRatio","none");
+      rect.setAttribute("width","100%"); rect.setAttribute("height","100%");
+      rect.setAttribute("rx",radius); rect.setAttribute("ry",radius); rect.setAttribute("pathLength","10");
+      svg.appendChild(rect); return svg;
+    };
+    const lines=document.createElement("div"); lines.className="lines";
+    for(let g=0;g<2;g++){const group=document.createElement("div");for(let i=0;i<4;i++) group.appendChild(makeSVG());lines.appendChild(group);}
+    button.appendChild(lines);
+    button.addEventListener("pointerenter",()=>{button.classList.remove("start");void button.offsetWidth;button.classList.add("start");});
+    button.addEventListener("focus",()=>{button.classList.remove("start");void button.offsetWidth;button.classList.add("start");});
+    button.addEventListener("pointerleave",()=>button.classList.remove("start"));
+  });\n  return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
  },[]);
  return React.createElement(React.Fragment,null,
   React.createElement("nav",{className:"nav"},
@@ -596,7 +619,7 @@ function App(){
     React.createElement("a",{href:"services.html"},"Services"),
     React.createElement("a",{href:"about.html"},"About"),
     React.createElement("a",{href:"contact.html"},"Contact"),
-    React.createElement("a",{className:"nav-cta",href:"contact.html"},"Get a quote")
+    React.createElement("a",{className:"nav-cta sketch-button",href:"contact.html"},"Get a quote")
    ),
    React.createElement("button",{className:"menu","aria-label":"Menu",onClick:()=>{}},"☰")
   ),
