@@ -436,6 +436,8 @@ h1 em{font-style:normal;color:var(--red)}
  .brand{font-size:16px;gap:10px}.brand-logo{width:44px;height:44px}.brand-text{font-size:16px}
  .menu{width:44px;height:44px}
 }
+
+.hero-video-visual .hero-visual-label{display:none!important}
 </style>
 </head>
 <body>
@@ -498,7 +500,6 @@ function App(){
     ),
     React.createElement("div",{className:"hero-visual hero-video-visual"},
      React.createElement("div",{className:"hero-video-glow"}),
-     React.createElement("div",{className:"hero-visual-label"},"01 — PROTECTION READY"),
      React.createElement("video",{className:"hero-video",src:"herovideo.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"auto",ariaLabel:"Animated fire safety equipment showcase"})
     ),
     React.createElement("div",{className:"hero-side"},React.createElement("strong",null,"Complete fire protection"),"Equipment, systems and maintenance support designed around your site."),React.createElement("div",{className:"hero-meta"},
