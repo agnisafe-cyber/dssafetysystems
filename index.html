@@ -340,28 +340,32 @@ h1 em{font-style:normal;color:var(--red)}
  .nav-links.mobile-open a{padding:13px 14px}.nav-links.mobile-open .nav-cta{margin:4px 0 0}
 }
 
-/* === CURVED HERO VIDEO === */
+/* === HERO VIDEO — RIGHT / 4:3 / SOFT CURVED CORNERS === */
 .hero-video-visual{
-  width:min(45vw,610px);
-  height:min(68vh,650px);
-  right:4.5vw;
+  position:absolute;
+  z-index:5;
+  right:5vw;
   top:50%;
-  transform:translateY(-47%);
-  border-radius:42% 42% 34% 34% / 28% 28% 22% 22%;
+  width:min(43vw,560px);
+  aspect-ratio:4 / 3;
+  height:auto;
+  transform:translateY(-50%);
+  border-radius:34px 62px 34px 34px;
   background:#171717;
-  box-shadow:0 38px 100px rgba(16,16,16,.20);
+  box-shadow:0 32px 90px rgba(16,16,16,.18);
   overflow:hidden;
   isolation:isolate;
 }
 .hero-video-visual:before{
-  inset:10px;
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:inherit;
+  content:"";
+  position:absolute;
+  inset:9px;
   z-index:3;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px 54px 28px 28px;
+  pointer-events:none;
 }
-.hero-video-visual:after{
-  display:none;
-}
+.hero-video-visual:after{display:none}
 .hero-video{
   position:absolute;
   inset:0;
@@ -370,41 +374,53 @@ h1 em{font-style:normal;color:var(--red)}
   height:100%;
   object-fit:cover;
   display:block;
-  transform:scale(1.015);
 }
 .hero-video-glow{
   position:absolute;
   z-index:2;
-  width:45%;height:45%;
-  right:-8%;bottom:-8%;
+  width:42%;
+  height:55%;
+  right:-10%;
+  bottom:-18%;
   border-radius:50%;
-  background:rgba(217,56,48,.28);
-  filter:blur(60px);
+  background:rgba(217,56,48,.22);
+  filter:blur(55px);
   pointer-events:none;
 }
 .hero-video-visual .hero-visual-label{
   z-index:4;
-  left:30px;top:28px;
+  left:26px;
+  top:24px;
   color:rgba(255,255,255,.72);
+}
+@media(max-width:1100px) and (min-width:901px){
+  .hero-video-visual{width:min(41vw,500px)}
 }
 @media(max-width:900px){
   .hero-video-visual{
+    position:relative;
+    right:auto;
+    top:auto;
     width:calc(100% - 44px);
-    height:min(68svh,500px);
-    min-height:330px;
-    margin:-25px 22px 75px;
-    border-radius:30% 30% 24% 24% / 18% 18% 13% 13%;
+    aspect-ratio:4 / 3;
+    height:auto;
+    margin:-20px 22px 75px;
     transform:none;
+    border-radius:26px 48px 26px 26px;
   }
-  .hero-video-visual:before{inset:7px}
-  .hero-video-visual .hero-visual-label{left:22px;top:22px}
+  .hero-video-visual:before{
+    inset:7px;
+    border-radius:21px 41px 21px 21px;
+  }
+  .hero-video-visual .hero-visual-label{left:22px;top:20px}
 }
 @media(max-width:600px){
   .hero-video-visual{
-    height:430px;
-    min-height:0;
-    border-radius:27% 27% 20% 20% / 13% 13% 9% 9%;
+    width:calc(100% - 32px);
+    margin:-8px 16px 65px;
+    border-radius:22px 40px 22px 22px;
   }
+  .hero-video-visual:before{border-radius:17px 33px 17px 17px}
 }
 
 /* === LARGER NAVBAR === */
@@ -436,7 +452,7 @@ function App(){
   const navIntro=gsap.timeline({delay:.15,defaults:{ease:"power3.out"}});
   navIntro.to(nav,{y:0,opacity:1,duration:.7}).to(logo,{y:0,opacity:1,duration:.5},"-=.35").to(brand.querySelector(".brand-text"),{y:0,opacity:1,duration:.5},"-=.4").to(navLinks,{y:0,opacity:1,duration:.38,stagger:.07},"-=.35").to(menu,{y:0,opacity:1,duration:.4},"-=.35");
   let compact=false;
-  ScrollTrigger.create({start:20,onUpdate:self=>{const next=self.scroll()>20;if(next!==compact){compact=next;gsap.to(nav,{height:next?64:78,duration:.35,ease:"power2.out"});gsap.to(logo,{width:next?40:50,height:next?40:50,duration:.35,ease:"power2.out"});gsap.to(nav,{boxShadow:next?"0 20px 55px rgba(16,16,16,.14)":"0 18px 55px rgba(16,16,16,.10)",duration:.35});}}});
+  ScrollTrigger.create({start:20,onUpdate:self=>{const next=self.scroll()>20;if(next!==compact){compact=next;gsap.to(nav,{height:next?68:82,duration:.35,ease:"power2.out"});gsap.to(logo,{width:next?44:50,height:next?44:50,duration:.35,ease:"power2.out"});gsap.to(nav,{boxShadow:next?"0 20px 55px rgba(16,16,16,.14)":"0 18px 55px rgba(16,16,16,.10)",duration:.35});}}});
   navLinks.forEach(link=>{link.addEventListener("mouseenter",()=>gsap.to(link,{y:-2,duration:.2,ease:"power2.out"}));link.addEventListener("mouseleave",()=>gsap.to(link,{y:0,duration:.2,ease:"power2.out"}));});
   menu.addEventListener("click",()=>{const open=linksWrap.classList.contains("mobile-open");linksWrap.classList.toggle("mobile-open",!open);menu.classList.toggle("open",!open);if(!open)gsap.fromTo(linksWrap,{opacity:0,y:-12},{opacity:1,y:0,duration:.35,ease:"power3.out"});});
 
@@ -445,7 +461,8 @@ function App(){
   tl.to(".kicker",{opacity:1,y:0,duration:.7})
     .from("h1",{y:75,opacity:0,duration:1.15},"-=.35")
     .to(".hero-copy",{y:0,opacity:1,duration:.7},"-=.55")
-    .to(".actions",{y:0,opacity:1,duration:.55},"-=.4");
+    .to(".actions",{y:0,opacity:1,duration:.55},"-=.4")
+    .fromTo(".hero-video-visual",{x:110,yPercent:-50,opacity:0,scale:.96},{x:0,yPercent:-50,opacity:1,scale:1,duration:1.15,ease:"power4.out"},"-=.9");
   gsap.utils.toArray(".reveal").forEach(el=>{
    gsap.from(el,{y:55,opacity:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 82%"}});
   });
