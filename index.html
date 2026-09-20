@@ -339,6 +339,73 @@ h1 em{font-style:normal;color:var(--red)}
  .nav-links.mobile-open{display:flex;position:absolute;top:73px;left:0;right:0;padding:8px;flex-direction:column;align-items:stretch;gap:3px;background:rgba(244,240,232,.97);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 45px rgba(0,0,0,.12)}
  .nav-links.mobile-open a{padding:13px 14px}.nav-links.mobile-open .nav-cta{margin:4px 0 0}
 }
+
+/* === CURVED HERO VIDEO === */
+.hero-video-visual{
+  width:min(45vw,610px);
+  height:min(68vh,650px);
+  right:4.5vw;
+  top:50%;
+  transform:translateY(-47%);
+  border-radius:42% 42% 34% 34% / 28% 28% 22% 22%;
+  background:#171717;
+  box-shadow:0 38px 100px rgba(16,16,16,.20);
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-video-visual:before{
+  inset:10px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:inherit;
+  z-index:3;
+}
+.hero-video-visual:after{
+  display:none;
+}
+.hero-video{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.015);
+}
+.hero-video-glow{
+  position:absolute;
+  z-index:2;
+  width:45%;height:45%;
+  right:-8%;bottom:-8%;
+  border-radius:50%;
+  background:rgba(217,56,48,.28);
+  filter:blur(60px);
+  pointer-events:none;
+}
+.hero-video-visual .hero-visual-label{
+  z-index:4;
+  left:30px;top:28px;
+  color:rgba(255,255,255,.72);
+}
+@media(max-width:900px){
+  .hero-video-visual{
+    width:calc(100% - 44px);
+    height:min(68svh,500px);
+    min-height:330px;
+    margin:-25px 22px 75px;
+    border-radius:30% 30% 24% 24% / 18% 18% 13% 13%;
+    transform:none;
+  }
+  .hero-video-visual:before{inset:7px}
+  .hero-video-visual .hero-visual-label{left:22px;top:22px}
+}
+@media(max-width:600px){
+  .hero-video-visual{
+    height:430px;
+    min-height:0;
+    border-radius:27% 27% 20% 20% / 13% 13% 9% 9%;
+  }
+}
 </style>
 </head>
 <body>
@@ -398,10 +465,10 @@ function App(){
       React.createElement("a",{className:"btn btn-outline",href:"contact.html"},"Talk to us")
      )
     ),
-    React.createElement("div",{className:"hero-visual"},
-     React.createElement("div",{className:"hero-orbit"}),
+    React.createElement("div",{className:"hero-visual hero-video-visual"},
+     React.createElement("div",{className:"hero-video-glow"}),
      React.createElement("div",{className:"hero-visual-label"},"01 — PROTECTION READY"),
-     React.createElement("img",{src:"assets/svg/extinguisher-hero.png",alt:"Fire extinguisher",loading:"eager"})
+     React.createElement("video",{className:"hero-video",src:"assets-hero-video.mp4.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"auto",ariaLabel:"Animated fire safety equipment showcase"})
     ),
     React.createElement("div",{className:"hero-side"},React.createElement("strong",null,"Complete fire protection"),"Equipment, systems and maintenance support designed around your site."),React.createElement("div",{className:"hero-meta"},
      React.createElement("div",null,React.createElement("span",{className:"dot"}),"Safety, installed properly"),
