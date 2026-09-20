@@ -479,6 +479,40 @@ h1 em{font-style:normal;color:var(--red)}
 @media(max-width:900px){
   .brand-text{background-size:160% 100%;text-shadow:0 0 12px rgba(217,56,48,.15)}
 }
+
+
+/* === FINAL COLOR TREATMENT === */
+.brand-text{
+  background:linear-gradient(90deg,#d93830 0%,#101010 48%,#e8dfd1 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+  text-shadow:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+.hero-video-glow{
+  position:absolute!important;
+  inset:-24px!important;
+  width:auto!important;
+  height:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  border-radius:22px!important;
+  background:transparent!important;
+  filter:none!important;
+  box-shadow:0 0 0 2px rgba(217,56,48,.72),0 0 18px rgba(217,56,48,.48),0 0 42px rgba(217,56,48,.24)!important;
+  z-index:0!important;
+  pointer-events:none!important;
+}
+.hero-video-visual{overflow:visible!important;}
+.hero-video{z-index:1!important;border-radius:18px;overflow:hidden;}
+.hero-video-visual:before{z-index:3!important;}
+@media(max-width:900px){
+ .hero-video-glow{inset:-18px!important;border-radius:20px!important}
+ .hero-video{border-radius:14px}
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
