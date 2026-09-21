@@ -583,7 +583,7 @@ function App(){
   gsap.utils.toArray(".reveal").forEach(el=>{
    gsap.from(el,{y:55,opacity:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 82%"}});
   });
-  gsap.to(".marquee-track",{xPercent:-25,duration:18,ease:"none",repeat:-1});
+  gsap.to(".marquee-track",{xPercent:-33.333,duration:22,ease:"none",repeat:-1});
   const video=document.getElementById("siteVideo"), fallback=document.querySelector(".video-fallback"), play=document.querySelector(".video-play"); if(video){video.addEventListener("loadeddata",()=>{fallback.style.display="none";video.play().catch(()=>{})});video.addEventListener("error",()=>fallback.style.display="grid");play.addEventListener("click",()=>{video.paused?(video.play(),play.textContent="Ⅱ"):(video.pause(),play.textContent="▶")})}
   gsap.utils.toArray(".hero-grid,.glow").forEach(el=>gsap.to(el,{yPercent:-10,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}}));
 
@@ -648,7 +648,7 @@ function App(){
    ),
    React.createElement("div",{className:"marquee"},
     React.createElement("div",{className:"marquee-track"},
-     ...["Fire extinguishers","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance","Fire extinguishers","Fire alarms"].map((x,i)=>React.createElement("span",{key:i},x))
+     ...Array(3).fill(["Fire extinguishers","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},x))
     )
    ),
    React.createElement("section",{className:"section dark",id:"about"},
