@@ -34,6 +34,12 @@
 .hero-content .actions .btn:hover{transform:translateY(-3px);}
 @media(max-width:900px){.hero-content h1.hero-title{font-size:28px;}.hero-content .hero-copy{width:100%;max-width:100%;font-size:20px;}.hero-content .hero-copy .hero-copy-line{width:auto;white-space:normal;}.hero-content .actions{flex-wrap:wrap;}}
 
+.hero-content h1.hero-title .hero-line{display:inline-block;white-space:nowrap;}
+@media(min-width:901px){
+  .hero{display:flex;align-items:center;}
+  .hero-content{flex:1 1 50%;max-width:850px;align-self:center;}
+  .hero-video-visual{top:calc(50% + 28px);}
+}
 /* MARQUEE */
 .marquee{
   position:relative;
