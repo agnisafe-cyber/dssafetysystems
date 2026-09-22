@@ -366,3 +366,21 @@
     white-space:normal!important;
   }
 }
+
+
+/* HERO DESCRIPTION — stronger contrast */
+.hero-content .hero-copy{
+  color:#374151!important;
+  font-weight:500!important;
+  text-shadow:0 2px 14px rgba(17,24,39,.22)!important;
+}
+.hero-content .hero-copy .hero-copy-line{
+  color:#374151!important;
+}
+@media(max-width:900px){
+  .hero-content .hero-copy,
+  .hero-content .hero-copy .hero-copy-line{
+    color:#1f2937!important;
+    font-weight:500!important;
+  }
+}
