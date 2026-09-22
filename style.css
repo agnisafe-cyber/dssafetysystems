@@ -368,113 +368,70 @@
 }
 
 
-/* HERO DESCRIPTION — stronger contrast */
+/* HERO — clean, single source of truth */
+.hero-content h1.hero-title{
+  display:block;
+  width:100%;
+  max-width:1000px;
+  margin:25px 0 0;
+  font-family:"Google Sans Flex",sans-serif;
+  font-size:54px;
+  line-height:1.1;
+  letter-spacing:-1.8px;
+  font-weight:450;
+  color:#111827;
+  -webkit-text-fill-color:#111827;
+  background:linear-gradient(110deg,#111827 0%,#253247 42%,#dc2626 78%,#f97316 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  background-size:180% 100%;
+  filter:drop-shadow(0 12px 30px rgba(220,38,38,.12));
+}
+.hero-content h1.hero-title .hero-line{
+  display:inline-block;
+  will-change:transform,opacity,text-shadow;
+  text-shadow:0 0 0 rgba(255,255,255,0);
+  animation:heroLineShine 3.8s ease-in-out infinite;
+}
+.hero-content h1.hero-title .hero-line:nth-child(1){animation-delay:.25s;}
+.hero-content h1.hero-title .hero-line:nth-child(3){animation-delay:.75s;}
+.hero-content h1.hero-title .hero-red{
+  color:#dc2626;
+  -webkit-text-fill-color:#dc2626;
+  background:none;
+  font-weight:150;
+  text-shadow:0 0 22px rgba(220,38,38,.16);
+}
 .hero-content .hero-copy{
-  color:#374151!important;
-  font-weight:150!important;
-  text-shadow:0 2px 14px rgba(17,24,39,.22)!important;
+  width:900px;
+  max-width:900px;
+  margin-top:34px;
+  font-family:"Google Sans Flex",sans-serif;
+  font-size:34px;
+  line-height:1.35;
+  letter-spacing:-.2px;
+  font-weight:150;
+  color:#374151;
+  -webkit-text-fill-color:#374151;
+  text-shadow:0 1px 5px rgba(17,24,39,.12);
+  opacity:0;
 }
 .hero-content .hero-copy .hero-copy-line{
-  color:#374151!important;
+  display:block;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+}
+.hero-content .actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:28px;
+  opacity:0;
 }
 @media(max-width:900px){
-  .hero-content .hero-copy,
-  .hero-content .hero-copy .hero-copy-line{
-    color:#1f2937!important;
-    font-weight:150!important;
-  }
-}
-
-/* HERO DESCRIPTION — HIGH VISIBILITY */
-.hero-content .hero-copy,
-.hero-content .hero-copy .hero-copy-line{
-  color:#111827!important;
-  -webkit-text-fill-color:#111827!important;
-  font-weight:600!important;
-  opacity:1!important;
-  text-shadow:0 1px 2px rgba(0,0,0,.12)!important;
-}
-
-/* HERO DESCRIPTION — balanced contrast */
-.hero-content .hero-copy,
-.hero-content .hero-copy .hero-copy-line{
-  color:#374151!important;
-  -webkit-text-fill-color:#374151!important;
-  font-weight:150!important;
-  text-shadow:0 1px 5px rgba(17,24,39,.12)!important;
-}
-
-/* HERO TEXT + VIDEO — aligned parallel */
-.hero-content{position:relative;z-index:2;}
-.hero-copy{margin-bottom:28px!important;}
-.actions{display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:nowrap!important;}
-.hero-video-visual{z-index:2!important;}
-@media(min-width:901px){
-  .hero-grid{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(420px,1fr)!important;align-items:center!important;}
-  .hero-content{align-self:center!important;}
-  .hero-video-visual{align-self:center!important;}
-}
-@media(max-width:900px){.actions{flex-wrap:wrap!important;}}
-
-/* HERO — text/buttons and video centered as equal parallel columns */
-@media (min-width:901px){
-  .hero{position:relative!important;}
-  .hero-content{width:50%!important;max-width:none!important;margin:0!important;align-self:center!important;}
-  .hero-video-visual{width:50%!important;max-width:none!important;margin:0!important;align-self:center!important;}
-  .hero-grid{position:absolute!important;inset:0!important;display:grid!important;grid-template-columns:1fr 1fr!important;align-items:center!important;}
-  .hero-content,.hero-video-visual{grid-row:1!important;}
-  .hero-content{grid-column:1!important;}
-  .hero-video-visual{grid-column:2!important;}
-  .actions{display:flex!important;justify-content:flex-start!important;align-items:center!important;gap:16px!important;}
-}
-
-/* HERO — exact vertical center alignment */
-@media (min-width:901px){
-  .hero{display:flex!important;align-items:center!important;}
-  .hero-grid{top:0!important;bottom:0!important;height:100%!important;align-items:center!important;}
-  .hero-content{transform:none!important;margin-top:0!important;margin-bottom:0!important;align-self:center!important;}
-  .hero-video-visual{transform:translateY(0)!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;}
-}
-
-/* HERO — keep left text block parallel/equal to video, minimal adjustment */
-@media (min-width:901px){
-  .hero-grid{display:grid!important;grid-template-columns:1fr 1fr!important;align-items:center!important;}
-  .hero-content{grid-column:1!important;align-self:center!important;text-align:left!important;}
-  .hero-video-visual{grid-column:2!important;align-self:center!important;}
-}
-
-/* Restore video sizing/position — do not alter the video itself */
-@media (min-width:901px){
-  .hero-video-visual{width:auto!important;max-width:100%!important;transform:none!important;margin:0!important;}
-}
-
-/* FINAL HERO ALIGNMENT — use the actual hero siblings, not the empty hero-grid */
-@media (min-width:901px){
-  .hero{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-    align-items:center!important;
-    position:relative!important;
-  }
-  .hero-grid{display:none!important;}
-  .hero-content{
-    grid-column:1!important;
-    grid-row:1!important;
-    width:auto!important;
-    max-width:700px!important;
-    margin:0!important;
-    align-self:center!important;
-    justify-self:start!important;
-    transform:none!important;
-  }
-  .hero-video-visual{
-    grid-column:2!important;
-    grid-row:1!important;
-    width:auto!important;
-    max-width:100%!important;
-    margin:0!important;
-    align-self:center!important;
-    justify-self:center!important;
-    transform:none!important;
-  }
+  .hero-content h1.hero-title{font-size:28px;}
+  .hero-content .hero-copy{width:100%;max-width:100%;font-size:20px;}
+  .hero-content .hero-copy .hero-copy-line{width:auto;white-space:normal;}
+  .hero-content .actions{flex-wrap:wrap;}
 }
