@@ -442,3 +442,8 @@
   .hero-content{grid-column:1!important;align-self:center!important;text-align:left!important;}
   .hero-video-visual{grid-column:2!important;align-self:center!important;}
 }
+
+/* Restore video sizing/position — do not alter the video itself */
+@media (min-width:901px){
+  .hero-video-visual{width:auto!important;max-width:100%!important;transform:none!important;margin:0!important;}
+}
