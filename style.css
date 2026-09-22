@@ -447,3 +447,34 @@
 @media (min-width:901px){
   .hero-video-visual{width:auto!important;max-width:100%!important;transform:none!important;margin:0!important;}
 }
+
+/* FINAL HERO ALIGNMENT — use the actual hero siblings, not the empty hero-grid */
+@media (min-width:901px){
+  .hero{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    align-items:center!important;
+    position:relative!important;
+  }
+  .hero-grid{display:none!important;}
+  .hero-content{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:auto!important;
+    max-width:700px!important;
+    margin:0!important;
+    align-self:center!important;
+    justify-self:start!important;
+    transform:none!important;
+  }
+  .hero-video-visual{
+    grid-column:2!important;
+    grid-row:1!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:0!important;
+    align-self:center!important;
+    justify-self:center!important;
+    transform:none!important;
+  }
+}
