@@ -403,3 +403,15 @@
   font-weight:150!important;
   text-shadow:0 1px 5px rgba(17,24,39,.12)!important;
 }
+
+/* HERO TEXT + VIDEO — aligned parallel */
+.hero-content{position:relative;z-index:2;}
+.hero-copy{margin-bottom:28px!important;}
+.actions{display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:nowrap!important;}
+.hero-video-visual{z-index:2!important;}
+@media(min-width:901px){
+  .hero-grid{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(420px,1fr)!important;align-items:center!important;}
+  .hero-content{align-self:center!important;}
+  .hero-video-visual{align-self:center!important;}
+}
+@media(max-width:900px){.actions{flex-wrap:wrap!important;}}
