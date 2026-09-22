@@ -5,8 +5,8 @@
   max-width:1000px!important;
   margin:25px 0 0!important;
   font-family:"Google Sans Flex",sans-serif!important;
-  font-size:55px!important;
-  line-height:1.05!important;
+  font-size:44px!important;
+  line-height:1.1!important;
   letter-spacing:-1.8px!important;
   font-weight:450!important;
   opacity:1!important;
@@ -68,8 +68,8 @@
 /* HERO DESCRIPTION */
 .hero-content .hero-copy{
   font-family:"Google Sans Flex",sans-serif!important;
-  font-size:45px!important;
-  line-height:1.45;
+  font-size:32px!important;
+  line-height:1.35;
   font-weight:400;
   letter-spacing:-.2px;
   color:#6b7280;
@@ -336,10 +336,10 @@
   }
 
   .hero-content h1.hero-title{
-    font-size:34px!important;
+    font-size:25px!important;
   }
 
   .hero-content .hero-copy{
-    font-size:20px!important;
+    font-size:18px!important;
   }
 }
