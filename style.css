@@ -44,7 +44,7 @@
   color:#dc2626!important;
   -webkit-text-fill-color:#dc2626!important;
   background:none!important;
-  font-weight:500!important;
+  font-weight:150!important;
   text-shadow:0 0 22px rgba(220,38,38,.16)!important;
 }
 
@@ -371,7 +371,7 @@
 /* HERO DESCRIPTION — stronger contrast */
 .hero-content .hero-copy{
   color:#374151!important;
-  font-weight:500!important;
+  font-weight:150!important;
   text-shadow:0 2px 14px rgba(17,24,39,.22)!important;
 }
 .hero-content .hero-copy .hero-copy-line{
@@ -381,7 +381,7 @@
   .hero-content .hero-copy,
   .hero-content .hero-copy .hero-copy-line{
     color:#1f2937!important;
-    font-weight:500!important;
+    font-weight:150!important;
   }
 }
 
@@ -400,6 +400,6 @@
 .hero-content .hero-copy .hero-copy-line{
   color:#374151!important;
   -webkit-text-fill-color:#374151!important;
-  font-weight:500!important;
+  font-weight:150!important;
   text-shadow:0 1px 5px rgba(17,24,39,.12)!important;
 }
