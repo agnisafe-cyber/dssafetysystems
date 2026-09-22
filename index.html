@@ -782,16 +782,15 @@ function App(){
   const smoother=ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
   document.querySelectorAll('a[href="#about"]').forEach(link=>link.addEventListener("click",(e)=>{e.preventDefault();const target=document.querySelector("#about");if(target)smoother.scrollTo(target,true,"top top")}));
   const heroLines=gsap.utils.toArray(".hero-title .hero-line");
-  gsap.set(heroLines[0],{opacity:0,x:-65,y:20,filter:"blur(8px)"});
-  gsap.set(heroLines[1],{opacity:0,x:65,y:20,filter:"blur(8px)"});
+  gsap.set(heroLines,{opacity:0,y:18});
   gsap.set(".hero-copy",{opacity:0,y:18});
-  const tl=gsap.timeline({defaults:{ease:"power4.out"}});
-  tl.to(".kicker",{opacity:1,y:0,duration:.7})
-    .to(heroLines[0],{x:0,y:0,opacity:1,filter:"blur(0px)",duration:.8},"-=.3")
-    .to(heroLines[1],{x:0,y:0,opacity:1,filter:"blur(0px)",duration:.8},"-=.42")
-    .to(".hero-copy",{y:0,opacity:1,duration:.8,ease:"power3.out"},"-=.38")
-    .to(".actions",{y:0,opacity:1,duration:.55},"-=.4")
-    .fromTo(".hero-video-visual",{x:110,yPercent:-50,opacity:0,scale:.96},{x:0,yPercent:-50,opacity:1,scale:1,duration:1.15,ease:"power4.out"},"-=.9");
+  gsap.set(".actions",{opacity:0,y:18});
+  const tl=gsap.timeline({defaults:{ease:"power3.out"}});
+  tl.fromTo(".navbar, header, .nav",{opacity:0,y:-18},{opacity:1,y:0,duration:.65,ease:"power3.out"})
+    .to(heroLines,{opacity:1,y:0,duration:.65,stagger:.12},"+=.12")
+    .to(".hero-copy",{opacity:1,y:0,duration:.65},"-=.28")
+    .to(".actions",{opacity:1,y:0,duration:.5},"-=.3")
+    .fromTo(".hero-video-visual",{x:70,yPercent:-50,opacity:0,scale:.97},{x:0,yPercent:-50,opacity:1,scale:1,duration:.9,ease:"power3.out"},"-=.9");
   gsap.utils.toArray(".reveal").forEach(el=>{
    gsap.from(el,{y:55,opacity:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 82%"}});
   });
