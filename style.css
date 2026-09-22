@@ -343,3 +343,26 @@
     font-size:18px!important;
   }
 }
+
+
+/* FINAL HERO COPY — exact 2-line desktop layout */
+.hero-content .hero-copy{
+  width:900px!important;
+  max-width:900px!important;
+}
+.hero-content .hero-copy .hero-copy-line{
+  display:block!important;
+  width:max-content!important;
+  max-width:none!important;
+  white-space:nowrap!important;
+}
+@media(max-width:900px){
+  .hero-content .hero-copy{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  .hero-content .hero-copy .hero-copy-line{
+    width:auto!important;
+    white-space:normal!important;
+  }
+}
