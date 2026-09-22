@@ -427,3 +427,11 @@
   .hero-video-visual{grid-column:2!important;}
   .actions{display:flex!important;justify-content:flex-start!important;align-items:center!important;gap:16px!important;}
 }
+
+/* HERO — exact vertical center alignment */
+@media (min-width:901px){
+  .hero{display:flex!important;align-items:center!important;}
+  .hero-grid{top:0!important;bottom:0!important;height:100%!important;align-items:center!important;}
+  .hero-content{transform:none!important;margin-top:0!important;margin-bottom:0!important;align-self:center!important;}
+  .hero-video-visual{transform:translateY(0)!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;}
+}
