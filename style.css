@@ -1,21 +1,15 @@
 /* HERO — clean, single source of truth */
 .hero-content h1.hero-title{
-  display:block;
-  width:100%;
-  max-width:1000px;
-  margin:25px 0 0;
   font-family:"Google Sans Flex",sans-serif;
-  font-size:54px;
+  font-size:clamp(38px,4.2vw,54px);
   line-height:1.1;
   letter-spacing:-1.8px;
-  font-weight:450;
-  color:#111827;
-  -webkit-text-fill-color:#111827;
+  font-weight:500;
   background:linear-gradient(110deg,#111827 0%,#253247 42%,#dc2626 78%,#f97316 100%);
   -webkit-background-clip:text;
   background-clip:text;
+  -webkit-text-fill-color:transparent;
   background-size:180% 100%;
-  filter:drop-shadow(0 12px 30px rgba(220,38,38,.12));
 }
 .hero-content h1.hero-title .hero-line{display:inline-block;will-change:transform,opacity,text-shadow;text-shadow:0 0 0 rgba(255,255,255,0);animation:heroLineShine 3.8s ease-in-out infinite;}
 .hero-content h1.hero-title .hero-line:nth-child(1){animation-delay:.25s;}
