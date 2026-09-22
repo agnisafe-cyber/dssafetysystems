@@ -30,9 +30,9 @@
 
 .hero-content h1.hero-title .hero-line{display:inline-block;white-space:nowrap;}
 @media(min-width:901px){
-  .hero{display:flex;align-items:center;}
-  .hero-content{flex:1 1 50%;max-width:850px;align-self:center;}
-  .hero-video-visual{top:calc(50% + 28px);}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;column-gap:32px;}
+  .hero-content{grid-column:1;grid-row:1;align-self:center;max-width:850px;padding:80px 0 80px 5vw;transform:none;}
+  .hero-video-visual{grid-column:2;grid-row:1;position:relative;right:auto;top:auto;width:min(46vw,600px);justify-self:center;align-self:center;transform:translateY(28px);}
 }
 /* MARQUEE */
 .marquee{
