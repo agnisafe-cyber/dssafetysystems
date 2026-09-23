@@ -88,14 +88,6 @@
 }
 
 
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f4f0e8;--ink:#101010;--muted:#6d6962;--red:#d93830;--line:rgba(16,16,16,.12)}
-html{scroll-behavior:auto}
-body{font-family:"Google Sans Flex",sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-button{font:inherit}
-::selection{background:var(--red);color:#fff}
-
 /* Navigation Styles */
 .nav{
   position:fixed;z-index:50;top:22px;left:50%;transform:translateX(-50%);
