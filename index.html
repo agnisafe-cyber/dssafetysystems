@@ -105,6 +105,13 @@
     .animated-button:hover svg{fill:#212121}.animated-button:active{scale:.95;box-shadow:0 0 0 4px #dc2626}
     .animated-button:hover .circle{width:220px;height:220px;opacity:1}
 
+    /* About image blanket reveal */
+    .about-image-wrap{position:relative;overflow:hidden}
+    .about-image-wrap::after{content:"";position:absolute;inset:0;background:#111;z-index:3;transform:translateX(0);transform-origin:right;}
+    .about-image-wrap img{display:block;opacity:1;transform:scale(1.06);}
+    .about-image-wrap.revealed::after{transform:translateX(-101%);transition:transform 1.15s cubic-bezier(.77,0,.18,1)}
+    .about-image-wrap.revealed img{transform:scale(1);transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
+
     /* Hero Copy & Actions */
     .hero-copy{font-size:35px!important;max-width:900px!important;line-height:1.45!important;color:#2c333f!important;font-weight:550!important;margin-top:36px;margin-bottom:20px}
     .hero-copy .hero-copy-line{display:block!important;white-space:nowrap!important;}
@@ -290,6 +297,8 @@
     function App(){
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+        const aboutImage=document.querySelector(".about-image-wrap");
+        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 80%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
