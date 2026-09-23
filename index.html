@@ -76,11 +76,11 @@
     .hero-content h1.hero-title{
       display:block!important;width:100%!important;max-width:1100px!important;
       margin:25px 0 0!important;font-family:"Google Sans Flex",sans-serif!important;
-      font-size:48px!important;line-height:1.15!important;letter-spacing:-1.5px!important;
+      font-size:48px!important;line-height:1.15!important;opacity:1!important;visibility:visible!important;letter-spacing:-1.5px!important;
       font-weight:600!important;color:#111827!important;
       white-space:normal!important;
     }
-    .hero-content h1.hero-title .hero-line{display:block!important;opacity:0!important;visibility:hidden!important;transform:translateY(18px);will-change:opacity,transform;}
+    .hero-content h1.hero-title .hero-line{display:block!important;opacity:1!important;visibility:visible!important;transform:none;will-change:auto;}
     
     /* Smooth multi-stop gradient matching the screenshot preview */
     .hero-content h1.hero-title .highlight-red-orange {
@@ -243,13 +243,12 @@
         const smoother = ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
         
         const heroLines = gsap.utils.toArray(".hero-title .hero-line");
-        gsap.set(heroLines,{autoAlpha:0,y:18});
-        gsap.set(".hero-copy",{opacity:0,y:18});
+                gsap.set(".hero-copy",{opacity:0,y:18});
         gsap.set(".actions",{opacity:0,y:18});
         
         const tl = gsap.timeline({defaults:{ease:"power3.out"}});
         tl.fromTo(".nav",{opacity:0,y:-18},{opacity:1,y:0,duration:.65})
-          .to(heroLines,{autoAlpha:1,y:0,duration:.65,stagger:.12},"+=.12")
+          
           .to(".hero-copy",{opacity:1,y:0,duration:.65},"-=.28")
           .to(".actions",{opacity:1,y:0,duration:.5},"-=.3")
           .fromTo(".hero-video-visual",{x:70,opacity:0,scale:.97},{x:0,opacity:1,scale:1,duration:.9},"-=.9");
