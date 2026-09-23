@@ -296,7 +296,7 @@
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap");
-        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 120%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
+        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 80%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
