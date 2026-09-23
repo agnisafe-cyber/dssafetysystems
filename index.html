@@ -335,7 +335,8 @@
           if(!open) gsap.fromTo(linksWrap,{opacity:0,y:-12},{opacity:1,y:0,duration:.35,ease:"power3.out"});
         });
 
-        const smoother = ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
+        const isMobile=window.matchMedia("(max-width:900px)").matches;
+        const smoother = isMobile ? null : ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
         
         const heroLines = gsap.utils.toArray(".hero-title .hero-line");
                 gsap.set(".hero-copy",{opacity:0,y:18});
@@ -396,7 +397,7 @@
             ),
             React.createElement("div",{className:"hero-video-visual"},
               React.createElement("div",{className:"hero-video-glow"}),
-              React.createElement("video",{className:"hero-video",src:"herovideo.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"auto"})
+              React.createElement("video",{className:"hero-video",src:"herovideo.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"metadata"})
             )
           ),
           React.createElement("div",{className:"marquee"},
