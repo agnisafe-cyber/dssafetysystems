@@ -190,16 +190,17 @@
     /* Hero Video Showcase - No border & BG removed via blend-mode */
     .hero-video-visual{
       position:relative;z-index:5;grid-column:2;grid-row:1;align-self:center;justify-self:center;
-      width:min(46vw,600px);aspect-ratio:4 / 3;height:auto;
-      transform:translateY(0);border-radius:18px;background:transparent!important;
+      width:min(46vw,600px);height:auto;aspect-ratio:4 / 3;
+      padding:5px;box-sizing:border-box;
+      transform:translateY(0);border-radius:18px;
+      background:linear-gradient(135deg,#f7ba2b 0%,#ea5358 100%)!important;
       border:none!important;box-shadow:none!important;
-      overflow:visible!important;isolation:isolate;
+      overflow:hidden!important;isolation:isolate;
     }
     .hero-video-visual:before{content:"";display:none!important;}
-    .hero-video-visual{background:transparent!important;}
     .hero-video{
       position:absolute;inset:0;z-index:1!important;width:100%;height:100%;
-      object-fit:cover;display:block;border-radius:18px;background:transparent!important;
+      object-fit:cover;display:block;width:100%;height:100%;border-radius:13px;background:transparent!important;
       mix-blend-mode:multiply;background-color:transparent!important;
     }
     .hero-video-glow{display:none!important;}
