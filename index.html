@@ -213,6 +213,14 @@
     .about-home{background:rgba(244,240,232,.84);padding-top:120px;padding-bottom:120px}
     .about-home-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
     .about-home-copy{max-width:680px}
+    .about-home-copy .section-label,
+    .about-home-copy .about-home-title,
+    .about-home-copy .about-home-text,
+    .about-home-copy .about-home-facts{opacity:0;transform:translate(24px,24px);filter:blur(5px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1.15s cubic-bezier(.22,1,.36,1),filter 1.15s cubic-bezier(.22,1,.36,1)}
+    .about-home-copy.about-copy-revealed .section-label{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:0s}
+    .about-home-copy.about-copy-revealed .about-home-title{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.12s}
+    .about-home-copy.about-copy-revealed .about-home-text{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.24s}
+    .about-home-copy.about-copy-revealed .about-home-facts{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.36s}
     .about-home-title{font-family:"Poppins",sans-serif;font-size:48px;line-height:1.15;letter-spacing:-1.5px;font-weight:850;color:#111827;margin:0 0 15px 0}
     .about-home-title span{color:#dc2626}
     .about-home-text{color:#2a313d;font-size:16.5px;line-height:1.8;max-width:600px;margin-top:25px;margin-bottom:25px;font-weight:500}
@@ -295,8 +303,9 @@
     function App(){
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
-        const aboutImage=document.querySelector(".about-image-wrap");
+        const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
