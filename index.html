@@ -108,7 +108,7 @@
     /* About image diagonal top-left reveal */
     .about-image-wrap{position:relative;overflow:hidden}
     .about-image-wrap::after{content:"";position:absolute;inset:0;background:transparent;z-index:3;pointer-events:none}
-    .about-image-wrap::before{content:"";position:absolute;z-index:4;top:-75%;left:-75%;width:250%;height:250%;background:#f4f0e8;transform:translate(0,0) rotate(45deg);transform-origin:center;transition:transform .85s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
+    .about-image-wrap::before{content:"";position:absolute;z-index:4;top:-75%;left:-75%;width:250%;height:250%;background:#f4f0e8;transform:translate(0,0) rotate(45deg);transform-origin:center;transition:transform 1.15s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
 .about-image-wrap.revealed::before{transform:translate(115%,115%) rotate(45deg)}
 .about-image-wrap::after{content:"";position:absolute;top:-20%;left:-55%;width:32%;height:140%;z-index:5;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.78),transparent);transform:skewX(-18deg) translateX(-20%);opacity:0}
 .about-image-wrap.revealed::after{opacity:1;animation:aboutImageShine 4.8s cubic-bezier(.22,1,.36,1) 1.2s infinite}
