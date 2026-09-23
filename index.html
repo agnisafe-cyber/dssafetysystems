@@ -278,7 +278,10 @@
       .cards,.product-grid{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}
     }
-  </style>
+      .about-image-wrap{position:relative;overflow:hidden}
+    .about-image-wrap::before{content:"";position:absolute;inset:0;z-index:4;background:#f4f0e8;transform:translateX(0);transition:transform 1.25s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
+    .about-image-wrap.revealed::before{transform:translateX(102%)}
+</style>
 </head>
 <body>
   <div id="smooth-wrapper">
@@ -293,7 +296,7 @@
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap");
-        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 80%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
+        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 120%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
