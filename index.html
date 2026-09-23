@@ -279,8 +279,8 @@
       .contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}
     }
       .about-image-wrap{position:relative;overflow:hidden}
-    .about-image-wrap::before{content:"";position:absolute;inset:0;z-index:4;background:#f4f0e8;transform:translateX(0);transition:transform 1.25s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
-    .about-image-wrap.revealed::before{transform:translateX(102%)}
+    .about-image-wrap::before{content:"";position:absolute;z-index:4;top:-80%;left:-80%;width:260%;height:260%;background:#f4f0e8;transform:translate(0,0) rotate(45deg);transform-origin:center;transition:transform 1.35s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
+    .about-image-wrap.revealed::before{transform:translate(112%,112%) rotate(45deg)}
 </style>
 </head>
 <body>
