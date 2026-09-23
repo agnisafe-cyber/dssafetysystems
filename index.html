@@ -70,9 +70,9 @@
     .menu{display:none}
 
     /* Hero Section Styles */
-    .hero{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
+    .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:32px;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
-    .hero-content{position:relative;z-index:8;padding:120px 5vw 80px;max-width:820px}
+    .hero-content{position:relative;z-index:8;grid-column:1;grid-row:1;align-self:center;padding:120px 0 80px 5vw;max-width:820px}
     .hero-content h1.hero-title{
       display:block!important;width:100%!important;max-width:1100px!important;
       margin:25px 0 0!important;font-family:"Google Sans Flex",sans-serif!important;
@@ -102,17 +102,17 @@
 
     /* Hero Video Showcase - No border & BG removed via blend-mode */
     .hero-video-visual{
-      position:absolute;z-index:5;right:5vw;top:50%;
+      position:relative;z-index:5;grid-column:2;grid-row:1;align-self:center;justify-self:center;
       width:min(46vw,600px);aspect-ratio:4 / 3;height:auto;
-      transform:translateY(12%);border-radius:18px;background:transparent!important;
+      transform:translateY(20px);border-radius:18px;background:transparent!important;
       border:none!important;box-shadow:none!important;
       overflow:visible!important;isolation:isolate;
     }
     .hero-video-visual:before{content:"";display:none!important;}
     .hero-video{
       position:absolute;inset:0;z-index:1!important;width:100%;height:100%;
-      object-fit:cover;display:block;border-radius:18px;
-      mix-blend-mode: screen; /* Removes solid background seamlessly */
+      object-fit:cover;display:block;border-radius:18px;background:transparent!important;
+      mix-blend-mode:screen;
     }
     .hero-video-glow{
       position:absolute!important;inset:-24px!important;width:auto!important;height:auto!important;
@@ -188,8 +188,9 @@
       .nav-links.mobile-open{display:flex;position:absolute;top:78px;left:0;right:0;padding:10px;flex-direction:column;align-items:stretch;gap:4px;background:rgba(244,240,232,.96);border:none;border-radius:20px;backdrop-filter:blur(25px)}
       .nav-links.mobile-open a{padding:14px 15px}
       
-      .hero{min-height:auto!important;height:auto!important;flex-direction:column!important;padding-bottom:0!important}
-      .hero-video-visual{position:relative!important;width:calc(100% - 32px)!important;aspect-ratio:16/10!important;margin:35px 16px 65px!important;transform:none!important}
+      .hero{min-height:auto!important;height:auto!important;display:flex!important;flex-direction:column!important;padding-bottom:0!important}
+      .hero-content{grid-column:auto!important;grid-row:auto!important;padding:120px 16px 40px!important;max-width:none!important}
+      .hero-video-visual{grid-column:auto!important;grid-row:auto!important;position:relative!important;width:calc(100% - 32px)!important;aspect-ratio:16/10!important;margin:35px 16px 65px!important;transform:none!important}
       .hero-content h1.hero-title{font-size:32px!important;}
       .hero-copy{font-size:20px!important;max-width:100%!important;white-space:normal!important}
       .about-home-grid{grid-template-columns:1fr;gap:45px}
@@ -251,7 +252,7 @@
           .to(heroLines,{opacity:1,y:0,duration:.65,stagger:.12},"+=.12")
           .to(".hero-copy",{opacity:1,y:0,duration:.65},"-=.28")
           .to(".actions",{opacity:1,y:0,duration:.5},"-=.3")
-          .fromTo(".hero-video-visual",{x:70,yPercent:-50,opacity:0,scale:.97},{x:0,yPercent:-50,opacity:1,scale:1,duration:.9},"-=.9");
+          .fromTo(".hero-video-visual",{x:70,opacity:0,scale:.97},{x:0,opacity:1,scale:1,duration:.9},"-=.9");
 
         gsap.to(".marquee-track",{xPercent:-33.333,duration:22,ease:"none",repeat:-1});
 
