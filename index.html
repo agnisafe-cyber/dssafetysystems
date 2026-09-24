@@ -69,39 +69,27 @@
     .nav-cta:hover{background:var(--red)!important;transform:translateY(-1px)}
     .menu{display:none}
 
-    .services-home{background:#f4f0e8;position:relative;overflow:hidden;padding:120px 5vw 130px;color:#111}
-    .services-shell{max-width:1440px;margin:0 auto}
-    .services-home:after{content:"";position:absolute;width:520px;height:520px;right:-250px;top:180px;border:1px solid rgba(220,38,38,.08);border-radius:50%;pointer-events:none}
-    .services-topline{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(17,24,39,.13);padding-bottom:18px}
-    .services-topline .section-label{opacity:1!important;transform:none!important;filter:none!important}
-    .services-topline>span{font-family:"Poppins",sans-serif;font-size:11px;font-weight:750;letter-spacing:.16em;color:#dc2626}
-    .services-intro{display:grid;grid-template-columns:1.25fr .75fr;gap:90px;align-items:end;padding:54px 0 68px}
-    .services-intro h2{font-family:"Poppins",sans-serif;font-size:clamp(44px,5.2vw,76px);line-height:.98;letter-spacing:-3px;font-weight:800;margin:0;max-width:900px;color:#111827}
-    .services-intro h2 span{color:#dc2626}
-    .services-intro p{font-size:16px;line-height:1.8;color:#59616d;max-width:440px;margin:0 0 4px}
-    .services-stage{display:grid;grid-template-columns:.85fr 1.15fr;min-height:650px;border-top:1px solid rgba(17,24,39,.13);border-bottom:1px solid rgba(17,24,39,.13)}
-    .services-visual{position:relative;min-height:650px;overflow:hidden;background:#171717;border-right:1px solid rgba(17,24,39,.13)}
-    .visual-grid{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:55px 55px}
-    .visual-ring{position:absolute;width:370px;height:370px;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.2);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.015)}
-    .visual-ring:before,.visual-ring:after{content:"";position:absolute;inset:28px;border:1px solid rgba(220,38,38,.7);border-radius:50%}
-    .visual-ring:after{inset:82px;border-color:rgba(255,255,255,.18)}
-    .visual-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:#dc2626;color:#fff;text-align:center;box-shadow:0 20px 60px rgba(220,38,38,.25)}
-    .visual-core span{font-family:"Poppins",sans-serif;font-size:40px;font-weight:800;line-height:1;display:block}
-    .visual-core small{font-family:"Poppins",sans-serif;font-size:7px;letter-spacing:.18em;font-weight:700}
-    .visual-tag{position:absolute;left:28px;bottom:26px;font-family:"Poppins",sans-serif;font-size:10px;letter-spacing:.15em;font-weight:700;color:#aaa}
-    .services-list{position:relative;z-index:2;border-top:0}
-    .service-row{display:grid;grid-template-columns:78px 1fr 58px;align-items:center;min-height:162px;border-bottom:1px solid rgba(17,24,39,.13);padding:0 28px;opacity:0;transform:translate(28px,28px);filter:blur(5px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1),background .3s ease}
-    .service-row:first-child{border-top:0}
-    .services-list.revealed .service-row{opacity:1;transform:translate(0,0);filter:blur(0)}
-    .services-list.revealed .service-row:nth-child(1){transition-delay:.04s}.services-list.revealed .service-row:nth-child(2){transition-delay:.13s}.services-list.revealed .service-row:nth-child(3){transition-delay:.22s}.services-list.revealed .service-row:nth-child(4){transition-delay:.31s}
-    .service-row:hover{background:rgba(220,38,38,.045)}
-    .service-row-num{font-family:"Poppins",sans-serif;font-size:42px;line-height:1;font-weight:800;color:#d9d3c8;letter-spacing:-2px;align-self:start;padding-top:30px}
-    .service-row-main{padding:27px 15px 27px 0}
-    .service-kicker{font-family:"Poppins",sans-serif;font-size:9px;font-weight:750;letter-spacing:.17em;color:#dc2626;margin-bottom:8px}
-    .service-row h3{font-family:"Poppins",sans-serif;font-size:29px;line-height:1.12;font-weight:750;letter-spacing:-.8px;color:#111827;margin:0 0 10px}
-    .service-row p{font-size:14px;line-height:1.65;color:#69717d;max-width:620px;margin:0}
-    .service-row-arrow{width:45px;height:45px;border:1px solid rgba(17,24,39,.2);border-radius:50%;display:grid;place-items:center;color:#111827;font-size:20px;transition:.3s ease}
-    .service-row:hover .service-row-arrow{background:#dc2626;border-color:#dc2626;color:#fff;transform:rotate(45deg)}
+    .services-home{background:#f4f0e8;padding-top:120px;padding-bottom:120px;overflow:hidden}
+    .services-heading{max-width:850px}
+    .services-heading .section-label{opacity:1!important;transform:none!important;filter:none!important}
+    .services-heading h2,.services-heading p{opacity:0;transition:opacity .9s cubic-bezier(.22,1,.36,1)}
+    .services-heading.revealed h2{opacity:1;transition-delay:.1s}
+    .services-heading.revealed p{opacity:1;transition-delay:.28s}
+    .services-heading h2{font-family:"Poppins",sans-serif;font-size:52px;line-height:1.12;letter-spacing:-1.8px;font-weight:800;color:#111827;margin:14px 0 0}
+    .services-heading p{max-width:650px;color:#3b4350;font-size:17px;line-height:1.75;margin:22px 0 0;font-weight:500}
+    .services-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:58px}
+    .service-card{position:relative;min-height:285px;padding:30px 26px 26px;background:#fff;border:1px solid rgba(17,24,39,.09);border-radius:22px;box-shadow:0 18px 55px rgba(16,16,16,.07);overflow:hidden;opacity:0;transform:translateX(55px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+    .services-cards.revealed .service-card{opacity:1;transform:translateX(0)}
+    .services-cards.revealed .service-card:nth-child(1){transition-delay:.05s}
+    .services-cards.revealed .service-card:nth-child(2){transition-delay:.14s}
+    .services-cards.revealed .service-card:nth-child(3){transition-delay:.23s}
+    .services-cards.revealed .service-card:nth-child(4){transition-delay:.32s}
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 25px 65px rgba(16,16,16,.11)}
+    .service-number{display:block;font-family:"Poppins",sans-serif;font-size:13px;font-weight:750;color:#dc2626;letter-spacing:.08em}
+    .service-card h3{font-family:"Poppins",sans-serif;font-size:22px;line-height:1.2;color:#111827;margin:72px 0 14px;font-weight:750;letter-spacing:-.4px}
+    .service-card p{font-size:15px;line-height:1.7;color:#4b5563;margin:0}
+    .service-arrow{position:absolute;right:24px;bottom:23px;font-size:24px;color:#dc2626;transition:transform .3s ease}
+    .service-card:hover .service-arrow{transform:translate(3px,-3px)}
     /* Hero Section Styles */
     .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;column-gap:32px;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
@@ -319,7 +307,7 @@
       .about-home-grid{grid-template-columns:1fr;gap:45px}
       .about-home-image{min-height:0!important;height:auto!important;aspect-ratio:4/3!important}
       .about-home-image img{min-height:0!important;height:100%!important;aspect-ratio:4/3!important;object-fit:cover!important}
-      .services-home{padding-top:85px!important;padding-bottom:90px!important}.services-intro{grid-template-columns:1fr!important;gap:24px!important;padding:42px 0 45px!important}.services-intro h2{font-size:38px!important;letter-spacing:-1.5px!important}.services-intro p{font-size:15px!important}.services-stage{grid-template-columns:1fr!important;min-height:0!important}.services-visual{min-height:300px!important;height:300px!important;border-right:0!important;border-bottom:1px solid rgba(17,24,39,.13)!important}.visual-ring{width:210px!important;height:210px!important}.visual-core{width:95px!important;height:95px!important}.visual-core span{font-size:27px!important}.services-list{background:#f4f0e8!important}.service-row{grid-template-columns:48px 1fr 42px!important;min-height:150px!important;padding:0 5px!important}.service-row-main{padding:24px 8px 24px 0!important}.service-row h3{font-size:21px!important}.service-row p{font-size:13px!important}.service-row-arrow{width:38px!important;height:38px!important;font-size:17px!important}.service-row-num{padding-top:27px!important;font-size:27px!important}       .cards,.product-grid{grid-template-columns:1fr}
+      .services-home{padding-top:95px!important;padding-bottom:95px!important} .services-heading h2{font-size:34px!important;letter-spacing:-1px!important} .services-heading p{font-size:16px!important} .services-cards{grid-template-columns:1fr!important;margin-top:40px!important} .service-card{min-height:245px!important} .service-card h3{margin-top:55px!important}       .cards,.product-grid{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr;gap:14px;margin-top:40px}
     }
       .about-image-wrap{position:relative;overflow:hidden}
@@ -341,9 +329,9 @@
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesHeading=document.querySelector(".services-intro"), servicesList=document.querySelector(".services-list");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesHeading=document.querySelector(".services-heading"), servicesCards=document.querySelector(".services-cards");
         if(servicesHeading){ScrollTrigger.create({trigger:servicesHeading,start:"top 88%",once:true,onEnter:()=>servicesHeading.classList.add("revealed")});}
-        if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
+        if(servicesCards){ScrollTrigger.create({trigger:servicesCards,start:"top 88%",once:true,onEnter:()=>servicesCards.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
@@ -462,39 +450,13 @@
             )
           ),
           React.createElement("section",{className:"section services-home",id:"services"},
-            React.createElement("div",{className:"services-shell"},
-              React.createElement("div",{className:"services-topline"},
-                React.createElement("div",{className:"section-label"},"Our Services"),
-                React.createElement("span",null,"DS / 03")
-              ),
-              React.createElement("div",{className:"services-intro"},
-                React.createElement("div",null,
-                  React.createElement("h2",null,"Our Complete Range of ",React.createElement("span",null,"Safety Services")),
-                ),
-                React.createElement("p",null,"Protection doesn't stop at the product. We design, install, inspect and maintain the systems that keep your premises ready.")
-              ),
-              React.createElement("div",{className:"services-stage"},
-                React.createElement("div",{className:"services-visual"},
-                  React.createElement("div",{className:"visual-grid"}),
-                  React.createElement("div",{className:"visual-ring"}),
-                  React.createElement("div",{className:"visual-core"},
-                    React.createElement("span",null,"DS"),
-                    React.createElement("small",null,"SAFETY SYSTEMS")
-                  ),
-                  React.createElement("div",{className:"visual-tag"},"PROTECTION / READY")
-                ),
-                React.createElement("div",{className:"services-list"},
-                  [["01","Installation","Professional installation of fire detection, alarm, extinguishing and water-based systems to agreed specifications.","INSTALLATION"],["02","Inspection","Scheduled inspections to verify equipment and systems remain correctly positioned, accessible and serviceable.","INSPECTION"],["03","Maintenance","Planned AMC servicing that keeps critical fire-safety equipment maintained, tested and ready.","MAINTENANCE"],["04","Consultation","Site-focused guidance for selecting, upgrading and planning practical fire protection.","CONSULTATION"]].map(([n,t,p,k])=>React.createElement("article",{className:"service-row",key:n},
-                    React.createElement("div",{className:"service-row-num"},n),
-                    React.createElement("div",{className:"service-row-main"},
-                      React.createElement("div",{className:"service-kicker"},k),
-                      React.createElement("h3",null,t),
-                      React.createElement("p",null,p)
-                    ),
-                    React.createElement("div",{className:"service-row-arrow"},"↗")
-                  ))
-                )
-              )
+            React.createElement("div",{className:"services-heading"},
+              React.createElement("div",{className:"section-label"},"Our Services"),
+              React.createElement("h2",null,"Our Complete Range of Safety Services"),
+              React.createElement("p",null,"From installation to ongoing maintenance, we provide dependable fire-safety solutions designed around your site, people and protection needs.")
+            ),
+            React.createElement("div",{className:"services-cards"},
+              [["01","Fire Safety Installation","Professional installation of fire extinguishers, fire alarms, hydrant systems, sprinklers and related equipment."],["02","Inspection & Testing","Systematic inspection and testing to help keep your fire protection equipment ready and compliant."],["03","Annual Maintenance (AMC)","Reliable scheduled servicing and maintenance to keep critical fire-safety systems performing when needed."],["04","Fire Safety Consultation","Practical guidance for selecting, planning and improving fire protection for your premises."]].map(([n,t,p])=>React.createElement("article",{className:"service-card",key:n},React.createElement("span",{className:"service-number"},n),React.createElement("h3",null,t),React.createElement("p",null,p),React.createElement("span",{className:"service-arrow"},"↗")))
             )
           ),
           React.createElement("section",{className:"section products",id:"products"},
