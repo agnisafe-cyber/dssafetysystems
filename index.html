@@ -329,9 +329,8 @@
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesHeading=document.querySelector(".services-heading"), servicesCards=document.querySelector(".services-cards");
-        if(servicesHeading){ScrollTrigger.create({trigger:servicesHeading,start:"top 88%",once:true,onEnter:()=>servicesHeading.classList.add("revealed")});}
-        if(servicesCards){ScrollTrigger.create({trigger:servicesCards,start:"top 88%",once:true,onEnter:()=>servicesCards.classList.add("revealed")});}
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesList=document.querySelector(".services-list");
+        if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
