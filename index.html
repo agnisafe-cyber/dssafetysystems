@@ -328,6 +328,33 @@
     .product-visual{height:180px;display:grid;place-items:center;font-size:75px;filter:drop-shadow(0 20px 25px rgba(0,0,0,.12))}
     .product-link{position:absolute;top:26px;right:26px;width:36px;height:36px;border:none;background:rgba(16,16,16,.05);border-radius:50%;display:grid;place-items:center}
 
+    /* Product card information modal */
+    .product-home-row{cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+    .product-home-row:focus-visible{outline:2px solid #d93830;outline-offset:3px}
+    body.product-modal-open{overflow:hidden}
+    .product-info-modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:24px;background:rgba(10,10,10,.64);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility .3s ease}
+    .product-info-modal.show{opacity:1;visibility:visible;pointer-events:auto}
+    .product-info-panel{position:relative;width:min(920px,100%);max-height:90vh;overflow:auto;background:#f4f0e8;border:1px solid rgba(255,255,255,.5);box-shadow:0 30px 90px rgba(0,0,0,.28);padding:54px;border-radius:22px;transform:translateY(25px) scale(.97);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+    .product-info-modal.show .product-info-panel{transform:none}
+    .product-info-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border:1px solid rgba(16,16,16,.16);border-radius:50%;background:transparent;font-size:27px;line-height:1;cursor:pointer;transition:.25s}
+    .product-info-close:hover{background:#111;color:#fff;transform:rotate(90deg)}
+    .product-info-layout{display:grid;grid-template-columns:150px 1fr;gap:50px}
+    .product-info-label{font-family:"Poppins",sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;color:#d93830;padding-top:8px}
+    .product-info-kicker{font-family:"Poppins",sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:#918b81;margin-bottom:15px}
+    .product-info-title{font-family:"Poppins",sans-serif;font-size:clamp(40px,5vw,68px);line-height:.98;letter-spacing:-2.8px;max-width:650px;margin-bottom:22px}
+    .product-info-desc{font-size:16px;line-height:1.75;color:#6d6962;max-width:650px}
+    .product-info-meta{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:38px;padding-top:25px;border-top:1px solid rgba(16,16,16,.13)}
+    .product-info-meta span{display:block;font-family:"Poppins",sans-serif;font-size:9px;font-weight:700;letter-spacing:.15em;color:#918b81;margin-bottom:14px}
+    .product-info-list{list-style:none;display:grid;gap:8px}
+    .product-info-list li{font-size:14px;font-weight:600}
+    .product-info-list li:before{content:"+";color:#d93830;font-weight:800;margin-right:9px}
+    .product-info-use{display:block;font-size:15px;line-height:1.6;max-width:300px}
+    .product-info-actions{display:flex;gap:10px;margin-top:40px}
+    .product-info-actions a,.product-info-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid #111;background:#111;color:#fff;font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;cursor:pointer}
+    .product-info-actions button{background:transparent;color:#111}
+    .product-info-actions button:hover{background:#111;color:#fff}
+    @media(max-width:700px){.product-info-modal{padding:12px}.product-info-panel{padding:42px 24px 28px;border-radius:18px;max-height:92vh}.product-info-layout{grid-template-columns:1fr;gap:10px}.product-info-label{padding-top:0}.product-info-title{font-size:38px;letter-spacing:-1.7px}.product-info-meta{grid-template-columns:1fr;gap:24px;margin-top:28px}.product-info-actions{margin-top:28px}.product-info-actions a,.product-info-actions button{flex:1}}
+    
     /* Contact Section */
     .contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:65px}
     .contact-box{border:none;padding:35px;border-radius:22px;background:rgba(255,255,255,.025)}
@@ -371,6 +398,24 @@
 </style>
 </head>
 <body>
+<div id="product-info-modal" class="product-info-modal" aria-hidden="true" onclick="if(event.target===this) closeProductInfo()">
+  <div class="product-info-panel" role="dialog" aria-modal="true">
+    <button class="product-info-close" type="button" aria-label="Close" onclick="closeProductInfo()">×</button>
+    <div class="product-info-layout">
+      <div class="product-info-label">FIRE PROTECTION</div>
+      <div class="product-info-content">
+        <div class="product-info-kicker">DS SAFETY SYSTEMS / PRODUCT INFORMATION</div>
+        <h2 class="product-info-title">Fire Extinguishers</h2>
+        <p class="product-info-desc">A practical range of portable fire extinguishers.</p>
+        <div class="product-info-meta">
+          <div><span>AVAILABLE RANGE</span><ul class="product-info-list"></ul></div>
+          <div><span>TYPICAL USE</span><strong class="product-info-use"></strong></div>
+        </div>
+        <div class="product-info-actions"><a href="#contact" onclick="closeProductInfo()">Talk to us ↗</a><button type="button" onclick="closeProductInfo()">Close</button></div>
+      </div>
+    </div>
+  </div>
+</div>
   <div id="smooth-wrapper">
     <div id="smooth-content">
       <div id="root"></div>
@@ -378,6 +423,30 @@
   </div>
 
   <script>
+    const productInfo = {
+      "Fire Extinguishers":["FIRE PROTECTION","A practical range of portable fire extinguishers for different fire-risk environments.","ABC Dry Powder|CO₂ Extinguishers|Water-Type Extinguishers|Foam Extinguishers","Homes, offices, commercial and industrial areas"],
+      "Fire Alarm & Detection":["DETECTION SYSTEMS","Detection and alarm equipment designed to provide early warning and support a coordinated fire-safety response.","Fire Alarm Control Panels|Smoke Detectors|Heat Detectors|Manual Call Points","Commercial buildings and fire alarm installations"],
+      "Hydrant & Water Systems":["WATER-BASED PROTECTION","Essential water-delivery components used in hydrant and fire-fighting systems, selected around site requirements.","Fire Hose Reels|Hydrant Valves|Fire Hoses|Fire Nozzles|Sprinkler Heads","Hydrant, sprinkler and fire-water systems"],
+      "Fire Pumps":["FIRE-WATER SYSTEMS","Fire pump equipment supporting reliable water flow and pressure for fire protection systems.","Fire Pump Sets|Pump System Components|Water Supply Equipment","Hydrant and sprinkler fire-water systems"],
+      "Emergency & Exit":["EMERGENCY SAFETY","Equipment that supports safe movement, visibility and response during an emergency.","Emergency Lights|Exit Signs|Fire Blankets","Emergency evacuation and safety applications"],
+      "Safety Accessories":["SAFETY ACCESSORIES","Supporting fire-safety equipment that helps keep protection systems organised, accessible and ready.","Fire Safety Cabinets|Supporting Safety Equipment","Fire-safety installations and equipment storage"]
+    };
+    window.openProductInfo=function(title){
+      const d=productInfo[title],m=document.getElementById("product-info-modal");
+      if(!d||!m)return;
+      m.querySelector(".product-info-label").textContent=d[0];
+      m.querySelector(".product-info-title").textContent=title;
+      m.querySelector(".product-info-desc").textContent=d[1];
+      m.querySelector(".product-info-use").textContent=d[3];
+      m.querySelector(".product-info-list").innerHTML=d[2].split("|").map(x=>"<li>"+x+"</li>").join("");
+      m.classList.add("show");
+      document.body.classList.add("product-modal-open");
+    };
+    window.closeProductInfo=function(){
+      const m=document.getElementById("product-info-modal");
+      if(m)m.classList.remove("show");
+      document.body.classList.remove("product-modal-open");
+    };
     const {useEffect} = React;
     function App(){
       useEffect(()=>{
