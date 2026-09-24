@@ -91,7 +91,42 @@
     .service-row p{font-size:15px;line-height:1.65;color:#979ba3;max-width:680px;margin:0}
     .service-row-arrow{width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;transition:.3s ease}
     .service-row:hover .service-row-arrow{background:#dc2626;border-color:#dc2626;transform:rotate(45deg)}
-    /* Hero Section Styles */
+
+    /* Products section — third section after Services */
+    .products{position:relative;background:#f4f0e8;padding-top:130px;padding-bottom:130px;overflow:hidden}
+    .products-home-head{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end;margin-bottom:72px}
+    .products-home-head .section-label{margin-bottom:18px;color:#d93830}
+    .products-home-head h2{font-family:"Poppins",sans-serif;font-size:clamp(44px,5.4vw,78px);line-height:.98;letter-spacing:-3px;font-weight:800;max-width:820px}
+    .products-home-head h2 span{color:#d93830}
+    .products-home-copy{max-width:470px;justify-self:end}
+    .products-home-copy p{font-size:17px;line-height:1.75;color:#6d6962;margin-bottom:25px}
+    .products-home-link{display:inline-flex;align-items:center;gap:12px;font-family:"Poppins",sans-serif;font-size:13px;font-weight:700;border-bottom:1px solid #111;padding-bottom:8px;transition:.3s ease}
+    .products-home-link:hover{color:#d93830;border-color:#d93830;transform:translateX(5px)}
+    .products-home-grid{position:relative;border-top:1px solid rgba(16,16,16,.16)}
+    .product-home-row{display:grid;grid-template-columns:90px 1fr 70px;align-items:center;min-height:145px;border-bottom:1px solid rgba(16,16,16,.16);transition:background .35s ease,padding .4s cubic-bezier(.22,1,.36,1)}
+    .product-home-row:hover{background:rgba(217,56,48,.045);padding-left:12px}
+    .product-home-num{align-self:start;padding-top:28px;font-family:"Poppins",sans-serif;font-size:12px;font-weight:700;color:#d93830}
+    .product-home-main{padding:25px 25px 25px 0}
+    .product-home-kicker{font-family:"Poppins",sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:#98938a;margin-bottom:8px}
+    .product-home-main h3{font-family:"Poppins",sans-serif;font-size:27px;line-height:1.15;font-weight:700;letter-spacing:-.7px;margin-bottom:8px}
+    .product-home-main p{font-size:14px;line-height:1.6;color:#77726a;max-width:700px}
+    .product-home-arrow{width:48px;height:48px;border:1px solid rgba(16,16,16,.18);border-radius:50%;display:grid;place-items:center;font-size:21px;transition:.35s ease}
+    .product-home-row:hover .product-home-arrow{background:#d93830;border-color:#d93830;color:#fff;transform:rotate(45deg)}
+    @media(max-width:900px){
+      .products{padding-top:90px;padding-bottom:90px}
+      .products-home-head{grid-template-columns:1fr;gap:25px;margin-bottom:48px}
+      .products-home-head h2{font-size:40px;letter-spacing:-1.7px}
+      .products-home-copy{justify-self:start;max-width:100%}
+      .products-home-copy p{font-size:15px}
+      .product-home-row{grid-template-columns:42px 1fr 42px;min-height:140px}
+      .product-home-row:hover{padding-left:0}
+      .product-home-main{padding:24px 12px 24px 0}
+      .product-home-main h3{font-size:20px}
+      .product-home-main p{font-size:13px}
+      .product-home-num{padding-top:25px;font-size:11px}
+      .product-home-arrow{width:38px;height:38px;font-size:18px}
+    }
+\n    /* Hero Section Styles */
     .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;column-gap:32px;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
     .hero-content{position:relative;z-index:8;grid-column:1;grid-row:1;align-self:center;padding:120px 0 80px 5vw;max-width:820px}
@@ -464,12 +499,33 @@
             )
           ),
           React.createElement("section",{className:"section products",id:"products"},
-            React.createElement("div",{className:"product-intro"},
-              React.createElement("h2",null,"Built to protect."),
-              React.createElement("p",null,"A focused range of fire protection equipment for commercial, residential and industrial environments.")
+            React.createElement("div",{className:"products-home-head"},
+              React.createElement("div",null,
+                React.createElement("div",{className:"section-label"},"Our Products"),
+                React.createElement("h2",null,"Protection, engineered <span>for the real world.</span>")
+              ),
+              React.createElement("div",{className:"products-home-copy"},
+                React.createElement("p",null,"A focused range of fire protection equipment for commercial, residential and industrial environments — selected for practical protection and dependable service."),
+                React.createElement("a",{className:"products-home-link",href:"products.html"},"View all products"," ↗")
+              )
             ),
-            React.createElement("div",{className:"product-grid"},
-              [["01","Extinguishers","🧯"],["02","Fire Alarm Systems","◉"],["03","Hydrant & Sprinkler","◌"]].map(([n,t,v])=>React.createElement("article",{className:"product",key:n},React.createElement("div",{className:"product-num"},n),React.createElement("div",{className:"product-visual"},v),React.createElement("a",{className:"product-link",href:"products.html"},"↗"),React.createElement("h3",null,t)))
+            React.createElement("div",{className:"products-home-grid"},
+              [
+                ["01","Fire Extinguishers","ABC, CO₂, water-type and foam extinguishers.","products.html"],
+                ["02","Fire Alarm & Detection","Control panels, smoke detectors, heat detectors and call points.","products.html"],
+                ["03","Hydrant & Water Systems","Hose reels, hydrant valves, hoses, nozzles and sprinkler heads.","products.html"],
+                ["04","Fire Pumps","Equipment supporting reliable fire-water systems.","products.html"],
+                ["05","Emergency & Exit","Emergency lights, exit signs and fire blankets.","products.html"],
+                ["06","Safety Accessories","Fire safety cabinets and supporting protection equipment.","products.html"]
+              ].map(([n,t,p,href])=>React.createElement("a",{className:"product-home-row",href,key:n},
+                React.createElement("span",{className:"product-home-num"},n),
+                React.createElement("div",{className:"product-home-main"},
+                  React.createElement("div",{className:"product-home-kicker"},"DS / PRODUCTS"),
+                  React.createElement("h3",null,t),
+                  React.createElement("p",null,p)
+                ),
+                React.createElement("span",{className:"product-home-arrow"},"↗")
+              ))
             )
           ),
           React.createElement("section",{className:"section dark",id:"contact"},
