@@ -533,13 +533,13 @@
             ),
             React.createElement("div",{className:"products-home-grid"},
               [
-                ["01","Fire Extinguishers","ABC, CO₂, water-type and foam extinguishers.","products.html"],
-                ["02","Fire Alarm & Detection","Control panels, smoke detectors, heat detectors and call points.","products.html"],
-                ["03","Hydrant & Water Systems","Hose reels, hydrant valves, hoses, nozzles and sprinkler heads.","products.html"],
-                ["04","Fire Pumps","Equipment supporting reliable fire-water systems.","products.html"],
-                ["05","Emergency & Exit","Emergency lights, exit signs and fire blankets.","products.html"],
-                ["06","Safety Accessories","Fire safety cabinets and supporting protection equipment.","products.html"]
-              ].map(([n,t,p,href])=>React.createElement("a",{className:"product-home-row",href,key:n},
+                ["01","Fire Extinguishers","ABC, CO₂, water-type and foam extinguishers."],
+                ["02","Fire Alarm & Detection","Control panels, smoke detectors, heat detectors and call points."],
+                ["03","Hydrant & Water Systems","Hose reels, hydrant valves, hoses, nozzles and sprinkler heads."],
+                ["04","Fire Pumps","Equipment supporting reliable fire-water systems."],
+                ["05","Emergency & Exit","Emergency lights, exit signs and fire blankets."],
+                ["06","Safety Accessories","Fire safety cabinets and supporting protection equipment."]
+              ].map(([n,t,p,href])=>React.createElement("button",{className:"product-home-row",type:"button",onClick:()=>openProductInfo(t),key:n},
                 React.createElement("span",{className:"product-home-num"},n),
                 React.createElement("div",{className:"product-home-main"},
                   React.createElement("div",{className:"product-home-kicker"},"DS / PRODUCTS"),
