@@ -74,7 +74,8 @@
     .services-topline{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:18px}
     .services-topline .section-label{color:#fff!important;opacity:1!important;transform:none!important;filter:none!important}
     .services-topline>span{font-family:"Poppins",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#dc2626}
-    .services-hero-copy{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:80px;align-items:end;padding:55px 0 70px}
+    .services-hero-copy{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:80px;align-items:end;padding:55px 0 70px;opacity:0;transform:translateY(35px);filter:blur(6px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
+.services-home.revealed .services-hero-copy{opacity:1;transform:translateY(0);filter:blur(0)}
     .services-hero-copy h2{font-family:"Poppins",sans-serif;font-size:clamp(46px,5.2vw,76px);line-height:.98;letter-spacing:-3.2px;font-weight:800;margin:0;color:#f7f5f0;max-width:850px}
     .services-hero-copy h2 span{color:#dc2626}
     .services-hero-copy p{font-size:17px;line-height:1.75;color:#aeb1b7;max-width:470px;margin:0 0 4px}
@@ -329,7 +330,8 @@
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesList=document.querySelector(".services-list");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
+        if(servicesHome){ScrollTrigger.create({trigger:servicesHome,start:"top 78%",once:true,onEnter:()=>servicesHome.classList.add("revealed")});}
         if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
