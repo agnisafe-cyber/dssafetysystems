@@ -707,3 +707,50 @@
     transform:none; /* Locks it cleanly into the right grid column */
   }
 }
+
+
+/* Products — service-page dark atmosphere with subtle sparks */
+.products{
+  background:#111!important;
+  min-height:300vh;
+}
+.products:before{
+  background:linear-gradient(115deg,rgba(220,38,38,.12),transparent 38%,transparent 72%,rgba(255,255,255,.025))!important;
+  z-index:-1;
+}
+.products-home-head:before{
+  content:"";
+  position:absolute;
+  top:8%;
+  right:4%;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:#fff;
+  opacity:.75;
+  box-shadow:
+    35px 30px 0 rgba(255,255,255,.65),
+    90px 95px 0 rgba(220,38,38,.9),
+    155px 42px 0 rgba(255,255,255,.45),
+    210px 150px 0 rgba(255,255,255,.55),
+    275px 70px 0 rgba(220,38,38,.7),
+    335px 190px 0 rgba(255,255,255,.4),
+    410px 115px 0 rgba(255,255,255,.65),
+    475px 235px 0 rgba(220,38,38,.65),
+    540px 55px 0 rgba(255,255,255,.45),
+    600px 170px 0 rgba(255,255,255,.55),
+    660px 100px 0 rgba(220,38,38,.7);
+  animation:productSparks 3.8s ease-in-out infinite;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes productSparks{
+  0%,100%{opacity:.18;transform:translate(0,8px) scale(.8)}
+  35%{opacity:.8;transform:translate(-12px,-4px) scale(1)}
+  65%{opacity:.35;transform:translate(10px,4px) scale(.9)}
+}
+.products-home-head h2,.products-home-copy,.products-home-head .section-label{position:relative;z-index:2}
+@media(max-width:900px){
+  .products{min-height:auto!important}
+  .products-home-head:before{right:-20px;top:5%;transform:scale(.7);transform-origin:top right}
+}
