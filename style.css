@@ -1254,3 +1254,8 @@
 
 /* Products heading refinement */
 .products .products-intro h2{font-size:clamp(38px,4.8vw,68px)!important;font-weight:600!important;letter-spacing:-2.2px!important;line-height:1.02!important}
+
+
+/* Products heading — explicit line break layout */
+.products .products-intro h2{white-space:normal!important;width:100%!important}
+.products .products-intro h2 span{display:block!important;width:100%!important;clear:both!important}
