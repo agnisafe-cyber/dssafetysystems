@@ -1120,3 +1120,37 @@
 @media(max-width:900px){
   .products{min-height:78svh!important;background:#1e1e1e!important}
 }
+
+
+/* PRODUCTS — premium fourth-section heading */
+.products-home-head{display:flex!important;min-height:100svh!important;margin:0!important;padding:0 5vw!important;align-items:center!important;justify-content:center!important;position:relative!important;z-index:3!important}
+.products-home-head>div:first-child{width:100%;text-align:center!important}
+.products-home-head .section-label,.products-home-copy,.products-home-grid{display:none!important}
+.products-main-heading{
+  font-family:"Google Sans Flex",sans-serif!important;
+  font-size:clamp(58px,8.2vw,132px)!important;
+  line-height:.91!important;
+  letter-spacing:-.065em!important;
+  font-weight:650!important;
+  color:#f7f5f0!important;
+  max-width:1200px!important;
+  margin:0 auto!important;
+  text-wrap:balance;
+  text-shadow:0 0 45px rgba(255,255,255,.06),0 0 90px rgba(220,38,38,.08);
+  animation:productsHeadingFloat 6s ease-in-out infinite;
+}
+.products-main-heading span{
+  color:#dc2626!important;
+  background:linear-gradient(105deg,#dc2626 0%,#ff5a4f 48%,#dc2626 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:180% 100%;
+  animation:productsHeadingShine 5s ease-in-out infinite;
+}
+@keyframes productsHeadingFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes productsHeadingShine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(max-width:900px){
+  .products-home-head{min-height:78svh!important;padding:0 20px!important}
+  .products-main-heading{font-size:clamp(46px,12.5vw,70px)!important;line-height:.94!important;letter-spacing:-.055em!important}
+}
