@@ -461,3 +461,19 @@
   -webkit-text-fill-color:transparent!important;
   color:transparent!important;
 }
+.products-intro .products-description{
+  max-width:760px;
+  margin:28px auto 0;
+  text-align:center;
+  color:#aeb1b7;
+  font-size:16px;
+  line-height:1.7;
+}
+@media(max-width:600px){
+  .products-intro .products-description{
+    max-width:100%;
+    margin-top:22px;
+    font-size:14px;
+    line-height:1.65;
+  }
+}
