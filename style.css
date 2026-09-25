@@ -1245,3 +1245,8 @@
 .products .products-intro{display:block!important;margin:0!important}
 .products .products-intro .section-label{margin-bottom:22px!important}
 .products .products-intro h2{margin:0 auto!important;max-width:900px!important}
+
+
+/* Products title — force intentional two-line composition */
+.products .products-intro h2{max-width:900px!important}
+.products .products-intro h2 span{display:block!important}
