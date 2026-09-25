@@ -399,7 +399,7 @@
 .card p{color:#ababab;font-size:14.5px;line-height:1.7;max-width:280px;margin-top:8px}
 .card-arrow{color:var(--red);font-size:24px}
 
-.products{background:var(--bg)}
+.products{background:#f4f0e8 url("assets/products-bg.svg") center top/cover no-repeat;}
 .product-intro{display:flex;justify-content:space-between;gap:40px;align-items:end}
 .product-intro h2{font-size:clamp(42px,6vw,80px);letter-spacing:-4px;line-height:1.02;font-weight:750}
 .product-intro p{max-width:330px;color:#2a313d;line-height:1.65;font-size:15px;font-weight:500;margin-bottom:10px}
