@@ -1154,3 +1154,62 @@
   .products-home-head{min-height:78svh!important;padding:0 20px!important}
   .products-main-heading{font-size:clamp(46px,12.5vw,70px)!important;line-height:.94!important;letter-spacing:-.055em!important}
 }
+
+
+/* PRODUCTS — refined cinematic atmosphere */
+.products{
+  background:
+    radial-gradient(circle at 72% 42%,rgba(220,38,38,.10),transparent 28%),
+    radial-gradient(circle at 25% 70%,rgba(255,255,255,.045),transparent 30%),
+    linear-gradient(135deg,#242424 0%,#1d1d1d 48%,#262626 100%)!important;
+}
+.products:before{
+  background:
+    radial-gradient(circle at 70% 38%,rgba(220,38,38,.16),transparent 24%),
+    linear-gradient(115deg,rgba(255,255,255,.035),transparent 38%,rgba(220,38,38,.045) 72%,transparent)!important;
+  animation:productsAmbient 10s ease-in-out infinite alternate!important;
+}
+.products:after{
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px)!important;
+  background-size:110px 110px!important;
+  opacity:.38!important;
+}
+.products-atmosphere{
+  background:
+    radial-gradient(circle at 50% 50%,transparent 25%,rgba(255,255,255,.025) 50%,transparent 72%),
+    linear-gradient(105deg,transparent 20%,rgba(255,255,255,.028) 50%,transparent 80%)!important;
+  background-size:100% 100%,220% 100%!important;
+  animation:productsSweep 12s ease-in-out infinite!important;
+}
+.products-atmosphere:before{
+  width:52vw!important;height:52vw!important;
+  border-color:rgba(255,255,255,.065)!important;
+  box-shadow:0 0 110px rgba(220,38,38,.10),inset 0 0 90px rgba(255,255,255,.02)!important;
+  animation:productsRing 18s ease-in-out infinite!important;
+}
+.products-atmosphere:after{
+  width:86vw!important;height:86vw!important;
+  border-color:rgba(220,38,38,.075)!important;
+  box-shadow:0 0 100px rgba(220,38,38,.035)!important;
+  animation:productsRing 25s linear infinite reverse!important;
+}
+.product-spark{
+  box-shadow:0 0 10px rgba(255,255,255,.9),0 0 28px rgba(220,38,38,.45)!important;
+  animation:ambientSpark 4.5s ease-in-out infinite,sparkPulse 3s ease-in-out infinite!important;
+}
+@keyframes productsAmbient{
+  0%{transform:scale(1);filter:brightness(.98)}
+  50%{filter:brightness(1.06)}
+  100%{transform:scale(1.018);filter:brightness(1)}
+}
+@media(max-width:900px){
+  .products{
+    background:
+      radial-gradient(circle at 75% 30%,rgba(220,38,38,.12),transparent 32%),
+      linear-gradient(145deg,#252525,#1d1d1d 65%,#242424)!important;
+  }
+  .products-atmosphere:before{width:90vw!important;height:90vw!important}
+  .products-atmosphere:after{width:135vw!important;height:135vw!important}
+}
