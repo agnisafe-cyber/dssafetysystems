@@ -1140,11 +1140,11 @@
   animation:productsHeadingFloat 6s ease-in-out infinite;
 }
 .products-main-heading span{
-  color:#dc2626!important;
-  background:linear-gradient(105deg,#dc2626 0%,#ff5a4f 48%,#dc2626 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
+  background:linear-gradient(110deg,#111827 0%,#253247 25%,#dc2626 65%,#f97316 100%)!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
   background-size:180% 100%;
   animation:productsHeadingShine 5s ease-in-out infinite;
 }
