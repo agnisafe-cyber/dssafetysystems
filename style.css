@@ -1213,3 +1213,35 @@
   .products-atmosphere:before{width:90vw!important;height:90vw!important}
   .products-atmosphere:after{width:135vw!important;height:135vw!important}
 }
+
+
+/* PRODUCTS — match Services background exactly; hide content */
+.products{
+  background:#111!important;
+  color:#fff!important;
+}
+.products:before{
+  background:linear-gradient(115deg,rgba(220,38,38,.12),transparent 38%,transparent 72%,rgba(255,255,255,.025))!important;
+  animation:none!important;
+}
+.products:after{
+  background-image:none!important;
+  opacity:0!important;
+}
+.products-atmosphere{
+  background:none!important;
+  animation:none!important;
+}
+.products-atmosphere:before,
+.products-atmosphere:after{
+  display:none!important;
+}
+.products .product-spark{
+  display:none!important;
+}
+.products-home-head,
+.products-hero,
+.products-home-grid,
+.products-home-copy{
+  display:none!important;
+}
