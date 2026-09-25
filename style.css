@@ -1250,3 +1250,7 @@
 /* Products title — force intentional two-line composition */
 .products .products-intro h2{max-width:900px!important}
 .products .products-intro h2 span{display:block!important}
+
+
+/* Products heading refinement */
+.products .products-intro h2{font-size:clamp(38px,4.8vw,68px)!important;font-weight:600!important;letter-spacing:-2.2px!important;line-height:1.02!important}
