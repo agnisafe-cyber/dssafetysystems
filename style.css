@@ -1259,3 +1259,8 @@
 /* Products heading — explicit line break layout */
 .products .products-intro h2{white-space:normal!important;width:100%!important}
 .products .products-intro h2 span{display:block!important;width:100%!important;clear:both!important}
+
+
+/* Products heading colors */
+.products .products-intro h2 .products-line-one{color:#f7f5f0!important;-webkit-text-fill-color:#f7f5f0!important;background:none!important}
+.products .products-intro h2 .products-line-two{color:#dc2626!important;-webkit-text-fill-color:#dc2626!important;background:none!important}
