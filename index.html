@@ -619,109 +619,47 @@
               ))
             )
           ),
-         <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DS Safety System — Certified Fire Protection & AMC Services</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        .industrial-glass {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-red-600 selection:text-white overflow-x-hidden">
-
-    <main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-        <div class="max-w-4xl w-full mx-auto text-center space-y-8">
-            
-            <!-- Pre-badge -->
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-red-950/70 border border-red-500/30 text-xs sm:text-sm font-semibold text-red-400 shadow-lg shadow-red-950/50 mx-auto">
-                <span class="flex h-2.5 w-2.5 rounded-full bg-red-500 animate-ping"></span>
-                <i data-lucide="shield-alert" class="w-4 h-4"></i>
-                <span>ISO 9001:2015 Certified Fire Protection & AMC Experts</span>
-            </div>
-
-            <!-- Main Headline -->
-            <h1 class="font-display text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-                Total Fire Safety. <br>
-                <span class="bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 bg-clip-text text-transparent">
-                    Zero Compromise.
-                </span>
-            </h1>
-
-            <!-- Subheadline -->
-            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
-                Guarding What Matters Most with certified equipment installations and proactive annual maintenance contracts (AMC). Protect your infrastructure, assets, and people around the clock with zero downtime.
-            </p>
-
-            <!-- CTA Button -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                <a href="#equipment" onclick="handleCTAClick('Equipment Catalog', 'Loading certified fire safety equipment catalog...')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-rose-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-red-600/30 hover:shadow-red-600/50 hover:scale-[1.02] active:scale-[0.98] transition-all">
-                    <i data-lucide="flame" class="w-5 h-5"></i>
-                    <span>Explore Equipment</span>
-                </a>
-            </div>
-
-        </div>
-    </main>
-
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 ease-out pointer-events-none">
-        <div class="industrial-glass bg-slate-900/95 border-red-500/40 px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm">
-            <div class="w-9 h-9 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-500 shrink-0">
-                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-            </div>
-            <div>
-                <div id="toast-title" class="font-display text-sm font-semibold text-white">Request Received</div>
-                <div id="toast-message" class="text-xs text-slate-300">DS Safety team will contact you within 30 minutes.</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        lucide.createIcons();
-
-        function handleCTAClick(title, msg) {
-            showToast(title, msg);
-        }
-
-        function showToast(title, message) {
-            const toast = document.getElementById('toast');
-            const toastTitle = document.getElementById('toast-title');
-            const toastMessage = document.getElementById('toast-message');
-
-            toastTitle.innerText = title;
-            toastMessage.innerText = message;
-
-            toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
-            }, 4000);
-        }
-    </script>
+          React.createElement("section",{className:"section products",id:"products"},
+  React.createElement("div",{className:"products-inner"},
+    React.createElement("div",{className:"products-intro"},
+      React.createElement("div",{className:"section-label"},"Our Products"),
+      React.createElement("h2",null,"Protection, engineered for the ",React.createElement("span",null,"real world.")),
+      React.createElement("p",null,"A focused fire-protection range selected for commercial, residential and industrial environments."),
+      React.createElement("a",{className:"products-view-link",href:"#contact"},"View all products ↗")
+    ),
+    React.createElement("div",{className:"products-card-grid"},
+      [["01","Fire Extinguishers","Reliable portable protection for everyday fire risks."],["02","Fire Alarm & Detection","Detection and notification systems for critical spaces."],["03","Hydrant & Water Systems","Engineered water-based protection infrastructure."],["04","Fire Pumps","Reliable pressure and flow for fire-fighting systems."],["05","Emergency & Exit","Clear, dependable guidance for safe evacuation."],["06","Safety Accessories","Essential equipment for a complete safety setup."]].map(([n,t,p])=>React.createElement("article",{className:"product-card",key:n},
+        React.createElement("div",{className:"product-card-top"},React.createElement("span",null,n),React.createElement("span",null,"DS / PRODUCT")),
+        React.createElement("div",{className:"product-card-body"},React.createElement("h3",null,t),React.createElement("p",null,p)),
+        React.createElement("div",{className:"product-card-arrow"},"↗")
+      ))
+    )
+  )
+),React.createElement("section",{className:"section dark",id:"contact"},
+            React.createElement("div",{className:"section-label"},"Start a conversation"),
+            React.createElement("div",{className:"statement"},"Ready when <span>you are.</span>"),
+            React.createElement("p",{className:"hero-copy",style:{opacity:1,color:"#ababab",marginTop:"32px",marginBottom:"20px"}},"Talk to DS Safety Systems about equipment, installation or annual maintenance."),
+            React.createElement("div",{className:"contact-grid"},
+              React.createElement("div",{className:"contact-box"},
+                React.createElement("div",{className:"contact-label"},"Call / WhatsApp"),
+                React.createElement("a",{href:"tel:9818701683"},"9818701683"),
+                React.createElement("p",null,"Speak with us about equipment, installation, servicing or AMC requirements.")
+              ),
+              React.createElement("div",{className:"contact-box"},
+                React.createElement("div",{className:"contact-label"},"Email / Location"),
+                React.createElement("a",{href:"mailto:Dssafetysystems@hotmail.com"},"Dssafetysystems@hotmail.com"),
+                React.createElement("p",null,"Govind Puri, New Delhi")
+              )
+            )
+          )
+        ),
+        React.createElement("footer",{className:"footer"},
+          React.createElement("div",null,"© 2026 DS SAFETY SYSTEMS"),
+          React.createElement("div",null,"Fire protection • Safety • Maintenance")
+        )
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+  </script>
 </body>
 </html>
