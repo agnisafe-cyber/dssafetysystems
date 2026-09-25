@@ -1238,3 +1238,10 @@
 .product-card-body{margin-top:auto;padding-top:55px}.product-card-body h3{font-family:"Poppins",sans-serif;font-size:27px;line-height:1.1;letter-spacing:-.8px;color:#f7f5f0;margin-bottom:10px}.product-card-body p{font-size:14px;line-height:1.6;color:#92969d;max-width:500px}
 .product-card-arrow{align-self:flex-end;margin-top:22px;width:42px;height:42px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:grid;place-items:center;font-size:19px;transition:.35s ease}.product-card:hover .product-card-arrow{background:#dc2626;border-color:#dc2626;transform:rotate(45deg)}
 @media(max-width:900px){.products{padding:90px 20px!important}.products-intro{grid-template-columns:1fr;gap:24px;margin-bottom:42px}.products-intro .section-label{grid-column:auto;margin-bottom:-8px}.products-intro h2{font-size:42px;letter-spacing:-1.8px}.products-intro p{font-size:14px}.products-view-link{grid-column:auto;margin-top:-8px}.products-card-grid{grid-template-columns:1fr}.product-card{min-height:245px;padding:24px}.product-card-body{padding-top:40px}.product-card-body h3{font-size:24px}}
+
+
+/* Products heading centered */
+.products .products-inner{display:flex!important;align-items:center!important;justify-content:center!important;min-height:420px!important;text-align:center!important}
+.products .products-intro{display:block!important;margin:0!important}
+.products .products-intro .section-label{margin-bottom:22px!important}
+.products .products-intro h2{margin:0 auto!important;max-width:900px!important}
