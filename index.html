@@ -489,15 +489,15 @@
 .products .shell .wsk-cp-img img{height:280px!important;object-fit:cover!important;}
 .products .shell .wsk-cp-text{padding-top:305px!important;}
 .products .shell .wsk-cp-product{min-height:430px!important;}
-/* Product rows: 4 small / 1 big + 2 small / 2 small + 1 big */
+/* Product rows: 4 small / 2 small + big / remaining small + big */
 @media(min-width:992px){
 .products .shell .row:nth-child(1){grid-template-columns:repeat(4,minmax(0,1fr));}
 .products .shell .row:nth-child(1) .col-md-3{grid-column:span 1!important;}
 .products .shell .row:nth-child(2){grid-template-columns:repeat(4,minmax(0,1fr));}
-.products .shell .row:nth-child(2) .col-md-6:first-child{grid-column:span 2!important;grid-row:1;}
-.products .shell .row:nth-child(2) .col-md-3:nth-child(2){grid-column:3!important;grid-row:1;}
-.products .shell .row:nth-child(2) .col-md-3:nth-child(3){grid-column:4!important;grid-row:1;}
-.products .shell .row:nth-child(2) .col-md-6:last-child{grid-column:span 2!important;grid-row:2;}
+.products .shell .row:nth-child(2) .col-md-6:first-child{grid-column:3 / span 2!important;grid-row:1;}
+.products .shell .row:nth-child(2) .col-md-3:nth-child(2){grid-column:1!important;grid-row:1;}
+.products .shell .row:nth-child(2) .col-md-3:nth-child(3){grid-column:2!important;grid-row:1;}
+.products .shell .row:nth-child(2) .col-md-6:last-child{grid-column:3 / span 2!important;grid-row:2;}
 }
 </style>
 </head>
