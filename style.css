@@ -546,3 +546,12 @@
 /* Product card image height */
 .products .wsk-cp-img img{height:280px!important;}
 .products .wsk-cp-text{padding-top:305px!important;}
+
+/* Product card final-row layout */
+@media(min-width:992px){
+  .products .shell .row:nth-child(2){grid-template-columns:repeat(4,minmax(0,1fr);}
+  .products .shell .row:nth-child(2) .col-md-6{grid-column:span 2;}
+  .products .shell .row:nth-child(2) .col-md-6:last-child{grid-column:3 / span 2;grid-row:1;}
+  .products .shell .row:nth-child(2) .col-md-3:nth-child(2){grid-column:1;grid-row:1;}
+  .products .shell .row:nth-child(2) .col-md-3:nth-child(3){grid-column:2;grid-row:1;}
+}
