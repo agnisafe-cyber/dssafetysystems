@@ -449,17 +449,15 @@
 .products-intro h2 .products-line-one,
 .products-intro h2 .products-line-two{
   display:block;
-  background:url("https://i.ibb.co/RDTnNrT/animated-text-fill.png") repeat-y!important;
-  background-size:auto 100%!important;
+  background:linear-gradient(90deg,#f7f5f0 0%,#f7f5f0 35%,#dc2626 50%,#f97316 65%,#f7f5f0 80%,#f7f5f0 100%)!important;
+  background-size:300% 100%!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   -webkit-text-fill-color:transparent!important;
   color:transparent!important;
-  text-shadow:0 0 40px rgba(255,255,255,.18);
-  -webkit-animation:productsAnimatedFill 28s linear infinite;
-  animation:productsAnimatedFill 28s linear infinite;
-  -webkit-transform:translate3d(0,0,0);
-  transform:translate3d(0,0,0);
+  animation:productsTextFill 7s linear infinite;
+  -webkit-animation:productsTextFill 7s linear infinite;
+  text-shadow:0 0 35px rgba(220,38,38,.12);
 }
 .products-intro .products-description{
   max-width:760px;
@@ -478,12 +476,6 @@
   }
 }
 
-@keyframes productsAnimatedFill{
-  0%{background-position:0% 50%}
-  100%{background-position:100% 50%}
-}
-@-webkit-keyframes productsAnimatedFill{
-  0%{background-position:0% 50%}
   100%{background-position:100% 50%}
 }
 
@@ -500,3 +492,7 @@
 .products-stars #stars3:after{content:"";position:absolute;top:2000px;width:3px;height:3px;background:transparent;box-shadow:149px 311px #fff,384px 1008px #fff,672px 537px #fff,913px 1421px #fff,1157px 763px #fff,1392px 118px #fff,1644px 1562px #fff;}
 @keyframes productsStarMove{from{transform:translateY(0)}to{transform:translateY(-2000px)}}
 .products-inner{position:relative;z-index:2;}
+@keyframes productsTextFill{
+  0%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
