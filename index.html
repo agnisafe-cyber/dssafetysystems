@@ -489,6 +489,11 @@
 .products .shell .wsk-cp-img img{height:350px!important;object-fit:cover!important;}
 .products .shell .wsk-cp-text{padding-top:305px!important;}
 .products .shell .wsk-cp-product{min-height:430px!important;}
+/* Product image hover/touch shine */
+.products .shell .wsk-cp-img{overflow:hidden;border-radius:8px;}
+.products .shell .wsk-cp-img::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 40%,rgba(255,255,255,.48) 50%,rgba(255,255,255,.08) 60%,transparent 100%);transform:skewX(-18deg);pointer-events:none;transition:left .65s ease;}
+.products .shell .wsk-cp-product:hover .wsk-cp-img::after,.products .shell .wsk-cp-product:active .wsk-cp-img::after{left:135%;}
+.products .shell .wsk-cp-product:hover .wsk-cp-img img,.products .shell .wsk-cp-product:active .wsk-cp-img img{filter:brightness(1.04);box-shadow:0 0 18px rgba(255,255,255,.18),0 19px 38px rgba(0,0,0,.30),0 15px 12px rgba(0,0,0,.22);}
 /* Product rows: 4 small / 2 small + big / remaining small + big */
 @media(min-width:992px){
 .products .shell .row:nth-child(1){grid-template-columns:repeat(4,minmax(0,1fr));}
