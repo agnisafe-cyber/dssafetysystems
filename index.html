@@ -509,7 +509,35 @@
 .products .shell .wsk-cp-product{transition:box-shadow .3s ease,transform .3s ease;}
 .products .shell .wsk-cp-product:hover,.products .shell .wsk-cp-product:active{transform:translateY(-8px)!important;box-shadow:0 14px 30px rgba(0,0,0,.20),0 0 14px rgba(255,255,255,.12)!important;}
 </style>
-</head>
+
+    /* Soft glow behind product cards */
+    .products .shell .wsk-cp-product{
+      isolation:isolate;
+    }
+    .products .shell .wsk-cp-product::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      left:8%;
+      right:8%;
+      bottom:-18px;
+      height:58%;
+      border-radius:50%;
+      background:rgba(217,56,48,.18);
+      filter:blur(28px);
+      opacity:.65;
+      transform:translateY(4px) scale(.92);
+      pointer-events:none;
+      transition:opacity .35s ease,transform .35s ease,filter .35s ease;
+    }
+    .products .shell .wsk-cp-product:hover::before,
+    .products .shell .wsk-cp-product:active::before{
+      opacity:.9;
+      transform:translateY(2px) scale(1);
+      filter:blur(32px);
+    }
+
+  </head>
 <body>
 <div id="smooth-wrapper">
     <div id="smooth-content">
