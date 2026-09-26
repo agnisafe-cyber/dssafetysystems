@@ -512,10 +512,6 @@
 </style>
 
 <style>
-    /* Soft glow behind product cards */
-    .products .shell .wsk-cp-product{
-      isolation:isolate;
-    }
     .products .shell .wsk-cp-product::before{
       content:"";
       position:absolute;
@@ -532,12 +528,7 @@
       pointer-events:none;
       transition:opacity .35s ease,transform .35s ease,filter .35s ease;
     }
-    .products .shell .wsk-cp-product:hover::before,
-    .products .shell .wsk-cp-product:active::before{
-      opacity:.9;
-      transform:translateY(2px) scale(1);
-      filter:blur(32px);
-    }
+    
 
 </style>
   </head>
