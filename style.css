@@ -449,15 +449,16 @@
 .products-intro h2 .products-line-one,
 .products-intro h2 .products-line-two{
   display:block;
-  background:linear-gradient(90deg,#f7f5f0 0%,#f7f5f0 35%,#dc2626 50%,#f97316 65%,#f7f5f0 80%,#f7f5f0 100%)!important;
-  background-size:300% 100%!important;
+  background:linear-gradient(110deg,#f7f5f0 0%,#f7f5f0 28%,#dc2626 42%,#ef4444 52%,#f97316 62%,#fbbf24 72%,#f7f5f0 88%,#f7f5f0 100%)!important;
+  background-size:320% 100%!important;
+  background-position:100% 50%!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   -webkit-text-fill-color:transparent!important;
   color:transparent!important;
-  animation:productsTextFill 7s linear infinite;
-  -webkit-animation:productsTextFill 7s linear infinite;
-  text-shadow:0 0 35px rgba(220,38,38,.12);
+  animation:productsTextFill 9s ease-in-out infinite;
+  -webkit-animation:productsTextFill 9s ease-in-out infinite;
+  text-shadow:0 0 35px rgba(220,38,38,.1);
 }
 .products-intro .products-description{
   max-width:760px;
