@@ -517,8 +517,13 @@
     .products-intro-revealed{opacity:1;transform:translateY(0);filter:blur(0)}
     .products .shell{opacity:0;transform:translateY(42px);filter:blur(3px);transition:opacity:1.15s cubic-bezier(.22,1,.36,1) .18s,transform:1.2s cubic-bezier(.22,1,.36,1) .18s,filter:1.2s cubic-bezier(.22,1,.36,1) .18s}
     .products-revealed .shell{opacity:1;transform:translateY(0);filter:blur(0)}
-    .products-revealed .shell .wsk-cp-product{opacity:0;animation:productCardCinematic 1.05s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.42s + var(--product-delay,0s));will-change:transform,opacity;}
-    @keyframes productCardCinematic{0%{opacity:0;transform:translateY(32px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    .products-revealed .shell .wsk-cp-product{opacity:0;will-change:transform,opacity;}
+    .products-revealed .shell .row:nth-child(1) .wsk-cp-product{animation:productRowFromLeft 1.05s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.35s + var(--product-delay,0s));}
+    .products-revealed .shell .row:nth-child(2) .wsk-cp-product{animation:productRowFadeUp 1.05s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.58s + var(--product-delay,0s));}
+    .products-revealed .shell .row:nth-child(2) .wsk-cp-product:nth-child(n+4){animation:productRowFromRight 1.05s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.78s + var(--product-delay,0s));}
+    @keyframes productRowFromLeft{0%{opacity:0;transform:translateX(-70px)}65%{opacity:1;transform:translateX(5px)}100%{opacity:1;transform:translateX(0)}}
+    @keyframes productRowFadeUp{0%{opacity:0;transform:translateY(55px) scale(.985)}70%{opacity:1;transform:translateY(-3px) scale(1)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes productRowFromRight{0%{opacity:0;transform:translateX(70px)}65%{opacity:1;transform:translateX(-5px)}100%{opacity:1;transform:translateX(0)}}
     .products-revealed .shell .wsk-cp-product .wsk-cp-img,.products-revealed .shell .wsk-cp-product .wsk-cp-text{will-change:transform,opacity}
     .products-revealed .products-intro .section-label{animation:productLabelIn .7s cubic-bezier(.22,1,.36,1) .05s both}
     .products-revealed .products-intro h2{animation:productTitleIn 1s cubic-bezier(.22,1,.36,1) .12s both}
