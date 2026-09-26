@@ -512,7 +512,22 @@
 /* Subtle whole-card hover/touch glow */
 .products .shell .wsk-cp-product{transition:box-shadow .3s ease,transform .3s ease;}
 .products .shell .wsk-cp-product:hover,.products .shell .wsk-cp-product:active{transform:translateY(-8px)!important;box-shadow:0 14px 30px rgba(0,0,0,.20),0 0 14px rgba(255,255,255,.12)!important;}
-</style>
+/* Premium Products cinematic entrance */
+    .products-intro{opacity:0;transform:translateY(34px);filter:blur(4px);transition:opacity:1s cubic-bezier(.22,1,.36,1),transform:1.05s cubic-bezier(.22,1,.36,1),filter:1.05s cubic-bezier(.22,1,.36,1)}
+    .products-intro-revealed{opacity:1;transform:translateY(0);filter:blur(0)}
+    .products .shell{opacity:0;transform:translateY(42px);filter:blur(3px);transition:opacity:1.15s cubic-bezier(.22,1,.36,1) .18s,transform:1.2s cubic-bezier(.22,1,.36,1) .18s,filter:1.2s cubic-bezier(.22,1,.36,1) .18s}
+    .products-revealed .shell{opacity:1;transform:translateY(0);filter:blur(0)}
+    .products-revealed .shell .wsk-cp-product{animation:productCardCinematic 1s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--product-delay,0s)}
+    @keyframes productCardCinematic{0%{opacity:0;transform:translateY(32px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    .products-revealed .products-intro .section-label{animation:productLabelIn .7s cubic-bezier(.22,1,.36,1) .05s both}
+    .products-revealed .products-intro h2{animation:productTitleIn 1s cubic-bezier(.22,1,.36,1) .12s both}
+    .products-revealed .products-intro p{animation:productCopyIn .85s cubic-bezier(.22,1,.36,1) .25s both}
+    @keyframes productLabelIn{from{opacity:0;transform:translateY(12px);letter-spacing:.22em}to{opacity:1;transform:none;letter-spacing:normal}}
+    @keyframes productTitleIn{from{opacity:0;transform:translateY(26px);clip-path:inset(100% 0 0 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+    @keyframes productCopyIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){.products .shell{transform:translateY(28px)}.products-revealed .shell .wsk-cp-product{animation-duration:.85s}}
+    @media(prefers-reduced-motion:reduce){.products-intro,.products .shell,.products .shell .wsk-cp-product{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}}
+  </style>
 
 <style>
     
@@ -534,7 +549,18 @@
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro"),productRows=document.querySelectorAll(".products .shell .wsk-cp-product");
+      if(productsSection){
+        const productsObserver=ScrollTrigger.create({
+          trigger:productsSection,start:"top 72%",once:true,
+          onEnter:()=>{
+            productsSection.classList.add("products-revealed");
+            if(productsIntro) productsIntro.classList.add("products-intro-revealed");
+            productRows.forEach((card,i)=>{card.style.setProperty("--product-delay",(i*.075)+"s");});
+          }
+        });
+      }
+      const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
         if(servicesHome){ScrollTrigger.create({trigger:servicesHome,start:"top 78%",once:true,onEnter:()=>servicesHome.classList.add("revealed")});}
         if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
