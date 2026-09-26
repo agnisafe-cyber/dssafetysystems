@@ -480,7 +480,11 @@
       .about-image-wrap{position:relative;overflow:hidden}
     .about-image-wrap::before{content:"";position:absolute;z-index:4;top:-80%;left:-80%;width:260%;height:260%;background:#f4f0e8;transform:translate(0,0) rotate(45deg);transform-origin:center;transition:transform 2.4s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
     .about-image-wrap.revealed::before{transform:translate(112%,112%) rotate(45deg)}
-</style>
+
+    /* Product card image size — final override */
+    .products .shell .wsk-cp-img img{height:280px!important;width:100%!important;object-fit:cover!important;}
+    .products .shell .wsk-cp-text{padding-top:305px!important;}
+  </style>
 </head>
 <body>
 <div id="smooth-wrapper">
