@@ -517,8 +517,9 @@
     .products-intro-revealed{opacity:1;transform:translateY(0);filter:blur(0)}
     .products .shell{opacity:0;transform:translateY(42px);filter:blur(3px);transition:opacity:1.15s cubic-bezier(.22,1,.36,1) .18s,transform:1.2s cubic-bezier(.22,1,.36,1) .18s,filter:1.2s cubic-bezier(.22,1,.36,1) .18s}
     .products-revealed .shell{opacity:1;transform:translateY(0);filter:blur(0)}
-    .products-revealed .shell .wsk-cp-product{animation:productCardCinematic 1s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--product-delay,0s);will-change:transform,opacity,filter}
+    .products-revealed .shell .wsk-cp-product{opacity:0;animation:productCardCinematic 1.05s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(.42s + var(--product-delay,0s));will-change:transform,opacity;}
     @keyframes productCardCinematic{0%{opacity:0;transform:translateY(32px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    .products-revealed .shell .wsk-cp-product .wsk-cp-img,.products-revealed .shell .wsk-cp-product .wsk-cp-text{will-change:transform,opacity}
     .products-revealed .products-intro .section-label{animation:productLabelIn .7s cubic-bezier(.22,1,.36,1) .05s both}
     .products-revealed .products-intro h2{animation:productTitleIn 1s cubic-bezier(.22,1,.36,1) .12s both}
     .products-revealed .products-intro p{animation:productCopyIn .85s cubic-bezier(.22,1,.36,1) .25s both}
@@ -550,17 +551,7 @@
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
         if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro"),productRows=document.querySelectorAll(".products .shell .wsk-cp-product");
-      if(productsSection){
-        const productsObserver=ScrollTrigger.create({
-          trigger:productsSection,start:"top 88%",once:true,
-          onEnter:()=>{
-            productsSection.classList.add("products-revealed");
-            if(productsIntro) productsIntro.classList.add("products-intro-revealed");
-            productRows.forEach((card,i)=>{card.style.setProperty("--product-delay",(i*.075)+"s");});
-          }
-        });
-      }
-      if(productsSection){
+            if(productsSection){
         const revealProducts=()=>{
           productsSection.classList.add("products-revealed");
           if(productsIntro) productsIntro.classList.add("products-intro-revealed");
