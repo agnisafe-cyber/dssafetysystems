@@ -711,5 +711,39 @@
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
   </script>
 
+<style>
+/* Premium product reveal */
+.products .shell .wsk-cp-product{opacity:0;will-change:transform,opacity}
+.products .shell .wsk-cp-img img{will-change:transform}
+@media(max-width:600px){
+  .products .shell .wsk-cp-product{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .products .shell .wsk-cp-product{opacity:1!important;transform:none!important}
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  if(typeof gsap==="undefined"||typeof ScrollTrigger==="undefined")return;
+  gsap.registerPlugin(ScrollTrigger);
+  const section=document.querySelector(".products");
+  const cards=section?.querySelectorAll(".shell .wsk-cp-product");
+  if(!section||!cards?.length)return;
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  gsap.set(cards,{opacity:0,y:20});
+  gsap.to(cards,{
+    opacity:1,y:0,duration:.8,ease:"power3.out",stagger:{each:.11,from:"start"},
+    scrollTrigger:{trigger:section,start:"top 72%",once:true}
+  });
+  cards.forEach(card=>{
+    const img=card.querySelector(".wsk-cp-img img");
+    if(img){
+      gsap.set(img,{scale:1.03});
+      gsap.to(img,{scale:1,duration:1.05,ease:"power2.out",
+        scrollTrigger:{trigger:card,start:"top 82%",once:true}});
+    }
+  });
+});
+</script>
 </body>
 </html>
