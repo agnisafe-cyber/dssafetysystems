@@ -517,8 +517,9 @@
     .products-intro-revealed{opacity:1;transform:translateY(0);filter:blur(0)}
     .products .shell{opacity:0;transform:translateY(42px);filter:blur(3px);transition:opacity:1.15s cubic-bezier(.22,1,.36,1) .18s,transform:1.2s cubic-bezier(.22,1,.36,1) .18s,filter:1.2s cubic-bezier(.22,1,.36,1) .18s}
     .products-revealed .shell{opacity:1;transform:translateY(0);filter:blur(0)}
-    .products .shell .wsk-cp-product{opacity:0;will-change:transform,opacity}
-    .products-revealed .shell .wsk-cp-product .wsk-cp-img,.products-revealed .shell .wsk-cp-product .wsk-cp-text{will-change:transform,opacity}
+    .products .shell .wsk-cp-product{opacity:0;will-change:opacity}
+    .products-revealed .shell .wsk-cp-product .wsk-cp-img{will-change:auto}
+    .products-revealed .shell .wsk-cp-product .wsk-cp-text{will-change:transform,opacity}
     .products-revealed .products-intro .section-label{animation:productLabelIn .7s cubic-bezier(.22,1,.36,1) .05s both}
     .products-revealed .products-intro h2{animation:productTitleIn 1s cubic-bezier(.22,1,.36,1) .12s both}
     .products-revealed .products-intro p{animation:productCopyIn .85s cubic-bezier(.22,1,.36,1) .25s both}
@@ -555,18 +556,13 @@
             if(productsSection.classList.contains("products-revealed")) return;
             productsSection.classList.add("products-revealed");
             if(productsIntro) productsIntro.classList.add("products-intro-revealed");
-            const rows=productsSection.querySelectorAll(".shell .row");
-            const firstRow=rows[0] ? gsap.utils.toArray(rows[0].querySelectorAll(".wsk-cp-product")) : [];
-            const secondRow=rows[1] ? gsap.utils.toArray(rows[1].querySelectorAll(".wsk-cp-product")).slice(0,3) : [];
-            const thirdRow=rows[1] ? gsap.utils.toArray(rows[1].querySelectorAll(".wsk-cp-product")).slice(3) : [];
-            gsap.set([...firstRow,...secondRow,...thirdRow],{opacity:0});
-            gsap.set(firstRow,{x:-70});
-            gsap.set(secondRow,{y:55,scale:.985});
-            gsap.set(thirdRow,{x:70});
+            const cards=gsap.utils.toArray(productsSection.querySelectorAll(".shell .wsk-cp-product"));
+            const cardText=gsap.utils.toArray(productsSection.querySelectorAll(".shell .wsk-cp-text"));
+            gsap.set(cards,{opacity:0});
+            gsap.set(cardText,{opacity:0,y:24});
             const tl=gsap.timeline({defaults:{ease:"power3.out"}});
-            tl.to(firstRow,{x:0,opacity:1,duration:.9,stagger:.08},.35)
-              .to(secondRow,{y:0,scale:1,opacity:1,duration:.9,stagger:.08},"-=.25")
-              .to(thirdRow,{x:0,opacity:1,duration:.9,stagger:.08},"-=.25");
+            tl.to(cards,{opacity:1,duration:.65,stagger:.08},.3)
+              .to(cardText,{opacity:1,y:0,duration:.7,stagger:.08},"-=.25");
           };
           const io=new IntersectionObserver(entries=>{
             if(entries.some(e=>e.isIntersecting)){revealProducts();io.disconnect();}
