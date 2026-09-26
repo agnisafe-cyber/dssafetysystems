@@ -542,3 +542,7 @@
 .products .shell .row{display:grid!important;visibility:visible!important;opacity:1!important;}
 .products .shell .col-md-3,.products .shell .col-md-6{display:block!important;visibility:visible!important;opacity:1!important;}
 .products .wsk-cp-product{display:block!important;visibility:visible!important;opacity:1!important;}
+
+/* Product card image height */
+.products .wsk-cp-img img{height:280px!important;}
+.products .wsk-cp-text{padding-top:305px!important;}
