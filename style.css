@@ -486,3 +486,17 @@
   0%{background-position:0% 50%}
   100%{background-position:100% 50%}
 }
+
+/* PRODUCTS — parallax pixel stars */
+.products{position:relative;overflow:hidden;}
+.products-stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at bottom,#171d27 0%,#0b0d12 72%);}
+.products-stars:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(220,38,38,.08),transparent 48%);}
+.products-stars #stars,.products-stars #stars2,.products-stars #stars3{position:absolute;left:0;top:0;background:transparent;border-radius:50%;}
+.products-stars #stars{width:1px;height:1px;box-shadow:17px 231px #fff,193px 719px #fff,421px 144px #fff,617px 934px #fff,812px 376px #fff,1049px 821px #fff,1267px 198px #fff,1433px 641px #fff,1591px 101px #fff,1812px 527px #fff,236px 1134px #fff,489px 1521px #fff,735px 1288px #fff,978px 1764px #fff,1198px 1399px #fff,1377px 1098px #fff,1519px 1842px #fff,1751px 1315px #fff;animation:productsStarMove 50s linear infinite;}
+.products-stars #stars:after{content:"";position:absolute;top:2000px;width:1px;height:1px;background:transparent;box-shadow:17px 231px #fff,193px 719px #fff,421px 144px #fff,617px 934px #fff,812px 376px #fff,1049px 821px #fff,1267px 198px #fff,1433px 641px #fff,1591px 101px #fff,1812px 527px #fff,236px 1134px #fff,489px 1521px #fff,735px 1288px #fff,978px 1764px #fff,1198px 1399px #fff,1377px 1098px #fff,1519px 1842px #fff,1751px 1315px #fff;}
+.products-stars #stars2{width:2px;height:2px;box-shadow:84px 492px #fff,301px 86px #fff,553px 704px #fff,741px 1182px #fff,1012px 341px #fff,1221px 897px #fff,1488px 451px #fff,1697px 1234px #fff;animation:productsStarMove 100s linear infinite;}
+.products-stars #stars2:after{content:"";position:absolute;top:2000px;width:2px;height:2px;background:transparent;box-shadow:84px 492px #fff,301px 86px #fff,553px 704px #fff,741px 1182px #fff,1012px 341px #fff,1221px 897px #fff,1488px 451px #fff,1697px 1234px #fff;}
+.products-stars #stars3{width:3px;height:3px;box-shadow:149px 311px #fff,384px 1008px #fff,672px 537px #fff,913px 1421px #fff,1157px 763px #fff,1392px 118px #fff,1644px 1562px #fff;animation:productsStarMove 150s linear infinite;}
+.products-stars #stars3:after{content:"";position:absolute;top:2000px;width:3px;height:3px;background:transparent;box-shadow:149px 311px #fff,384px 1008px #fff,672px 537px #fff,913px 1421px #fff,1157px 763px #fff,1392px 118px #fff,1644px 1562px #fff;}
+@keyframes productsStarMove{from{transform:translateY(0)}to{transform:translateY(-2000px)}}
+.products-inner{position:relative;z-index:2;}
