@@ -517,7 +517,7 @@
     .products-intro-revealed{opacity:1;transform:translateY(0);filter:blur(0)}
     .products .shell{opacity:0;transform:translateY(42px);filter:blur(3px);transition:opacity:1.15s cubic-bezier(.22,1,.36,1) .18s,transform:1.2s cubic-bezier(.22,1,.36,1) .18s,filter:1.2s cubic-bezier(.22,1,.36,1) .18s}
     .products-revealed .shell{opacity:1;transform:translateY(0);filter:blur(0)}
-    .products-revealed .shell .wsk-cp-product{animation:productCardCinematic 1s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--product-delay,0s)}
+    .products-revealed .shell .wsk-cp-product{animation:productCardCinematic 1s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--product-delay,0s);will-change:transform,opacity,filter}
     @keyframes productCardCinematic{0%{opacity:0;transform:translateY(32px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
     .products-revealed .products-intro .section-label{animation:productLabelIn .7s cubic-bezier(.22,1,.36,1) .05s both}
     .products-revealed .products-intro h2{animation:productTitleIn 1s cubic-bezier(.22,1,.36,1) .12s both}
@@ -552,13 +552,25 @@
         if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro"),productRows=document.querySelectorAll(".products .shell .wsk-cp-product");
       if(productsSection){
         const productsObserver=ScrollTrigger.create({
-          trigger:productsSection,start:"top 72%",once:true,
+          trigger:productsSection,start:"top 88%",once:true,
           onEnter:()=>{
             productsSection.classList.add("products-revealed");
             if(productsIntro) productsIntro.classList.add("products-intro-revealed");
             productRows.forEach((card,i)=>{card.style.setProperty("--product-delay",(i*.075)+"s");});
           }
         });
+      }
+      if(productsSection){
+        const revealProducts=()=>{
+          productsSection.classList.add("products-revealed");
+          if(productsIntro) productsIntro.classList.add("products-intro-revealed");
+          productRows.forEach((card,i)=>card.style.setProperty("--product-delay",(i*.075)+"s"));
+        };
+        const io=new IntersectionObserver(entries=>{
+          if(entries.some(e=>e.isIntersecting)){revealProducts();io.disconnect();}
+        },{threshold:0.08,rootMargin:"0px 0px -8% 0px"});
+        io.observe(productsSection);
+        requestAnimationFrame(()=>ScrollTrigger.refresh());
       }
       const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
         if(servicesHome){ScrollTrigger.create({trigger:servicesHome,start:"top 78%",once:true,onEnter:()=>servicesHome.classList.add("revealed")});}
