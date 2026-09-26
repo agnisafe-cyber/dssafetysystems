@@ -535,3 +535,10 @@
  .products .shell .row{grid-template-columns:1fr;gap:8px}
  .products .shell .col-md-6,.products .shell .col-md-3{grid-column:span 1}
 }
+
+/* Product cards visibility fix */
+.products .shell{display:block!important;visibility:visible!important;opacity:1!important;}
+.products .shell .container{display:block!important;visibility:visible!important;opacity:1!important;}
+.products .shell .row{display:grid!important;visibility:visible!important;opacity:1!important;}
+.products .shell .col-md-3,.products .shell .col-md-6{display:block!important;visibility:visible!important;opacity:1!important;}
+.products .wsk-cp-product{display:block!important;visibility:visible!important;opacity:1!important;}
