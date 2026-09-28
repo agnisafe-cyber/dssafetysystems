@@ -254,6 +254,53 @@
       .product-detail-columns{grid-template-columns:1fr;gap:28px}
     }
 
+    /* Product detail overlay */
+    .product-detail-overlay{
+      position:fixed;inset:0;z-index:2000;display:grid;place-items:center;
+      padding:34px;opacity:0;visibility:hidden;pointer-events:none;
+      background:rgba(8,8,8,.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      transition:opacity .35s ease,visibility .35s ease;
+    }
+    .product-detail-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
+    .product-detail-modal{
+      position:relative;width:min(1180px,100%);max-height:min(820px,calc(100svh - 68px));overflow:auto;
+      display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:0;
+      background:#f7f5f0;border:1px solid rgba(255,255,255,.18);border-radius:24px;
+      box-shadow:0 35px 100px rgba(0,0,0,.38);transform:translateY(28px) scale(.97);
+      transition:transform .55s cubic-bezier(.22,1,.36,1);scrollbar-width:thin;
+    }
+    .product-detail-overlay.open .product-detail-modal{transform:translateY(0) scale(1)}
+    .product-detail-gallery{padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+    .product-detail-main-image{position:relative;min-height:520px;border-radius:16px;overflow:hidden;background:#e9e5dd}
+    .product-detail-main-image img{width:100%;height:100%;min-height:520px;display:block;object-fit:cover}
+    .product-detail-thumbs{display:flex;gap:9px;overflow:auto;padding:1px}
+    .product-detail-thumb{width:74px;height:64px;flex:0 0 74px;padding:0;border:1px solid rgba(16,16,16,.15);border-radius:9px;overflow:hidden;background:#fff;cursor:pointer}
+    .product-detail-thumb.active{border:2px solid #d93830}
+    .product-detail-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .product-detail-info{padding:48px 48px 42px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(16,16,16,.1)}
+    .product-detail-category{font-family:"Poppins",sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;color:#d93830;text-transform:uppercase;margin-bottom:15px}
+    .product-detail-info h2{font-family:"Poppins",sans-serif;font-size:clamp(34px,4vw,58px);line-height:1.02;letter-spacing:-2px;font-weight:700;color:#111;margin:0 0 20px}
+    .product-detail-rule{width:68px;height:3px;background:#111;margin-bottom:25px}
+    .product-detail-info h4{font-family:"Poppins",sans-serif;font-size:18px;letter-spacing:-.3px;margin:0 0 12px;color:#111}
+    .product-detail-info .detail-description{font-size:15px;line-height:1.75;color:#66625c;max-width:530px;margin:0 0 28px}
+    .product-detail-facts{display:grid;gap:10px;padding-top:20px;border-top:1px solid rgba(16,16,16,.12)}
+    .product-detail-fact{display:flex;align-items:center;gap:10px;font-size:14px;color:#35322e}
+    .product-detail-fact:before{content:"✓";width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#e85a53;color:#fff;font-size:11px;font-weight:700;flex:0 0 20px}
+    .product-detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+    .product-detail-quote{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:8px;background:#111;color:#fff;font-family:"Poppins",sans-serif;font-size:12px;font-weight:700;transition:.25s ease}
+    .product-detail-quote:hover{background:#d93830;transform:translateY(-2px)}
+    .product-detail-close-x{position:absolute;right:18px;top:18px;z-index:4;width:42px;height:42px;border:1px solid rgba(16,16,16,.14);border-radius:50%;background:rgba(247,245,240,.9);color:#111;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:.25s ease}
+    .product-detail-close-x:hover{background:#111;color:#fff;transform:rotate(90deg)}
+    .products .shell .wsk-cp-product{cursor:pointer}
+    @media(max-width:800px){
+      .product-detail-overlay{padding:14px}
+      .product-detail-modal{grid-template-columns:1fr;max-height:calc(100svh - 28px);border-radius:18px}
+      .product-detail-gallery{padding:14px}
+      .product-detail-main-image,.product-detail-main-image img{min-height:320px;height:320px}
+      .product-detail-info{padding:28px 24px 30px;border-left:0;border-top:1px solid rgba(16,16,16,.1)}
+      .product-detail-info h2{font-size:34px;letter-spacing:-1.2px}
+    }
+
     /* Hero Section Styles */
     .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;column-gap:32px;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
@@ -572,7 +619,58 @@
           io.observe(productsSection);
           requestAnimationFrame(()=>ScrollTrigger.refresh());
         }
-      const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
+      /* Product card -> detail overlay */
+    const productCards=gsap.utils.toArray(document.querySelectorAll(".products .shell .wsk-cp-product"));
+    if(productCards.length){
+      const overlay=document.createElement("div");
+      overlay.className="product-detail-overlay";
+      overlay.setAttribute("aria-hidden","true");
+      overlay.innerHTML=
+        '<div class="product-detail-modal" role="dialog" aria-modal="true" aria-labelledby="productDetailTitle">'+
+          '<button class="product-detail-close-x" type="button" aria-label="Close product details">×</button>'+
+          '<div class="product-detail-gallery">'+
+            '<div class="product-detail-main-image"><img id="productDetailImage" src="" alt=""></div>'+
+            '<div class="product-detail-thumbs" id="productDetailThumbs"></div>'+
+          '</div>'+
+          '<div class="product-detail-info">'+
+            '<div class="product-detail-category" id="productDetailCategory"></div>'+
+            '<h2 id="productDetailTitle"></h2><div class="product-detail-rule"></div>'+
+            '<h4>About This Product</h4><p class="detail-description" id="productDetailDescription"></p>'+
+            '<div class="product-detail-facts">'+
+              '<div class="product-detail-fact">Professional fire-safety equipment</div>'+
+              '<div class="product-detail-fact">Installation and servicing available</div>'+
+              '<div class="product-detail-fact">AMC support available</div>'+
+            '</div>'+
+            '<div class="product-detail-actions"><a class="product-detail-quote" href="#contact">Request a Quote ↗</a></div>'+
+          '</div>'+ 
+        '</div>';
+      document.body.appendChild(overlay);
+      const modal=overlay.querySelector(".product-detail-modal"),mainImage=overlay.querySelector("#productDetailImage"),thumbs=overlay.querySelector("#productDetailThumbs"),category=overlay.querySelector("#productDetailCategory"),title=overlay.querySelector("#productDetailTitle"),description=overlay.querySelector("#productDetailDescription"),closeBtn=overlay.querySelector(".product-detail-close-x");
+      let lastCard=null;
+      const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastCard) lastCard.classList.remove("active");};
+      const openDetail=(card)=>{
+        lastCard=card;
+        const image=card.querySelector(".wsk-cp-img img"), titleEl=card.querySelector(".title-product h3"), descEl=card.querySelector(".description-prod p"), catEl=card.querySelector(".category span");
+        if(!image||!titleEl)return;
+        const src=image.currentSrc||image.src, alt=image.alt||titleEl.textContent.trim();
+        mainImage.src=src;mainImage.alt=alt;category.textContent=catEl?catEl.textContent.trim():"FIRE SAFETY";title.textContent=titleEl.textContent.trim();description.textContent=descEl?descEl.textContent.trim():"Professional fire-safety equipment from DS Safety Systems.";
+        thumbs.innerHTML="";
+        const thumb=document.createElement("button");thumb.type="button";thumb.className="product-detail-thumb active";thumb.innerHTML='<img src="'+src.replace(/"/g,'&quot;')+'" alt="">';
+        thumb.addEventListener("click",()=>{mainImage.src=src});thumbs.appendChild(thumb);
+        card.classList.add("active");overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";closeBtn.focus({preventScroll:true});
+      };
+      productCards.forEach(card=>{
+        card.setAttribute("tabindex","0");card.setAttribute("role","button");card.setAttribute("aria-label","View product details");
+        card.addEventListener("click",e=>{if(e.target.closest(".buy-btn"))e.preventDefault();openDetail(card)});
+        card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail(card)}});
+      });
+      closeBtn.addEventListener("click",closeDetail);
+      overlay.addEventListener("click",e=>{if(e.target===overlay)closeDetail()});
+      document.addEventListener("keydown",e=>{if(e.key==="Escape"&&overlay.classList.contains("open"))closeDetail()});
+      overlay.querySelector(".product-detail-quote").addEventListener("click",closeDetail);
+    }
+
+    const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
         if(servicesHome){ScrollTrigger.create({trigger:servicesHome,start:"top 78%",once:true,onEnter:()=>servicesHome.classList.add("revealed")});}
         if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
