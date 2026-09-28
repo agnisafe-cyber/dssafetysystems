@@ -254,7 +254,13 @@
       .product-detail-columns{grid-template-columns:1fr;gap:28px}
     }
 
-    /* Product detail overlay */
+    /* First product card two-line title */
+.products .shell .wsk-cp-product:first-child .title-product h3{white-space:normal!important;line-height:1.12!important;}
+.products .shell .wsk-cp-product:first-child .title-product h3 span,
+.products .shell .wsk-cp-product:first-child .title-product h3 small{display:block!important;}
+.products .shell .wsk-cp-product:first-child .title-product h3 small{font-size:15px!important;font-weight:500!important;color:#77726a!important;margin-top:5px!important;}
+
+/* Product detail overlay */
     .product-detail-overlay{
       position:fixed;inset:0;z-index:2000;display:grid;place-items:center;
       padding:34px;opacity:0;visibility:hidden;pointer-events:none;
