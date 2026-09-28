@@ -739,13 +739,13 @@
               '<div class="product-detail-fact">Professional fire-safety equipment</div>'+
               '<div class="product-detail-fact">Installation and servicing available</div>'+
               '<div class="product-detail-fact">AMC support available</div>'+
-              '<div class="product-detail-fact">Capacity: 2kg / 4kg / 6kg / 9kg</div>'+
+              '<div class="product-detail-fact" id="productDetailSpecification">Capacity: 2kg / 4kg / 6kg / 9kg</div>'+
             '</div>'+
             '<div class="product-detail-actions"><a class="product-detail-quote" href="#contact">Request a Quote ↗</a></div>'+
           '</div>'+ 
         '</div>';
       document.body.appendChild(overlay);
-      const modal=overlay.querySelector(".product-detail-modal"),mainImage=overlay.querySelector("#productDetailImage"),nextImage=overlay.querySelector("#productDetailNextImage"),mainImageWrap=overlay.querySelector(".product-detail-main-image"),thumbs=overlay.querySelector("#productDetailThumbs"),category=overlay.querySelector("#productDetailCategory"),title=overlay.querySelector("#productDetailTitle"),description=overlay.querySelector("#productDetailDescription"),closeBtn=overlay.querySelector(".product-detail-close-x"),prevBtn=overlay.querySelector(".product-detail-slider-prev"),nextBtn=overlay.querySelector(".product-detail-slider-next"),countEl=overlay.querySelector("#productDetailCount"),progressEl=overlay.querySelector("#productDetailProgress");
+      const modal=overlay.querySelector(".product-detail-modal"),mainImage=overlay.querySelector("#productDetailImage"),nextImage=overlay.querySelector("#productDetailNextImage"),mainImageWrap=overlay.querySelector(".product-detail-main-image"),thumbs=overlay.querySelector("#productDetailThumbs"),category=overlay.querySelector("#productDetailCategory"),title=overlay.querySelector("#productDetailTitle"),description=overlay.querySelector("#productDetailDescription"),specification=overlay.querySelector("#productDetailSpecification"),closeBtn=overlay.querySelector(".product-detail-close-x"),prevBtn=overlay.querySelector(".product-detail-slider-prev"),nextBtn=overlay.querySelector(".product-detail-slider-next"),countEl=overlay.querySelector("#productDetailCount"),progressEl=overlay.querySelector("#productDetailProgress");
       let lastCard=null, galleryImages=[], galleryIndex=0;
       const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastCard) lastCard.classList.remove("active");};
       const setGalleryImage=(index,instant=false)=>{
@@ -802,6 +802,7 @@
         category.textContent=catEl?catEl.textContent.trim():"FIRE SAFETY";
         title.textContent=titleEl.textContent.trim();
         description.textContent=descEl?descEl.textContent.trim():"Professional fire-safety equipment from DS Safety Systems.";
+        if(specification) specification.textContent=titleEl.textContent.trim().toLowerCase()==="smoke detector" ? "Detection Type: Smoke Detection" : "Capacity: 2kg / 4kg / 6kg / 9kg";
         thumbs.innerHTML="";
         galleryImages.forEach((item,i)=>{
           const thumb=document.createElement("button");
