@@ -118,8 +118,53 @@
 .nav-links a:not(.nav-cta):hover{background:rgba(16,16,16,.055);color:var(--red)}
 .nav-links a:not(.nav-cta):after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:1.5px;background:var(--red);transform:scaleX(0);transition:.25s}
 .nav-links a:not(.nav-cta):hover:after{transform:scaleX(1)}
-.nav-cta{background:#111;color:#fff!important;border-radius:999px!important;padding:13px 21px!important;margin-left:7px}
-.nav-cta:hover{background:var(--red)!important;transform:translateY(-1px)}
+.nav-cta{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  background:#111;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:7px!important;
+  padding:12px 20px!important;
+  margin-left:7px;
+  font-family:"Poppins",sans-serif!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:.15px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.08);
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease,background .3s ease;
+}
+.nav-cta:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.22) 48%,transparent 70%);
+  transform:translateX(-130%);
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.nav-cta:after{
+  content:"↗";
+  position:relative;
+  font-size:15px;
+  line-height:1;
+  color:#ff7b72;
+  transition:transform .3s ease;
+}
+.nav-cta:hover{
+  background:#171717!important;
+  transform:translateY(-2px);
+  box-shadow:0 13px 30px rgba(0,0,0,.2),0 0 0 1px rgba(217,56,48,.3);
+}
+.nav-cta:hover:before{transform:translateX(130%)}
+.nav-cta:hover:after{transform:translate(2px,-2px)}
+.nav-cta:active{transform:translateY(0) scale(.98)}
+@media(max-width:800px){
+  .nav-cta{padding:11px 16px!important;font-size:12px!important}
+}
 .menu{display:none}
 
 /* HERO — clean, single source of truth */
