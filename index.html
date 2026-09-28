@@ -301,7 +301,7 @@
       background:radial-gradient(circle at 25% 20%,rgba(255,255,255,.07),transparent 34%),linear-gradient(145deg,#171717,#0d0d0d);
     }
     .product-detail-main-image{
-      position:relative;min-height:520px;height:520px;z-index:1;
+      position:relative;min-height:620px;height:620px;z-index:1;
       border-radius:18px 18px 18px 30px;
       overflow:hidden;background:#242424;
       box-shadow:0 28px 55px rgba(0,0,0,.4);
@@ -318,7 +318,7 @@
     }
     .product-detail-main-image{isolation:isolate}
     .product-detail-main-image img{
-      width:100%;height:100%;min-height:520px;display:block;object-fit:cover;
+      width:100%;height:100%;min-height:620px;display:block;object-fit:cover;
       transform:translateX(0) scale(1.015);
       transition:transform .58s cubic-bezier(.22,1,.36,1);
       will-change:transform;
@@ -697,7 +697,9 @@
     @keyframes productCopyIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
     @media(max-width:900px){.products .shell{transform:translateY(28px)}.products-revealed .shell .wsk-cp-product{animation-duration:.85s}}
     @media(prefers-reduced-motion:reduce){.products-intro,.products .shell,.products .shell .wsk-cp-product{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}}
-  </style>
+  /* Larger product detail gallery to use available modal space */
+    @media(max-width:900px){.product-detail-main-image{min-height:430px;height:430px}.product-detail-main-image img{min-height:430px}}
+</style>
 
 <style>
     
