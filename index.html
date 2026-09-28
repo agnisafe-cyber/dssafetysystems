@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+  ================================================================
+  DS SAFETY SYSTEMS — INDEX / SINGLE-SCROLL HOMEPAGE
+  SECTION ORDER: 01 Navigation → 02 Hero → 03 Marquee → 04 About
+                 → 05 Services → 06 Products → 07 Contact → 08 Footer
+  ================================================================
+-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +42,9 @@
     button{font:inherit}
     ::selection{background:var(--red);color:#fff}
   
-    /* Navigation Styles */
+    /* ============================================================
+       01 — NAVIGATION
+       ============================================================ */
     .nav{
       position:fixed;z-index:50;top:22px;left:50%;transform:translateX(-50%);
       width:min(1280px,calc(100% - 40px));height:82px;padding:0 22px;
@@ -69,6 +78,9 @@
     .nav-cta:hover{background:var(--red)!important;transform:translateY(-1px)}
     .menu{display:none}
 
+    /* ============================================================
+       05 — SERVICES STYLES
+       ============================================================ */
     .services-home{background:#111;position:relative;overflow:hidden;padding-top:125px;padding-bottom:125px;color:#fff}
     .services-home:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(220,38,38,.12),transparent 38%,transparent 72%,rgba(255,255,255,.025));pointer-events:none}
     .services-topline{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:18px}
@@ -92,7 +104,9 @@
     .service-row-arrow{width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;transition:.3s ease}
     .service-row:hover .service-row-arrow{background:#dc2626;border-color:#dc2626;transform:rotate(45deg)}
 
-    /* Products section — third section after Services */
+    /* ============================================================
+       06 — PRODUCTS STYLES
+       ============================================================ */
     .products{position:relative;background:#f4f0e8;padding-top:130px;padding-bottom:130px;overflow:hidden}
     .products-home-head{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end;margin-bottom:72px}
     .products-home-head .section-label{margin-bottom:18px;color:#d93830}
@@ -400,7 +414,9 @@
       .product-detail-info h2{font-size:34px;letter-spacing:-1.2px}
     }
 
-    /* Hero Section Styles */
+    /* ============================================================
+       02 — HERO STYLES
+       ============================================================ */
     .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;column-gap:32px;align-items:center;background:radial-gradient(circle at 76% 48%,rgba(217,56,48,.055),transparent 24%)}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(16,16,16,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,16,16,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%);opacity:.65}
     .hero-content{position:relative;z-index:8;grid-column:1;grid-row:1;align-self:center;padding:120px 0 80px 5vw;max-width:820px}
@@ -531,13 +547,17 @@
     }
     .hero-video-glow{display:none!important;}
 
-    /* Marquee */
+    /* ============================================================
+       03 — FIRE-SAFETY MARQUEE
+       ============================================================ */
     .marquee{overflow:hidden!important;width:100%!important;padding:20px 0!important;background:#f4f0e8!important;font-family:"Poppins",sans-serif!important;}
     .marquee-track{display:flex!important;align-items:center!important;width:max-content!important;min-width:100%!important;gap:0!important;white-space:nowrap!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:750!important;letter-spacing:.2px!important;text-transform:uppercase!important;line-height:1!important;}
     .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;}
     .marquee-track span:before{content:"•"!important;display:inline-block!important;margin-right:28px!important;color:#101010!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:900!important;line-height:1!important;}
 
-    /* About Section */
+    /* ============================================================
+       04 — ABOUT STYLES
+       ============================================================ */
     .section{padding:130px 5vw}
     .dark{background:#111;color:#fff}
     .section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#89847b;font-weight:700;margin-bottom:28px}
@@ -586,7 +606,9 @@
     /* Product card information modal */
 .product-info-panel{padding:42px 24px 28px;border-radius:18px;max-height:92vh}.product-info-layout{grid-template-columns:1fr;gap:10px}.product-info-label{padding-top:0}.product-info-title{font-size:38px;letter-spacing:-1.7px}.product-info-meta{grid-template-columns:1fr;gap:24px;margin-top:28px}.product-info-actions{margin-top:28px}.product-info-actions a,.product-info-actions button{flex:1}}
     
-    /* Contact Section */
+    /* ============================================================
+       07 — CONTACT STYLES
+       ============================================================ */
     .contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:50px;margin-top:65px}
     .contact-box{border:none;padding:35px;border-radius:22px;background:rgba(255,255,255,.025)}
     .contact-box a{display:block;font-size:22px;font-weight:700;margin-top:16px}
@@ -596,7 +618,9 @@
     
     .footer{padding:35px 5vw;display:flex;justify-content:space-between;gap:20px;border-top:none;font-size:12px;color:#777}
 
-    /* Responsive Media Queries */
+    /* ============================================================
+       RESPONSIVE / MOBILE STYLES
+       ============================================================ */
     @media(max-width:900px){
       html,body{overflow-x:hidden!important;width:100%!important;max-width:100%!important;}
       .nav{width:calc(100vw - 18px)!important;max-width:none!important;box-sizing:border-box!important;height:76px!important;padding:0 10px 0 15px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;border-radius:18px!important}
@@ -689,10 +713,14 @@
   </div>
 
   <script>
+    /* ============================================================
+       JAVASCRIPT / INTERACTIONS
+       ============================================================ */
     const {useEffect} = React;
     function App(){
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
+        /* 04 — About reveal */
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
         if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
@@ -718,7 +746,7 @@
           io.observe(productsSection);
           requestAnimationFrame(()=>ScrollTrigger.refresh());
         }
-      /* Product card -> detail overlay */
+      /* 06 — Product cards / detail overlay */
     const productCards=gsap.utils.toArray(document.querySelectorAll(".products .shell .wsk-cp-product"));
     if(productCards.length){
       const overlay=document.createElement("div");
@@ -840,9 +868,11 @@
       overlay.querySelector(".product-detail-quote").addEventListener("click",closeDetail);
     }
 
-    const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
+    /* 05 — Services reveal */
+        const servicesHome=document.querySelector(".services-home"), servicesList=document.querySelector(".services-list");
         if(servicesHome){ScrollTrigger.create({trigger:servicesHome,start:"top 78%",once:true,onEnter:()=>servicesHome.classList.add("revealed")});}
         if(servicesList){ScrollTrigger.create({trigger:servicesList,start:"top 88%",once:true,onEnter:()=>servicesList.classList.add("revealed")});}
+        /* 01 — Navigation interactions */
         const nav = document.querySelector(".nav"), brand = document.querySelector(".brand"), logo = document.querySelector(".brand-logo"), navLinks = gsap.utils.toArray(".nav-links > a"), menu = document.querySelector(".menu"), linksWrap = document.querySelector(".nav-links");
         
         gsap.set(nav,{y:-35,opacity:0});
@@ -875,6 +905,7 @@
         const isMobile=window.matchMedia("(max-width:900px)").matches;
         const smoother = isMobile ? null : ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
         
+        /* 02 — Hero entrance + 03 — Marquee */
         const heroLines = gsap.utils.toArray(".hero-title .hero-line");
                 gsap.set(".hero-copy",{opacity:0,y:18});
         gsap.set(".actions",{opacity:0,y:18});
@@ -892,6 +923,7 @@
       },[]);
 
       return React.createElement(React.Fragment,null,
+        /* 01 — NAVIGATION */
         React.createElement("nav",{className:"nav"},
           React.createElement("a",{className:"brand",href:"#"},
             React.createElement("img",{className:"brand-logo",src:"DSF_logo_small.png",alt:"DS Safety Systems"}),
@@ -907,6 +939,7 @@
           React.createElement("button",{className:"menu","aria-label":"Menu"},"☰")
         ),
         React.createElement("main",null,
+          /* 02 — HERO */
           React.createElement("section",{className:"hero"},
             React.createElement("div",{className:"hero-grid"}),
             React.createElement("div",{className:"hero-content"},
@@ -928,11 +961,13 @@
               React.createElement("video",{className:"hero-video",src:"herovideo.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"metadata"})
             )
           ),
+          /* 03 — FIRE-SAFETY MARQUEE */
           React.createElement("div",{className:"marquee"},
             React.createElement("div",{className:"marquee-track"},
               ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},x))
             )
           ),
+          /* 04 — ABOUT */
           React.createElement("section",{className:"section about-home",id:"about"},
             React.createElement("div",{className:"about-home-grid"},
               React.createElement("div",{className:"about-home-copy"},
@@ -951,6 +986,7 @@
               )
             )
           ),
+          /* 05 — SERVICES */
           React.createElement("section",{className:"section services-home",id:"services"},
             React.createElement("div",{className:"services-hero-copy"},
               React.createElement("h2",null,"Our Complete Range of ",React.createElement("span",null,"Safety Services")),
@@ -964,6 +1000,7 @@
               ))
             )
           ),
+          /* 06 — PRODUCTS */
           React.createElement("section",{className:"section products",id:"products"},
             React.createElement("div",{className:"products-stars","aria-hidden":"true"},
               React.createElement("div",{id:"stars"}),
@@ -995,6 +1032,7 @@
                 React.createElement("div",{className:"col-md-3"},React.createElement("div",{className:"wsk-cp-product"},React.createElement("div",{className:"wsk-cp-img"},React.createElement("img",{src:"https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg",alt:"Product",className:"img-responsive"})),React.createElement("div",{className:"wsk-cp-text"},React.createElement("div",{className:"category"},React.createElement("span",null,"Introvert")),React.createElement("div",{className:"title-product"},React.createElement("h3",null,"My face not my heart")),React.createElement("div",{className:"description-prod"},React.createElement("p",null,"Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link")),React.createElement("div",{className:"card-footer"},React.createElement("div",{className:"wcf-left"},React.createElement("span",{className:"price"},"Rp500.000")),React.createElement("div",{className:"wcf-right"},React.createElement("a",{href:"#",className:"buy-btn"},React.createElement("i",{className:"zmdi zmdi-shopping-basket"})))))))              )
             ))
           ),
+          /* 07 — CONTACT */
           React.createElement("section",{className:"section dark",id:"contact"},
             React.createElement("div",{className:"section-label"},"Start a conversation"),
             React.createElement("div",{className:"statement"},"Ready when <span>you are.</span>"),
@@ -1013,6 +1051,7 @@
             )
           )
         ),
+        /* 08 — FOOTER */
         React.createElement("footer",{className:"footer"},
           React.createElement("div",null,"© 2026 DS SAFETY SYSTEMS"),
           React.createElement("div",null,"Fire protection • Safety • Maintenance")
