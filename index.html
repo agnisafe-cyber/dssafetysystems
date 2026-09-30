@@ -844,7 +844,7 @@
         const src=image.currentSrc||image.src, alt=image.alt||titleEl.textContent.trim();
         galleryImages=[{src,alt}];
         // First product gets three additional gallery images.
-        if(productCards.indexOf(card)===0){
+        if(titleEl.textContent.trim()==="Water & Foam Fire Extinguisher"){
           galleryImages.push(
             {src:"https://thadhanisafety.com/wp-content/uploads/2022/02/foam-fire-extinguisher.jpg",alt:"Water and Foam Fire Extinguisher gallery image 2"},
             {src:"https://image.made-in-china.com/202f0j00rkYbSjWzZAgD/Advanced-ISO-Water-Fire-Extinguisher-with-Powerful-Wetting-Agent.webp",alt:"Water and Foam Fire Extinguisher gallery image 3"}
