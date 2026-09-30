@@ -1004,9 +1004,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
         });
 
         const isMobile=window.matchMedia("(max-width:900px)").matches;
-        /* Native scroll + ScrollTrigger: keep scrolling hard/low-latency instead of running ScrollSmoother every frame. */
-        const smoother = null;
-        ScrollTrigger.config({limitCallbacks:true,ignoreMobileResize:true});
+        const smoother = isMobile ? null : ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
         
         /* 02 — Hero entrance + 03 — Marquee */
         const heroLines = gsap.utils.toArray(".hero-title .hero-line");
@@ -1020,8 +1018,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           .to(".actions",{opacity:1,y:0,duration:.5},"-=.3")
           .fromTo(".hero-video-visual",{x:70,opacity:0,scale:.97},{x:0,opacity:1,scale:1,duration:.9},"-=.9");
 
-        const marqueeTween=gsap.to(".marquee-track",{xPercent:-33.333,duration:22,ease:"none",repeat:-1,paused:true});
-        ScrollTrigger.create({trigger:".marquee",start:"top bottom",end:"bottom top",onEnter:()=>marqueeTween.play(),onEnterBack:()=>marqueeTween.play(),onLeave:()=>marqueeTween.pause(),onLeaveBack:()=>marqueeTween.pause()});
+        gsap.to(".marquee-track",{xPercent:-33.333,duration:22,ease:"none",repeat:-1});
 
         return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
       },[]);
