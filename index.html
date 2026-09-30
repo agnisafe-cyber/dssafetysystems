@@ -10,7 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f4f0e8">
+  <meta name="theme-color" content="#080b10">
   <title>DS Safety Systems | Fire Protection & Safety</title>
   <meta name="description" content="DS Safety Systems provides professional fire protection equipment, installation and maintenance solutions in New Delhi.">
 
@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=cinematic-site-v2">
+  <link rel="stylesheet" href="style.css?v=redline-cinematic-v1">
 
   <!-- GSAP & React CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -863,6 +863,183 @@
 
 
     </style>
+<style id="redline-cinematic-theme">
+/* =========================================================
+   DS SAFETY SYSTEMS — REDLINE INDUSTRIAL CINEMATIC THEME
+   Static opening + About. Motion remains available below.
+   ========================================================= */
+:root{
+  --ds-redline-bg:#080b10;
+  --ds-redline-panel:#0d1219;
+  --ds-redline-panel-2:#111820;
+  --ds-redline-text:#f3f5f7;
+  --ds-redline-muted:#9ca5b1;
+  --ds-redline-red:#e12b2b;
+  --ds-redline-orange:#ff6a2a;
+}
+
+/* One visual language: graphite steel + emergency red illumination */
+body{
+  background:#080b10!important;
+  color:var(--ds-redline-text);
+}
+.nav{
+  background:rgba(8,11,16,.84)!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 16px 45px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04)!important;
+  backdrop-filter:blur(18px)!important;
+}
+.brand-text{
+  background:linear-gradient(100deg,#ffffff 0%,#dfe5eb 52%,#e12b2b 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+}
+.nav-links a{color:#d8dde4!important}
+.nav-links a:not(.nav-cta):hover{background:rgba(225,43,43,.10)!important;color:#ff5a4f!important}
+
+/* FIRST PAGE — HERO: completely static */
+.hero{
+  background:
+    radial-gradient(ellipse at 82% 34%,rgba(225,43,43,.17),transparent 25%),
+    radial-gradient(ellipse at 68% 72%,rgba(255,106,42,.075),transparent 22%),
+    linear-gradient(135deg,#070a0f 0%,#0d131a 48%,#070a0f 100%)!important;
+  color:var(--ds-redline-text)!important;
+}
+.hero:before{
+  content:""!important;
+  position:absolute!important;inset:0!important;z-index:0!important;
+  background:
+    linear-gradient(90deg,transparent 0 14%,rgba(255,255,255,.035) 14.1%,transparent 14.2%),
+    linear-gradient(0deg,transparent 0 82%,rgba(225,43,43,.10) 82.1%,transparent 82.2%),
+    radial-gradient(ellipse at 88% 50%,rgba(225,43,43,.14),transparent 30%)!important;
+  filter:none!important;
+  opacity:1!important;
+  animation:none!important;
+}
+.hero:after{
+  content:""!important;
+  position:absolute!important;inset:0!important;z-index:1!important;
+  background:
+    linear-gradient(105deg,transparent 0 57%,rgba(225,43,43,.055) 57.2%,transparent 57.5%),
+    repeating-linear-gradient(90deg,transparent 0,transparent 79px,rgba(255,255,255,.018) 80px),
+    linear-gradient(180deg,transparent 65%,rgba(0,0,0,.45) 100%)!important;
+  animation:none!important;
+  opacity:1!important;
+}
+.hero-grid{opacity:.16!important}
+.hero > *{position:relative;z-index:3!important}
+.hero-content .hero-copy{
+  color:#dce2e8!important;
+  -webkit-text-fill-color:#dce2e8!important;
+  text-shadow:0 2px 14px rgba(0,0,0,.45)!important;
+}
+.hero-content h1.hero-title{
+  color:#f5f7f9!important;
+  background:none!important;
+  -webkit-text-fill-color:#f5f7f9!important;
+  text-shadow:0 4px 28px rgba(0,0,0,.45)!important;
+}
+.hero-content h1.hero-title .hero-line{
+  animation:none!important;
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+}
+.hero .actions{opacity:1!important;transform:none!important}
+.hero-video-visual{
+  opacity:1!important;transform:none!important;
+  filter:none!important;
+}
+
+/* SECOND PAGE — ABOUT: same environment, also completely static */
+.about-home{
+  background:
+    radial-gradient(ellipse at 15% 30%,rgba(225,43,43,.15),transparent 27%),
+    radial-gradient(ellipse at 86% 74%,rgba(255,106,42,.07),transparent 25%),
+    linear-gradient(135deg,#080b10 0%,#10161d 50%,#080b10 100%)!important;
+  color:#f3f5f7!important;
+}
+.about-home:before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:0!important;
+  background:
+    linear-gradient(115deg,transparent 0 46%,rgba(225,43,43,.055) 46.2%,transparent 46.5%),
+    repeating-linear-gradient(0deg,transparent 0,transparent 63px,rgba(255,255,255,.018) 64px),
+    radial-gradient(ellipse at 78% 25%,rgba(225,43,43,.12),transparent 30%)!important;
+  filter:none!important;animation:none!important;opacity:1!important;
+}
+.about-home:after{
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
+  background:
+    linear-gradient(90deg,rgba(225,43,43,.035),transparent 18%,transparent 82%,rgba(255,106,42,.035)),
+    radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.36) 100%)!important;
+  animation:none!important;opacity:1!important;
+}
+.about-home > *{position:relative;z-index:3!important}
+.about-home-copy .about-home-title,
+.about-home-copy .about-home-text,
+.about-home-copy .about-home-facts{
+  opacity:1!important;transform:none!important;filter:none!important;
+  transition:none!important;
+}
+.about-home-copy .section-label{
+  opacity:1!important;transform:none!important;filter:none!important;
+  transition:none!important;
+}
+.about-home-title{color:#f4f6f8!important;text-shadow:0 3px 22px rgba(0,0,0,.4)!important}
+.about-home-title span{color:#ef4444!important}
+.about-home-text{color:#b8c0c9!important}
+.about-home-facts>div{color:#dbe1e7!important}
+.about-image-wrap::before{
+  display:none!important;
+  animation:none!important;
+  transition:none!important;
+}
+.about-home-image{
+  box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.07)!important;
+}
+
+/* Shared lower-page language — darker steel, controlled red/orange light */
+.services-home,.products,#contact,.footer{
+  background-color:#080b10!important;
+}
+.services-home{
+  background-image:
+    radial-gradient(ellipse at 10% 20%,rgba(225,43,43,.18),transparent 27%),
+    radial-gradient(ellipse at 90% 80%,rgba(255,106,42,.10),transparent 28%),
+    linear-gradient(135deg,#080b10,#11161d 50%,#080b10)!important;
+}
+.products{
+  background-image:
+    radial-gradient(ellipse at 16% 22%,rgba(225,43,43,.17),transparent 28%),
+    radial-gradient(ellipse at 84% 78%,rgba(255,106,42,.10),transparent 28%),
+    linear-gradient(135deg,#080b10,#10151c 50%,#080b10)!important;
+}
+#contact{
+  background-image:
+    radial-gradient(ellipse at 12% 28%,rgba(225,43,43,.16),transparent 27%),
+    radial-gradient(ellipse at 88% 72%,rgba(255,106,42,.09),transparent 28%),
+    linear-gradient(135deg,#080b10,#11161d 50%,#080b10)!important;
+}
+.footer{
+  background-image:
+    radial-gradient(ellipse at 50% 0%,rgba(225,43,43,.15),transparent 34%),
+    linear-gradient(135deg,#06080c,#0d1218,#06080c)!important;
+}
+
+/* Marquee remains the transition into the animated lower experience */
+.marquee{
+  background:
+    linear-gradient(180deg,#0b0f14,#151a21,#0b0f14)!important;
+  border-top:1px solid rgba(255,255,255,.08)!important;
+  border-bottom:1px solid rgba(225,43,43,.25)!important;
+}
+.marquee:before{background:linear-gradient(90deg,transparent,rgba(225,43,43,.10),transparent)!important}
+.marquee-track,.marquee-track *{color:#f3f5f7!important}
+
+/* Keep product cards as the contrast surface */
+.product-home-row{background:rgba(18,23,30,.78)!important;border-color:rgba(255,255,255,.10)!important}
+.product-home-row:hover,.product-home-row.active{background:#151b23!important;border-color:rgba(225,43,43,.40)!important}
+</style>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -879,10 +1056,11 @@
     function App(){
       useEffect(()=>{
         gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
-        /* 04 — About reveal */
+        /* 04 — About: intentionally static, no entrance animation */
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
-        if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
+        if(aboutImage) aboutImage.classList.add("revealed");
+        if(aboutCopy) aboutCopy.classList.add("about-copy-revealed");
+        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
         if(productsSection){
           const revealProducts=()=>{
             if(productsSection.classList.contains("products-revealed")) return;
@@ -1111,18 +1289,9 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
         const isMobile=window.matchMedia("(max-width:900px)").matches;
         const smoother = isMobile ? null : ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
         
-        /* 02 — Hero entrance + 03 — Marquee */
-        const heroLines = gsap.utils.toArray(".hero-title .hero-line");
-                gsap.set(".hero-copy",{opacity:0,y:18});
-        gsap.set(".actions",{opacity:0,y:18});
-        
-        const tl = gsap.timeline({defaults:{ease:"power3.out"}});
-        tl.fromTo(".nav",{opacity:0,y:-18},{opacity:1,y:0,duration:.65})
-          
-          .to(".hero-copy",{opacity:1,y:0,duration:.65},"-=.28")
-          .to(".actions",{opacity:1,y:0,duration:.5},"-=.3")
-          .fromTo(".hero-video-visual",{x:70,opacity:0,scale:.97},{x:0,opacity:1,scale:1,duration:.9},"-=.9");
-
+        /* 02 — Hero + 03 — Marquee */
+        /* Hero is intentionally static: no entrance animation on the first page. */
+        gsap.set(".nav,.hero-copy,.actions,.hero-video-visual",{clearProps:"all",opacity:1,y:0,x:0,scale:1});
         gsap.to(".marquee-track",{xPercent:-33.333,duration:22,ease:"none",repeat:-1});
 
         return ()=>{ if(smoother) smoother.kill(); ScrollTrigger.getAll().forEach(t=>t.kill()); };
