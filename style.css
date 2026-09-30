@@ -545,6 +545,117 @@
 }
 
 
+/* PRODUCTS — cinematic fire-atmosphere background */
+.products{
+  background:#0a0c10!important;
+  isolation:isolate;
+}
+.products:before{display:none!important}
+.products-fire-bg{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(ellipse at 18% 22%,rgba(220,38,38,.13),transparent 34%),
+    radial-gradient(ellipse at 82% 78%,rgba(249,115,22,.09),transparent 38%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 55%),
+    #0a0c10;
+}
+.products-fire-bg:before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(ellipse at 25% 35%,rgba(239,68,68,.18),transparent 28%),
+    radial-gradient(ellipse at 75% 65%,rgba(249,115,22,.12),transparent 30%);
+  filter:blur(70px);
+  animation:productsCinematicGlow 16s ease-in-out infinite alternate;
+}
+.products-fire-bg:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at center,transparent 32%,rgba(0,0,0,.18) 68%,rgba(0,0,0,.72) 100%);
+}
+.products-fire-glow{
+  position:absolute!important;
+  width:42vw!important;
+  height:42vw!important;
+  max-width:720px!important;
+  max-height:720px!important;
+  border-radius:50%!important;
+  filter:blur(95px)!important;
+  opacity:.55!important;
+  mix-blend-mode:screen!important;
+}
+.products-fire-glow-1{
+  top:-24%!important;
+  left:-10%!important;
+  background:radial-gradient(circle,rgba(220,38,38,.25),transparent 68%)!important;
+  animation:productsGlowDrift1 18s ease-in-out infinite alternate!important;
+}
+.products-fire-glow-2{
+  right:-14%!important;
+  bottom:-28%!important;
+  background:radial-gradient(circle,rgba(249,115,22,.19),transparent 68%)!important;
+  animation:productsGlowDrift2 21s ease-in-out infinite alternate!important;
+}
+.products-fire-spotlight{
+  position:absolute!important;
+  width:620px!important;
+  height:620px!important;
+  left:50%!important;
+  top:42%!important;
+  transform:translate(-50%,-50%)!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(220,38,38,.09) 0%,rgba(249,115,22,.035) 30%,transparent 68%)!important;
+  filter:blur(28px)!important;
+  animation:productsSpotlightBreath 9s ease-in-out infinite!important;
+}
+.products-fire-embers{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  overflow:hidden!important;
+  opacity:.65!important;
+}
+.products-fire-embers:before{
+  content:"";
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#ff6b3d;
+  box-shadow:
+    7vw 84vh 0 0 #ff4538,14vw 66vh 0 0 #ff9a62,21vw 91vh 0 0 #e63946,
+    28vw 73vh 0 0 #ff6b3d,35vw 88vh 0 0 #ffb05c,42vw 61vh 0 0 #e63946,
+    49vw 82vh 0 0 #ff4538,56vw 69vh 0 0 #ff9a62,63vw 93vh 0 0 #e63946,
+    70vw 76vh 0 0 #ff6b3d,77vw 88vh 0 0 #ffb05c,84vw 64vh 0 0 #e63946,
+    91vw 81vh 0 0 #ff4538,11vw 44vh 0 0 #ff9a62,24vw 51vh 0 0 #e63946,
+    39vw 39vh 0 0 #ff6b3d,53vw 47vh 0 0 #ffb05c,68vw 34vh 0 0 #e63946,
+    81vw 48vh 0 0 #ff6b3d,94vw 39vh 0 0 #ff9a62;
+  filter:blur(.15px);
+  opacity:.7;
+  animation:productsEmberRise 12s linear infinite;
+}
+.products-fire-vignette{
+  position:absolute!important;
+  inset:0!important;
+  z-index:2!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.16),transparent 24%,transparent 76%,rgba(0,0,0,.32))!important;
+}
+.products-stars{display:none!important}
+.products-inner{z-index:3!important}
+.products .shell{z-index:4!important}
+@keyframes productsCinematicGlow{0%{transform:translate3d(-3%,2%,0) scale(.96) rotate(-2deg)}100%{transform:translate3d(4%,-3%,0) scale(1.08) rotate(3deg)}}
+@keyframes productsGlowDrift1{0%{transform:translate(-5%,4%) scale(.9)}100%{transform:translate(18%,15%) scale(1.12)}}
+@keyframes productsGlowDrift2{0%{transform:translate(8%,-5%) scale(.94)}100%{transform:translate(-16%,-13%) scale(1.1)}}
+@keyframes productsSpotlightBreath{0%,100%{opacity:.45;transform:translate(-50%,-50%) scale(.92)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes productsEmberRise{0%{transform:translate3d(0,18%,0);opacity:0}12%{opacity:.72}50%{transform:translate3d(1.5%,-18%,0);opacity:.48}100%{transform:translate3d(-2%,-62%,0);opacity:0}}
+@media(prefers-reduced-motion:reduce){.products-fire-bg:before,.products-fire-glow-1,.products-fire-glow-2,.products-fire-spotlight,.products-fire-embers:before{animation:none!important}}
+
 /* Product cards — supplied layout, contained inside Products */
 .products .shell{padding:40px 0;position:relative;z-index:3}
 .products .shell .container{width:min(1400px,calc(100% - 40px));margin:0 auto}
