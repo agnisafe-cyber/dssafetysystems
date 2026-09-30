@@ -1176,3 +1176,76 @@ body{
 .about-home-text{color:#b7bcc5!important}
 .about-home-facts>div{color:#d7dbe1!important}
 .marquee-track,.marquee-track *{color:#f1f3f5!important}
+
+/* =========================================================
+   DS SAFETY SYSTEMS — ONE CONTINUOUS CINEMATIC VIBE
+   ========================================================= */
+:root{
+  --ds-bg:#090b0f;
+  --ds-bg-mid:#101319;
+  --ds-red:#dc2626;
+  --ds-orange:#f97316;
+}
+.hero,.about-home,.marquee,.services-home,.products,#contact,.footer{
+  background-color:var(--ds-bg)!important;
+  background-repeat:no-repeat!important;
+  color:#eef1f5;
+}
+/* shared atmospheric fire light */
+.hero:before,.about-home:before,.services-home:before,.products:before,#contact:before,.footer:before{
+  background:
+    radial-gradient(ellipse at 18% 72%,rgba(220,38,38,.17),transparent 24%),
+    radial-gradient(ellipse at 82% 28%,rgba(249,115,22,.11),transparent 25%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,82,48,.035),transparent 38%)!important;
+  filter:blur(72px)!important;
+  opacity:.9!important;
+  animation:dsContinuousGlow 18s cubic-bezier(.45,0,.25,1) infinite alternate!important;
+}
+/* shared ember field */
+.hero:after,.about-home:after,.services-home:after,.products:after,#contact:after,.footer:after{
+  background:
+    radial-gradient(circle at 7% 82%,rgba(255,82,48,.58) 0 1px,transparent 2px),
+    radial-gradient(circle at 19% 38%,rgba(255,170,85,.40) 0 1px,transparent 2px),
+    radial-gradient(circle at 33% 91%,rgba(220,38,38,.48) 0 1px,transparent 2px),
+    radial-gradient(circle at 48% 22%,rgba(255,130,65,.36) 0 1px,transparent 2px),
+    radial-gradient(circle at 64% 78%,rgba(255,170,85,.44) 0 1px,transparent 2px),
+    radial-gradient(circle at 81% 43%,rgba(220,38,38,.46) 0 1px,transparent 2px),
+    radial-gradient(circle at 94% 86%,rgba(255,110,55,.52) 0 1px,transparent 2px),
+    linear-gradient(180deg,transparent 0 72%,rgba(0,0,0,.24) 100%),
+    radial-gradient(ellipse at center,transparent 34%,rgba(0,0,0,.32) 100%)!important;
+  animation:dsContinuousEmbers 13s ease-in-out infinite alternate!important;
+  opacity:.72!important;
+}
+/* eliminate old cream visual layers */
+.hero,.about-home,.marquee{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.018);
+}
+.marquee{
+  background-image:
+    linear-gradient(110deg,transparent 20%,rgba(255,255,255,.075) 40%,transparent 58%),
+    linear-gradient(90deg,#090b0f,#14171c,#090b0f)!important;
+  background-size:220% 100%,100% 100%!important;
+  animation:dsMarqueeUnified 7s linear infinite!important;
+}
+.about-home-title{color:#f1f3f5!important}
+.about-home-title span{color:#ef4444!important}
+.about-home-text{color:#b7bcc5!important}
+.about-home-facts>div{color:#d8dce2!important}
+.hero-content .hero-copy{color:#d7dbe1!important;-webkit-text-fill-color:#d7dbe1!important}
+@keyframes dsContinuousGlow{
+  0%{transform:translate3d(-4%,3%,0) scale(.92) rotate(-2deg)}
+  50%{transform:translate3d(2%,-2%,0) scale(1.02) rotate(1deg)}
+  100%{transform:translate3d(5%,-4%,0) scale(1.09) rotate(3deg)}
+}
+@keyframes dsContinuousEmbers{
+  0%{transform:translate3d(0,1%,0);opacity:.42}
+  50%{opacity:.78}
+  100%{transform:translate3d(-1.2%,-2%,0);opacity:.66}
+}
+@keyframes dsMarqueeUnified{
+  from{background-position:220% 0,0 0}
+  to{background-position:-30% 0,0 0}
+}
+@media(max-width:700px){
+  .hero:before,.about-home:before,.services-home:before,.products:before,#contact:before,.footer:before{filter:blur(52px)!important}
+}
