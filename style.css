@@ -558,8 +558,9 @@
   overflow:hidden!important;
   pointer-events:none!important;
   background:
-    radial-gradient(ellipse at 18% 22%,rgba(220,38,38,.13),transparent 34%),
-    radial-gradient(ellipse at 82% 78%,rgba(249,115,22,.09),transparent 38%),
+    radial-gradient(ellipse at 12% 28%,rgba(220,38,38,.22),transparent 30%),
+    radial-gradient(ellipse at 88% 72%,rgba(249,115,22,.13),transparent 34%),
+    radial-gradient(ellipse at 52% 46%,rgba(220,38,38,.075),transparent 42%),
     radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 55%),
     #0a0c10;
 }
@@ -568,8 +569,9 @@
   position:absolute;
   inset:-30%;
   background:
-    radial-gradient(ellipse at 25% 35%,rgba(239,68,68,.18),transparent 28%),
-    radial-gradient(ellipse at 75% 65%,rgba(249,115,22,.12),transparent 30%);
+    radial-gradient(ellipse at 18% 30%,rgba(239,68,68,.28),transparent 27%),
+    radial-gradient(ellipse at 78% 68%,rgba(249,115,22,.16),transparent 29%),
+    radial-gradient(ellipse at 50% 50%,rgba(220,38,38,.10),transparent 38%);
   filter:blur(70px);
   animation:productsCinematicGlow 16s ease-in-out infinite alternate;
 }
@@ -593,7 +595,7 @@
 .products-fire-glow-1{
   top:-24%!important;
   left:-10%!important;
-  background:radial-gradient(circle,rgba(220,38,38,.25),transparent 68%)!important;
+  background:radial-gradient(circle,rgba(220,38,38,.36),transparent 68%)!important;
   animation:productsGlowDrift1 18s ease-in-out infinite alternate!important;
 }
 .products-fire-glow-2{
@@ -610,7 +612,7 @@
   top:42%!important;
   transform:translate(-50%,-50%)!important;
   border-radius:50%!important;
-  background:radial-gradient(circle,rgba(220,38,38,.09) 0%,rgba(249,115,22,.035) 30%,transparent 68%)!important;
+  background:radial-gradient(circle,rgba(220,38,38,.15) 0%,rgba(249,115,22,.05) 30%,transparent 68%)!important;
   filter:blur(28px)!important;
   animation:productsSpotlightBreath 9s ease-in-out infinite!important;
 }
