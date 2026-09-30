@@ -863,182 +863,234 @@
 
 
     </style>
-<style id="redline-cinematic-theme">
+<style id="new-industrial-atelier-theme">
 /* =========================================================
-   DS SAFETY SYSTEMS — REDLINE INDUSTRIAL CINEMATIC THEME
-   Static opening + About. Motion remains available below.
+   DS SAFETY SYSTEMS — INDUSTRIAL ATELIER
+   New visual direction: smoked steel / blueprint blue / signal red
+   Hero + About intentionally static.
    ========================================================= */
 :root{
-  --ds-redline-bg:#080b10;
-  --ds-redline-panel:#0d1219;
-  --ds-redline-panel-2:#111820;
-  --ds-redline-text:#f3f5f7;
-  --ds-redline-muted:#9ca5b1;
-  --ds-redline-red:#e12b2b;
-  --ds-redline-orange:#ff6a2a;
+  --atelier-ink:#0d1720;
+  --atelier-steel:#172633;
+  --atelier-blue:#2e6078;
+  --atelier-red:#d62828;
+  --atelier-orange:#ef7d32;
+  --atelier-white:#f3f5f2;
+  --atelier-muted:#9ca9b2;
+}
+body{
+  background:#0b131a!important;
+  color:var(--atelier-white)!important;
 }
 
-/* One visual language: graphite steel + emergency red illumination */
-body{
-  background:#080b10!important;
-  color:var(--ds-redline-text);
-}
+/* Floating navigation: technical instrument, not glass capsule */
 .nav{
-  background:rgba(8,11,16,.84)!important;
-  border:1px solid rgba(255,255,255,.10)!important;
-  box-shadow:0 16px 45px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04)!important;
-  backdrop-filter:blur(18px)!important;
+  top:20px!important;
+  height:76px!important;
+  background:rgba(11,19,26,.92)!important;
+  border:1px solid rgba(180,205,218,.18)!important;
+  border-radius:8px!important;
+  box-shadow:0 18px 55px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.055)!important;
+  backdrop-filter:blur(14px)!important;
 }
 .brand-text{
-  background:linear-gradient(100deg,#ffffff 0%,#dfe5eb 52%,#e12b2b 100%)!important;
+  background:linear-gradient(90deg,#f3f5f2 0%,#cbd7dd 72%,#d62828 100%)!important;
   -webkit-background-clip:text!important;background-clip:text!important;
   -webkit-text-fill-color:transparent!important;
 }
-.nav-links a{color:#d8dde4!important}
-.nav-links a:not(.nav-cta):hover{background:rgba(225,43,43,.10)!important;color:#ff5a4f!important}
+.nav-links a{color:#cbd5db!important;border-radius:5px!important}
+.nav-links a:not(.nav-cta):hover{background:rgba(46,96,120,.20)!important;color:#fff!important}
+.nav-cta{
+  background:#d62828!important;
+  border-radius:5px!important;
+  box-shadow:0 7px 22px rgba(214,40,40,.20)!important;
+}
+.nav-cta:hover{background:#ef3b36!important}
 
-/* FIRST PAGE — HERO: completely static */
+/* =========================================================
+   HERO — architectural control room
+   ========================================================= */
 .hero{
   background:
-    radial-gradient(ellipse at 82% 34%,rgba(225,43,43,.17),transparent 25%),
-    radial-gradient(ellipse at 68% 72%,rgba(255,106,42,.075),transparent 22%),
-    linear-gradient(135deg,#070a0f 0%,#0d131a 48%,#070a0f 100%)!important;
-  color:var(--ds-redline-text)!important;
+    radial-gradient(circle at 79% 48%,rgba(46,96,120,.30),transparent 20%),
+    radial-gradient(circle at 91% 16%,rgba(214,40,40,.13),transparent 19%),
+    linear-gradient(118deg,#071017 0%,#0d1922 46%,#111e28 100%)!important;
+  color:#f3f5f2!important;
 }
 .hero:before{
-  content:""!important;
-  position:absolute!important;inset:0!important;z-index:0!important;
+  content:""!important;position:absolute!important;inset:0!important;z-index:0!important;
   background:
-    linear-gradient(90deg,transparent 0 14%,rgba(255,255,255,.035) 14.1%,transparent 14.2%),
-    linear-gradient(0deg,transparent 0 82%,rgba(225,43,43,.10) 82.1%,transparent 82.2%),
-    radial-gradient(ellipse at 88% 50%,rgba(225,43,43,.14),transparent 30%)!important;
-  filter:none!important;
-  opacity:1!important;
-  animation:none!important;
+    linear-gradient(90deg,transparent 0 7%,rgba(178,207,220,.055) 7.05%,transparent 7.1%),
+    linear-gradient(90deg,transparent 0 72%,rgba(178,207,220,.045) 72.05%,transparent 72.1%),
+    linear-gradient(0deg,transparent 0 81%,rgba(214,40,40,.12) 81.1%,transparent 81.2%),
+    radial-gradient(circle at 82% 47%,rgba(239,125,50,.08),transparent 26%)!important;
+  filter:none!important;animation:none!important;opacity:1!important;
 }
 .hero:after{
-  content:""!important;
-  position:absolute!important;inset:0!important;z-index:1!important;
+  content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
   background:
-    linear-gradient(105deg,transparent 0 57%,rgba(225,43,43,.055) 57.2%,transparent 57.5%),
-    repeating-linear-gradient(90deg,transparent 0,transparent 79px,rgba(255,255,255,.018) 80px),
-    linear-gradient(180deg,transparent 65%,rgba(0,0,0,.45) 100%)!important;
-  animation:none!important;
-  opacity:1!important;
+    repeating-linear-gradient(90deg,transparent 0,transparent 119px,rgba(255,255,255,.018) 120px),
+    linear-gradient(135deg,transparent 0 63%,rgba(214,40,40,.08) 63.1%,transparent 63.35%),
+    radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.40) 100%)!important;
+  animation:none!important;opacity:1!important;
 }
-.hero-grid{opacity:.16!important}
+.hero-grid{opacity:.10!important}
 .hero > *{position:relative;z-index:3!important}
-.hero-content .hero-copy{
-  color:#dce2e8!important;
-  -webkit-text-fill-color:#dce2e8!important;
-  text-shadow:0 2px 14px rgba(0,0,0,.45)!important;
-}
 .hero-content h1.hero-title{
-  color:#f5f7f9!important;
-  background:none!important;
-  -webkit-text-fill-color:#f5f7f9!important;
-  text-shadow:0 4px 28px rgba(0,0,0,.45)!important;
+  color:#f3f5f2!important;
+  background:linear-gradient(100deg,#f3f5f2 0%,#d9e1e4 57%,#e05a45 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  text-shadow:0 4px 30px rgba(0,0,0,.28)!important;
+}
+.hero-content .hero-copy{
+  color:#b9c5cc!important;-webkit-text-fill-color:#b9c5cc!important;
 }
 .hero-content h1.hero-title .hero-line{
-  animation:none!important;
-  opacity:1!important;
-  transform:none!important;
-  filter:none!important;
+  animation:none!important;opacity:1!important;transform:none!important;filter:none!important;
 }
 .hero .actions{opacity:1!important;transform:none!important}
-.hero-video-visual{
-  opacity:1!important;transform:none!important;
-  filter:none!important;
+.hero-video-visual{opacity:1!important;transform:none!important;filter:none!important}
+.hero-video-visual:before{
+  background:linear-gradient(135deg,#d62828,#ef7d32,#467d92)!important;
 }
 
-/* SECOND PAGE — ABOUT: same environment, also completely static */
+/* =========================================================
+   MARQUEE — hazard band
+   ========================================================= */
+.marquee{
+  background:
+    repeating-linear-gradient(135deg,#101c24 0,#101c24 22px,#172631 22px,#172631 44px)!important;
+  border-top:1px solid rgba(214,40,40,.35)!important;
+  border-bottom:1px solid rgba(214,40,40,.35)!important;
+}
+.marquee:before{
+  content:""!important;position:absolute!important;inset:0!important;
+  background:linear-gradient(90deg,transparent,rgba(239,125,50,.08),transparent)!important;
+  animation:none!important;
+}
+.marquee-track,.marquee-track *{color:#f1f4f2!important}
+
+/* =========================================================
+   ABOUT — same architecture, brighter steel
+   ========================================================= */
 .about-home{
   background:
-    radial-gradient(ellipse at 15% 30%,rgba(225,43,43,.15),transparent 27%),
-    radial-gradient(ellipse at 86% 74%,rgba(255,106,42,.07),transparent 25%),
-    linear-gradient(135deg,#080b10 0%,#10161d 50%,#080b10 100%)!important;
-  color:#f3f5f7!important;
+    radial-gradient(circle at 15% 22%,rgba(46,96,120,.23),transparent 25%),
+    radial-gradient(circle at 86% 74%,rgba(214,40,40,.11),transparent 23%),
+    linear-gradient(135deg,#0b151d 0%,#14232e 52%,#0a141c 100%)!important;
+  color:#f3f5f2!important;
 }
 .about-home:before{
   content:""!important;position:absolute!important;inset:0!important;z-index:0!important;
   background:
-    linear-gradient(115deg,transparent 0 46%,rgba(225,43,43,.055) 46.2%,transparent 46.5%),
-    repeating-linear-gradient(0deg,transparent 0,transparent 63px,rgba(255,255,255,.018) 64px),
-    radial-gradient(ellipse at 78% 25%,rgba(225,43,43,.12),transparent 30%)!important;
+    linear-gradient(135deg,transparent 0 44%,rgba(214,40,40,.055) 44.1%,transparent 44.4%),
+    repeating-linear-gradient(0deg,transparent 0,transparent 71px,rgba(180,205,218,.025) 72px),
+    radial-gradient(circle at 18% 30%,rgba(46,96,120,.12),transparent 27%)!important;
   filter:none!important;animation:none!important;opacity:1!important;
 }
 .about-home:after{
   content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
   background:
-    linear-gradient(90deg,rgba(225,43,43,.035),transparent 18%,transparent 82%,rgba(255,106,42,.035)),
-    radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.36) 100%)!important;
+    linear-gradient(90deg,rgba(255,255,255,.018),transparent 25%,transparent 75%,rgba(214,40,40,.025)),
+    radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.38) 100%)!important;
   animation:none!important;opacity:1!important;
 }
 .about-home > *{position:relative;z-index:3!important}
+.about-home-copy .section-label,
 .about-home-copy .about-home-title,
 .about-home-copy .about-home-text,
 .about-home-copy .about-home-facts{
-  opacity:1!important;transform:none!important;filter:none!important;
-  transition:none!important;
+  opacity:1!important;transform:none!important;filter:none!important;transition:none!important;
 }
-.about-home-copy .section-label{
-  opacity:1!important;transform:none!important;filter:none!important;
-  transition:none!important;
-}
-.about-home-title{color:#f4f6f8!important;text-shadow:0 3px 22px rgba(0,0,0,.4)!important}
-.about-home-title span{color:#ef4444!important}
-.about-home-text{color:#b8c0c9!important}
-.about-home-facts>div{color:#dbe1e7!important}
-.about-image-wrap::before{
-  display:none!important;
-  animation:none!important;
-  transition:none!important;
-}
+.about-home-title{color:#f3f5f2!important;text-shadow:0 3px 20px rgba(0,0,0,.3)!important}
+.about-home-title span{color:#e14a3d!important}
+.about-home-text{color:#b8c5cc!important}
+.about-home-facts>div{color:#dce4e8!important}
+.about-image-wrap::before{display:none!important;animation:none!important;transition:none!important}
 .about-home-image{
-  box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.07)!important;
+  box-shadow:0 28px 75px rgba(0,0,0,.42),0 0 0 1px rgba(180,205,218,.10)!important;
+}
+.about-home-image:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid rgba(255,255,255,.08);border-radius:28px;
 }
 
-/* Shared lower-page language — darker steel, controlled red/orange light */
+/* =========================================================
+   LOWER PAGES — controlled steel, red signal accents
+   ========================================================= */
 .services-home,.products,#contact,.footer{
-  background-color:#080b10!important;
+  background-color:#0a141c!important;
 }
 .services-home{
   background-image:
-    radial-gradient(ellipse at 10% 20%,rgba(225,43,43,.18),transparent 27%),
-    radial-gradient(ellipse at 90% 80%,rgba(255,106,42,.10),transparent 28%),
-    linear-gradient(135deg,#080b10,#11161d 50%,#080b10)!important;
+    radial-gradient(circle at 10% 20%,rgba(46,96,120,.24),transparent 26%),
+    radial-gradient(circle at 91% 82%,rgba(214,40,40,.15),transparent 26%),
+    linear-gradient(135deg,#09131b,#14232e 50%,#09131b)!important;
 }
 .products{
   background-image:
-    radial-gradient(ellipse at 16% 22%,rgba(225,43,43,.17),transparent 28%),
-    radial-gradient(ellipse at 84% 78%,rgba(255,106,42,.10),transparent 28%),
-    linear-gradient(135deg,#080b10,#10151c 50%,#080b10)!important;
+    radial-gradient(circle at 16% 20%,rgba(46,96,120,.20),transparent 27%),
+    radial-gradient(circle at 84% 80%,rgba(214,40,40,.14),transparent 28%),
+    linear-gradient(135deg,#09131b,#15232d 50%,#09131b)!important;
 }
 #contact{
   background-image:
-    radial-gradient(ellipse at 12% 28%,rgba(225,43,43,.16),transparent 27%),
-    radial-gradient(ellipse at 88% 72%,rgba(255,106,42,.09),transparent 28%),
-    linear-gradient(135deg,#080b10,#11161d 50%,#080b10)!important;
+    radial-gradient(circle at 12% 28%,rgba(46,96,120,.22),transparent 26%),
+    radial-gradient(circle at 88% 72%,rgba(214,40,40,.13),transparent 27%),
+    linear-gradient(135deg,#09131b,#14232e 50%,#09131b)!important;
 }
 .footer{
   background-image:
-    radial-gradient(ellipse at 50% 0%,rgba(225,43,43,.15),transparent 34%),
-    linear-gradient(135deg,#06080c,#0d1218,#06080c)!important;
+    radial-gradient(circle at 50% 0,rgba(214,40,40,.16),transparent 32%),
+    linear-gradient(135deg,#060c11,#0e171e,#060c11)!important;
 }
-
-/* Marquee remains the transition into the animated lower experience */
-.marquee{
+.services-home:before,.products:before,#contact:before,.footer:before{
+  animation:none!important;
   background:
-    linear-gradient(180deg,#0b0f14,#151a21,#0b0f14)!important;
-  border-top:1px solid rgba(255,255,255,.08)!important;
-  border-bottom:1px solid rgba(225,43,43,.25)!important;
+    linear-gradient(115deg,transparent 0 46%,rgba(255,255,255,.018) 46.1%,transparent 46.3%),
+    radial-gradient(circle at 78% 25%,rgba(46,96,120,.10),transparent 25%)!important;
+  filter:none!important;
 }
-.marquee:before{background:linear-gradient(90deg,transparent,rgba(225,43,43,.10),transparent)!important}
-.marquee-track,.marquee-track *{color:#f3f5f7!important}
+.services-home:after,.products:after,#contact:after,.footer:after{
+  animation:none!important;
+  opacity:1!important;
+}
 
-/* Keep product cards as the contrast surface */
-.product-home-row{background:rgba(18,23,30,.78)!important;border-color:rgba(255,255,255,.10)!important}
-.product-home-row:hover,.product-home-row.active{background:#151b23!important;border-color:rgba(225,43,43,.40)!important}
+/* Product cards: steel panels, not white cards */
+.product-home-row{
+  background:linear-gradient(145deg,rgba(23,38,49,.96),rgba(13,24,32,.96))!important;
+  border-color:rgba(180,205,218,.13)!important;
+  color:#f3f5f2!important;
+}
+.product-home-row:hover,.product-home-row.active{
+  background:linear-gradient(145deg,#1a303e,#12222d)!important;
+  border-color:rgba(214,40,40,.52)!important;
+  box-shadow:0 22px 55px rgba(0,0,0,.32)!important;
+}
+.product-home-main h3{color:#f3f5f2!important}
+.product-home-main p{color:#9eabb4!important}
+.product-home-kicker{color:#6f8794!important}
+.product-home-num{color:#e14a3d!important}
+.product-home-arrow{
+  border-color:rgba(180,205,218,.20)!important;color:#e9eef0!important;
+}
+.product-home-row:hover .product-home-arrow{
+  background:#d62828!important;border-color:#d62828!important;color:#fff!important;
+}
+
+/* Services rows */
+.service-row{border-color:rgba(180,205,218,.13)!important}
+.service-row:hover{background:rgba(46,96,120,.12)!important}
+.service-row h3{color:#f3f5f2!important}
+.service-row p{color:#9eabb4!important}
+.service-row-num{color:#e14a3d!important}
+.service-row-arrow{border-color:rgba(180,205,218,.20)!important}
+
+/* Keep the new theme deliberately still — no ambient motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 </style>
 </head>
 <body>
