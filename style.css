@@ -1157,3 +1157,22 @@ body{
     animation:none!important;
   }
 }
+/* =========================================================
+   UNIFIED DARK FIRE V4 — REMOVE LEGACY CREAM FROM OPENING PAGES
+   ========================================================= */
+.hero,.about-home,.marquee{
+  background-color:#090b0f!important;
+}
+.hero-content .hero-copy{
+  color:#d7dbe1!important;
+  -webkit-text-fill-color:#d7dbe1!important;
+  text-shadow:0 1px 8px rgba(0,0,0,.35);
+}
+.about-home-title{
+  color:#f4f5f7!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.28);
+}
+.about-home-title span{color:#ef4444!important}
+.about-home-text{color:#b7bcc5!important}
+.about-home-facts>div{color:#d7dbe1!important}
+.marquee-track,.marquee-track *{color:#f1f3f5!important}
