@@ -964,3 +964,73 @@ body{
     animation:none!important;
   }
 }
+
+
+/* =========================================================
+   CINEMATIC BACKGROUND V2 — HIGH VISIBILITY / SITE WIDE
+   ========================================================= */
+.hero,.about-home,.marquee,.services-home,.products,#contact,.footer{
+  background-repeat:no-repeat!important;
+  background-size:160% 160%!important;
+  animation:dsSectionLight 18s ease-in-out infinite alternate;
+}
+.hero{
+  background-image:
+    radial-gradient(ellipse at 82% 35%,rgba(220,38,38,.12),transparent 25%),
+    radial-gradient(ellipse at 18% 78%,rgba(249,115,22,.065),transparent 25%),
+    linear-gradient(115deg,#f4f0e8 0%,#f7f3eb 48%,#eee9df 100%)!important;
+}
+.about-home{
+  background-image:
+    radial-gradient(ellipse at 78% 24%,rgba(220,38,38,.105),transparent 24%),
+    radial-gradient(ellipse at 12% 82%,rgba(249,115,22,.06),transparent 24%),
+    linear-gradient(120deg,#f4f0e8,#faf7f0 52%,#eee9df)!important;
+}
+.marquee{
+  animation-duration:10s;
+  background-image:
+    linear-gradient(110deg,transparent 20%,rgba(255,255,255,.8) 38%,transparent 54%),
+    linear-gradient(90deg,#eee9df,#f8f5ef,#e8e2d8)!important;
+  background-size:220% 100%,100% 100%!important;
+  animation:dsMarqueeSweep 6s linear infinite!important;
+}
+.services-home{
+  background-image:
+    radial-gradient(ellipse at 12% 25%,rgba(220,38,38,.20),transparent 28%),
+    radial-gradient(ellipse at 88% 78%,rgba(249,115,22,.14),transparent 30%),
+    radial-gradient(ellipse at 50% 48%,rgba(255,90,45,.045),transparent 40%),
+    linear-gradient(125deg,#090b0f,#101217 48%,#090b0f)!important;
+}
+.products{
+  background-image:
+    radial-gradient(ellipse at 15% 22%,rgba(220,38,38,.17),transparent 28%),
+    radial-gradient(ellipse at 85% 78%,rgba(249,115,22,.13),transparent 30%),
+    radial-gradient(ellipse at 50% 45%,rgba(255,90,45,.045),transparent 40%),
+    linear-gradient(125deg,#080a0e,#101217 48%,#080a0e)!important;
+}
+#contact{
+  background-image:
+    radial-gradient(ellipse at 14% 30%,rgba(220,38,38,.18),transparent 27%),
+    radial-gradient(ellipse at 86% 72%,rgba(249,115,22,.13),transparent 29%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,90,45,.045),transparent 40%),
+    linear-gradient(125deg,#090b0f,#111319 48%,#080a0e)!important;
+}
+.footer{
+  background-image:
+    radial-gradient(ellipse at 50% 0%,rgba(220,38,38,.17),transparent 35%),
+    radial-gradient(ellipse at 18% 80%,rgba(249,115,22,.10),transparent 25%),
+    linear-gradient(120deg,#07090c,#0e1014,#07090c)!important;
+}
+@keyframes dsSectionLight{
+  0%{background-position:0% 50%}
+  50%{background-position:50% 42%}
+  100%{background-position:100% 58%}
+}
+@keyframes dsMarqueeSweep{
+  from{background-position:220% 0,0 0}
+  to{background-position:-30% 0,0 0}
+}
+/* stronger cinematic glow layers */
+.hero:before,.about-home:before,.services-home:before,.products-fire-bg:before,#contact:before,.footer:before{
+  will-change:transform,opacity;
+}
