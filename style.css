@@ -723,3 +723,244 @@
   display:none!important;visibility:hidden!important;height:0!important;max-height:0!important;min-height:0!important;
   margin:0!important;padding:0!important;overflow:hidden!important;
 }
+
+
+/* =========================================================
+   DS SAFETY SYSTEMS — SITE-WIDE CINEMATIC ATMOSPHERE
+   One visual language across every scroll section.
+   ========================================================= */
+
+body{
+  background:#0a0c10;
+}
+
+/* HERO — polished industrial light field */
+.hero{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 78% 42%,rgba(220,38,38,.075),transparent 27%),
+    radial-gradient(ellipse at 20% 78%,rgba(249,115,22,.045),transparent 25%),
+    #f4f0e8!important;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:-35%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 72% 38%,rgba(220,38,38,.13),transparent 23%),
+    radial-gradient(ellipse at 31% 72%,rgba(249,115,22,.07),transparent 22%),
+    radial-gradient(ellipse at 54% 52%,rgba(255,255,255,.55),transparent 34%);
+  filter:blur(70px);
+  animation:dsHeroAtmosphere 18s cubic-bezier(.45,0,.25,1) infinite alternate;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 88% 19%,rgba(220,38,38,.5) 0 1px,transparent 2px),
+    radial-gradient(circle at 67% 78%,rgba(249,115,22,.38) 0 1px,transparent 2px),
+    radial-gradient(circle at 38% 18%,rgba(17,24,39,.2) 0 1px,transparent 2px),
+    radial-gradient(circle at 16% 63%,rgba(220,38,38,.3) 0 1px,transparent 2px),
+    linear-gradient(120deg,transparent 0 47%,rgba(220,38,38,.035) 50%,transparent 53%);
+  animation:dsHeroParticles 11s ease-in-out infinite alternate;
+}
+.hero > *{position:relative;z-index:2}
+.hero-grid{z-index:1!important;opacity:.48!important}
+@keyframes dsHeroAtmosphere{
+  0%{transform:translate3d(-3%,2%,0) scale(.94) rotate(-2deg)}
+  50%{transform:translate3d(2%,-2%,0) scale(1.02) rotate(1deg)}
+  100%{transform:translate3d(6%,-4%,0) scale(1.08) rotate(3deg)}
+}
+@keyframes dsHeroParticles{
+  0%{transform:translate3d(0,1%,0);opacity:.45}
+  50%{opacity:.82}
+  100%{transform:translate3d(-1%,-2%,0);opacity:.62}
+}
+
+/* MARQUEE — animated brushed-metal / safety-strip energy */
+.marquee{
+  isolation:isolate;
+  background:
+    linear-gradient(180deg,#f8f5ef 0%,#eee9df 48%,#f7f3eb 100%)!important;
+}
+.marquee:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(110deg,transparent 15%,rgba(255,255,255,.75) 25%,transparent 35%),
+    linear-gradient(90deg,transparent,rgba(220,38,38,.045),transparent);
+  background-size:220% 100%,100% 100%;
+  animation:dsMarqueeSheen 7s linear infinite;
+}
+.marquee:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 55px rgba(16,16,16,.08);
+}
+.marquee-track{position:relative;z-index:2}
+@keyframes dsMarqueeSheen{
+  from{background-position:220% 0,0 0}
+  to{background-position:-30% 0,0 0}
+}
+
+/* ABOUT — warm architectural atmosphere */
+.about-home{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 82% 22%,rgba(220,38,38,.055),transparent 28%),
+    radial-gradient(ellipse at 8% 88%,rgba(249,115,22,.04),transparent 24%),
+    #f4f0e8!important;
+}
+.about-home:before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 76% 28%,rgba(220,38,38,.10),transparent 24%),
+    radial-gradient(ellipse at 20% 78%,rgba(249,115,22,.055),transparent 25%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.48),transparent 38%);
+  filter:blur(75px);
+  animation:dsAboutAtmosphere 20s ease-in-out infinite alternate;
+}
+.about-home:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 13% 31%,rgba(220,38,38,.34) 0 1px,transparent 2px),
+    radial-gradient(circle at 91% 66%,rgba(249,115,22,.32) 0 1px,transparent 2px),
+    radial-gradient(circle at 58% 13%,rgba(17,24,39,.15) 0 1px,transparent 2px),
+    linear-gradient(125deg,transparent 0 49%,rgba(220,38,38,.025) 50%,transparent 51%);
+  animation:dsAboutParticles 14s ease-in-out infinite alternate;
+}
+.about-home > *{position:relative;z-index:2}
+.about-home-image{
+  box-shadow:0 28px 80px rgba(16,16,16,.14),0 0 0 1px rgba(220,38,38,.08);
+}
+@keyframes dsAboutAtmosphere{
+  0%{transform:translate3d(3%,2%,0) scale(.94)}
+  100%{transform:translate3d(-4%,-4%,0) scale(1.08)}
+}
+@keyframes dsAboutParticles{
+  0%{transform:translate3d(0,1%,0);opacity:.38}
+  100%{transform:translate3d(-1%,-2%,0);opacity:.7}
+}
+
+/* DARK CONTENT SECTIONS — cinematic shared foundation */
+.section.dark,
+#contact{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#090b0f!important;
+}
+.section.dark:before,
+#contact:before{
+  content:"";
+  position:absolute;
+  inset:-35%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 30%,rgba(220,38,38,.16),transparent 25%),
+    radial-gradient(ellipse at 84% 72%,rgba(249,115,22,.10),transparent 28%),
+    radial-gradient(ellipse at 52% 48%,rgba(255,255,255,.025),transparent 36%);
+  filter:blur(78px);
+  animation:dsDarkAtmosphere 19s cubic-bezier(.45,0,.25,1) infinite alternate;
+}
+.section.dark:after,
+#contact:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 7% 84%,rgba(255,82,48,.65) 0 1px,transparent 2px),
+    radial-gradient(circle at 24% 54%,rgba(255,170,85,.42) 0 1px,transparent 2px),
+    radial-gradient(circle at 44% 87%,rgba(220,38,38,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 63% 39%,rgba(255,130,65,.42) 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 76%,rgba(255,170,85,.48) 0 1px,transparent 2px),
+    radial-gradient(circle at 94% 45%,rgba(220,38,38,.52) 0 1px,transparent 2px),
+    linear-gradient(180deg,rgba(0,0,0,.04),transparent 25%,transparent 75%,rgba(0,0,0,.45)),
+    radial-gradient(ellipse at center,transparent 34%,rgba(0,0,0,.35) 100%);
+  animation:dsDarkEmbers 12s ease-in-out infinite alternate;
+}
+.section.dark > *,
+#contact > *{position:relative;z-index:3}
+@keyframes dsDarkAtmosphere{
+  0%{transform:translate3d(-5%,3%,0) scale(.92) rotate(-2deg)}
+  50%{transform:translate3d(2%,-2%,0) scale(1.02) rotate(1deg)}
+  100%{transform:translate3d(6%,-5%,0) scale(1.10) rotate(3deg)}
+}
+@keyframes dsDarkEmbers{
+  0%{transform:translate3d(0,1%,0);opacity:.48}
+  50%{opacity:.8}
+  100%{transform:translate3d(-1%,-2%,0);opacity:.68}
+}
+
+/* FOOTER — quiet final ember, not a flat black ending */
+.footer{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% -20%,rgba(220,38,38,.12),transparent 42%),
+    #07090c!important;
+  color:#d8dbe0;
+}
+.footer:before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 30% 20%,rgba(220,38,38,.10),transparent 25%),
+    radial-gradient(ellipse at 72% 70%,rgba(249,115,22,.07),transparent 25%);
+  filter:blur(60px);
+  animation:dsFooterGlow 15s ease-in-out infinite alternate;
+}
+.footer:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(220,38,38,.65),rgba(255,255,255,.28),rgba(249,115,22,.5),transparent);
+  opacity:.75;
+}
+.footer > *{position:relative;z-index:2}
+@keyframes dsFooterGlow{
+  0%{transform:translate3d(-4%,0,0) scale(.94)}
+  100%{transform:translate3d(5%,-3%,0) scale(1.08)}
+}
+
+/* Preserve performance/accessibility on phones and reduced-motion */
+@media(max-width:700px){
+  .hero:before,.about-home:before,.section.dark:before,#contact:before,.footer:before{
+    filter:blur(55px);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero:before,.hero:after,.marquee:before,.about-home:before,.about-home:after,
+  .section.dark:before,.section.dark:after,#contact:before,#contact:after,.footer:before{
+    animation:none!important;
+  }
+}
