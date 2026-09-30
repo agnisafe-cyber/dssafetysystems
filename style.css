@@ -339,6 +339,17 @@
   flex:0 0 auto!important;
   margin:0!important;
   padding:0 30px!important;
+  background:linear-gradient(115deg,#101010 0%,#101010 40%,#ffffff 50%,#101010 60%,#101010 100%)!important;
+  background-size:250% 100%!important;
+  background-position:100% 0!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  animation:marqueeShine 3s ease-in-out infinite!important;
+}
+@keyframes marqueeShine{
+  0%,68%{background-position:100% 0}
+  88%,100%{background-position:-150% 0}
 }
 .marquee-track span:before{
   content:"•"!important;
