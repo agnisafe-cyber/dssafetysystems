@@ -1068,14 +1068,6 @@ galleryIndex=0;
           ),
           /* 06 — PRODUCTS */
           React.createElement("section",{className:"section products",id:"products"},
-            React.createElement("div",{className:"products-bg-container",id:"products-bg-container","aria-hidden":"true"},
-  React.createElement("div",{id:"products-spotlight",className:"products-mouse-spotlight"}),
-  React.createElement("div",{className:"products-ambient-glow-1"}),
-  React.createElement("div",{className:"products-ambient-glow-2"}),
-  React.createElement("div",{className:"products-vignette-overlay"}),
-  React.createElement("div",{id:"products-ember-container",className:"products-ember-container"})
-),
-
             React.createElement("div",{className:"products-stars","aria-hidden":"true"},
               React.createElement("div",{id:"stars"}),
               React.createElement("div",{id:"stars2"}),
@@ -1195,52 +1187,3 @@ galleryIndex=0;
   line-height:1.12!important;
 }
 </style>
-
-<style id="products-animated-fire-bg">
-.products{isolation:isolate;background:#050505!important;color:#f3f4f6!important;overflow:hidden!important}
-.products-inner,.products>.shell{position:relative;z-index:5}
-.products-bg-container{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.products-mouse-spotlight{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(230,57,70,.12) 0%,rgba(255,100,50,.03) 40%,transparent 70%);border-radius:50%;transform:translate(-50%,-50%);filter:blur(40px);transition:width .2s,height .2s;z-index:1}
-.products-ember-container{position:absolute;inset:0;z-index:3}
-.products-ember-container .ember{position:absolute;background:#ff3b3b;border-radius:50%;box-shadow:0 0 10px #ff3333,0 0 20px #ff1a1a,0 0 30px #ff0000;pointer-events:none;will-change:transform,opacity}
-.products-ambient-glow-1{position:absolute;top:-10%;left:10%;width:55vw;height:55vw;background:radial-gradient(circle,rgba(230,57,70,.1) 0%,transparent 70%);border-radius:50%;filter:blur(140px)}
-.products-ambient-glow-2{position:absolute;bottom:-10%;right:5%;width:65vw;height:65vw;background:radial-gradient(circle,rgba(200,30,40,.12) 0%,transparent 70%);border-radius:50%;filter:blur(160px)}
-.products-vignette-overlay{position:absolute;inset:0;background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.85) 100%);z-index:2}
-.products .products-stars{z-index:1!important;opacity:.35}
-.products .products-intro,.products .shell{position:relative;z-index:5}
-.product-detail-overlay{z-index:2000!important;background:rgba(8,8,8,.68)}
-</style>
-<script id="products-animated-fire-bg-script">
-(function(){
-  const section=document.getElementById('products');
-  const spotlight=document.getElementById('products-spotlight');
-  const container=document.getElementById('products-ember-container');
-  if(!section||!spotlight||!container)return;
-  let mx=window.innerWidth/2,my=window.innerHeight/2;
-  window.addEventListener('mousemove',e=>{
-    const r=section.getBoundingClientRect();
-    mx=e.clientX; my=e.clientY;
-    spotlight.style.left=(e.clientX-r.left)+'px';
-    spotlight.style.top=(e.clientY-r.top)+'px';
-  },{passive:true});
-  const embers=[];
-  const count=45;
-  for(let i=0;i<count;i++){
-    const el=document.createElement('div');el.className='ember';container.appendChild(el);
-    embers.push({el,x:Math.random()*window.innerWidth,y:Math.random()*section.offsetHeight,size:Math.random()*3.5+2,speedY:Math.random()*1.5+.5,speedX:(Math.random()-.5)*.8,opacity:Math.random()*.7+.3,angle:Math.random()*Math.PI*2,pulseSpeed:Math.random()*.05+.02});
-  }
-  function animate(){
-    embers.forEach(p=>{
-      p.y-=p.speedY;p.x+=p.speedX+Math.sin(p.angle)*.4;p.angle+=p.pulseSpeed;
-      const r=section.getBoundingClientRect(),lx=mx,ly=my+r.top-r.top;
-      const dx=p.x-lx,dy=p.y-(my-r.top),dist=Math.hypot(dx,dy);
-      if(dist<135&&dist>0){const f=(135-dist)/135;p.x+=(dx/dist)*f*4.5;p.y+=(dy/dist)*f*4.5}
-      if(p.y<-10){p.y=section.offsetHeight+10;p.x=Math.random()*section.clientWidth}
-      if(p.x<0)p.x=section.clientWidth;if(p.x>section.clientWidth)p.x=0;
-      p.el.style.transform='translate3d('+p.x+'px,'+p.y+'px,0)';p.el.style.width=p.size+'px';p.el.style.height=p.size+'px';p.el.style.opacity=p.opacity;
-    });requestAnimationFrame(animate);
-  }
-  animate();
-  window.addEventListener('resize',()=>{embers.forEach(p=>{if(p.x>section.clientWidth)p.x=Math.random()*section.clientWidth});});
-})();
-</script>
