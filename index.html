@@ -800,6 +800,13 @@
       document.body.appendChild(overlay);
       const modal=overlay.querySelector(".product-detail-modal"),mainImage=overlay.querySelector("#productDetailImage"),nextImage=overlay.querySelector("#productDetailNextImage"),mainImageWrap=overlay.querySelector(".product-detail-main-image"),thumbs=overlay.querySelector("#productDetailThumbs"),category=overlay.querySelector("#productDetailCategory"),title=overlay.querySelector("#productDetailTitle"),description=overlay.querySelector("#productDetailDescription"),specification=overlay.querySelector("#productDetailSpecification"),closeBtn=overlay.querySelector(".product-detail-close-x"),prevBtn=overlay.querySelector(".product-detail-slider-prev"),nextBtn=overlay.querySelector(".product-detail-slider-next"),countEl=overlay.querySelector("#productDetailCount"),progressEl=overlay.querySelector("#productDetailProgress");
        let lastCard=null, galleryImages=[], galleryIndex=0;
+        if(titleEl.textContent.trim()==="Fire Hydrant System"){
+          galleryImages.push(
+            {src:"https://www.fireextinguisher.co.uk/wp-content/uploads/2021/01/fire-hydrant-system.jpg",alt:"Fire Hydrant System gallery image 2"},
+            {src:"https://www.fireprotectiononline.co.uk/media/catalog/product/f/i/fire_hydrant_system.jpg",alt:"Fire Hydrant System gallery image 3"}
+          );
+        }
+
 const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");document.body.style.overflow="";if(lastCard) lastCard.classList.remove("active");};
       const setGalleryImage=(index,instant=false)=>{
         if(!galleryImages.length)return;
