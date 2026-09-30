@@ -81,7 +81,35 @@
     /* ============================================================
        05 — SERVICES STYLES
        ============================================================ */
-    .services-home{background:#111;position:relative;overflow:hidden;padding-top:125px;padding-bottom:125px;color:#fff}
+    .services-home{
+      background:#0a0c10!important;position:relative;overflow:hidden;padding-top:125px;padding-bottom:125px;color:#fff;isolation:isolate;
+    }
+    .services-home:before{
+      content:"";position:absolute;inset:-30%;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse at 18% 22%,rgba(220,38,38,.16),transparent 34%),
+        radial-gradient(ellipse at 82% 78%,rgba(249,115,22,.10),transparent 38%),
+        radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 55%);
+      filter:blur(65px);
+      animation:servicesCinematicDrift 18s ease-in-out infinite alternate;
+    }
+    .services-home:after{
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(circle at 12% 72%,rgba(239,68,68,.08) 0 1px,transparent 2px),
+        radial-gradient(circle at 28% 38%,rgba(255,170,100,.10) 0 1.5px,transparent 2.5px),
+        radial-gradient(circle at 47% 76%,rgba(239,68,68,.09) 0 1px,transparent 2px),
+        radial-gradient(circle at 68% 31%,rgba(255,170,100,.08) 0 1.5px,transparent 2.5px),
+        radial-gradient(circle at 87% 67%,rgba(239,68,68,.10) 0 1px,transparent 2px),
+        linear-gradient(180deg,rgba(0,0,0,.12),transparent 25%,transparent 75%,rgba(0,0,0,.4));
+      background-size:auto,auto,auto,auto,auto,100% 100%;
+      animation:servicesAtmosphere 10s ease-in-out infinite alternate;
+    }
+    .services-home > *{position:relative;z-index:2}
+    .services-home .services-topline,.services-home .services-hero-copy,.services-home .services-list{z-index:3}
+    @keyframes servicesCinematicDrift{0%{transform:translate3d(-4%,3%,0) scale(.94) rotate(-2deg)}100%{transform:translate3d(5%,-4%,0) scale(1.08) rotate(3deg)}}
+    @keyframes servicesAtmosphere{0%{opacity:.55;transform:translateY(1%)}100%{opacity:.95;transform:translateY(-1%)}}
+
     .services-home:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(220,38,38,.12),transparent 38%,transparent 72%,rgba(255,255,255,.025));pointer-events:none}
     .services-topline{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:18px}
     .services-topline .section-label{color:#fff!important;opacity:1!important;transform:none!important;filter:none!important}
