@@ -566,7 +566,7 @@
 
     /* Hero Video Showcase - No border & BG removed via blend-mode */
     .hero-video-visual{
-      position:absolute;z-index:5;right:5vw;top:32%;
+      position:absolute;z-index:5;right:5vw;top:27%;
       width:min(46vw,600px);height:auto;aspect-ratio:4 / 3;
       transform:translateY(-50%);border-radius:18px;
       background:transparent!important;border:none!important;box-shadow:none!important;
@@ -1209,7 +1209,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 <style id="marquee-card-shine-final">
 /* A single visible light sweep across the full marquee band */
 .marquee{position:relative!important;overflow:hidden!important;isolation:isolate!important;}
-.marquee::after{content:""!important;position:absolute!important;top:-35%!important;bottom:-35%!important;left:-45%!important;width:34%!important;z-index:20!important;pointer-events:none!important;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.10) 27%,rgba(255,255,255,.78) 49%,rgba(255,255,255,.14) 69%,transparent 100%)!important;transform:skewX(-18deg)!important;animation:dsMarqueeBandSweep 3s ease-in-out infinite!important;}
+.marquee::after{content:""!important;position:absolute!important;top:-35%!important;bottom:-35%!important;left:-45%!important;width:34%!important;z-index:20!important;pointer-events:none!important;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.18) 25%,rgba(255,255,255,1) 50%,rgba(255,255,255,.22) 72%,transparent 100%)!important;filter:blur(.2px) drop-shadow(0 0 7px rgba(255,255,255,.45))!important;transform:skewX(-18deg)!important;animation:dsMarqueeBandSweep 3s ease-in-out infinite!important;}
 @keyframes dsMarqueeBandSweep{0%,52%{left:-45%;opacity:0}60%{opacity:1}100%{left:115%;opacity:0}}
 </style>
 </body>
