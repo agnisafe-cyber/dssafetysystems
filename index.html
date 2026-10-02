@@ -895,7 +895,32 @@
         /* 04 — About reveal */
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const protectionFlow=document.querySelector(".protection-flow");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const manufacturingSlider=document.querySelector(".manufacturing-slider");
+if(manufacturingSlider){
+  const track=manufacturingSlider.querySelector(".manufacturing-slider-track");
+  const slides=[...manufacturingSlider.querySelectorAll(".manufacturing-slide")];
+  const current=manufacturingSlider.querySelector(".manufacturing-slider-current");
+  const progress=manufacturingSlider.querySelector(".manufacturing-slider-line i");
+  const prev=manufacturingSlider.querySelector(".manufacturing-slider-prev");
+  const next=manufacturingSlider.querySelector(".manufacturing-slider-next");
+  let index=0,startX=0;
+  const updateSlider=()=>{
+    track.style.transform="translate3d("+(-index*100)+"%,0,0)";
+    slides.forEach((s,i)=>s.classList.toggle("is-active",i===index));
+    if(current) current.textContent=String(index+1).padStart(2,"0");
+    if(progress) progress.style.transform="scaleX("+((index+1)/slides.length)+")";
+  };
+  prev?.addEventListener("click",()=>{index=(index-1+slides.length)%slides.length;updateSlider()});
+  next?.addEventListener("click",()=>{index=(index+1)%slides.length;updateSlider()});
+  manufacturingSlider.addEventListener("touchstart",e=>{startX=e.changedTouches[0].clientX},{passive:true});
+  manufacturingSlider.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45){index=dx<0?(index+1)%slides.length:(index-1+slides.length)%slides.length;updateSlider()}},{passive:true});
+  updateSlider();
+  if(window.gsap&&window.ScrollTrigger){
+    gsap.fromTo(manufacturingSlider,{y:70,opacity:0,filter:"blur(8px)"},{y:0,opacity:1,filter:"blur(0px)",duration:1.05,ease:"power3.out",scrollTrigger:{trigger:manufacturingSlider,start:"top 82%",once:true}});
+  }
+}
+
+const protectionFlow=document.querySelector(".protection-flow");
         if(protectionFlow){
           ScrollTrigger.create({trigger:protectionFlow,start:"top 78%",once:true,onEnter:()=>protectionFlow.classList.add("revealed")});
         }
@@ -1301,18 +1326,35 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 React.createElement("h2",null,"Built with process.",React.createElement("br"),React.createElement("span",null,"Delivered with purpose.")),
                 React.createElement("p",null,"From cylinder fabrication and finishing to inspection and readiness, every stage matters. A closer look at the manufacturing process behind the equipment we put into service.")
               ),
-              React.createElement("div",{className:"manufacturing-gallery"},
-                React.createElement("figure",{className:"manufacturing-image manufacturing-image-main"},
-                  React.createElement("img",{src:"cylinder-manufacturing-2.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 1",loading:"lazy"})
+              React.createElement("div",{className:"manufacturing-slider"},
+                React.createElement("div",{className:"manufacturing-slider-viewport"},
+                  React.createElement("div",{className:"manufacturing-slider-track"},
+                    React.createElement("figure",{className:"manufacturing-slide is-active"},
+                      React.createElement("img",{src:"cylinder-manufacturing-3.jpeg",alt:"DS Safety Systems manufacturing view 1",loading:"lazy"}),
+                      React.createElement("figcaption",null,React.createElement("span",null,"01"),React.createElement("strong",null,"Process / 01"),React.createElement("small",null,"Manufacturing detail"))
+                    ),
+                    React.createElement("figure",{className:"manufacturing-slide"},
+                      React.createElement("img",{src:"cylinder-manufacturing-4.jpeg",alt:"DS Safety Systems manufacturing view 2",loading:"lazy"}),
+                      React.createElement("figcaption",null,React.createElement("span",null,"02"),React.createElement("strong",null,"Process / 02"),React.createElement("small",null,"Manufacturing detail"))
+                    ),
+                    React.createElement("figure",{className:"manufacturing-slide"},
+                      React.createElement("img",{src:"cylinder-manufacturing-1.jpeg",alt:"DS Safety Systems manufacturing view 3",loading:"lazy"}),
+                      React.createElement("figcaption",null,React.createElement("span",null,"03"),React.createElement("strong",null,"Process / 03"),React.createElement("small",null,"Manufacturing detail"))
+                    ),
+                    React.createElement("figure",{className:"manufacturing-slide"},
+                      React.createElement("img",{src:"cylinder-manufacturing-2.jpeg",alt:"DS Safety Systems manufacturing view 4",loading:"lazy"}),
+                      React.createElement("figcaption",null,React.createElement("span",null,"04"),React.createElement("strong",null,"Process / 04"),React.createElement("small",null,"Manufacturing detail"))
+                    )
+                  )
                 ),
-                React.createElement("figure",{className:"manufacturing-image manufacturing-image-side"},
-                  React.createElement("img",{src:"cylinder-manufacturing-3.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 2",loading:"lazy"})
-                ),
-                React.createElement("figure",{className:"manufacturing-image manufacturing-image-bottom"},
-                  React.createElement("img",{src:"cylinder-manufacturing-4.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 3",loading:"lazy"})
-                ),
-                React.createElement("figure",{className:"manufacturing-image manufacturing-image-final"},
-                  React.createElement("img",{src:"cylinder-manufacturing-1.jpeg",alt:"Finished DS Safety Systems fire extinguisher cylinder",loading:"lazy"})
+                React.createElement("div",{className:"manufacturing-slider-controls"},
+                  React.createElement("button",{type:"button",className:"manufacturing-slider-arrow manufacturing-slider-prev","aria-label":"Previous manufacturing image"},"←"),
+                  React.createElement("div",{className:"manufacturing-slider-progress"},
+                    React.createElement("span",{className:"manufacturing-slider-current"},"01"),
+                    React.createElement("span",{className:"manufacturing-slider-line"},React.createElement("i",null)),
+                    React.createElement("span",{className:"manufacturing-slider-total"},"04")
+                  ),
+                  React.createElement("button",{type:"button",className:"manufacturing-slider-arrow manufacturing-slider-next","aria-label":"Next manufacturing image"},"→")
                 )
               ),
               React.createElement("div",{className:"manufacturing-foot"},
@@ -1641,6 +1683,39 @@ background-size:120px 120px;mask-image:linear-gradient(to bottom,transparent,bla
  .manufacturing-image-final{min-height:240px}
 }
 @media(prefers-reduced-motion:reduce){.manufacturing-image img{transition:none}}
+</style>
+<style id="manufacturing-slider-design">
+.manufacturing-slider{position:relative;z-index:2;margin-top:48px}
+.manufacturing-slider-viewport{overflow:hidden;position:relative;border-radius:20px;background:#11151b;box-shadow:0 30px 90px rgba(0,0,0,.42)}
+.manufacturing-slider-track{display:flex;will-change:transform;transition:transform .75s cubic-bezier(.22,1,.36,1)}
+.manufacturing-slide{position:relative;flex:0 0 100%;height:min(68vh,690px);min-height:460px;margin:0;overflow:hidden;background:#11151b}
+.manufacturing-slide img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.9) contrast(1.06);transform:scale(1.035);transition:transform 1.1s cubic-bezier(.22,1,.36,1),filter .8s ease}
+.manufacturing-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,10,.58),transparent 52%),linear-gradient(0deg,rgba(5,7,10,.72),transparent 48%);pointer-events:none}
+.manufacturing-slide.is-active img{transform:scale(1);filter:saturate(1) contrast(1.05)}
+.manufacturing-slide figcaption{position:absolute;z-index:2;left:42px;bottom:38px;display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:end;color:#fff}
+.manufacturing-slide figcaption span{font:700 11px/1 "Poppins",sans-serif;letter-spacing:.16em;color:#dc2626;align-self:start;padding-top:5px}
+.manufacturing-slide figcaption strong{font:520 clamp(32px,4vw,58px)/.95 "Google Sans Flex","Google Sans",sans-serif;letter-spacing:-2px;grid-column:2}
+.manufacturing-slide figcaption small{font:700 9px/1.3 "Poppins",sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#b0b5bd;grid-column:2;margin-top:9px}
+.manufacturing-slider-controls{display:flex;align-items:center;justify-content:space-between;padding:22px 4px 0}
+.manufacturing-slider-arrow{width:50px;height:50px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);color:#f7f5f0;border-radius:50%;display:grid;place-items:center;font-size:20px;cursor:pointer;transition:.3s ease}
+.manufacturing-slider-arrow:hover{background:#dc2626;border-color:#dc2626;transform:translateY(-2px)}
+.manufacturing-slider-progress{display:flex;align-items:center;gap:15px;font:700 10px/1 "Poppins",sans-serif;letter-spacing:.15em;color:#666b73}
+.manufacturing-slider-current{color:#f7f5f0}
+.manufacturing-slider-line{position:relative;width:min(260px,32vw);height:1px;background:rgba(255,255,255,.14);overflow:hidden}
+.manufacturing-slider-line i{display:block;width:25%;height:100%;background:linear-gradient(90deg,#dc2626,#f97316);transition:transform .75s cubic-bezier(.22,1,.36,1);transform-origin:left}
+@media(max-width:800px){
+ .manufacturing-slider{margin-top:30px}
+ .manufacturing-slide{height:62vh;min-height:390px}
+ .manufacturing-slide figcaption{left:24px;bottom:26px}
+ .manufacturing-slide figcaption strong{font-size:36px;letter-spacing:-1.3px}
+ .manufacturing-slide figcaption small{font-size:8px}
+ .manufacturing-slider-controls{padding-top:16px}
+ .manufacturing-slider-arrow{width:44px;height:44px}
+ .manufacturing-slider-line{width:110px}
+}
+@media(prefers-reduced-motion:reduce){
+ .manufacturing-slider-track,.manufacturing-slider-line i,.manufacturing-slide img{transition:none}
+}
 </style>
 <style id="request-quote-premium">
 .quote-section{
