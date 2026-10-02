@@ -17,7 +17,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Instrument+Serif:ital@0;1&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css?v=marquee-cardshine-5">
@@ -1323,8 +1323,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               React.createElement("div",{className:"manufacturing-head"},
                 React.createElement("div",{className:"section-label"},"Inside the process"),
                 React.createElement("div",{className:"manufacturing-index"},"07 / 10"),
-                React.createElement("h2",null,"Built with process.",React.createElement("br"),React.createElement("span",null,"Delivered with purpose.")),
-                React.createElement("p",null,"From cylinder fabrication and finishing to inspection and readiness, every stage matters. A closer look at the manufacturing process behind the equipment we put into service.")
+                React.createElement("h2",null,"Built with precision.",React.createElement("br"),React.createElement("span",null,"Ready for protection.")),
+                React.createElement("p",null,"From cylinder fabrication and finishing to inspection and final readiness, every stage is shaped around one purpose — dependable fire protection. Explore the process behind the equipment we prepare, inspect and put into service.")
               ),
               React.createElement("div",{className:"manufacturing-slider"},
                 React.createElement("div",{className:"manufacturing-slider-viewport"},
@@ -1683,6 +1683,20 @@ background-size:120px 120px;mask-image:linear-gradient(to bottom,transparent,bla
  .manufacturing-image-final{min-height:240px}
 }
 @media(prefers-reduced-motion:reduce){.manufacturing-image img{transition:none}}
+</style>
+<style id="manufacturing-editorial-type">
+.manufacturing-head h2 span{
+  font-family:"Instrument Serif","Times New Roman",serif!important;
+  font-style:italic!important;
+  font-weight:400!important;
+  letter-spacing:-1.8px!important;
+  color:#f7f5f0!important;
+  position:relative;
+  top:2px;
+}
+@media(max-width:800px){
+  .manufacturing-head h2 span{letter-spacing:-1px!important;top:1px}
+}
 </style>
 <style id="manufacturing-slider-design">
 .manufacturing-slider{position:relative;z-index:2;margin-top:48px}
