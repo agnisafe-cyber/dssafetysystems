@@ -1292,7 +1292,34 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 React.createElement("div",{className:"col-md-3"},React.createElement("div",{className:"wsk-cp-product"},React.createElement("div",{className:"wsk-cp-img"},React.createElement("img",{src:"https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg",alt:"Product",className:"img-responsive"})),React.createElement("div",{className:"wsk-cp-text"},React.createElement("div",{className:"category"},React.createElement("span",null,"FIRE PROTECTION SYSTEM")),React.createElement("div",{className:"title-product"},React.createElement("h3",null,"Fire Hose Reel")),React.createElement("div",{className:"description-prod"},React.createElement("p",null,"A Fire Hydrant System provides a dedicated water supply and firefighting outlets for use by trained responders during a fire emergency, forming an important part of building fire protection infrastructure.")),React.createElement("div",{className:"card-footer"},React.createElement("div",{className:"wcf-left"},React.createElement("span",{className:"price"},"Rp500.000")),React.createElement("div",{className:"wcf-right"},React.createElement("a",{href:"#",className:"buy-btn"},React.createElement("i",{className:"zmdi zmdi-shopping-basket"})))))))              )
             ))
           ),
-          /* 07 — REQUEST A QUOTE */
+          /* 07 — MANUFACTURING */
+          React.createElement("section",{className:"manufacturing-section",id:"manufacturing"},
+            React.createElement("div",{className:"manufacturing-inner"},
+              React.createElement("div",{className:"manufacturing-head"},
+                React.createElement("div",{className:"section-label"},"Inside the process"),
+                React.createElement("div",{className:"manufacturing-index"},"07 / 10"),
+                React.createElement("h2",null,"Built with process.",React.createElement("br"),React.createElement("span",null,"Delivered with purpose.")),
+                React.createElement("p",null,"From cylinder fabrication and finishing to inspection and readiness, every stage matters. A closer look at the manufacturing process behind the equipment we put into service.")
+              ),
+              React.createElement("div",{className:"manufacturing-gallery"},
+                React.createElement("figure",{className:"manufacturing-image manufacturing-image-main"},
+                  React.createElement("img",{src:"cylinder-manufacturing-1.jpeg",alt:"DS Safety Systems cylinder manufacturing process",loading:"lazy"})
+                ),
+                React.createElement("figure",{className:"manufacturing-image manufacturing-image-side"},
+                  React.createElement("img",{src:"cylinder-manufacturing-2.jpeg",alt:"Fire extinguisher cylinder manufacturing at DS Safety Systems",loading:"lazy"})
+                ),
+                React.createElement("figure",{className:"manufacturing-image manufacturing-image-bottom"},
+                  React.createElement("img",{src:"cylinder-manufacturing-3.jpeg",alt:"Fire safety cylinder production and finishing",loading:"lazy"})
+                )
+              ),
+              React.createElement("div",{className:"manufacturing-foot"},
+                React.createElement("span",null,"01 — FABRICATION"),
+                React.createElement("span",null,"02 — FINISHING"),
+                React.createElement("span",null,"03 — READINESS")
+              )
+            )
+          ),
+          /* 08 — REQUEST A QUOTE */
           React.createElement("section",{className:"section quote-section",id:"quote"},
             React.createElement("div",{className:"quote-inner"},
               React.createElement("div",{className:"quote-head"},
@@ -1399,6 +1426,148 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   0%,45%{background-position:100% 0}
   70%{background-position:-160% 0}
   100%{background-position:-160% 0}
+}
+</style>
+<style id="manufacturing-section-premium">
+.manufacturing-section{
+  position:relative;
+  overflow:hidden;
+  background:#0a0c10;
+  color:#f7f5f0;
+  padding:155px 0 145px;
+  isolation:isolate;
+}
+.manufacturing-section:before{
+  content:"";
+  position:absolute;inset:-20%;
+  background:
+    radial-gradient(ellipse at 15% 35%,rgba(220,38,38,.12),transparent 27%),
+    radial-gradient(ellipse at 86% 70%,rgba(249,115,22,.08),transparent 28%);
+  filter:blur(80px);
+  pointer-events:none;
+}
+.manufacturing-inner{
+  position:relative;z-index:2;
+  width:min(1200px,calc(100% - 48px));
+  margin:auto;
+}
+.manufacturing-head{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  column-gap:90px;
+  align-items:end;
+  padding-bottom:62px;
+  border-bottom:1px solid rgba(255,255,255,.11);
+}
+.manufacturing-head .section-label{
+  grid-column:1;
+  color:#dc2626!important;
+  margin-bottom:22px;
+}
+.manufacturing-index{
+  grid-column:2;
+  justify-self:end;
+  align-self:start;
+  font-family:"Poppins",sans-serif;
+  font-size:10px;font-weight:700;
+  letter-spacing:.16em;color:#666b73;
+}
+.manufacturing-head h2{
+  grid-column:1;
+  font-family:"Google Sans Flex","Google Sans",sans-serif!important;
+  font-size:clamp(54px,6.5vw,91px);
+  font-weight:520;
+  line-height:.92;
+  letter-spacing:-4.5px;
+  max-width:800px;
+}
+.manufacturing-head h2 span{color:#dc2626}
+.manufacturing-head p{
+  grid-column:2;
+  max-width:470px;
+  color:#9da1a8;
+  font-size:16px;
+  line-height:1.8;
+  margin:0;
+}
+.manufacturing-gallery{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  grid-template-rows:270px 270px;
+  gap:16px;
+  margin-top:42px;
+}
+.manufacturing-image{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  background:#14171c;
+  border-radius:16px;
+}
+.manufacturing-image img{
+  width:100%;height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.9) contrast(1.04);
+  transition:transform .8s cubic-bezier(.22,1,.36,1),filter .5s ease;
+}
+.manufacturing-image:hover img{
+  transform:scale(1.045);
+  filter:saturate(1) contrast(1.06);
+}
+.manufacturing-image-main{grid-row:1 / 3}
+.manufacturing-image-side{grid-column:2}
+.manufacturing-image-bottom{grid-column:2}
+.manufacturing-foot{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:18px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.manufacturing-foot span{
+  font-family:"Poppins",sans-serif;
+  font-size:9px;font-weight:700;
+  letter-spacing:.15em;color:#666b73;
+}
+.manufacturing-foot span:not(:first-child){text-align:center}
+.manufacturing-foot span:last-child{text-align:right}
+@media(max-width:800px){
+  .manufacturing-section{padding:105px 0 95px}
+  .manufacturing-inner{width:min(100% - 34px,620px)}
+  .manufacturing-head{
+    grid-template-columns:1fr;
+    gap:0;
+    padding-bottom:48px;
+  }
+  .manufacturing-head .section-label,
+  .manufacturing-head h2,
+  .manufacturing-head p{grid-column:1}
+  .manufacturing-index{
+    grid-column:1;
+    justify-self:start;
+    margin-top:24px;
+    order:2;
+  }
+  .manufacturing-head h2{
+    font-size:48px;
+    letter-spacing:-2.5px;
+  }
+  .manufacturing-head p{margin-top:25px}
+  .manufacturing-gallery{
+    grid-template-columns:1fr;
+    grid-template-rows:280px 190px 190px;
+    gap:12px;
+    margin-top:30px;
+  }
+  .manufacturing-image-main{grid-row:auto}
+  .manufacturing-image-side,.manufacturing-image-bottom{grid-column:auto}
+  .manufacturing-foot{gap:8px}
+  .manufacturing-foot span{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  .manufacturing-image img{transition:none}
 }
 </style>
 </body>
