@@ -339,17 +339,28 @@
   flex:0 0 auto!important;
   margin:0!important;
   padding:0 30px!important;
-  background:linear-gradient(115deg,#101010 0%,#101010 40%,#ffffff 50%,#101010 60%,#101010 100%)!important;
-  background-size:250% 100%!important;
-  background-position:100% 0!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-  animation:marqueeShine 3s ease-in-out infinite!important;
+  color:#101010!important;
+  position:relative!important;
+  overflow:hidden!important;
+  background:none!important;
+  -webkit-text-fill-color:currentColor!important;
+  animation:none!important;
 }
-@keyframes marqueeShine{
-  0%,68%{background-position:100% 0}
-  88%,100%{background-position:-150% 0}
+.marquee-track span:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%)!important;
+  background-size:250% 100%!important;
+  background-position:150% 0!important;
+  mix-blend-mode:screen!important;
+  animation:marqueeShineSweep 3s ease-in-out infinite!important;
+}
+@keyframes marqueeShineSweep{
+  0%,65%{background-position:150% 0;opacity:0}
+  72%{opacity:1}
+  100%{background-position:-150% 0;opacity:0}
 }
 .marquee-track span:before{
   content:"•"!important;
