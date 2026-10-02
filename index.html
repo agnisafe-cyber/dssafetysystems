@@ -1205,6 +1205,12 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 \n
 
 
+
+<style id="marquee-card-shine-final">
+.marquee .marquee-track span{position:relative!important;isolation:isolate!important;overflow:hidden!important;color:#101010!important;-webkit-text-fill-color:#101010!important;}
+.marquee .marquee-track span::after{content:""!important;position:absolute!important;top:-20%!important;bottom:-20%!important;left:-90%!important;width:42%!important;z-index:5!important;pointer-events:none!important;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.12) 30%,rgba(255,255,255,1) 50%,rgba(255,255,255,.12) 70%,transparent 100%)!important;transform:skewX(-18deg)!important;animation:dsMarqueeCardSweep 3s ease-in-out infinite!important;}
+@keyframes dsMarqueeCardSweep{0%,55%{left:-90%;opacity:0}62%{opacity:1}100%{left:150%;opacity:0}}
+</style>
 </body>
 </html>
 
