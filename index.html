@@ -1292,6 +1292,30 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 React.createElement("div",{className:"col-md-3"},React.createElement("div",{className:"wsk-cp-product"},React.createElement("div",{className:"wsk-cp-img"},React.createElement("img",{src:"https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg",alt:"Product",className:"img-responsive"})),React.createElement("div",{className:"wsk-cp-text"},React.createElement("div",{className:"category"},React.createElement("span",null,"FIRE PROTECTION SYSTEM")),React.createElement("div",{className:"title-product"},React.createElement("h3",null,"Fire Hose Reel")),React.createElement("div",{className:"description-prod"},React.createElement("p",null,"A Fire Hydrant System provides a dedicated water supply and firefighting outlets for use by trained responders during a fire emergency, forming an important part of building fire protection infrastructure.")),React.createElement("div",{className:"card-footer"},React.createElement("div",{className:"wcf-left"},React.createElement("span",{className:"price"},"Rp500.000")),React.createElement("div",{className:"wcf-right"},React.createElement("a",{href:"#",className:"buy-btn"},React.createElement("i",{className:"zmdi zmdi-shopping-basket"})))))))              )
             ))
           ),
+          /* 07 — REQUEST A QUOTE */
+          React.createElement("section",{className:"section quote-section",id:"quote"},
+            React.createElement("div",{className:"quote-inner"},
+              React.createElement("div",{className:"quote-head"},
+                React.createElement("div",{className:"section-label"},"Request a quote"),
+                React.createElement("div",{className:"quote-index"},"07 / 10"),
+                React.createElement("h2",null,"Let’s build your protection plan."),
+                React.createElement("p",null,"Tell us what your premises need. Share the equipment, installation, inspection or AMC requirement and the DS Safety Systems team will get back to you.")
+              ),
+              React.createElement("form",{className:"quote-form",onSubmit:function(e){
+                e.preventDefault();
+                const f=e.currentTarget;
+                const subject="DS Safety Systems — Quote Request";
+                const body="Name: "+f.elements.name.value+"\nPhone: "+f.elements.phone.value+"\nCompany / Site: "+f.elements.company.value+"\nRequirement: "+f.elements.requirement.value;
+                window.location.href="mailto:Dssafetysystems@hotmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+              }},
+                React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-name"},"01 / Name"),React.createElement("input",{id:"quote-name",name:"name",type:"text",placeholder:"Your name",required:true})),
+                React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-phone"},"02 / Phone"),React.createElement("input",{id:"quote-phone",name:"phone",type:"tel",placeholder:"Your phone number",required:true})),
+                React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-company"},"03 / Company / Site"),React.createElement("input",{id:"quote-company",name:"company",type:"text",placeholder:"Company or site name"})),
+                React.createElement("div",{className:"quote-field quote-field-wide"},React.createElement("label",{htmlFor:"quote-requirement"},"04 / Requirement"),React.createElement("textarea",{id:"quote-requirement",name:"requirement",rows:"5",placeholder:"Equipment, installation, inspection, AMC or anything else you need...",required:true})),
+                React.createElement("div",{className:"quote-submit-row"},React.createElement("span",null,"Certified equipment • Installation • AMC"),React.createElement("button",{type:"submit"},"Send Quote Request ",React.createElement("span",null,"↗")))
+              )
+            )
+          ),
           /* 07 — CONTACT */
           React.createElement("section",{className:"section dark",id:"contact"},
             React.createElement("div",{className:"section-label"},"Start a conversation"),
@@ -1405,5 +1429,63 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   font-weight:700!important;
   color:#212121!important;
   line-height:1.12!important;
+}
+</style>
+
+<style id="request-quote-premium">
+.quote-section{
+  position:relative!important;
+  overflow:hidden!important;
+  background:#090b0f!important;
+  color:#f7f5f0!important;
+  padding:150px 0!important;
+  isolation:isolate;
+}
+.quote-section:before{
+  content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 28%,rgba(220,38,38,.18),transparent 27%),
+    radial-gradient(ellipse at 82% 72%,rgba(249,115,22,.10),transparent 30%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 38%);
+  filter:blur(70px);
+}
+.quote-section:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 28%,transparent 72%,rgba(0,0,0,.38));
+}
+.quote-inner{position:relative;z-index:2;width:min(1180px,calc(100% - 48px));margin:auto}
+.quote-head{display:grid;grid-template-columns:1fr 1fr;column-gap:90px;align-items:end;border-bottom:1px solid rgba(255,255,255,.13);padding-bottom:70px}
+.quote-head .section-label{grid-column:1;color:#dc2626!important;margin-bottom:24px}
+.quote-index{grid-column:2;justify-self:end;font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;color:#70757d}
+.quote-head h2{grid-column:1;max-width:700px;font-family:"Google Sans Flex","Google Sans",sans-serif!important;font-size:clamp(52px,6.5vw,88px);font-weight:520;line-height:.93;letter-spacing:-4px}
+.quote-head p{grid-column:2;max-width:480px;color:#9da1a8;font-size:16px;line-height:1.75;margin:0}
+.quote-form{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.quote-field{position:relative;padding:28px 0 22px;border-bottom:1px solid rgba(255,255,255,.14)}
+.quote-field-wide{grid-column:1/-1}
+.quote-field label{display:block;font-family:"Poppins",sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;color:#70757d;margin-bottom:12px}
+.quote-field input,.quote-field textarea{width:100%;border:0;outline:0;background:transparent;color:#f7f5f0;font-family:"Google Sans Flex",sans-serif;font-size:18px;line-height:1.5;padding:0;resize:vertical}
+.quote-field input::placeholder,.quote-field textarea::placeholder{color:#555a62}
+.quote-field:focus-within{border-color:#dc2626}
+.quote-field:focus-within label{color:#dc2626}
+.quote-submit-row{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:42px}
+.quote-submit-row>span{font-family:"Poppins",sans-serif;font-size:9px;font-weight:700;letter-spacing:.14em;color:#70757d;text-transform:uppercase}
+.quote-submit-row button{display:inline-flex;align-items:center;gap:20px;border:1px solid rgba(255,255,255,.2);background:#f7f5f0;color:#101010;padding:17px 22px 17px 25px;font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:.3s ease}
+.quote-submit-row button span{font-size:18px;line-height:1}
+.quote-submit-row button:hover{background:#dc2626;border-color:#dc2626;color:#fff;transform:translateY(-2px)}
+@media(max-width:800px){
+  .quote-section{padding:100px 0!important}
+  .quote-inner{width:min(100% - 34px,620px)}
+  .quote-head{grid-template-columns:1fr;gap:0;padding-bottom:48px}
+  .quote-head .section-label,.quote-head h2,.quote-head p{grid-column:1}
+  .quote-index{grid-column:1;justify-self:start;margin-top:24px;order:2}
+  .quote-head h2{font-size:46px;letter-spacing:-2.2px}
+  .quote-head p{margin-top:24px}
+  .quote-form{grid-template-columns:1fr}
+  .quote-field-wide{grid-column:1}
+  .quote-submit-row{grid-column:1;align-items:flex-start;flex-direction:column;padding-top:32px}
+  .quote-submit-row button{width:100%;justify-content:space-between}
+}
+@media(prefers-reduced-motion:reduce){
+  .quote-submit-row button{transition:none}
 }
 </style>
