@@ -1069,7 +1069,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           /* 03 — FIRE-SAFETY MARQUEE */
           React.createElement("div",{className:"marquee"},
             React.createElement("div",{className:"marquee-track"},
-              ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},x))
+              ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},React.createElement("b",{className:"marquee-label"},x)))
             )
           ),
           /* 04 — ABOUT */
@@ -1209,36 +1209,25 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 
 
 <style id="marquee-card-shine-final">
-/* GUARANTEED VISIBLE MARQUEE TEXT SHINE */
-.marquee{position:relative!important;overflow:hidden!important;isolation:isolate!important;}
-.marquee-track{position:relative!important;z-index:2!important;}
-.marquee-track span{
-  position:relative!important;
-  display:inline-flex!important;
-  align-items:center!important;
-  overflow:hidden!important;
-  color:#101010!important;
-  -webkit-text-fill-color:#101010!important;
+/* REAL TEXT-CLIPPED MARQUEE SHINE */
+.marquee-track span::before,.marquee-track span::after{display:none!important;content:none!important;}
+.marquee-track .marquee-label{
+  display:inline-block!important;
+  font:inherit!important;
+  font-weight:inherit!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  background-image:linear-gradient(110deg,#101010 0%,#101010 38%,#ffffff 48%,#ffffff 52%,#101010 62%,#101010 100%)!important;
+  background-size:260% 100%!important;
+  background-position:100% 0!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  animation:dsRealMarqueeShine 3s linear infinite!important;
 }
-.marquee-track span::before{
-  content:""!important;
-  position:absolute!important;
-  top:-35%!important;
-  bottom:-35%!important;
-  left:-45%!important;
-  width:12%!important;
-  z-index:20!important;
-  pointer-events:none!important;
-  background:#fff!important;
-  box-shadow:0 0 12px 4px rgba(255,255,255,.95)!important;
-  transform:skewX(-22deg)!important;
-  animation:dsMarqueeTextSweep 3s linear infinite!important;
-}
-@keyframes dsMarqueeTextSweep{
-  0%{left:-45%;opacity:0}
-  8%{opacity:1}
-  45%{left:145%;opacity:1}
-  52%,100%{left:145%;opacity:0}
+@keyframes dsRealMarqueeShine{
+  0%,45%{background-position:100% 0}
+  70%{background-position:-160% 0}
+  100%{background-position:-160% 0}
 }
 </style>
 </body>
