@@ -1209,11 +1209,37 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 
 
 <style id="marquee-card-shine-final">
-/* A single visible light sweep across the full marquee band */
+/* GUARANTEED VISIBLE MARQUEE TEXT SHINE */
 .marquee{position:relative!important;overflow:hidden!important;isolation:isolate!important;}
 .marquee-track{position:relative!important;z-index:2!important;}
-.marquee::after{content:""!important;position:absolute!important;top:-80%!important;bottom:-80%!important;left:-30%!important;width:14%!important;z-index:10!important;pointer-events:none!important;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,1) 50%,rgba(255,255,255,.15) 80%,transparent 100%)!important;filter:blur(.3px) drop-shadow(0 0 10px rgba(255,255,255,.8))!important;transform:skewX(-18deg)!important;opacity:1!important;animation:dsMarqueeBandSweep 3s linear infinite!important;}
-@keyframes dsMarqueeBandSweep{0%{left:-30%;opacity:0}8%{opacity:1}45%{opacity:1}52%{left:116%;opacity:0}100%{left:116%;opacity:0}}
+.marquee-track span{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  overflow:hidden!important;
+  color:#101010!important;
+  -webkit-text-fill-color:#101010!important;
+}
+.marquee-track span::before{
+  content:""!important;
+  position:absolute!important;
+  top:-35%!important;
+  bottom:-35%!important;
+  left:-45%!important;
+  width:12%!important;
+  z-index:20!important;
+  pointer-events:none!important;
+  background:#fff!important;
+  box-shadow:0 0 12px 4px rgba(255,255,255,.95)!important;
+  transform:skewX(-22deg)!important;
+  animation:dsMarqueeTextSweep 3s linear infinite!important;
+}
+@keyframes dsMarqueeTextSweep{
+  0%{left:-45%;opacity:0}
+  8%{opacity:1}
+  45%{left:145%;opacity:1}
+  52%,100%{left:145%;opacity:0}
+}
 </style>
 </body>
 </html>
