@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=marquee-text-shine-3">
+  <link rel="stylesheet" href="style.css?v=marquee-visible-shine-4">
 
   <!-- GSAP & React CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -566,7 +566,7 @@
 
     /* Hero Video Showcase - No border & BG removed via blend-mode */
     .hero-video-visual{
-      position:absolute;z-index:5;right:5vw;top:50%;
+      position:absolute;z-index:5;right:5vw;top:46%;
       width:min(46vw,600px);height:auto;aspect-ratio:4 / 3;
       transform:translateY(-50%);border-radius:18px;
       background:transparent!important;border:none!important;box-shadow:none!important;
@@ -592,8 +592,8 @@
        ============================================================ */
     .marquee{overflow:hidden!important;width:100%!important;padding:20px 0!important;background:#f4f0e8!important;font-family:"Poppins",sans-serif!important;}
     .marquee-track{display:flex!important;align-items:center!important;width:max-content!important;min-width:100%!important;gap:0!important;white-space:nowrap!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:750!important;letter-spacing:.2px!important;text-transform:uppercase!important;line-height:1!important;}
-    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:visible!important;color:transparent!important;-webkit-text-fill-color:transparent!important;background:linear-gradient(100deg,#111 0%,#111 38%,#fff 50%,#111 62%,#111 100%)!important;background-size:260% 100%!important;background-position:150% 0!important;-webkit-background-clip:text!important;background-clip:text!important;animation:marqueeTextShine 3s ease-in-out infinite!important;}
-    @keyframes marqueeTextShine{0%,58%{background-position:150% 0}82%{background-position:0% 0}100%{background-position:-150% 0}}
+    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:visible!important;color:#101010!important;-webkit-text-fill-color:#101010!important;animation:marqueePulseShine 3s ease-in-out infinite!important;}
+    @keyframes marqueePulseShine{0%,62%,100%{filter:brightness(1);text-shadow:0 0 0 rgba(255,255,255,0)}72%{filter:brightness(3.2);text-shadow:0 0 8px rgba(255,255,255,.95),0 0 18px rgba(255,255,255,.8)}84%{filter:brightness(1.15);text-shadow:0 0 2px rgba(255,255,255,.35)}}
     .marquee-track span:before{content:"•"!important;display:inline-block!important;margin-right:28px!important;color:#101010!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:900!important;line-height:1!important;}
 
     /* ============================================================
