@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=marquee-visible-shine-4">
+  <link rel="stylesheet" href="style.css?v=marquee-cardshine-5">
 
   <!-- GSAP & React CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -592,8 +592,9 @@
        ============================================================ */
     .marquee{overflow:hidden!important;width:100%!important;padding:20px 0!important;background:#f4f0e8!important;font-family:"Poppins",sans-serif!important;}
     .marquee-track{display:flex!important;align-items:center!important;width:max-content!important;min-width:100%!important;gap:0!important;white-space:nowrap!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:750!important;letter-spacing:.2px!important;text-transform:uppercase!important;line-height:1!important;}
-    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:visible!important;color:#101010!important;-webkit-text-fill-color:#101010!important;animation:marqueePulseShine 3s ease-in-out infinite!important;}
-    @keyframes marqueePulseShine{0%,62%,100%{filter:brightness(1);text-shadow:0 0 0 rgba(255,255,255,0)}72%{filter:brightness(3.2);text-shadow:0 0 8px rgba(255,255,255,.95),0 0 18px rgba(255,255,255,.8)}84%{filter:brightness(1.15);text-shadow:0 0 2px rgba(255,255,255,.35)}}
+    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:hidden!important;color:#101010!important;-webkit-text-fill-color:#101010!important;}
+    .marquee-track span:after{content:""!important;position:absolute!important;top:-15%!important;left:-120%!important;width:48%!important;height:130%!important;pointer-events:none!important;z-index:3!important;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 34%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.08) 66%,transparent 100%)!important;transform:skewX(-18deg)!important;animation:marqueeCardShine 3s ease-in-out infinite!important;}
+    @keyframes marqueeCardShine{0%,55%{left:-120%;opacity:0}62%{opacity:1}100%{left:140%;opacity:0}}
     .marquee-track span:before{content:"•"!important;display:inline-block!important;margin-right:28px!important;color:#101010!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:900!important;line-height:1!important;}
 
     /* ============================================================
