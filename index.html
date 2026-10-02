@@ -1303,13 +1303,16 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               ),
               React.createElement("div",{className:"manufacturing-gallery"},
                 React.createElement("figure",{className:"manufacturing-image manufacturing-image-main"},
-                  React.createElement("img",{src:"cylinder-manufacturing-1.jpeg",alt:"DS Safety Systems cylinder manufacturing process",loading:"lazy"})
+                  React.createElement("img",{src:"cylinder-manufacturing-2.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 1",loading:"lazy"})
                 ),
                 React.createElement("figure",{className:"manufacturing-image manufacturing-image-side"},
-                  React.createElement("img",{src:"cylinder-manufacturing-2.jpeg",alt:"Fire extinguisher cylinder manufacturing at DS Safety Systems",loading:"lazy"})
+                  React.createElement("img",{src:"cylinder-manufacturing-3.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 2",loading:"lazy"})
                 ),
                 React.createElement("figure",{className:"manufacturing-image manufacturing-image-bottom"},
-                  React.createElement("img",{src:"cylinder-manufacturing-3.jpeg",alt:"Fire safety cylinder production and finishing",loading:"lazy"})
+                  React.createElement("img",{src:"cylinder-manufacturing-4.jpeg",alt:"DS Safety Systems cylinder manufacturing process — stage 3",loading:"lazy"})
+                ),
+                React.createElement("figure",{className:"manufacturing-image manufacturing-image-final"},
+                  React.createElement("img",{src:"cylinder-manufacturing-1.jpeg",alt:"Finished DS Safety Systems fire extinguisher cylinder",loading:"lazy"})
                 )
               ),
               React.createElement("div",{className:"manufacturing-foot"},
@@ -1493,7 +1496,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 .manufacturing-gallery{
   display:grid;
   grid-template-columns:1.35fr .65fr;
-  grid-template-rows:270px 270px;
+  grid-template-rows:205px 205px 205px;
   gap:16px;
   margin-top:42px;
 }
@@ -1516,8 +1519,9 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   filter:saturate(1) contrast(1.06);
 }
 .manufacturing-image-main{grid-row:1 / 3}
-.manufacturing-image-side{grid-column:2}
-.manufacturing-image-bottom{grid-column:2}
+.manufacturing-image-side{grid-column:2;grid-row:1}
+.manufacturing-image-bottom{grid-column:2;grid-row:2}
+.manufacturing-image-final{grid-column:1 / 3;grid-row:3;min-height:250px}
 .manufacturing-foot{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -1557,12 +1561,12 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   .manufacturing-head p{margin-top:25px}
   .manufacturing-gallery{
     grid-template-columns:1fr;
-    grid-template-rows:280px 190px 190px;
+    grid-template-rows:220px 180px 180px 240px;
     gap:12px;
     margin-top:30px;
   }
-  .manufacturing-image-main{grid-row:auto}
-  .manufacturing-image-side,.manufacturing-image-bottom{grid-column:auto}
+  .manufacturing-image-main,.manufacturing-image-side,.manufacturing-image-bottom,.manufacturing-image-final{grid-column:auto;grid-row:auto}
+  .manufacturing-image-final{min-height:240px}
   .manufacturing-foot{gap:8px}
   .manufacturing-foot span{font-size:7px}
 }
