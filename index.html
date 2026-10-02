@@ -762,6 +762,118 @@
 <style id="product-detail-quote-google-sans-flex">
 .product-detail-quote{font-family:"Google Sans Flex","Google Sans",Arial,sans-serif !important;}
 </style>
+
+<style id="how-protection-premium">
+/* 06 — HOW PROTECTION WORKS */
+.protection-flow{
+  position:relative;overflow:hidden;background:#080a0d;color:#f6f4ef;
+  padding:150px 0 165px;isolation:isolate;
+}
+.protection-flow:before{
+  content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 38%,rgba(220,38,38,.17),transparent 25%),
+    radial-gradient(ellipse at 84% 65%,rgba(249,115,22,.10),transparent 25%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 36%);
+  filter:blur(70px);
+  animation:protectionAtmosphere 18s ease-in-out infinite alternate;
+}
+.protection-flow:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.48) 100%);
+}
+.protection-flow > *{position:relative;z-index:2}
+.protection-shell{width:min(1240px,calc(100% - 44px));margin:0 auto}
+.protection-head{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end;
+  padding-bottom:65px;border-bottom:1px solid rgba(255,255,255,.13);
+}
+.protection-eyebrow{
+  font-family:"Poppins",sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#dc2626;margin-bottom:22px;
+}
+.protection-head h2{
+  font-family:"Google Sans Flex","Google Sans",sans-serif;
+  font-size:clamp(52px,7vw,98px);font-weight:650;line-height:.92;
+  letter-spacing:-4.5px;margin:0;max-width:900px;
+}
+.protection-head h2 span{color:#dc2626}
+.protection-head p{
+  color:#969aa2;font-size:16px;line-height:1.75;max-width:440px;
+  margin:0 0 5px;
+}
+.protection-rail{
+  position:relative;display:grid;grid-template-columns:repeat(5,1fr);
+  margin-top:76px;
+}
+.protection-line{
+  position:absolute;left:5%;right:5%;top:46px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(220,38,38,.65) 12%,rgba(255,255,255,.18) 50%,rgba(220,38,38,.65) 88%,transparent);
+  transform-origin:left center;
+}
+.protection-line:after{
+  content:"";position:absolute;top:-2px;left:0;width:22%;height:5px;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  filter:blur(2px);animation:protectionScan 4.8s linear infinite;
+}
+.protection-step{
+  position:relative;padding:0 24px 0 0;min-height:290px;
+  opacity:0;transform:translateY(38px);filter:blur(5px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1);
+}
+.protection-flow.revealed .protection-step{opacity:1;transform:none;filter:blur(0)}
+.protection-flow.revealed .protection-step:nth-child(2){transition-delay:.08s}
+.protection-flow.revealed .protection-step:nth-child(3){transition-delay:.18s}
+.protection-flow.revealed .protection-step:nth-child(4){transition-delay:.28s}
+.protection-flow.revealed .protection-step:nth-child(5){transition-delay:.38s}
+.protection-flow.revealed .protection-step:nth-child(6){transition-delay:.48s}
+.protection-dot{
+  position:relative;z-index:2;width:92px;height:92px;border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;display:grid;place-items:center;background:#0b0d11;
+  box-shadow:0 0 0 8px rgba(8,10,13,.75);transition:.4s ease;
+}
+.protection-dot:before{
+  content:"";width:10px;height:10px;border-radius:50%;background:#dc2626;
+  box-shadow:0 0 18px rgba(220,38,38,.75);transition:.4s ease;
+}
+.protection-step:hover .protection-dot{border-color:rgba(220,38,38,.65);transform:translateY(-5px);box-shadow:0 0 0 8px rgba(8,10,13,.75),0 0 30px rgba(220,38,38,.13)}
+.protection-step:hover .protection-dot:before{transform:scale(1.35)}
+.protection-number{
+  position:absolute;top:106px;left:0;font-family:"Poppins",sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.16em;color:#dc2626;
+}
+.protection-step h3{
+  font-family:"Google Sans Flex","Google Sans",sans-serif;font-size:27px;font-weight:650;
+  letter-spacing:-1px;margin:53px 0 10px;
+}
+.protection-step p{font-size:14px;line-height:1.65;color:#858a93;max-width:205px;margin:0}
+.protection-tag{
+  display:inline-block;margin-top:18px;font-family:"Poppins",sans-serif;font-size:9px;
+  font-weight:700;letter-spacing:.14em;color:#5f646c;text-transform:uppercase;
+}
+@keyframes protectionAtmosphere{0%{transform:translate3d(-3%,2%,0) scale(.95)}100%{transform:translate3d(4%,-3%,0) scale(1.08)}}
+@keyframes protectionScan{0%{left:-5%}100%{left:105%}}
+@media(max-width:900px){
+  .protection-flow{padding:105px 0 115px}
+  .protection-shell{width:min(100% - 34px,680px)}
+  .protection-head{grid-template-columns:1fr;gap:25px;padding-bottom:48px}
+  .protection-head h2{font-size:52px;letter-spacing:-2.8px}
+  .protection-head p{max-width:600px}
+  .protection-rail{display:grid;grid-template-columns:1fr;margin-top:55px;gap:0}
+  .protection-line{left:45px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,transparent,rgba(220,38,38,.6) 12%,rgba(255,255,255,.16) 50%,rgba(220,38,38,.6) 88%,transparent)}
+  .protection-line:after{width:5px;height:18%;top:0;left:-2px;background:linear-gradient(180deg,transparent,#fff,transparent);animation:protectionScanMobile 4.8s linear infinite}
+  .protection-step{min-height:185px;padding:0 0 45px 82px}
+  .protection-dot{width:68px;height:68px;position:absolute;left:12px;top:0}
+  .protection-number{top:8px;left:82px}
+  .protection-step h3{margin:38px 0 7px;font-size:25px}
+  .protection-step p{max-width:430px}
+}
+@keyframes protectionScanMobile{0%{top:-8%}100%{top:108%}}
+@media(prefers-reduced-motion:reduce){
+  .protection-flow:before,.protection-line:after{animation:none!important}
+  .protection-step{opacity:1!important;transform:none!important;filter:none!important}
+}
+</style>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -781,7 +893,11 @@
         /* 04 — About reveal */
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const protectionFlow=document.querySelector(".protection-flow");
+        if(protectionFlow){
+          ScrollTrigger.create({trigger:protectionFlow,start:"top 78%",once:true,onEnter:()=>protectionFlow.classList.add("revealed")});
+        }
+        const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
         if(productsSection){
           const revealProducts=()=>{
             if(productsSection.classList.contains("products-revealed")) return;
@@ -1105,7 +1221,36 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               ))
             )
           ),
-          /* 06 — PRODUCTS */
+
+          /* 06 — HOW PROTECTION WORKS */
+          React.createElement("section",{className:"section protection-flow",id:"protection-flow"},
+            React.createElement("div",{className:"protection-shell"},
+              React.createElement("div",{className:"protection-head"},
+                React.createElement("div",null,
+                  React.createElement("div",{className:"protection-eyebrow"},"How protection works"),
+                  React.createElement("h2",null,"One system.",React.createElement("br"),"Every layer.",React.createElement("span",null," Ready."))
+                ),
+                React.createElement("p",null,"Effective fire protection is not one product. It is a connected chain of detection, response, suppression and ongoing readiness.")
+              ),
+              React.createElement("div",{className:"protection-rail"},
+                React.createElement("div",{className:"protection-line","aria-hidden":"true"}),
+                [
+                  ["01","DETECT","Smoke & heat detection","Identify danger early."],
+                  ["02","ALERT","Fire alarm systems","Turn detection into immediate warning."],
+                  ["03","CONTROL","Hydrants & hose reels","Give trained responders controlled access to water."],
+                  ["04","SUPPRESS","Sprinklers & extinguishers","Control suitable fires with the right equipment."],
+                  ["05","MAINTAIN","Inspection & AMC","Keep every layer ready when it matters."]
+                ].map(([n,t,p,tag])=>React.createElement("article",{className:"protection-step",key:n},
+                  React.createElement("div",{className:"protection-dot","aria-hidden":"true"}),
+                  React.createElement("div",{className:"protection-number"},n),
+                  React.createElement("h3",null,t),
+                  React.createElement("p",null,p),
+                  React.createElement("span",{className:"protection-tag"},tag)
+                ))
+              )
+            )
+          ),
+          /* 07 — PRODUCTS */
           React.createElement("section",{className:"section products",id:"products"},
             React.createElement("div",{className:"products-fire-bg","aria-hidden":"true"},
               React.createElement("div",{className:"products-fire-spotlight",id:"products-fire-spotlight"}),
