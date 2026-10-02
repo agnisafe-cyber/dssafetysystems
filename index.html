@@ -1605,6 +1605,43 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 }
 </style>
 
+<style id="manufacturing-unique-upgrade">
+.manufacturing-section{min-height:100vh;padding:150px 0 135px;background:
+radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.035),transparent 28%),
+radial-gradient(ellipse at 12% 62%,rgba(220,38,38,.10),transparent 25%),#080a0e!important}
+.manufacturing-section:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.34;background:
+linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.035) 50%,transparent 50.1%),
+linear-gradient(0deg,transparent 49.9%,rgba(255,255,255,.02) 50%,transparent 50.1%);
+background-size:120px 120px;mask-image:linear-gradient(to bottom,transparent,black 18%,black 82%,transparent)}
+.manufacturing-head{position:relative}
+.manufacturing-head:after{content:"CYLINDER / 04";position:absolute;right:0;bottom:24px;font-family:"Poppins",sans-serif;font-size:9px;letter-spacing:.2em;color:#3f444c}
+.manufacturing-head h2{max-width:850px}
+.manufacturing-head h2:before{content:"";display:block;width:46px;height:2px;background:linear-gradient(90deg,#dc2626,#f97316);margin-bottom:25px}
+.manufacturing-gallery{position:relative;z-index:2}
+.manufacturing-image{border-radius:12px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.32)}
+.manufacturing-image:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.04),transparent 55%,rgba(0,0,0,.42))}
+.manufacturing-image:after{content:"";position:absolute;left:18px;top:18px;width:7px;height:7px;border-radius:50%;background:#dc2626;box-shadow:0 0 18px rgba(220,38,38,.65);z-index:3}
+.manufacturing-image img{transition:transform 1s cubic-bezier(.22,1,.36,1),filter .6s ease}
+.manufacturing-image:hover{border-color:rgba(220,38,38,.35);box-shadow:0 30px 85px rgba(0,0,0,.48)}
+.manufacturing-image:hover img{transform:scale(1.06);filter:saturate(1.08) contrast(1.08)}
+.manufacturing-image-main:before{background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5))}
+.manufacturing-image-main:after{background:#f97316}
+.manufacturing-image-final{min-height:250px;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.manufacturing-image-final:after{background:#fff;box-shadow:0 0 22px rgba(255,255,255,.8)}
+.manufacturing-foot{position:relative;z-index:2;margin-top:28px}
+.manufacturing-foot span{transition:color .3s ease}
+.manufacturing-foot span:first-child{color:#dc2626}
+.manufacturing-foot span:last-child{color:#f97316}
+.manufacturing-foot:after{content:"FINAL INSPECTION → READY FOR SERVICE";position:absolute;right:0;bottom:-34px;font-family:"Poppins",sans-serif;font-size:8px;letter-spacing:.17em;color:#4d525a}
+@media(max-width:800px){
+ .manufacturing-section{padding:105px 0 105px}
+ .manufacturing-head:after{position:static;display:block;margin-top:22px}
+ .manufacturing-head h2:before{margin-bottom:20px}
+ .manufacturing-foot:after{position:static;display:block;grid-column:1/-1;margin-top:12px}
+ .manufacturing-image-final{min-height:240px}
+}
+@media(prefers-reduced-motion:reduce){.manufacturing-image img{transition:none}}
+</style>
 <style id="request-quote-premium">
 .quote-section{
   position:relative!important;overflow:hidden!important;background:#090b0f!important;color:#f7f5f0!important;
