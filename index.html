@@ -1338,7 +1338,12 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-phone"},"02 / Phone"),React.createElement("input",{id:"quote-phone",name:"phone",type:"tel",placeholder:"Your phone number",required:true})),
                 React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-company"},"03 / Company / Site"),React.createElement("input",{id:"quote-company",name:"company",type:"text",placeholder:"Company or site name"})),
                 React.createElement("div",{className:"quote-field quote-field-wide"},React.createElement("label",{htmlFor:"quote-requirement"},"04 / Requirement"),React.createElement("div",{className:"quote-quick-picks"},React.createElement("button",{type:"button","data-quote-pick":"Equipment"},"Equipment"),React.createElement("button",{type:"button","data-quote-pick":"Installation"},"Installation"),React.createElement("button",{type:"button","data-quote-pick":"Inspection"},"Inspection"),React.createElement("button",{type:"button","data-quote-pick":"AMC"},"AMC")),React.createElement("textarea",{id:"quote-requirement",name:"requirement",rows:"5",placeholder:"Equipment, installation, inspection, AMC or anything else you need...",required:true})),
-                React.createElement("div",{className:"quote-submit-row"},React.createElement("span",null,"Certified equipment • Installation • AMC"),React.createElement("button",{type:"submit"},React.createElement("span",{className:"quote-cta-label"},"REQUEST PROTECTION PLAN"),React.createElement("span",{className:"quote-cta-arrow"},"↗")))
+                React.createElement("div",{className:"quote-trust-strip"},
+  React.createElement("div",{className:"quote-trust-item"},React.createElement("strong",null,"15+"),React.createElement("span",null,"YEARS EXPERIENCE")),
+  React.createElement("div",{className:"quote-trust-item"},React.createElement("strong",null,"BIS"),React.createElement("span",null,"CERTIFIED EQUIPMENT")),
+  React.createElement("div",{className:"quote-trust-item"},React.createElement("strong",null,"24/7"),React.createElement("span",null,"AMC SUPPORT")),
+  React.createElement("div",{className:"quote-trust-item"},React.createElement("strong",null,"DS"),React.createElement("span",null,"EXPERT INSTALLATION"))
+),React.createElement("div",{className:"quote-submit-row"},React.createElement("span",null,"Certified equipment • Installation • AMC"),React.createElement("button",{type:"submit"},React.createElement("span",{className:"quote-cta-label"},"REQUEST PROTECTION PLAN"),React.createElement("span",{className:"quote-cta-arrow"},"↗")))
               )
             )
           ),
@@ -2994,5 +2999,31 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
 }
 @media(max-width:800px){
  .quote-section .quote-submit-row button{width:100%!important;min-width:0!important}
+}
+</style>
+<style id="quote-trust-strip">
+.quote-section .quote-trust-strip{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+ margin-top:34px;border-top:1px solid rgba(255,255,255,.08);
+ border-bottom:1px solid rgba(255,255,255,.06);
+}
+.quote-section .quote-trust-item{
+ min-height:72px;padding:16px 20px;display:flex;align-items:center;gap:12px;
+ border-right:1px solid rgba(255,255,255,.06);
+}
+.quote-section .quote-trust-item:last-child{border-right:0}
+.quote-section .quote-trust-item strong{
+ font-family:"Google Sans Flex","Google Sans",sans-serif;font-size:18px;font-weight:600;
+ color:#e8e8e8;letter-spacing:-.03em;
+}
+.quote-section .quote-trust-item span{
+ font-family:"Poppins",sans-serif;font-size:7px;font-weight:600;
+ line-height:1.45;letter-spacing:.13em;color:#626871;
+}
+@media(max-width:800px){
+ .quote-section .quote-trust-strip{grid-template-columns:1fr 1fr}
+ .quote-section .quote-trust-item{min-height:62px;padding:13px 12px}
+ .quote-section .quote-trust-item:nth-child(2){border-right:0}
+ .quote-section .quote-trust-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.06)}
 }
 </style>
