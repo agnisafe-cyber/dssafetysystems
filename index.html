@@ -1705,6 +1705,43 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   -webkit-text-fill-color:#f97316!important;
 }
 </style>
+
+<style id="protection-scan-circle-sync">
+@keyframes protectionCircleTouch{
+  0%,12%{
+    border-color:rgba(255,92,54,.95);
+    box-shadow:0 0 0 8px rgba(8,10,13,.75),0 0 28px rgba(220,38,38,.32),inset 0 0 18px rgba(220,38,38,.10);
+  }
+  13%,100%{
+    border-color:rgba(255,255,255,.18);
+    box-shadow:0 0 0 8px rgba(8,10,13,.75);
+  }
+}
+@keyframes protectionDotTouch{
+  0%,12%{transform:scale(1.65);background:#ff7048;box-shadow:0 0 24px rgba(255,75,45,1),0 0 42px rgba(220,38,38,.55)}
+  13%,100%{transform:scale(1);background:#dc2626;box-shadow:0 0 18px rgba(220,38,38,.75)}
+}
+.protection-flow.revealed .protection-step .protection-dot{
+  animation:protectionCircleTouch 4.8s linear infinite;
+}
+.protection-flow.revealed .protection-step .protection-dot:before{
+  animation:protectionDotTouch 4.8s linear infinite;
+}
+.protection-flow.revealed .protection-step:nth-child(2) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(2) .protection-dot:before{animation-delay:.18s}
+.protection-flow.revealed .protection-step:nth-child(3) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(3) .protection-dot:before{animation-delay:1.14s}
+.protection-flow.revealed .protection-step:nth-child(4) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(4) .protection-dot:before{animation-delay:2.10s}
+.protection-flow.revealed .protection-step:nth-child(5) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(5) .protection-dot:before{animation-delay:3.06s}
+.protection-flow.revealed .protection-step:nth-child(6) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(6) .protection-dot:before{animation-delay:4.02s}
+@media(prefers-reduced-motion:reduce){
+  .protection-flow.revealed .protection-dot,
+  .protection-flow.revealed .protection-dot:before{animation:none!important}
+}
+</style>
 </body>
 </html>
 
