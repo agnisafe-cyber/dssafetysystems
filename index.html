@@ -2780,3 +2780,36 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
   .quote-section .quote-inner{display:block!important}
 }
 </style>
+<style id="quote-protection-signal">
+.quote-section .quote-inner{position:relative!important}
+.quote-section .quote-inner:before{
+ content:"";position:absolute;z-index:0;pointer-events:none;
+ left:-8%;right:-8%;top:8%;height:2px;
+ background:linear-gradient(90deg,transparent 0%,rgba(220,38,38,0) 25%,rgba(220,38,38,.7) 48%,rgba(249,115,22,.35) 51%,rgba(220,38,38,0) 75%,transparent 100%);
+ filter:blur(1px);opacity:.55;transform:translateX(-100%);
+ animation:quoteSignalSweep 5.5s cubic-bezier(.4,0,.2,1) infinite;
+}
+.quote-section .quote-inner:after{
+ content:"";position:absolute;z-index:0;pointer-events:none;
+ width:260px;height:260px;left:18%;top:-5%;
+ background:radial-gradient(circle,rgba(220,38,38,.10),transparent 68%);
+ filter:blur(20px);opacity:.55;
+ animation:quoteSignalGlow 5.5s ease-in-out infinite;
+}
+.quote-section .quote-head,.quote-section .quote-form{position:relative;z-index:2}
+@keyframes quoteSignalSweep{
+ 0%{transform:translateX(-105%);opacity:0}
+ 12%{opacity:.5}
+ 48%{opacity:.75}
+ 82%{opacity:.35}
+ 100%{transform:translateX(105%);opacity:0}
+}
+@keyframes quoteSignalGlow{
+ 0%,100%{transform:translateX(-35%);opacity:.25}
+ 50%{transform:translateX(55%);opacity:.7}
+}
+@media(max-width:800px){
+ .quote-section .quote-inner:before{top:4%;animation-duration:6s}
+ .quote-section .quote-inner:after{left:5%;top:0;width:200px;height:200px}
+}
+</style>
