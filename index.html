@@ -3137,3 +3137,63 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
 }
 @keyframes quotePreparingPulse{50%{opacity:.45}}
 </style>
+<style id="quote-font-system">
+/* Quote section: one deliberate type system */
+.quote-section,
+.quote-section *{font-synthesis:none!important}
+.quote-section{
+ --q-ui:"Google Sans Flex","Google Sans",Arial,sans-serif;
+ --q-meta:"Poppins",Arial,sans-serif;
+}
+.quote-section .quote-head h2,
+.quote-section .quote-head p,
+.quote-section .quote-field input,
+.quote-section .quote-field textarea,
+.quote-section .quote-submit-row button,
+.quote-section .quote-trust-item strong{
+ font-family:var(--q-ui)!important;
+}
+.quote-section .section-label,
+.quote-section .quote-index,
+.quote-section .quote-field label,
+.quote-section .quote-quick-picks button,
+.quote-section .quote-submit-row>span,
+.quote-section .quote-submit-row:before,
+.quote-section .quote-head:before,
+.quote-section .quote-form:after,
+.quote-section .quote-trust-item span{
+ font-family:var(--q-meta)!important;
+}
+.quote-section .quote-head h2{
+ font-weight:500!important;letter-spacing:-.045em!important;line-height:.92!important;
+}
+.quote-section .quote-head p{
+ font-weight:400!important;letter-spacing:-.01em!important;line-height:1.8!important;
+}
+.quote-section .quote-field input,
+.quote-section .quote-field textarea{
+ font-weight:400!important;letter-spacing:-.012em!important;line-height:1.45!important;
+}
+.quote-section .quote-submit-row button{
+ font-weight:600!important;letter-spacing:.02em!important;
+}
+.quote-section .quote-field label,
+.quote-section .quote-quick-picks button,
+.quote-section .quote-head:before,
+.quote-section .quote-form:after,
+.quote-section .quote-submit-row:before,
+.quote-section .quote-trust-item span{
+ font-weight:600!important;letter-spacing:.13em!important;
+}
+.quote-section .quote-index{
+ font-weight:600!important;letter-spacing:.16em!important;
+}
+.quote-section .quote-trust-item strong{
+ font-weight:600!important;letter-spacing:-.025em!important;
+}
+@media(max-width:800px){
+ .quote-section .quote-head h2{font-size:48px!important;letter-spacing:-.035em!important;line-height:.94!important}
+ .quote-section .quote-head p{font-size:15px!important;line-height:1.75!important}
+ .quote-section .quote-field input,.quote-section .quote-field textarea{font-size:17px!important}
+}
+</style>
