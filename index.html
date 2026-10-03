@@ -2852,3 +2852,55 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section .quote-submit-row:before{position:static;display:block;width:100%;margin-bottom:16px;line-height:1.7}
 }
 </style>
+<style id="quote-system-selector">
+.quote-section .quote-quick-picks{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:7px!important;margin:0 0 18px!important;
+}
+.quote-section .quote-quick-picks button{
+ position:relative!important;min-height:42px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ border:1px solid rgba(255,255,255,.10)!important;
+ background:rgba(7,9,12,.5)!important;color:#676d75!important;
+ padding:10px 8px!important;
+ font:600 8px/1 "Poppins",sans-serif!important;
+ letter-spacing:.14em!important;text-transform:uppercase!important;
+ transition:color .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease,transform .3s ease!important;
+ overflow:hidden!important;
+}
+.quote-section .quote-quick-picks button:before{
+ content:"";position:absolute;left:0;top:0;width:0;height:1px;
+ background:linear-gradient(90deg,#dc2626,#f97316);
+ transition:width .4s cubic-bezier(.22,1,.36,1);
+}
+.quote-section .quote-quick-picks button:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(110deg,rgba(220,38,38,.10),transparent 42%);
+ opacity:0;transition:opacity .3s ease;
+}
+.quote-section .quote-quick-picks button:hover{
+ color:#e8e8e8!important;border-color:rgba(255,255,255,.2)!important;
+ transform:translateY(-1px)!important;
+}
+.quote-section .quote-quick-picks button:hover:before,
+.quote-section .quote-quick-picks button.is-selected:before{width:100%}
+.quote-section .quote-quick-picks button.is-selected{
+ color:#fff!important;border-color:rgba(220,38,38,.58)!important;
+ background:linear-gradient(135deg,rgba(220,38,38,.11),rgba(255,255,255,.025))!important;
+ box-shadow:inset 0 0 25px rgba(220,38,38,.035),0 0 20px rgba(220,38,38,.055)!important;
+ transform:none!important;
+}
+.quote-section .quote-quick-picks button.is-selected:after{opacity:1}
+.quote-section .quote-field-wide>label{
+ display:flex!important;align-items:center;justify-content:space-between;
+}
+.quote-section .quote-field-wide>label:after{
+ content:"SELECT SYSTEM REQUIREMENT";
+ font-size:7px;font-weight:500;letter-spacing:.13em;color:#444a52;
+}
+@media(max-width:800px){
+ .quote-section .quote-quick-picks{grid-template-columns:1fr 1fr!important}
+ .quote-section .quote-quick-picks button{min-height:40px!important}
+ .quote-section .quote-field-wide>label:after{display:none}
+}
+</style>
