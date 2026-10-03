@@ -2904,3 +2904,54 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section .quote-field-wide>label:after{display:none}
 }
 </style>
+<style id="quote-engineered-fields">
+.quote-section .quote-field{
+ position:relative!important;
+ padding:30px 0 23px!important;
+}
+.quote-section .quote-field:before{
+ content:"";position:absolute;left:0;top:0;width:100%;height:1px;
+ background:rgba(255,255,255,.045);transform-origin:left;transition:background .3s ease,transform .5s cubic-bezier(.22,1,.36,1);
+}
+.quote-section .quote-field:after{
+ content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;
+ background:linear-gradient(90deg,#dc2626,#f97316,transparent);
+ transition:width .55s cubic-bezier(.22,1,.36,1)!important;
+}
+.quote-section .quote-field:focus-within:before{
+ background:rgba(220,38,38,.22);
+}
+.quote-section .quote-field:focus-within:after{width:100%!important}
+.quote-section .quote-field label{
+ position:relative!important;
+ transition:color .3s ease,transform .35s cubic-bezier(.22,1,.36,1)!important;
+}
+.quote-section .quote-field:focus-within label{
+ color:#dc2626!important;
+ transform:translateX(3px);
+}
+.quote-section .quote-field label:before{
+ content:"";display:inline-block;width:4px;height:4px;margin:0 8px 1px 0;
+ border:1px solid currentColor;transform:rotate(45deg);opacity:.65;
+}
+.quote-section .quote-field input,
+.quote-section .quote-field textarea{
+ transition:color .25s ease,transform .35s cubic-bezier(.22,1,.36,1)!important;
+}
+.quote-section .quote-field:focus-within input,
+.quote-section .quote-field:focus-within textarea{
+ transform:translateX(3px);
+}
+.quote-section .quote-field input:focus::placeholder,
+.quote-section .quote-field textarea:focus::placeholder{color:#686e76!important}
+.quote-section .quote-field input:not(:placeholder-shown),
+.quote-section .quote-field textarea:not(:placeholder-shown){color:#f2f2f2!important}
+.quote-section .quote-field textarea{
+ min-height:132px!important;
+}
+@media(max-width:800px){
+ .quote-section .quote-field{padding:24px 0 20px!important}
+ .quote-section .quote-field input:focus,
+ .quote-section .quote-field textarea:focus{transform:none}
+}
+</style>
