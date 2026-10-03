@@ -1903,6 +1903,38 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 .protection-head h2 .protection-ready-line{
   padding-bottom:.06em!important;
 }
+</style><style id="protection-circle-red-highlight">
+.protection-flow.revealed .protection-step .protection-dot{
+  --circle-red:#dc2626;
+}
+@keyframes protectionCircleRed{
+  0%,12%{
+    border-color:rgba(220,38,38,1);
+    box-shadow:0 0 0 8px rgba(8,10,13,.75),0 0 28px rgba(220,38,38,.55),inset 0 0 18px rgba(220,38,38,.16);
+  }
+  13%,100%{
+    border-color:rgba(255,255,255,.18);
+    box-shadow:0 0 0 8px rgba(8,10,13,.75);
+  }
+}
+@keyframes protectionDotRed{
+  0%,12%{
+    transform:scale(1.65);
+    background:#dc2626;
+    box-shadow:0 0 24px rgba(220,38,38,1),0 0 42px rgba(220,38,38,.62);
+  }
+  13%,100%{
+    transform:scale(1);
+    background:#dc2626;
+    box-shadow:0 0 18px rgba(220,38,38,.75);
+  }
+}
+.protection-flow.revealed .protection-step .protection-dot{
+  animation:protectionCircleRed 4.8s linear infinite!important;
+}
+.protection-flow.revealed .protection-step .protection-dot:before{
+  animation:protectionDotRed 4.8s linear infinite!important;
+}
 </style></body>
 </html>
 
