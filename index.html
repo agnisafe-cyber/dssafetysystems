@@ -3065,3 +3065,58 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section:after{opacity:.16!important}
 }
 </style>
+<style id="quote-scroll-entrance">
+.quote-section .quote-head .section-label,
+.quote-section .quote-head h2,
+.quote-section .quote-head p,
+.quote-section .quote-form,
+.quote-section .quote-trust-strip{
+ opacity:0;transform:translateY(28px);
+}
+.quote-section.quote-is-visible .quote-head .section-label{
+ animation:quoteReveal .7s cubic-bezier(.22,1,.36,1) .05s forwards;
+}
+.quote-section.quote-is-visible .quote-head h2{
+ animation:quoteReveal .9s cubic-bezier(.22,1,.36,1) .16s forwards;
+}
+.quote-section.quote-is-visible .quote-head p{
+ animation:quoteReveal .8s cubic-bezier(.22,1,.36,1) .28s forwards;
+}
+.quote-section.quote-is-visible .quote-form{
+ animation:quoteReveal .95s cubic-bezier(.22,1,.36,1) .34s forwards;
+}
+.quote-section.quote-is-visible .quote-trust-strip{
+ animation:quoteReveal .75s cubic-bezier(.22,1,.36,1) .52s forwards;
+}
+@keyframes quoteReveal{
+ to{opacity:1;transform:translateY(0)}
+}
+@media(prefers-reduced-motion:reduce){
+ .quote-section .quote-head .section-label,
+ .quote-section .quote-head h2,
+ .quote-section .quote-head p,
+ .quote-section .quote-form,
+ .quote-section .quote-trust-strip{
+  opacity:1;transform:none;animation:none!important;
+ }
+}
+</style>
+<script id="quote-scroll-entrance-script">
+(function(){
+ var section=document.querySelector('.quote-section');
+ if(!section)return;
+ if('IntersectionObserver' in window){
+   var io=new IntersectionObserver(function(entries){
+     entries.forEach(function(entry){
+       if(entry.isIntersecting){
+         section.classList.add('quote-is-visible');
+         io.unobserve(section);
+       }
+     });
+   },{threshold:.18});
+   io.observe(section);
+ }else{
+   section.classList.add('quote-is-visible');
+ }
+})();
+</script>
