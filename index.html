@@ -2813,3 +2813,42 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section .quote-inner:after{left:5%;top:0;width:200px;height:200px}
 }
 </style>
+<style id="quote-technical-details">
+.quote-section .quote-head:before{
+ content:"FIRE PROTECTION SYSTEMS  /  NEW DELHI · INDIA";
+ position:absolute;left:0;top:-2px;
+ font-family:"Poppins",sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;
+ color:#555b64;white-space:nowrap;
+}
+.quote-section .quote-form:after{
+ content:"DS / 08\A SYSTEM STATUS  /  READY\A FIRE SAFETY  /  2026";
+ white-space:pre;position:absolute;right:22px;bottom:16px;
+ font-family:"Poppins",sans-serif;font-size:7px;font-weight:600;line-height:1.9;
+ letter-spacing:.16em;text-align:right;color:rgba(255,255,255,.22);
+ pointer-events:none;
+}
+.quote-section .quote-form:before{
+ content:"";
+ position:absolute;left:0;top:0;width:54px;height:54px;
+ border-top:1px solid rgba(220,38,38,.55);
+ border-left:1px solid rgba(220,38,38,.55);
+ background:linear-gradient(135deg,rgba(220,38,38,.035),transparent 65%)!important;
+ pointer-events:none;
+}
+.quote-section .quote-head .section-label:after{
+ content:"  /  07";
+ color:#4f545c;margin-left:10px;
+}
+.quote-section .quote-submit-row:before{
+ content:"EQUIPMENT  •  INSTALLATION  •  INSPECTION  •  AMC";
+ position:absolute;left:0;bottom:7px;
+ font-family:"Poppins",sans-serif;font-size:7px;font-weight:600;
+ letter-spacing:.15em;color:#4d525a;
+}
+.quote-section .quote-submit-row{position:relative!important}
+@media(max-width:800px){
+ .quote-section .quote-head:before{top:-8px;font-size:7px;letter-spacing:.15em}
+ .quote-section .quote-form:after{right:15px;bottom:12px;font-size:6px}
+ .quote-section .quote-submit-row:before{position:static;display:block;width:100%;margin-bottom:16px;line-height:1.7}
+}
+</style>
