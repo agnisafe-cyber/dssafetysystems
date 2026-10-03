@@ -1338,7 +1338,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-phone"},"02 / Phone"),React.createElement("input",{id:"quote-phone",name:"phone",type:"tel",placeholder:"Your phone number",required:true})),
                 React.createElement("div",{className:"quote-field"},React.createElement("label",{htmlFor:"quote-company"},"03 / Company / Site"),React.createElement("input",{id:"quote-company",name:"company",type:"text",placeholder:"Company or site name"})),
                 React.createElement("div",{className:"quote-field quote-field-wide"},React.createElement("label",{htmlFor:"quote-requirement"},"04 / Requirement"),React.createElement("div",{className:"quote-quick-picks"},React.createElement("button",{type:"button","data-quote-pick":"Equipment"},"Equipment"),React.createElement("button",{type:"button","data-quote-pick":"Installation"},"Installation"),React.createElement("button",{type:"button","data-quote-pick":"Inspection"},"Inspection"),React.createElement("button",{type:"button","data-quote-pick":"AMC"},"AMC")),React.createElement("textarea",{id:"quote-requirement",name:"requirement",rows:"5",placeholder:"Equipment, installation, inspection, AMC or anything else you need...",required:true})),
-                React.createElement("div",{className:"quote-submit-row"},React.createElement("span",null,"Certified equipment • Installation • AMC"),React.createElement("button",{type:"submit"},"Send Quote Request ",React.createElement("span",null,"↗")))
+                React.createElement("div",{className:"quote-submit-row"},React.createElement("span",null,"Certified equipment • Installation • AMC"),React.createElement("button",{type:"submit"},React.createElement("span",{className:"quote-cta-label"},"REQUEST PROTECTION PLAN"),React.createElement("span",{className:"quote-cta-arrow"},"↗")))
               )
             )
           ),
@@ -2953,5 +2953,46 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section .quote-field{padding:24px 0 20px!important}
  .quote-section .quote-field input:focus,
  .quote-section .quote-field textarea:focus{transform:none}
+}
+</style>
+<style id="quote-cinematic-cta">
+.quote-section .quote-submit-row button{
+ position:relative!important;overflow:hidden!important;
+ min-width:255px!important;min-height:58px!important;
+ display:inline-flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:28px!important;padding:18px 18px 18px 25px!important;
+ border:1px solid rgba(255,255,255,.18)!important;
+ background:#f3f1ec!important;color:#090b0f!important;
+ box-shadow:0 18px 55px rgba(0,0,0,.28)!important;
+ transition:color .35s ease,background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease!important;
+}
+.quote-section .quote-submit-row button:before{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(105deg,transparent 15%,rgba(255,255,255,.65) 48%,transparent 75%);
+ transform:translateX(-125%);
+ transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.quote-section .quote-submit-row button:hover{
+ background:#dc2626!important;color:#fff!important;border-color:#dc2626!important;
+ transform:translateY(-3px)!important;
+ box-shadow:0 22px 60px rgba(220,38,38,.22)!important;
+}
+.quote-section .quote-submit-row button:hover:before{transform:translateX(125%)}
+.quote-section .quote-cta-label{
+ position:relative;z-index:1;
+ font-family:"Poppins",sans-serif!important;font-size:10px!important;
+ font-weight:700!important;letter-spacing:.11em!important;
+}
+.quote-section .quote-cta-arrow{
+ position:relative;z-index:1;
+ display:grid;place-items:center;width:27px;height:27px;
+ border:1px solid rgba(0,0,0,.16);font-size:15px;line-height:1;
+ transition:transform .35s ease,border-color .35s ease;
+}
+.quote-section .quote-submit-row button:hover .quote-cta-arrow{
+ transform:translate(4px,-4px);border-color:rgba(255,255,255,.45)
+}
+@media(max-width:800px){
+ .quote-section .quote-submit-row button{width:100%!important;min-width:0!important}
 }
 </style>
