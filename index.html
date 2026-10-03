@@ -3027,3 +3027,41 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
  .quote-section .quote-trust-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.06)}
 }
 </style>
+<style id="quote-atmospheric-depth">
+.quote-section{
+ background:
+ radial-gradient(circle at 14% 22%,rgba(220,38,38,.075),transparent 25%),
+ radial-gradient(circle at 86% 78%,rgba(249,115,22,.045),transparent 24%),
+ linear-gradient(135deg,#080a0e 0%,#0a0c10 48%,#08090d 100%)!important;
+}
+.quote-section .quote-inner{
+ isolation:isolate;
+}
+.quote-section .quote-inner:global(.x){display:block}
+.quote-section .quote-section-particle{position:absolute}
+.quote-section:before{
+ background:
+ radial-gradient(circle at 15% 25%,rgba(220,38,38,.13),transparent 22%),
+ radial-gradient(circle at 85% 75%,rgba(249,115,22,.065),transparent 24%),
+ linear-gradient(115deg,transparent 0 45%,rgba(255,255,255,.012) 49%,transparent 53%)!important;
+ filter:blur(48px)!important;
+ opacity:.9!important;
+}
+.quote-section:after{
+ opacity:.24!important;
+ background-image:
+ radial-gradient(circle at 18% 34%,rgba(255,255,255,.35) 0 1px,transparent 1.5px),
+ radial-gradient(circle at 73% 19%,rgba(255,255,255,.25) 0 1px,transparent 1.5px),
+ radial-gradient(circle at 91% 61%,rgba(255,255,255,.22) 0 1px,transparent 1.5px),
+ radial-gradient(circle at 44% 86%,rgba(255,255,255,.18) 0 1px,transparent 1.5px)!important;
+ background-size:170px 190px,230px 250px,190px 210px,260px 280px!important;
+ animation:quoteDustDrift 18s linear infinite!important;
+}
+@keyframes quoteDustDrift{
+ from{background-position:0 0,0 0,0 0,0 0}
+ to{background-position:34px -42px,-46px 38px,28px -35px,-38px 46px}
+}
+@media(max-width:800px){
+ .quote-section:after{opacity:.16!important}
+}
+</style>
