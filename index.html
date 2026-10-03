@@ -1255,7 +1255,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               React.createElement("div",{className:"protection-head"},
                 React.createElement("div",null,
                   React.createElement("div",{className:"protection-eyebrow"},"How protection works"),
-                  React.createElement("h2",null,"One system.",React.createElement("br"),"Every layer.",React.createElement("span",null," Ready."))
+                  React.createElement("h2",null,React.createElement("span",{className:"protection-heading-line"},"One system."),React.createElement("br"),React.createElement("span",{className:"protection-heading-line"},"Every layer."),React.createElement("span",{className:"protection-heading-line protection-ready-line"}," Ready."))
                 ),
                 React.createElement("p",null,"Effective fire protection is not one product. It is a connected chain of detection, response, suppression and ongoing readiness.")
               ),
@@ -1682,6 +1682,28 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 
 <style id="protection-detect-letter-spacing">
 .protection-step:nth-of-type(1) h3{letter-spacing:.035em!important}
+</style>
+
+<style id="protection-heading-font-unified">
+.protection-head h2 .protection-heading-line{
+  font-family:"Instrument Serif",Georgia,serif!important;
+  font-style:italic!important;
+  font-weight:400!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  letter-spacing:inherit!important;
+  color:#f4f0e8!important;
+  -webkit-text-fill-color:#f4f0e8!important;
+  -webkit-text-stroke:0!important;
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  text-shadow:none!important;
+}
+.protection-head h2 .protection-ready-line{
+  color:#f97316!important;
+  -webkit-text-fill-color:#f97316!important;
+}
 </style>
 </body>
 </html>
