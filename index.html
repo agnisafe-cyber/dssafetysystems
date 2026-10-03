@@ -1939,6 +1939,33 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 .protection-step:nth-child(3) h3{
   letter-spacing:.025em!important;
 }
+</style><style id="protection-single-scan-hit">
+@keyframes protectionCircleSingleHit{
+  0%,2%{border-color:rgba(255,255,255,.18);box-shadow:0 0 0 8px rgba(8,10,13,.75)}
+  5%,15%{border-color:#dc2626;box-shadow:0 0 0 8px rgba(8,10,13,.75),0 0 28px rgba(220,38,38,.55),inset 0 0 18px rgba(220,38,38,.16)}
+  18%,100%{border-color:rgba(255,255,255,.18);box-shadow:0 0 0 8px rgba(8,10,13,.75)}
+}
+@keyframes protectionDotSingleHit{
+  0%,2%{transform:scale(1);background:#dc2626;box-shadow:0 0 18px rgba(220,38,38,.75)}
+  5%,15%{transform:scale(1.65);background:#dc2626;box-shadow:0 0 24px rgba(220,38,38,1),0 0 42px rgba(220,38,38,.62)}
+  18%,100%{transform:scale(1);background:#dc2626;box-shadow:0 0 18px rgba(220,38,38,.75)}
+}
+.protection-flow.revealed .protection-step .protection-dot{
+  animation:protectionCircleSingleHit 4.8s linear infinite!important;
+}
+.protection-flow.revealed .protection-step .protection-dot:before{
+  animation:protectionDotSingleHit 4.8s linear infinite!important;
+}
+.protection-flow.revealed .protection-step:nth-child(2) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(2) .protection-dot:before{animation-delay:.18s!important}
+.protection-flow.revealed .protection-step:nth-child(3) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(3) .protection-dot:before{animation-delay:1.14s!important}
+.protection-flow.revealed .protection-step:nth-child(4) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(4) .protection-dot:before{animation-delay:2.10s!important}
+.protection-flow.revealed .protection-step:nth-child(5) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(5) .protection-dot:before{animation-delay:3.06s!important}
+.protection-flow.revealed .protection-step:nth-child(6) .protection-dot,
+.protection-flow.revealed .protection-step:nth-child(6) .protection-dot:before{animation-delay:4.02s!important}
 </style></body>
 </html>
 
