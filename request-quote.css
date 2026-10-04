@@ -841,3 +841,14 @@ body {
     .input-grid { grid-template-columns:1fr; }
     .input-group.full { grid-column:auto; }
 }
+
+
+/* QUOTE IS EMBEDDED INTO THE HOMEPAGE — LET THE PARENT SITE BACKGROUND SHOW THROUGH */
+html,body{
+  background:transparent!important;
+  background-image:none!important;
+}
+body::before,body::after{
+  display:none!important;
+  content:none!important;
+}
