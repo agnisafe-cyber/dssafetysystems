@@ -457,3 +457,76 @@
         @media (prefers-reduced-motion: reduce) {
             body::before { animation: none; }
         }
+
+
+/* =========================================================
+   DS SAFETY SYSTEMS — MATCH MAIN SITE VIBE EXACTLY
+   ========================================================= */
+html, body {
+    background-color: #090b0f !important;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 18% 72%,rgba(220,38,38,.17),transparent 24%),
+        radial-gradient(ellipse at 82% 28%,rgba(249,115,22,.11),transparent 25%),
+        radial-gradient(ellipse at 50% 50%,rgba(255,82,48,.035),transparent 38%),
+        #090b0f !important;
+    position: relative;
+    isolation: isolate;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -35%;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 18% 72%,rgba(220,38,38,.17),transparent 24%),
+        radial-gradient(ellipse at 82% 28%,rgba(249,115,22,.11),transparent 25%),
+        radial-gradient(ellipse at 50% 50%,rgba(255,82,48,.035),transparent 38%);
+    filter: blur(72px);
+    opacity: .9;
+    animation: quoteContinuousGlow 18s cubic-bezier(.45,0,.25,1) infinite alternate;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 7% 82%,rgba(255,82,48,.58) 0 1px,transparent 2px),
+        radial-gradient(circle at 19% 38%,rgba(255,170,85,.40) 0 1px,transparent 2px),
+        radial-gradient(circle at 33% 91%,rgba(220,38,38,.48) 0 1px,transparent 2px),
+        radial-gradient(circle at 48% 22%,rgba(255,130,65,.36) 0 1px,transparent 2px),
+        radial-gradient(circle at 64% 78%,rgba(255,170,85,.44) 0 1px,transparent 2px),
+        radial-gradient(circle at 81% 43%,rgba(220,38,38,.46) 0 1px,transparent 2px),
+        radial-gradient(circle at 94% 86%,rgba(255,110,55,.52) 0 1px,transparent 2px),
+        linear-gradient(180deg,transparent 0 72%,rgba(0,0,0,.24) 100%),
+        radial-gradient(ellipse at center,transparent 34%,rgba(0,0,0,.32) 100%);
+    animation: quoteContinuousEmbers 13s ease-in-out infinite alternate;
+    opacity: .72;
+}
+
+@keyframes quoteContinuousGlow {
+    0% { transform:translate3d(-4%,3%,0) scale(.92) rotate(-2deg); }
+    50% { transform:translate3d(2%,-2%,0) scale(1.02) rotate(1deg); }
+    100% { transform:translate3d(5%,-4%,0) scale(1.09) rotate(3deg); }
+}
+
+@keyframes quoteContinuousEmbers {
+    0% { transform:translate3d(0,1%,0); opacity:.42; }
+    50% { opacity:.78; }
+    100% { transform:translate3d(-1.2%,-2%,0); opacity:.66; }
+}
+
+@media(max-width:700px) {
+    body::before { filter:blur(52px); }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    body::before, body::after { animation:none !important; }
+}
