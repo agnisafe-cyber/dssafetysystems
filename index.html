@@ -1182,7 +1182,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             React.createElement("a",{href:"#about"},"About"),
             React.createElement("a",{href:"#products"},"Products"),
             React.createElement("a",{href:"#contact"},"Contact"),
-            React.createElement("a",{className:"nav-cta",href:"request-quote.html"},"Get a quote")
+            React.createElement("a",{className:"nav-cta",href:"#quote-placeholder"},"Get a quote")
           ),
           React.createElement("button",{className:"menu","aria-label":"Menu"},"☰")
         ),
@@ -1319,7 +1319,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           ),
           /* 07 — MANUFACTURING */
           /* 08 — EMPTY QUOTE PAGE PLACEHOLDER */
-          React.createElement("section",{className:"quote-page-placeholder",id:"quote-placeholder","aria-label":"Request a Quote page"},React.createElement("div",{className:"quote-embers","aria-hidden":"true"})),
+          React.createElement("section",{className:"quote-page-placeholder",id:"quote-placeholder","aria-label":"Request a Quote page"},React.createElement("iframe",{src:"request-quote.html",title:"Request a Fire Safety Quote",loading:"lazy",style:{width:"100%",minHeight:"1550px",border:"0",display:"block",background:"#05070a"}})),
         )      );
     }
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
