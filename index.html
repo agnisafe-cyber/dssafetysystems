@@ -1323,7 +1323,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   React.createElement("div",{className:"quote-v2-shell"},
     React.createElement("div",{className:"quote-v2-intro"},
       React.createElement("div",{className:"quote-v2-kicker"},React.createElement("span",{className:"quote-v2-kicker-mark"}),"DS SAFETY SYSTEMS",React.createElement("span",null,"/")," PROJECT ENQUIRY"),
-      React.createElement("h2",null,"Protection starts with",React.createElement("br"),React.createElement("em",null,"the right plan.")),
+      React.createElement("h2",null,"Let’s plan for",React.createElement("br"),"what matters."),
       React.createElement("p",null,"Tell us about your site and what you need. We’ll help you find the right fire-safety equipment, installation or maintenance solution."),
       React.createElement("div",{className:"quote-v2-contact"},
         React.createElement("span",null,"NEED TO TALK FIRST?"),
@@ -3299,5 +3299,24 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
 }
 @media(prefers-reduced-motion:reduce){
  #quote .quote-v2-contact a,#quote .quote-v2-options button,#quote .quote-v2-submit button{transition:none}
+}
+</style>
+<style id="quote-heading-unified">
+#quote .quote-v2-intro h2{
+ font-family:"Google Sans Flex","Arial",sans-serif!important;
+ font-style:normal!important;
+ font-weight:500!important;
+ font-size:clamp(52px,5.7vw,80px)!important;
+ line-height:.98!important;
+ letter-spacing:-.06em!important;
+ color:#f2f1ed!important;
+ text-wrap:balance;
+}
+#quote .quote-v2-intro h2 em{
+ font-family:inherit!important;font-style:inherit!important;font-weight:inherit!important;
+ letter-spacing:inherit!important;color:inherit!important;
+}
+@media(max-width:560px){
+ #quote .quote-v2-intro h2{font-size:clamp(44px,11.8vw,59px)!important;letter-spacing:-.055em!important}
 }
 </style>
