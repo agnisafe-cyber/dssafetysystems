@@ -1098,3 +1098,18 @@ textarea {
     .product-grid, .category-selector-grid, .form-grid { grid-template-columns: 1fr; }
     .headline-group h1 { font-size: 2.4rem; }
 }
+
+/* Product modal visibility fix */
+.modal-backdrop[style*="display: flex"]{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    z-index:99999!important;
+}
+.modal-backdrop[style*="display: flex"] .modal-container{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    z-index:100000!important;
+}
+body:has(.modal-backdrop[style*="display: flex"]){overflow:hidden;}
