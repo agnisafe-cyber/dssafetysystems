@@ -1318,7 +1318,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             ))
           ),
           /* 07 — MANUFACTURING */
-          /* Request a Quote, Contact and Footer removed for rebuild */
+          /* 08 — EMPTY QUOTE PAGE PLACEHOLDER */
+          React.createElement("section",{className:"quote-page-placeholder",id:"quote-placeholder","aria-label":"Request a Quote page"}),
         )      );
     }
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
@@ -3236,5 +3237,21 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
 }
 @media(max-width:560px){
  #quote .quote-v2-intro h2{font-size:clamp(44px,11.8vw,59px)!important;letter-spacing:-.055em!important}
+}
+</style>
+<style id="quote-page-placeholder-background">
+#quote-placeholder.quote-page-placeholder{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  min-height:100vh!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:
+    radial-gradient(ellipse at 14% 28%,rgba(220,38,38,.075),transparent 34%),
+    radial-gradient(ellipse at 86% 72%,rgba(249,115,22,.035),transparent 30%),
+    linear-gradient(135deg,#0a0c10 0%,#111318 52%,#0a0c10 100%)!important;
 }
 </style>
