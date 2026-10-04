@@ -3250,8 +3250,27 @@ document.querySelectorAll('[data-quote-pick]').forEach(function(btn){btn.addEven
   overflow:hidden!important;
   isolation:isolate!important;
   background:
-    radial-gradient(ellipse at 14% 28%,rgba(220,38,38,.075),transparent 34%),
-    radial-gradient(ellipse at 86% 72%,rgba(249,115,22,.035),transparent 30%),
-    linear-gradient(135deg,#0a0c10 0%,#111318 52%,#0a0c10 100%)!important;
+    radial-gradient(ellipse at 18% 22%,rgba(220,38,38,.13),transparent 34%),
+    radial-gradient(ellipse at 82% 78%,rgba(249,115,22,.09),transparent 38%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 55%),
+    #0a0c10!important;
+}
+#quote-placeholder.quote-page-placeholder:before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 25% 35%,rgba(239,68,68,.18),transparent 28%),
+    radial-gradient(ellipse at 75% 65%,rgba(249,115,22,.12),transparent 30%);
+  filter:blur(70px);
+  animation:productsCinematicGlow 16s ease-in-out infinite alternate;
+}
+#quote-placeholder.quote-page-placeholder:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 32%,rgba(0,0,0,.18) 68%,rgba(0,0,0,.72) 100%);
 }
 </style>
