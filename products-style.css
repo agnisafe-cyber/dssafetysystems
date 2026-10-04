@@ -1113,3 +1113,19 @@ textarea {
     z-index:100000!important;
 }
 body:has(.modal-backdrop[style*="display: flex"]){overflow:hidden;}
+
+
+/* Force product detail modal above the catalog */
+.modal-backdrop.is-open{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    z-index:999999!important;
+}
+.modal-backdrop.is-open .modal-container{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    z-index:1000000!important;
+}
