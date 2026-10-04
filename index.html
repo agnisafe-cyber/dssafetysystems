@@ -876,7 +876,28 @@
   .protection-step{opacity:1!important;transform:none!important;filter:none!important}
 }
 </style>
-</head>
+<style id="ds-elite-products">
+.elite-products-page{position:relative;overflow:hidden;isolation:isolate;background:#080a0d;color:#f6f4ef;padding:110px 0 130px;font-family:"Plus Jakarta Sans",sans-serif}
+.elite-products-page:before{content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 18% 38%,rgba(220,38,38,.17),transparent 25%),radial-gradient(ellipse at 84% 65%,rgba(249,115,22,.10),transparent 25%),radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 36%);filter:blur(70px);animation:eliteProductAtmosphere 18s ease-in-out infinite alternate}
+.elite-products-page:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 9% 82%,rgba(255,82,48,.55) 0 1px,transparent 2px),radial-gradient(circle at 27% 31%,rgba(255,170,85,.38) 0 1px,transparent 2px),radial-gradient(circle at 51% 87%,rgba(220,38,38,.45) 0 1px,transparent 2px),radial-gradient(circle at 74% 25%,rgba(255,130,65,.34) 0 1px,transparent 2px),radial-gradient(circle at 92% 64%,rgba(220,38,38,.48) 0 1px,transparent 2px),radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.48) 100%)}
+.elite-products-page>*{position:relative;z-index:2}
+.elite-products-shell{width:min(1300px,calc(100% - 44px));margin:auto}
+.elite-switcher{width:min(480px,100%);margin:0 auto 58px;display:grid;grid-template-columns:1fr 1fr;padding:5px;border:1px solid rgba(255,255,255,.10);border-radius:15px;background:rgba(13,18,28,.78);backdrop-filter:blur(14px)}
+.elite-switcher button{border:0;background:transparent;color:#8f98a8;padding:13px 15px;border-radius:10px;font:700 12px "Plus Jakarta Sans",sans-serif;cursor:pointer;transition:.3s}
+.elite-switcher button.active{color:#fff;background:linear-gradient(100deg,#ef233c,#ff7700);box-shadow:0 8px 25px rgba(255,30,56,.22)}
+.elite-view{display:none}.elite-view.active{display:block;animation:eliteViewIn .55s cubic-bezier(.22,1,.36,1)}
+.elite-head{text-align:center;max-width:900px;margin:0 auto 48px}.elite-badge{display:inline-block;color:#ff6575;font:800 10px "Plus Jakarta Sans";letter-spacing:.18em;text-transform:uppercase;margin-bottom:17px}.elite-head h2{font:850 clamp(42px,6vw,76px)/.98 "Outfit",sans-serif;letter-spacing:-3px;margin:0}.elite-head h2 .elite-glow{background:linear-gradient(100deg,#fff 30%,#ff5062 65%,#ff8a22);-webkit-background-clip:text;background-clip:text;color:transparent}.elite-head p{max-width:700px;margin:22px auto 0;color:#94a3b8;font-size:15px;line-height:1.8}
+.elite-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:32px}.elite-filter{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.025);color:#aab3c0;border-radius:999px;padding:10px 16px;font:700 11px "Plus Jakarta Sans";cursor:pointer;transition:.25s}.elite-filter.active,.elite-filter:hover{color:#fff;border-color:rgba(239,68,68,.55);background:rgba(239,68,68,.10)}
+.elite-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.elite-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:rgba(13,18,28,.82);box-shadow:0 18px 55px rgba(0,0,0,.24);overflow:hidden;transition:.35s}.elite-card:hover{transform:translateY(-6px);border-color:rgba(239,68,68,.35);box-shadow:0 25px 65px rgba(0,0,0,.36),0 0 35px rgba(239,68,68,.06)}.elite-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}.elite-tag{font:800 9px "Plus Jakarta Sans";letter-spacing:.12em;color:#ff6878;text-transform:uppercase}.elite-stock{font-size:9px;color:#86efac}.elite-stock:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ade80;margin-right:5px;box-shadow:0 0 9px #4ade80}
+.elite-slider{position:relative;overflow:hidden;height:230px;border-radius:15px;background:#07090d}.elite-track{display:flex;width:300%;height:100%;transition:transform .45s cubic-bezier(.22,1,.36,1)}.elite-slide{width:33.333%;flex:0 0 33.333%;height:100%}.elite-slide img{width:100%;height:100%;object-fit:cover;display:block}.elite-arrow{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(5,7,11,.75);color:#fff;cursor:pointer;z-index:3;opacity:.75}.elite-arrow:hover{opacity:1;background:#dc2626}.elite-prev{left:10px}.elite-next{right:10px}.elite-dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}.elite-dot{width:5px;height:5px;border:0;border-radius:50%;background:rgba(255,255,255,.35);padding:0;cursor:pointer}.elite-dot.active{background:#ff334b;box-shadow:0 0 8px rgba(255,51,75,.8)}
+.elite-info{padding-top:18px}.elite-info h3{font:650 22px/1.12 "Google Sans Flex","Outfit",sans-serif;letter-spacing:-.5px;margin:0 0 9px}.elite-purpose{font-size:11px;color:#8f98a8;line-height:1.55;min-height:35px}.elite-action{margin-top:18px;width:100%;padding:12px 14px;border:1px solid rgba(239,68,68,.35);border-radius:10px;background:linear-gradient(100deg,rgba(239,68,68,.14),rgba(255,119,0,.08));color:#fff;font:800 10px "Plus Jakarta Sans";letter-spacing:.05em;cursor:pointer;transition:.25s}.elite-action:hover{background:linear-gradient(100deg,#ef233c,#ff7700);border-color:transparent;transform:translateY(-1px)}
+.elite-quote-wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:22px}.elite-quote-box,.elite-summary{border:1px solid rgba(255,255,255,.09);border-radius:22px;background:rgba(13,18,28,.86);padding:30px}.elite-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}.elite-field{display:grid;gap:7px}.elite-field.full{grid-column:1/-1}.elite-field label{font-size:10px;font-weight:800;color:#8f98a8;letter-spacing:.1em;text-transform:uppercase}.elite-field input,.elite-field select,.elite-field textarea{width:100%;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:#080b11;color:#fff;padding:13px 14px;font:14px "Plus Jakarta Sans";outline:none}.elite-field textarea{min-height:125px;resize:vertical}.elite-field input:focus,.elite-field select:focus,.elite-field textarea:focus{border-color:rgba(239,68,68,.7);box-shadow:0 0 0 3px rgba(239,68,68,.08)}.elite-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.elite-cat{border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025);color:#9aa3b1;border-radius:9px;padding:10px 12px;font-size:10px;font-weight:800;cursor:pointer}.elite-cat.active{background:#dc2626;color:#fff;border-color:#dc2626}.elite-submit{grid-column:1/-1;border:0;border-radius:11px;padding:15px;background:linear-gradient(100deg,#ef233c,#ff7700);color:#fff;font:850 11px "Plus Jakarta Sans";letter-spacing:.08em;cursor:pointer;box-shadow:0 12px 35px rgba(239,35,60,.18)}.elite-summary h3{font:700 23px "Google Sans Flex";margin-bottom:18px}.elite-summary p{color:#8f98a8;font-size:12px;line-height:1.7}.elite-summary strong{display:block;color:#fff;margin-top:18px;font-size:13px}.elite-success{display:none;position:fixed;inset:0;z-index:5000;place-items:center;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}.elite-success.open{display:grid}.elite-success-box{width:min(440px,calc(100% - 35px));padding:35px;border:1px solid rgba(239,68,68,.35);border-radius:22px;background:#0d121c;text-align:center}.elite-success-box h3{font:750 30px "Outfit";margin-bottom:10px}.elite-success-box p{color:#9aa3b1;font-size:13px;line-height:1.7;margin-bottom:22px}.elite-reset{border:0;background:#dc2626;color:#fff;padding:11px 18px;border-radius:9px;font-weight:800;cursor:pointer}
+.elite-modal{display:none;position:fixed;inset:0;z-index:4500;place-items:center;padding:25px;background:rgba(0,0,0,.72);backdrop-filter:blur(13px)}.elite-modal.open{display:grid}.elite-modal-box{width:min(960px,100%);max-height:90vh;overflow:auto;display:grid;grid-template-columns:1.05fr .95fr;background:#0d121c;border:1px solid rgba(255,255,255,.10);border-radius:24px;box-shadow:0 40px 100px rgba(0,0,0,.6)}.elite-modal-gallery{padding:18px}.elite-modal-main{height:370px;overflow:hidden;border-radius:15px;background:#07090d}.elite-modal-main img{width:100%;height:100%;object-fit:cover}.elite-modal-thumbs{display:flex;gap:8px;margin-top:10px}.elite-modal-thumbs button{width:64px;height:50px;padding:0;border:1px solid rgba(255,255,255,.10);border-radius:7px;overflow:hidden;background:#07090d;cursor:pointer}.elite-modal-thumbs button.active{border-color:#ef4444}.elite-modal-thumbs img{width:100%;height:100%;object-fit:cover}.elite-modal-info{padding:35px 30px}.elite-modal-info h2{font:700 clamp(30px,4vw,48px)/1.03 "Google Sans Flex";letter-spacing:-1.5px;margin:12px 0 15px}.elite-modal-info p{color:#9aa3b1;font-size:13px;line-height:1.75}.elite-modal-purpose{color:#d7dce4;font-size:12px;margin-bottom:18px}.elite-specs{width:100%;margin:22px 0;border-collapse:collapse;font-size:11px}.elite-specs td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}.elite-specs td:first-child{color:#737d8d;width:35%}.elite-modal-close{position:absolute;right:18px;top:15px;width:36px;height:36px;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:#0d121c;color:#fff;font-size:22px;cursor:pointer}.elite-modal-quote{display:block;text-align:center;padding:13px;border-radius:10px;background:linear-gradient(100deg,#ef233c,#ff7700);color:#fff;font-weight:800;font-size:11px}
+@keyframes eliteProductAtmosphere{0%{transform:translate3d(-3%,2%,0) scale(.95)}100%{transform:translate3d(4%,-3%,0) scale(1.08)}}@keyframes eliteViewIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:1000px){.elite-grid{grid-template-columns:repeat(2,1fr)}.elite-quote-wrap{grid-template-columns:1fr}}
+@media(max-width:650px){.elite-products-page{padding:90px 0}.elite-products-shell{width:min(100% - 28px,620px)}.elite-grid{grid-template-columns:1fr}.elite-head h2{font-size:40px;letter-spacing:-1.8px}.elite-form{grid-template-columns:1fr}.elite-field.full,.elite-submit{grid-column:auto}.elite-modal-box{grid-template-columns:1fr}.elite-modal-main{height:270px}.elite-modal-info{padding:22px}.elite-switcher{margin-bottom:40px}}
+@media(prefers-reduced-motion:reduce){.elite-products-page:before,.elite-view.active{animation:none!important}.elite-track{transition:none!important}}
+</style></head>
 <body>
 <div id="smooth-wrapper">
     <div id="smooth-content">
@@ -1249,6 +1270,202 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             )
           ),
 
+<!-- 06 — PRODUCTS / ELITE CATALOG -->
+<section class="elite-products-page" id="products">
+  <div class="elite-products-shell">
+    <div class="elite-switcher">
+      <button id="eliteCatalogTab" class="active" type="button">Product Catalog</button>
+      <button id="eliteQuoteTab" type="button">Request a Quote</button>
+    </div>
+    <div id="eliteCatalogView" class="elite-view active">
+      <div class="elite-head">
+        <span class="elite-badge">Premium Fire Safety Protection Matrix</span>
+        <h2>Elite <span class="elite-glow">Safety Gear &amp; Systems</span></h2>
+        <p>Certified fire protection equipment selected for dependable response, installation and ongoing maintenance across commercial and industrial premises.</p>
+      </div>
+      <div class="elite-filters">
+        <button class="elite-filter active" data-filter="all">All Equipment</button>
+        <button class="elite-filter" data-filter="extinguishers">Extinguishers</button>
+        <button class="elite-filter" data-filter="hydrants">Hydrants &amp; Hoses</button>
+        <button class="elite-filter" data-filter="alarms">Sensors &amp; Alarms</button>
+      </div>
+      <div class="elite-grid" id="eliteGrid">
+        <article class="elite-card" data-category="extinguishers" data-title="ABC Dry Powder Cylinder (4kg)" data-cat="Extinguisher" data-purpose="Multipurpose dry powder protection for common Class A, B and C fire risks." data-spec1="Capacity" data-spec1v="4kg" data-spec2="Operating Range" data-spec2v="-30°C to 60°C" data-spec3="Standard" data-spec3v="IS 15683" data-spec4="Agent" data-spec4v="ABC Dry Powder">
+          <div class="elite-card-top"><span class="elite-tag">Extinguisher</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-0">
+              <div class="elite-slide"><img src="images/abc-4kg-1.jpg" alt="ABC Dry Powder Cylinder (4kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/abc-4kg-2.jpg" alt="ABC Dry Powder Cylinder (4kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/abc-4kg-3.jpg" alt="ABC Dry Powder Cylinder (4kg)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>ABC Dry Powder Cylinder (4kg)</h3><div class="elite-purpose">Multipurpose dry powder protection for common Class A, B and C fire risks.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="extinguishers" data-title="CO₂ Clean Agent Extinguisher (4.5kg)" data-cat="Extinguisher" data-purpose="Clean extinguishing for electrical and sensitive equipment areas." data-spec1="Capacity" data-spec1v="4.5kg" data-spec2="Operating Range" data-spec2v="-30°C to 55°C" data-spec3="Standard" data-spec3v="IS 15683" data-spec4="Agent" data-spec4v="Carbon Dioxide">
+          <div class="elite-card-top"><span class="elite-tag">Extinguisher</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-1">
+              <div class="elite-slide"><img src="images/co2-4.5kg-1.jpg" alt="CO₂ Clean Agent Extinguisher (4.5kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/co2-4.5kg-2.jpg" alt="CO₂ Clean Agent Extinguisher (4.5kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/co2-4.5kg-3.jpg" alt="CO₂ Clean Agent Extinguisher (4.5kg)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>CO₂ Clean Agent Extinguisher (4.5kg)</h3><div class="elite-purpose">Clean extinguishing for electrical and sensitive equipment areas.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="hydrants" data-title="Swing-Type Fire Hose Reel Drum" data-cat="Hydrants & Hoses" data-purpose="Rapid first-response water delivery for buildings and protected premises." data-spec1="Capacity" data-spec1v="30m hose" data-spec2="Operating Range" data-spec2v="Ambient" data-spec3="Standard" data-spec3v="IS 884" data-spec4="Agent" data-spec4v="Water">
+          <div class="elite-card-top"><span class="elite-tag">Hydrants & Hoses</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-2">
+              <div class="elite-slide"><img src="images/hose-reel-1.jpg" alt="Swing-Type Fire Hose Reel Drum" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/hose-reel-2.jpg" alt="Swing-Type Fire Hose Reel Drum" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/hose-reel-3.jpg" alt="Swing-Type Fire Hose Reel Drum" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Swing-Type Fire Hose Reel Drum</h3><div class="elite-purpose">Rapid first-response water delivery for buildings and protected premises.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="extinguishers" data-title="AFFF Mechanical Foam Extinguisher (9L)" data-cat="Extinguisher" data-purpose="Foam protection for suitable Class A and flammable-liquid risks." data-spec1="Capacity" data-spec1v="9L" data-spec2="Operating Range" data-spec2v="5°C to 55°C" data-spec3="Standard" data-spec3v="IS 15683" data-spec4="Agent" data-spec4v="AFFF Foam">
+          <div class="elite-card-top"><span class="elite-tag">Extinguisher</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-3">
+              <div class="elite-slide"><img src="images/afff-9l-1.jpg" alt="AFFF Mechanical Foam Extinguisher (9L)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/afff-9l-2.jpg" alt="AFFF Mechanical Foam Extinguisher (9L)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/afff-9l-3.jpg" alt="AFFF Mechanical Foam Extinguisher (9L)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>AFFF Mechanical Foam Extinguisher (9L)</h3><div class="elite-purpose">Foam protection for suitable Class A and flammable-liquid risks.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="extinguishers" data-title="Wet Chemical Kitchen Extinguisher (6L)" data-cat="Extinguisher" data-purpose="Designed for commercial kitchen cooking-oil and fat fire protection." data-spec1="Capacity" data-spec1v="6L" data-spec2="Operating Range" data-spec2v="5°C to 55°C" data-spec3="Standard" data-spec3v="IS 15683" data-spec4="Agent" data-spec4v="Wet Chemical">
+          <div class="elite-card-top"><span class="elite-tag">Extinguisher</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-4">
+              <div class="elite-slide"><img src="images/wet-chemical-6l-1.jpg" alt="Wet Chemical Kitchen Extinguisher (6L)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/wet-chemical-6l-2.jpg" alt="Wet Chemical Kitchen Extinguisher (6L)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/wet-chemical-6l-3.jpg" alt="Wet Chemical Kitchen Extinguisher (6L)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Wet Chemical Kitchen Extinguisher (6L)</h3><div class="elite-purpose">Designed for commercial kitchen cooking-oil and fat fire protection.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="extinguishers" data-title="Automatic Thermal Ceiling Extinguisher (10kg)" data-cat="Extinguisher" data-purpose="Automatic localized suppression triggered by thermal activation." data-spec1="Capacity" data-spec1v="10kg" data-spec2="Operating Range" data-spec2v="5°C to 55°C" data-spec3="Standard" data-spec3v="As specified" data-spec4="Agent" data-spec4v="Dry Powder">
+          <div class="elite-card-top"><span class="elite-tag">Extinguisher</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-5">
+              <div class="elite-slide"><img src="images/automatic-10kg-1.jpg" alt="Automatic Thermal Ceiling Extinguisher (10kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/automatic-10kg-2.jpg" alt="Automatic Thermal Ceiling Extinguisher (10kg)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/automatic-10kg-3.jpg" alt="Automatic Thermal Ceiling Extinguisher (10kg)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Automatic Thermal Ceiling Extinguisher (10kg)</h3><div class="elite-purpose">Automatic localized suppression triggered by thermal activation.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="hydrants" data-title="Double Outlet Landing Hydrant Valve" data-cat="Hydrants & Hoses" data-purpose="Hydrant outlet equipment for controlled water access during response." data-spec1="Capacity" data-spec1v="Double outlet" data-spec2="Operating Range" data-spec2v="Ambient" data-spec3="Standard" data-spec3v="IS 952" data-spec4="Agent" data-spec4v="Water">
+          <div class="elite-card-top"><span class="elite-tag">Hydrants & Hoses</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-6">
+              <div class="elite-slide"><img src="images/landing-hydrant-1.jpg" alt="Double Outlet Landing Hydrant Valve" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/landing-hydrant-2.jpg" alt="Double Outlet Landing Hydrant Valve" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/landing-hydrant-3.jpg" alt="Double Outlet Landing Hydrant Valve" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Double Outlet Landing Hydrant Valve</h3><div class="elite-purpose">Hydrant outlet equipment for controlled water access during response.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="hydrants" data-title="RRL Fire Hose Pipe with Instantaneous Couplings (15m)" data-cat="Hydrants & Hoses" data-purpose="Reinforced delivery hose supplied with instantaneous couplings." data-spec1="Capacity" data-spec1v="15m" data-spec2="Operating Range" data-spec2v="Ambient" data-spec3="Standard" data-spec3v="IS 636" data-spec4="Agent" data-spec4v="Water">
+          <div class="elite-card-top"><span class="elite-tag">Hydrants & Hoses</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-7">
+              <div class="elite-slide"><img src="images/rrl-hose-15m-1.jpg" alt="RRL Fire Hose Pipe with Instantaneous Couplings (15m)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/rrl-hose-15m-2.jpg" alt="RRL Fire Hose Pipe with Instantaneous Couplings (15m)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/rrl-hose-15m-3.jpg" alt="RRL Fire Hose Pipe with Instantaneous Couplings (15m)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>RRL Fire Hose Pipe with Instantaneous Couplings (15m)</h3><div class="elite-purpose">Reinforced delivery hose supplied with instantaneous couplings.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="alarms" data-title="Addressable Photoelectric Smoke Detector" data-cat="Sensors & Alarms" data-purpose="Early smoke detection for addressable fire alarm installations." data-spec1="Detection Type" data-spec1v="Photoelectric Smoke" data-spec2="Operating Range" data-spec2v="As specified" data-spec3="Standard" data-spec3v="As specified" data-spec4="Agent" data-spec4v="Detection">
+          <div class="elite-card-top"><span class="elite-tag">Sensors & Alarms</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-8">
+              <div class="elite-slide"><img src="images/smoke-detector-1.jpg" alt="Addressable Photoelectric Smoke Detector" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/smoke-detector-2.jpg" alt="Addressable Photoelectric Smoke Detector" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/smoke-detector-3.jpg" alt="Addressable Photoelectric Smoke Detector" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Addressable Photoelectric Smoke Detector</h3><div class="elite-purpose">Early smoke detection for addressable fire alarm installations.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="alarms" data-title="Break Glass Manual Call Point (MCP)" data-cat="Sensors & Alarms" data-purpose="Manual alarm initiation point for rapid occupant notification." data-spec1="Detection Type" data-spec1v="Manual Activation" data-spec2="Operating Range" data-spec2v="As specified" data-spec3="Standard" data-spec3v="As specified" data-spec4="Agent" data-spec4v="Alarm Signal">
+          <div class="elite-card-top"><span class="elite-tag">Sensors & Alarms</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-9">
+              <div class="elite-slide"><img src="images/mcp-1.jpg" alt="Break Glass Manual Call Point (MCP)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/mcp-2.jpg" alt="Break Glass Manual Call Point (MCP)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/mcp-3.jpg" alt="Break Glass Manual Call Point (MCP)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Break Glass Manual Call Point (MCP)</h3><div class="elite-purpose">Manual alarm initiation point for rapid occupant notification.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>        <article class="elite-card" data-category="alarms" data-title="Microprocessor Fire Alarm Control Panel (4-Zone)" data-cat="Sensors & Alarms" data-purpose="Four-zone control and monitoring for fire alarm detection systems." data-spec1="Detection Type" data-spec1v="4-Zone Panel" data-spec2="Operating Range" data-spec2v="As specified" data-spec3="Standard" data-spec3v="As specified" data-spec4="Agent" data-spec4v="Alarm Control">
+          <div class="elite-card-top"><span class="elite-tag">Sensors & Alarms</span><span class="elite-stock">In stock</span></div>
+          <div class="elite-slider">
+            <div class="elite-track" id="eliteTrack-10">
+              <div class="elite-slide"><img src="images/fire-alarm-panel-1.jpg" alt="Microprocessor Fire Alarm Control Panel (4-Zone)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/fire-alarm-panel-2.jpg" alt="Microprocessor Fire Alarm Control Panel (4-Zone)" loading="lazy"></div>
+              <div class="elite-slide"><img src="images/fire-alarm-panel-3.jpg" alt="Microprocessor Fire Alarm Control Panel (4-Zone)" loading="lazy"></div>
+            </div>
+            <button class="elite-arrow elite-prev" type="button" data-dir="-1" aria-label="Previous image">‹</button>
+            <button class="elite-arrow elite-next" type="button" data-dir="1" aria-label="Next image">›</button>
+            <div class="elite-dots"><button class="elite-dot active" type="button" data-i="0"></button><button class="elite-dot" type="button" data-i="1"></button><button class="elite-dot" type="button" data-i="2"></button></div>
+          </div>
+          <div class="elite-info"><h3>Microprocessor Fire Alarm Control Panel (4-Zone)</h3><div class="elite-purpose">Four-zone control and monitoring for fire alarm detection systems.</div><button class="elite-action" type="button">Inspect Specs &amp; Gallery</button></div>
+        </article>
+      </div>
+    </div>
+    <div id="eliteQuoteView" class="elite-view">
+      <div class="elite-head"><span class="elite-badge">Rapid Response B2B Desk</span><h2>Request an <span class="elite-glow">Official Quote</span></h2><p>Share your requirement and our New Delhi operations team can prepare the right equipment or service response.</p></div>
+      <div class="elite-quote-wrap">
+        <div class="elite-quote-box">
+          <div class="elite-cats">
+            <button class="elite-cat active" data-cat="Extinguishers" data-service="Supply & Maintenance" type="button">Extinguishers</button>
+            <button class="elite-cat" data-cat="Refilling" data-service="Refilling & Servicing" type="button">Refilling</button>
+            <button class="elite-cat" data-cat="AMC Services" data-service="Annual Maintenance" type="button">AMC Services</button>
+            <button class="elite-cat" data-cat="Hydrants" data-service="Hydrant Systems" type="button">Hydrants</button>
+            <button class="elite-cat" data-cat="Alarms" data-service="Detection & Alarm Systems" type="button">Alarms</button>
+          </div>
+          <form id="eliteLeadForm" action="https://formspree.io/f/your_form_id_here" method="POST">
+            <input type="hidden" id="eliteHiddenCategory" name="category" value="Extinguishers">
+            <div class="elite-form">
+              <div class="elite-field"><label for="eliteName">Name</label><input id="eliteName" name="name" required></div>
+              <div class="elite-field"><label for="elitePhone">Phone</label><input id="elitePhone" name="phone" required></div>
+              <div class="elite-field"><label for="eliteEmail">Email</label><input id="eliteEmail" name="email" type="email"></div>
+              <div class="elite-field"><label for="eliteProperty">Property</label><select id="eliteProperty" name="property" required><option value="">Select property type</option><option>Residential</option><option>Commercial</option><option>Industrial</option><option>Institutional</option><option>Warehouse</option></select></div>
+              <div class="elite-field full"><label for="eliteDetails">Requirement</label><textarea id="eliteDetails" name="details" placeholder="Tell us the equipment, quantity, installation or AMC requirement." required></textarea></div>
+              <button class="elite-submit" type="submit">SEND QUOTE REQUEST →</button>
+            </div>
+          </form>
+        </div>
+        <aside class="elite-summary"><h3>Quote Summary</h3><p>We'll use the information above to understand the requirement and recommend the appropriate fire-safety solution.</p><strong id="eliteSummaryCat">Extinguishers</strong><p id="eliteSummaryService">Supply &amp; Maintenance</p></aside>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="elite-modal" id="eliteModal" aria-hidden="true"><div class="elite-modal-box"><button class="elite-modal-close" id="eliteModalClose" type="button" aria-label="Close">×</button><div class="elite-modal-gallery"><div class="elite-modal-main"><img id="eliteModalImage" src="" alt=""></div><div class="elite-modal-thumbs" id="eliteModalThumbs"></div></div><div class="elite-modal-info"><span class="elite-badge" id="eliteModalCat"></span><h2 id="eliteModalTitle"></h2><div class="elite-modal-purpose" id="eliteModalPurpose"></div><p id="eliteModalDesc"></p><table class="elite-specs"><tr><td id="eliteSpec1"></td><td id="eliteSpec1v"></td></tr><tr><td id="eliteSpec2"></td><td id="eliteSpec2v"></td></tr><tr><td id="eliteSpec3"></td><td id="eliteSpec3v"></td></tr><tr><td id="eliteSpec4"></td><td id="eliteSpec4v"></td></tr></table><a href="#products" class="elite-modal-quote" id="eliteModalQuote">Request a Quote</a></div></div></div>
+<div class="elite-success" id="eliteSuccess"><div class="elite-success-box"><h3>Request received.</h3><p>Your requirement has been prepared. We'll use the submitted details to follow up.</p><button class="elite-reset" id="eliteReset" type="button">Close</button></div></div>
           /* 06 — HOW PROTECTION WORKS */
           React.createElement("section",{className:"section protection-flow",id:"protection-flow"},
             React.createElement("div",{className:"protection-shell"},
@@ -1282,6 +1499,40 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     }
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
   </script>
+<script id="ds-elite-products-js">
+(function(){
+  function initEliteProducts(){
+    const page=document.querySelector(".elite-products-page"); if(!page) return;
+    const catalog=document.getElementById("eliteCatalogView"),quote=document.getElementById("eliteQuoteView");
+    const catalogTab=document.getElementById("eliteCatalogTab"),quoteTab=document.getElementById("eliteQuoteTab");
+    const showView=v=>{catalog.classList.toggle("active",v==="catalog");quote.classList.toggle("active",v==="quote");catalogTab.classList.toggle("active",v==="catalog");quoteTab.classList.toggle("active",v==="quote");if(v==="quote") window.scrollTo({top:page.offsetTop-20,behavior:"smooth"});};
+    catalogTab.onclick=()=>showView("catalog");quoteTab.onclick=()=>showView("quote");
+    const cards=[...page.querySelectorAll(".elite-card")];
+    const indices={};
+    cards.forEach((card,i)=>{
+      indices[i]=0;
+      const track=card.querySelector(".elite-track"),dots=[...card.querySelectorAll(".elite-dot")];
+      const set=n=>{indices[i]=(n+3)%3;track.style.transform="translateX(-"+indices[i]*33.333+"%)";dots.forEach((d,j)=>d.classList.toggle("active",j===indices[i]));};
+      card.querySelector(".elite-prev").onclick=e=>{e.stopPropagation();set(indices[i]-1)};
+      card.querySelector(".elite-next").onclick=e=>{e.stopPropagation();set(indices[i]+1)};
+      dots.forEach(d=>d.onclick=e=>{e.stopPropagation();set(+d.dataset.i)});
+      card.querySelector(".elite-action").onclick=e=>{e.stopPropagation();openModal(card)};
+      card.onclick=e=>{if(!e.target.closest("button"))openModal(card)};
+    });
+    page.querySelectorAll(".elite-filter").forEach(btn=>btn.onclick=()=>{page.querySelectorAll(".elite-filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");const f=btn.dataset.filter;cards.forEach(c=>c.style.display=f==="all"||c.dataset.category===f?"flex":"none")});
+    const modal=document.getElementById("eliteModal"),img=document.getElementById("eliteModalImage"),thumbs=document.getElementById("eliteModalThumbs");
+    const openModal=card=>{modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";document.getElementById("eliteModalTitle").textContent=card.dataset.title;document.getElementById("eliteModalCat").textContent=card.dataset.cat;document.getElementById("eliteModalPurpose").textContent="Purpose: "+card.dataset.purpose;document.getElementById("eliteModalDesc").textContent=card.dataset.purpose;["1","2","3","4"].forEach(n=>{document.getElementById("eliteSpec"+n).textContent=card.dataset["spec"+n];document.getElementById("eliteSpec"+n+"v").textContent=card.dataset["spec"+n+"v"]});const urls=[...card.querySelectorAll(".elite-slide img")].map(x=>x.src);img.src=urls[0];thumbs.innerHTML="";urls.forEach((u,j)=>{const b=document.createElement("button");b.type="button";b.className=j?"":"active";b.innerHTML='<img src="'+u.replace(/"/g,"&quot;")+'" alt="">';b.onclick=()=>{img.src=u;thumbs.querySelectorAll("button").forEach((x,k)=>x.classList.toggle("active",k===j))};thumbs.appendChild(b)});};
+    const close=()=>{modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""};
+    document.getElementById("eliteModalClose").onclick=close;modal.onclick=e=>{if(e.target===modal)close()};
+    document.getElementById("eliteModalQuote").onclick=()=>{close();showView("quote");const title=document.getElementById("eliteModalTitle").textContent;document.getElementById("eliteDetails").value="Requesting quote for: "+title+" (Quantity: 1)";window.scrollTo({top:page.offsetTop-20,behavior:"smooth"})};
+    page.querySelectorAll(".elite-cat").forEach(o=>o.onclick=()=>{page.querySelectorAll(".elite-cat").forEach(x=>x.classList.remove("active"));o.classList.add("active");document.getElementById("eliteHiddenCategory").value=o.dataset.cat;document.getElementById("eliteSummaryCat").textContent=o.dataset.cat;document.getElementById("eliteSummaryService").textContent=o.dataset.service});
+    const form=document.getElementById("eliteLeadForm");
+    form.onsubmit=e=>{e.preventDefault();const fd=new FormData(form);fetch(form.action,{method:"POST",body:fd,headers:{Accept:"application/json"}}).catch(()=>{});const msg="Hello DS Safety Systems,%0A%0A*New Lead Submission:*%0A- *Category:* "+encodeURIComponent(fd.get("category"))+"%0A- *Name:* "+encodeURIComponent(fd.get("name"))+"%0A- *Phone:* "+encodeURIComponent(fd.get("phone"))+"%0A- *Property:* "+encodeURIComponent(fd.get("property"))+"%0A- *Details:* "+encodeURIComponent(fd.get("details"));window.open("https://wa.me/919811000000?text="+msg,"_blank");document.getElementById("eliteSuccess").classList.add("open")};
+    document.getElementById("eliteReset").onclick=()=>document.getElementById("eliteSuccess").classList.remove("open");
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",initEliteProducts); else initEliteProducts();
+})();
+</script>
 
 
 
