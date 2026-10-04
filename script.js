@@ -138,10 +138,12 @@ function openModal(card) {
     document.getElementById('specAgentCell').textContent = agent;
 
     updateModalSlider();
+    productModal.classList.add('is-open');
     productModal.style.display = 'flex';
 }
 
 function closeModal() {
+    productModal.classList.remove('is-open');
     productModal.style.display = 'none';
 }
 
