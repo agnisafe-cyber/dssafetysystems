@@ -1129,3 +1129,64 @@ body:has(.modal-backdrop[style*="display: flex"]){overflow:hidden;}
     position:relative!important;
     z-index:1000000!important;
 }
+
+
+/* FINAL PRODUCT MODAL FIX */
+html.modal-lock,
+body.modal-lock {
+    overflow: hidden !important;
+}
+
+.modal-backdrop.is-open {
+    display: flex !important;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background: rgba(3, 5, 9, 0.94) !important;
+    z-index: 2147483647 !important;
+    padding: 20px !important;
+    animation: none !important;
+}
+
+.modal-backdrop.is-open .modal-container {
+    display: block !important;
+    position: relative !important;
+    width: min(950px, calc(100vw - 40px)) !important;
+    max-width: 950px !important;
+    max-height: calc(100vh - 40px) !important;
+    min-height: 300px !important;
+    margin: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow-y: auto !important;
+    background: #0b0f19 !important;
+    color: #ffffff !important;
+    z-index: 2147483647 !important;
+}
+
+.modal-backdrop.is-open .modal-grid {
+    display: grid !important;
+}
+
+.modal-backdrop.is-open .modal-details,
+.modal-backdrop.is-open .modal-slider-box,
+.modal-backdrop.is-open .modal-thumbs {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 700px) {
+    .modal-backdrop.is-open {
+        padding: 10px !important;
+    }
+    .modal-backdrop.is-open .modal-container {
+        width: calc(100vw - 20px) !important;
+        max-height: calc(100vh - 20px) !important;
+        padding: 22px !important;
+    }
+}
