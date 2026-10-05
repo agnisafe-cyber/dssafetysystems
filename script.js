@@ -139,12 +139,14 @@ function openModal(card) {
 
     updateModalSlider();
     productModal.classList.add('is-open');
-    productModal.style.display = 'flex';
+    document.documentElement.classList.add('modal-lock');
+    document.body.classList.add('modal-lock');
 }
 
 function closeModal() {
     productModal.classList.remove('is-open');
-    productModal.style.display = 'none';
+    document.documentElement.classList.remove('modal-lock');
+    document.body.classList.remove('modal-lock');
 }
 
 productCards.forEach(card => {
