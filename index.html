@@ -1207,7 +1207,6 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           React.createElement("div",{className:"nav-links"},
             React.createElement("a",{href:"#services"},"Services"),
             React.createElement("a",{href:"#about"},"About"),
-            React.createElement("a",{href:"#products"},"Products"),
             React.createElement("a",{href:"#contact"},"Contact"),
             React.createElement("a",{className:"nav-cta",href:"#contact"},"Get a quote"),
           ),
@@ -1304,28 +1303,6 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               )
             )
           ),
-          /* 07 — PRODUCT CATALOG */
-          React.createElement("section",{className:"section ds-products-embed",id:"products-catalog"},
-            React.createElement("iframe",{
-              src:"./products.html?v=2",
-              title:"DS Safety Systems Product Catalog",
-              className:"ds-products-embed-frame",
-              onLoad:function(e){
-                try{
-                  const frame=e.currentTarget;
-                  const resize=function(){
-                    const doc=frame.contentDocument;
-                    if(doc && doc.body){
-                      frame.style.height=Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight,900)+"px";
-                    }
-                  };
-                  resize();
-                  frame.contentWindow.addEventListener("resize",resize);
-                }catch(err){}
-              }
-            })
-          ),
-
           /* 07 — MANUFACTURING */
         )      );
     }
