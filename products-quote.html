@@ -40,6 +40,44 @@
             position: relative;
         }
 
+        /* MATCH THE EXACT ATMOSPHERE USED BY "HOW PROTECTION WORKS" */
+        body {
+            background: #080a0d;
+            isolation: isolate;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -25%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 18% 38%, rgba(220, 38, 38, 0.17), transparent 25%),
+                radial-gradient(ellipse at 84% 65%, rgba(249, 115, 22, 0.10), transparent 25%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.025), transparent 36%);
+            filter: blur(70px);
+            animation: protectionAtmosphere 18s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.48) 100%);
+        }
+
+        .container {
+            z-index: 2;
+        }
+
+        @keyframes protectionAtmosphere {
+            0% { transform: translate3d(-3%, 2%, 0) scale(0.95); }
+            100% { transform: translate3d(4%, -3%, 0) scale(1.08); }
+        }
+
         /* Layout */
         .container {
             max-width: 1300px;
