@@ -1914,11 +1914,9 @@
             productModal.style.display = 'none';
         }
 
-        productCards.forEach(card => {
-            card.addEventListener('click', () => {
-                openModal(card);
-            });
-        });
+        // Disabled the broken card-to-modal click connection so opening a card
+        // can no longer trigger the blank popup. Product sliders and quote tab remain active.
+        // Re-enable only after the product detail popup is repaired.
 
         const categoryOptions = document.querySelectorAll('.cat-option');
         const hiddenCategoryInput = document.getElementById('hiddenCategory');
