@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Safety Systems | Elite Fire Protection Catalog</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-deep: transparent;
+            --bg-panel: rgba(13, 18, 28, 0.92);
+            --border-neon: rgba(239, 68, 68, 0.28);
+            --neon-red: #ff1e38;
+            --neon-orange: #ff7700;
+            --text-light: #ffffff;
+            --text-dim: #94a3b8;
+            --glow-intense: 0 0 30px rgba(255, 30, 56, 0.5);
+            --font-display: 'Outfit', sans-serif;
+            --font-premium-card: 'Google Sans Flex', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: transparent;
+            color: var(--text-light);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1300px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .panel-view {
+            display: none;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .panel-view.active {
+            display: block;
+        }
+
+        /* --- GLOBAL PAGE SWITCHER BAR --- */
+        .global-switcher-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            background: rgba(13, 18, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px;
+            border-radius: 16px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(12px);
+        }
+
+        .switcher-tab {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .switcher-tab:hover {
+            color: #ffffff;
+        }
+
+        .switcher-tab.active {
+            background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 30, 56, 0.4);
+        }
+
+        /* Section Headings */
+        .headline-group {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 40px;
+        }
+
+        .fire-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 30, 56, 0.12);
+            border: 1px solid rgba(255, 30, 56, 0.4);
+            color: #ff99a8;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            box-shadow: 0 0 20px rgba(255, 30, 56, 0.2);
+        }
+
+        .headline-group h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .text-glow {
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(255,30,56,0.3));
+        }
+
+        .headline-group p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Filter Selector Pill Bar */
+        .filter-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: var(--text-dim);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255, 30, 56, 0.15);
+            border-color: var(--neon-red);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255,30,56,0.3);
+        }
+
+        /* Product Matrix Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 26px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 30, 56, 0.6);
+            box-shadow: 0 30px 60px rgba(255, 30, 56, 0.18), 0 0 25px rgba(255, 30, 56, 0.15);
+        }
+
+        /* Top status & availability badges */
+        .card-top-badges {
+            position: absolute;
+            top: 26px;
+            left: 26px;
+            right: 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .card-tag {
+            background: rgba(255, 30, 56, 0.2);
+            border: 1px solid rgba(255, 30, 56, 0.4);
+            color: #ff99a8;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .stock-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #4ade80;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .stock-indicator.in-stock i {
+            color: #22c55e;
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* --- CAROUSEL SLIDER DESIGN --- */
+        .card-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            background: #020407;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slider-slide {
+            width: 33.333%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(5, 7, 11, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            z-index: 4;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover .slider-btn {
+            opacity: 1;
+        }
+
+        .slider-btn:hover {
+            background: var(--neon-red);
+            border-color: var(--neon-red);
+        }
+
+        .slider-prev { left: 10px; }
+        .slider-next { right: 10px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .dot {
+            width: 24px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--neon-red);
+            width: 36px;
+            box-shadow: 0 0 10px rgba(255, 30, 56, 0.5);
+        }
+
+        /* --- PRODUCT INFO TYPOGRAPHY --- */
+        .product-info h3 {
+            font-family: var(--font-premium-card);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            line-height: 1.35;
+        }
+
+        .product-purpose {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ff99a8;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            background: rgba(255, 30, 56, 0.1);
+            border: 1px solid rgba(255, 30, 56, 0.22);
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        .product-info p {
+            color: var(--text-dim);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .specs-list li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            letter-spacing: 0.1px;
+        }
+
+        .specs-list li span:first-child {
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .specs-list li span:last-child {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .action-btn {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+            border-color: transparent;
+            box-shadow: var(--glow-intense);
+        }
+
+        /* --- PRODUCT DETAIL POPUP MODAL --- */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 5, 9, 0.88);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .modal-container {
+            background: #0b0f19;
+            border: 1px solid rgba(255, 30, 56, 0.4);
+            border-radius: 28px;
+            max-width: 950px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 30, 56, 0.3);
+            padding: 40px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: var(--neon-red);
+            border-color: var(--neon-red);
+            box-shadow: var(--glow-intense);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .modal-slider-box {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            background: #020407;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 15px;
+        }
+
+        .modal-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-slide {
+            width: 33.333%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .modal-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(5, 7, 11, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            z-index: 5;
+            transition: all 0.3s;
+        }
+
+        .modal-slider-btn:hover {
+            background: var(--neon-red);
+            border-color: var(--neon-red);
+        }
+
+        .modal-prev { left: 15px; }
+        .modal-next { right: 15px; }
+
+        .modal-thumbs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-thumb-btn {
+            flex: 1;
+            height: 65px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #000;
+            cursor: pointer;
+            opacity: 0.5;
+            padding: 0;
+            transition: all 0.3s;
+        }
+
+        .modal-thumb-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-thumb-btn.active, .modal-thumb-btn:hover {
+            opacity: 1;
+            border-color: var(--neon-red);
+            box-shadow: 0 0 15px rgba(255, 30, 56, 0.4);
+        }
+
+        .modal-details h2 {
+            font-family: var(--font-premium-card);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.25;
+            letter-spacing: -0.3px;
+        }
+
+        .modal-tags-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .modal-category-tag {
+            background: rgba(255, 30, 56, 0.15);
+            border: 1px solid rgba(255, 30, 56, 0.35);
+            color: #ff99a8;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .modal-stock-badge {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            color: #4ade80;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modal-desc {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .modal-spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        .modal-spec-table tr {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .modal-spec-table th, .modal-spec-table td {
+            padding: 10px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        .modal-spec-table th {
+            color: var(--text-dim);
+            font-weight: 700;
+            width: 45%;
+        }
+
+        .modal-spec-table td {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .modal-inquire-btn {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, #ff1e38 0%, #ff7700 100%);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(255, 30, 56, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .modal-inquire-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: 0.6s;
+        }
+
+        .modal-inquire-btn:hover::before {
+            left: 100%;
+        }
+
+        .modal-inquire-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(255, 30, 56, 0.65), 0 0 20px rgba(255, 119, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-inquire-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .modal-inquire-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .modal-inquire-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        /* --- QUOTE SECTION STYLING --- */
+        .quote-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .quote-box {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .form-step-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-step-title span {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 900;
+        }
+
+        .category-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .cat-option {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 16px 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .cat-option i {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            transition: color 0.3s;
+        }
+
+        .cat-option h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .cat-option:hover {
+            border-color: rgba(255, 30, 56, 0.5);
+            background: rgba(255, 30, 56, 0.05);
+        }
+
+        .cat-option.active {
+            background: linear-gradient(135deg, rgba(255, 30, 56, 0.2), rgba(255, 119, 0, 0.05));
+            border-color: var(--neon-red);
+            box-shadow: 0 0 20px rgba(255, 30, 56, 0.3);
+        }
+
+        .cat-option.active i, .cat-option.active h4 {
+            color: #ffffff;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            background: rgba(2, 4, 7, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-red);
+            box-shadow: 0 0 20px rgba(255, 30, 56, 0.3);
+            background: rgba(8, 12, 20, 0.95);
+        }
+
+        /* --- CUSTOMIZED PROPERTY TYPE SELECT & ARROW --- */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff1e38' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 45px;
+            cursor: pointer;
+        }
+
+        select option {
+            background: #080c14;
+            color: #ffffff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        /* --- ENHANCED TYPOGRAPHY & STYLE FOR SUBMIT OFFICIAL REQUEST BUTTON --- */
+        .submit-trigger {
+            width: 100%;
+            background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-family: var(--font-display);
+            font-size: 1.08rem;
+            font-weight: 900;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(255, 30, 56, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-trigger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: 0.6s;
+        }
+
+        .submit-trigger:hover::before {
+            left: 100%;
+        }
+
+        .submit-trigger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(255, 30, 56, 0.65), 0 0 20px rgba(255, 119, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .submit-trigger:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-trigger i {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-trigger:hover i {
+            transform: translateX(6px);
+        }
+
+        /* Summary Sidebar */
+        .summary-sidebar {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 30px;
+            position: sticky;
+            top: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .summary-sidebar h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-sidebar h3 i {
+            color: var(--neon-red);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .summary-row span:first-child {
+            color: var(--text-dim);
+        }
+
+        .summary-row span:last-child {
+            font-weight: 700;
+            color: #ffffff;
+            text-align: right;
+        }
+
+        .guarantee-box {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+        }
+
+        .guarantee-item i {
+            color: #22c55e;
+            font-size: 1rem;
+        }
+
+        /* Success Card Overlay */
+        .success-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 7, 11, 0.98);
+            backdrop-filter: blur(30px);
+            border-radius: 28px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            z-index: 25;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .success-overlay i {
+            font-size: 4.5rem;
+            color: #22c55e;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 25px rgba(34, 197, 94, 0.5));
+        }
+
+        .success-overlay h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .success-overlay p {
+            color: var(--text-dim);
+            max-width: 400px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 0.98rem;
+        }
+
+        .reset-action {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .reset-action:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-selector-grid { grid-template-columns: repeat(3, 1fr); }
+            .quote-wrapper { grid-template-columns: 1fr; }
+            .summary-sidebar { position: static; }
+            .modal-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 650px) {
+            .product-grid, .category-selector-grid, .form-grid { grid-template-columns: 1fr; }
+            .headline-group h1 { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <!-- TOP VIEW SWITCHER BAR -->
+        <nav class="global-switcher-bar">
+            <button class="switcher-tab active" id="catalogTabBtn" onclick="switchView('catalog')">
+                <i class="fa-solid fa-boxes-stacked"></i> Product Catalog
+            </button>
+            <button class="switcher-tab" id="quoteTabBtn" onclick="switchView('quote')">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Request a Quote
+            </button>
+        </nav>
+
+        <!-- VIEW 1: CATALOG -->
+        <section id="catalogView" class="panel-view active">
+            <div class="headline-group">
+                <div class="fire-badge"><i class="fa-solid fa-bolt"></i> Premium Fire Safety Protection Matrix</div>
+                <h1>Elite <span class="text-glow">Safety Gear & Systems</span></h1>
+                <p>Engineered for maximum reliability and rapid response. Browse live capacities, intended purposes, and click cards for interactive sliders and specifications.</p>
+            </div>
+
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="all">All Equipment</button>
+                <button class="filter-btn" data-filter="extinguishers">Extinguishers</button>
+                <button class="filter-btn" data-filter="systems">Hydrants & Hoses</button>
+                <button class="filter-btn" data-filter="detectors">Sensors & Alarms</button>
+            </div>
+
+            <div class="product-grid" id="matrixGrid">
+                <!-- Product Card 1 -->
+                <div class="product-card" data-category="extinguishers"
+                     data-title="ABC Dry Powder Cylinder (4kg)"
+                     data-cat-label="Fire Extinguishers"
+                     data-purpose="Class A, B, C & Electrical Fires"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Stored pressure multi-purpose fire extinguisher built for broad hazard mitigation with anti-corrosion steel body. Certified under ISI standards for commercial spaces, offices, and residential complexes."
+                     data-img1="images/abc-4kg-1.jpg" data-img2="images/abc-4kg-2.jpg" data-img3="images/abc-4kg-3.jpg"
+                     data-spec-cap="4 kg" data-spec-range="15-20 Sec" data-spec-std="IS 15683" data-spec-agent="Mono Ammonium Phosphate">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">ISI Certified</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-1">
+                            <div class="slider-slide"><img src="images/abc-4kg-1.jpg" alt="ABC 4kg 1"></div>
+                            <div class="slider-slide"><img src="images/abc-4kg-2.jpg" alt="ABC 4kg 2"></div>
+                            <div class="slider-slide"><img src="images/abc-4kg-3.jpg" alt="ABC 4kg 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>ABC Dry Powder Cylinder (4kg)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Class A, B, C Fires</span>
+                        <p>Stored pressure multi-purpose fire extinguisher built for broad hazard mitigation with anti-corrosion steel body.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>4 kg</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 15683</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card" data-category="extinguishers"
+                     data-title="CO2 Clean Agent Extinguisher (4.5kg)"
+                     data-cat-label="Fire Extinguishers"
+                     data-purpose="Server Rooms & Electrical Equipment"
+                     data-stock="In Stock (High Demand)"
+                     data-desc="Zero-residue carbon dioxide extinguisher specialized for server rooms, data centers, electronics, and sensitive switchboard environments."
+                     data-img1="images/co2-4.5kg-1.jpg" data-img2="images/co2-4.5kg-2.jpg" data-img3="images/co2-4.5kg-3.jpg"
+                     data-spec-cap="4.5 kg" data-spec-range="12-15 Sec" data-spec-std="IS 15683" data-spec-agent="High Pressure CO2">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Best Seller</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-2">
+                            <div class="slider-slide"><img src="images/co2-4.5kg-1.jpg" alt="CO2 1"></div>
+                            <div class="slider-slide"><img src="images/co2-4.5kg-2.jpg" alt="CO2 2"></div>
+                            <div class="slider-slide"><img src="images/co2-4.5kg-3.jpg" alt="CO2 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>CO2 Clean Agent Extinguisher (4.5kg)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Server Rooms & Electronics</span>
+                        <p>Zero-residue carbon dioxide extinguisher specialized for server rooms, electronics, and sensitive switchboards.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>4.5 kg</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Agent Type:</span> <span>High Pressure CO2</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card" data-category="systems"
+                     data-title="Swing-Type Fire Hose Reel Drum"
+                     data-cat-label="Hydrant Systems"
+                     data-purpose="Immediate First-Aid Water Delivery"
+                     data-stock="Available on Order (2-Day Dispatch)"
+                     data-desc="First-aid water delivery apparatus featuring high-pressure rubber tubing enclosed in a heavy red powder-coated steel cabinet."
+                     data-img1="images/hose-reel-1.jpg" data-img2="images/hose-reel-2.jpg" data-img3="images/hose-reel-3.jpg"
+                     data-spec-cap="30 Meters" data-spec-range="1.2 MPa" data-spec-std="IS 884" data-spec-agent="Water Supply Connected">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Heavy Duty</span>
+                        <div class="stock-indicator in-stock" style="border-color: rgba(234, 179, 8, 0.3); color: #facc15;"><i class="fa-solid fa-clock" style="color: #eab308;"></i> 2-Day Dispatch</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-3">
+                            <div class="slider-slide"><img src="images/hose-reel-1.jpg" alt="Hose 1"></div>
+                            <div class="slider-slide"><img src="images/hose-reel-2.jpg" alt="Hose 2"></div>
+                            <div class="slider-slide"><img src="images/hose-reel-3.jpg" alt="Hose 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Swing-Type Fire Hose Reel Drum</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Building First-Aid Response</span>
+                        <p>First-aid water delivery apparatus featuring high-pressure rubber tubing enclosed in a heavy red powder-coated steel cabinet.</p>
+                        <ul class="specs-list">
+                            <li><span>Hose Length:</span> <span>30 Meters</span></li>
+                            <li><span>Availability:</span> <span style="color: #facc15;">2-Day Dispatch</span></li>
+                            <li><span>Test Pressure:</span> <span>1.2 MPa</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Water Foam Extinguisher -->
+                <div class="product-card" data-category="extinguishers"
+                     data-title="AFFF Mechanical Foam Extinguisher (9L)"
+                     data-cat-label="Fire Extinguishers"
+                     data-purpose="Class A & B Fuel/Oil Fires"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Aqueous Film Forming Foam (AFFF) extinguisher designed to quickly smother flammable liquid fires such as petrol, diesel, paints, and oils by sealing vapor."
+                     data-img1="images/foam-9l-1.jpg" data-img2="images/foam-9l-2.jpg" data-img3="images/foam-9l-3.jpg"
+                     data-spec-cap="9 Liters" data-spec-range="25-30 Sec" data-spec-std="IS 15883" data-spec-agent="AFFF Foam Solution">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Industrial Grade</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-4">
+                            <div class="slider-slide"><img src="images/foam-9l-1.jpg" alt="Foam 1"></div>
+                            <div class="slider-slide"><img src="images/foam-9l-2.jpg" alt="Foam 2"></div>
+                            <div class="slider-slide"><img src="images/foam-9l-3.jpg" alt="Foam 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>AFFF Mechanical Foam Extinguisher (9L)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Class A & B Liquid Fires</span>
+                        <p>Aqueous Film Forming Foam extinguisher engineered to quickly smother flammable liquid and fuel fires.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>9 Liters</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 15883</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5: Wet Chemical Extinguisher -->
+                <div class="product-card" data-category="extinguishers"
+                     data-title="Wet Chemical Kitchen Extinguisher (6L)"
+                     data-cat-label="Fire Extinguishers"
+                     data-purpose="Class F / Commercial Kitchen Fires"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Specialized potassium acetate-based extinguishing agent designed specifically for deep fat fryers, cooking oils, and commercial restaurant kitchen hazards."
+                     data-img1="images/wet-chem-1.jpg" data-img2="images/wet-chem-2.jpg" data-img3="images/wet-chem-3.jpg"
+                     data-spec-cap="6 Liters" data-spec-range="40-50 Sec" data-spec-std="IS 15683" data-spec-agent="Potassium Acetate Solution">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Kitchen Safe</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-5">
+                            <div class="slider-slide"><img src="images/wet-chem-1.jpg" alt="Wet Chem 1"></div>
+                            <div class="slider-slide"><img src="images/wet-chem-2.jpg" alt="Wet Chem 2"></div>
+                            <div class="slider-slide"><img src="images/wet-chem-3.jpg" alt="Wet Chem 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Wet Chemical Kitchen Extinguisher (6L)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Commercial Kitchen & Fats</span>
+                        <p>Specialized potassium acetate-based extinguishing agent designed for deep fat fryers and cooking oils.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>6 Liters</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 15683</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6: Automatic Ceiling Extinguisher -->
+                <div class="product-card" data-category="extinguishers"
+                     data-title="Automatic Thermal Ceiling Extinguisher (10kg)"
+                     data-cat-label="Fire Extinguishers"
+                     data-purpose="Unmanned Server & Storage Rooms"
+                     data-stock="Available on Order (3-Day Dispatch)"
+                     data-desc="Heat-activated automatic bulb release system mounted on ceilings to autonomously detect and suppress fires in unmanned electrical and storage enclosures."
+                     data-img1="images/auto-ceiling-1.jpg" data-img2="images/auto-ceiling-2.jpg" data-img3="images/auto-ceiling-3.jpg"
+                     data-spec-cap="10 kg" data-spec-range="3 Meter Radius" data-spec-std="IS 15490" data-spec-agent="ABC Powder / Clean Gas">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Autonomous</span>
+                        <div class="stock-indicator in-stock" style="border-color: rgba(234, 179, 8, 0.3); color: #facc15;"><i class="fa-solid fa-clock" style="color: #eab308;"></i> 3-Day Dispatch</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-6">
+                            <div class="slider-slide"><img src="images/auto-ceiling-1.jpg" alt="Ceiling 1"></div>
+                            <div class="slider-slide"><img src="images/auto-ceiling-2.jpg" alt="Ceiling 2"></div>
+                            <div class="slider-slide"><img src="images/auto-ceiling-3.jpg" alt="Ceiling 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Automatic Thermal Ceiling Extinguisher (10kg)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Unmanned Enclosures</span>
+                        <p>Heat-activated automatic bulb release system mounted on ceilings to autonomously suppress fires.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>10 kg</span></li>
+                            <li><span>Availability:</span> <span style="color: #facc15;">3-Day Dispatch</span></li>
+                            <li><span>Activation:</span> <span>Quartzoid Bulb (68°C)</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 7: Fire Hydrant Valve -->
+                <div class="product-card" data-category="systems"
+                     data-title="Double Outlet Landing Hydrant Valve"
+                     data-cat-label="Hydrant Systems"
+                     data-purpose="Main Fire Fighting Water Network"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Gunmetal/aluminum alloy oblique landing valve designed to connect directly with fire brigade hoses in large riser networks and industrial yards."
+                     data-img1="images/landing-valve-1.jpg" data-img2="images/landing-valve-2.jpg" data-img3="images/landing-valve-3.jpg"
+                     data-spec-cap="63 mm Outlet" data-spec-range="2.0 MPa Working" data-spec-std="IS 5290" data-spec-agent="Hydrant Water Riser">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">ISI Approved</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-7">
+                            <div class="slider-slide"><img src="images/landing-valve-1.jpg" alt="Valve 1"></div>
+                            <div class="slider-slide"><img src="images/landing-valve-2.jpg" alt="Valve 2"></div>
+                            <div class="slider-slide"><img src="images/landing-valve-3.jpg" alt="Valve 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Double Outlet Landing Hydrant Valve</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Main Riser Network</span>
+                        <p>Gunmetal and aluminum alloy oblique landing valve designed to connect with fire brigade lines.</p>
+                        <ul class="specs-list">
+                            <li><span>Outlet Size:</span> <span>63 mm</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 5290</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 8: Fire Hose Pipe -->
+                <div class="product-card" data-category="systems"
+                     data-title="RRL Fire Hose Pipe with Instantaneous Couplings (15m)"
+                     data-cat-label="Hydrant Systems"
+                     data-purpose="High-Pressure Water Transfer"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Reinforced rubber-lined (RRL) woven jacket fire hose equipped with standard copper/aluminum instantaneous male-female couplings."
+                     data-img1="images/rrl-hose-1.jpg" data-img2="images/rrl-hose-2.jpg" data-img3="images/rrl-hose-3.jpg"
+                     data-spec-cap="15 Meters" data-spec-range="1.8 MPa Burst" data-spec-std="IS 636 Type A" data-spec-agent="Pressurized Water">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">High Burst Rating</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-8">
+                            <div class="slider-slide"><img src="images/rrl-hose-1.jpg" alt="RRL 1"></div>
+                            <div class="slider-slide"><img src="images/rrl-hose-2.jpg" alt="RRL 2"></div>
+                            <div class="slider-slide"><img src="images/rrl-hose-3.jpg" alt="RRL 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>RRL Fire Hose Pipe with Couplings (15m)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> High-Pressure Water Transport</span>
+                        <p>Reinforced rubber-lined woven jacket fire hose equipped with standard instantaneous couplings.</p>
+                        <ul class="specs-list">
+                            <li><span>Length:</span> <span>15 Meters</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 636</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 9: Smoke Detector -->
+                <div class="product-card" data-category="detectors"
+                     data-title="Addressable Photoelectric Smoke Detector"
+                     data-cat-label="Sensors & Alarms"
+                     data-purpose="Early Smoldering Fire Detection"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="High-sensitivity optical smoke sensor with built-in microprocessors to detect slow smoldering fires while filtering out ambient dust and false triggers."
+                     data-img1="images/smoke-det-1.jpg" data-img2="images/smoke-det-2.jpg" data-img3="images/smoke-det-3.jpg"
+                     data-spec-cap="80 Sq. Mtr Coverage" data-spec-range="24V DC Loop" data-spec-std="IS 2189 / UL" data-spec-agent="Optical Chamber Sensing">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Smart Sensor</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-9">
+                            <div class="slider-slide"><img src="images/smoke-det-1.jpg" alt="Smoke 1"></div>
+                            <div class="slider-slide"><img src="images/smoke-det-2.jpg" alt="Smoke 2"></div>
+                            <div class="slider-slide"><img src="images/smoke-det-3.jpg" alt="Smoke 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Addressable Photoelectric Smoke Detector</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Early Smoldering Detection</span>
+                        <p>High-sensitivity optical smoke sensor with built-in microprocessors to detect slow fires safely.</p>
+                        <ul class="specs-list">
+                            <li><span>Coverage:</span> <span>80 Sq. Mtrs</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Protocol:</span> <span>Addressable Loop</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 10: Manual Call Point -->
+                <div class="product-card" data-category="detectors"
+                     data-title="Break Glass Manual Call Point (MCP)"
+                     data-cat-label="Sensors & Alarms"
+                     data-purpose="Emergency Manual Alarm Activation"
+                     data-stock="In Stock (Ready to Dispatch)"
+                     data-desc="Resettable element manual alarm station featuring high-visibility red housing and clear glass break operation for prompt evacuation warnings."
+                     data-img1="images/mcp-1.jpg" data-img2="images/mcp-2.jpg" data-img3="images/mcp-3.jpg"
+                     data-spec-cap="Standard Enclosure" data-spec-range="Immediate Trip" data-spec-std="IS 2189" data-spec-agent="Electrical Circuit Break">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Life Safety</span>
+                        <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-10">
+                            <div class="slider-slide"><img src="images/mcp-1.jpg" alt="MCP 1"></div>
+                            <div class="slider-slide"><img src="images/mcp-2.jpg" alt="MCP 2"></div>
+                            <div class="slider-slide"><img src="images/mcp-3.jpg" alt="MCP 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Break Glass Manual Call Point (MCP)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Manual Evacuation Alarm</span>
+                        <p>Resettable element manual alarm station featuring high-visibility red housing for prompt warnings.</p>
+                        <ul class="specs-list">
+                            <li><span>Operation:</span> <span>Resettable Element</span></li>
+                            <li><span>Availability:</span> <span style="color: #4ade80;">Ready Stock</span></li>
+                            <li><span>Standard:</span> <span>IS 2189</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 11: Fire Alarm Control Panel -->
+                <div class="product-card" data-category="detectors"
+                     data-title="Microprocessor Fire Alarm Control Panel (4-Zone)"
+                     data-cat-label="Sensors & Alarms"
+                     data-purpose="Centralized Zone Monitoring"
+                     data-stock="Available on Order (2-Day Dispatch)"
+                     data-desc="Reliable conventional fire alarm control unit equipped with battery backup charging, zone fault indicators, and siren strobe output relays."
+                     data-img1="images/facp-1.jpg" data-img2="images/facp-2.jpg" data-img3="images/facp-3.jpg"
+                     data-spec-cap="4 Zones Expandable" data-spec-range="24V Standby" data-spec-std="IS 2189 / CE" data-spec-agent="Central Logic Unit">
+                    
+                    <div class="card-top-badges">
+                        <span class="card-tag">Control Unit</span>
+                        <div class="stock-indicator in-stock" style="border-color: rgba(234, 179, 8, 0.3); color: #facc15;"><i class="fa-solid fa-clock" style="color: #eab308;"></i> 2-Day Dispatch</div>
+                    </div>
+                    
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-11">
+                            <div class="slider-slide"><img src="images/facp-1.jpg" alt="FACP 1"></div>
+                            <div class="slider-slide"><img src="images/facp-2.jpg" alt="FACP 2"></div>
+                            <div class="slider-slide"><img src="images/facp-3.jpg" alt="FACP 3"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    </div>
+
+                    <div class="product-info">
+                        <h3>Microprocessor Fire Alarm Control Panel (4-Zone)</h3>
+                        <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Centralized Monitoring</span>
+                        <p>Reliable conventional fire alarm control unit equipped with battery backup charging and fault indicators.</p>
+                        <ul class="specs-list">
+                            <li><span>Capacity:</span> <span>4 Zones</span></li>
+                            <li><span>Availability:</span> <span style="color: #facc15;">2-Day Dispatch</span></li>
+                            <li><span>Standard:</span> <span>IS 2189</span></li>
+                        </ul>
+                        <button class="action-btn">
+                            <span>Inspect Specs & Gallery</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: QUOTE FORM CONFIGURATOR -->
+        <section id="quoteView" class="panel-view">
+            <div class="headline-group">
+                <div class="fire-badge"><i class="fa-solid fa-shield"></i> Rapid Response B2B Desk</div>
+                <h1>Request an <span class="text-glow">Official Quote</span></h1>
+                <p>Select your category or supply custom specs below. Our New Delhi operations team connects with direct quotations within 2 hours.</p>
+            </div>
+
+            <div class="quote-wrapper">
+                <div class="quote-box">
+                    <form id="leadForm" action="https://formspree.io/f/your_form_id_here" method="POST">
+                        <div class="form-step-title"><span>1</span> Choose Equipment / Service Category</div>
+
+                        <div class="category-selector-grid" id="categoryGrid">
+                            <div class="cat-option active" data-category="Fire Extinguishers" data-service="Supply & Maintenance">
+                                <i class="fa-solid fa-fire-extinguisher"></i>
+                                <h4>Extinguishers</h4>
+                            </div>
+                            <div class="cat-option" data-category="Refilling & Servicing" data-service="Hydrostatic Pressure Testing">
+                                <i class="fa-solid fa-rotate"></i>
+                                <h4>Refilling</h4>
+                            </div>
+                            <div class="cat-option" data-category="AMC Maintenance" data-service="Comprehensive Annual Contract">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                <h4>AMC Services</h4>
+                            </div>
+                            <div class="cat-option" data-category="Hydrant Systems" data-service="High-Pressure Pipe Setup">
+                                <i class="fa-solid fa-faucet-drip"></i>
+                                <h4>Hydrants</h4>
+                            </div>
+                            <div class="cat-option" data-category="Alarms & Sensors" data-service="Smart Detection Panel">
+                                <i class="fa-solid fa-bell"></i>
+                                <h4>Alarms</h4>
+                            </div>
+                        </div>
+                        <input type="hidden" name="Category" id="hiddenCategory" value="Fire Extinguishers">
+
+                        <div class="form-step-title"><span>2</span> Property & Contact Details</div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="nameInput">Full Name / Organization *</label>
+                                <input type="text" name="Name" id="nameInput" placeholder="e.g., Apex Tech Park" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="phoneInput">Phone Number *</label>
+                                <input type="tel" name="Phone" id="phoneInput" placeholder="+91 9811X XXXXX" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="emailInput">Email Address</label>
+                                <input type="email" name="Email" id="emailInput" placeholder="name@company.com">
+                            </div>
+                            <div class="input-group">
+                                <label for="propertySelect">Property Type</label>
+                                <select name="Property" id="propertySelect">
+                                    <option value="Commercial Office">Commercial Office / IT Park</option>
+                                    <option value="Industrial Plant">Warehouse / Industrial Plant</option>
+                                    <option value="Residential Society">Residential Housing Society</option>
+                                    <option value="Retail Outlet">Retail Store / Restaurant</option>
+                                </select>
+                            </div>
+                            <div class="input-group full-width">
+                                <label for="specsTextarea">Specific Items & Quantity Breakdown</label>
+                                <textarea name="Details" id="specsTextarea" placeholder="List item names, target cylinder capacities, or layout notes..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-trigger">
+                            <span>Submit Official Request</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <div class="success-overlay" id="successPopup">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h2>Quote Dispatched!</h2>
+                        <p>Your specifications have been recorded and synced. Our support desk will reach out immediately.</p>
+                        <button type="button" class="reset-action" id="resetFormBtn">Configure Another Request</button>
+                    </div>
+                </div>
+
+                <aside class="summary-sidebar">
+                    <h3><i class="fa-solid fa-calculator"></i> Active Estimate Summary</h3>
+                    <div class="summary-row">
+                        <span>Category:</span>
+                        <span id="summaryCatDisplay">Fire Extinguishers</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Service Scope:</span>
+                        <span id="summaryServiceDisplay">Supply & Maintenance</span>
+                    </div>
+                    <div class="summary-row" style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; margin-top: 8px;">
+                        <span>Target Response:</span>
+                        <span style="color: #22c55e;">Under 2 Hours</span>
+                    </div>
+                    <div class="guarantee-box">
+                        <div class="guarantee-item"><i class="fa-solid fa-circle-check"></i> ISI Marked & Certified Gear</div>
+                        <div class="guarantee-item"><i class="fa-solid fa-circle-check"></i> Compliant with NBC Safety Codes</div>
+                        <div class="guarantee-item"><i class="fa-solid fa-circle-check"></i> Direct Manufacturer Pricing</div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- PRODUCT DETAIL POPUP MODAL -->
+    <div class="modal-backdrop" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-grid">
+                <div>
+                    <div class="modal-slider-box">
+                        <div class="modal-track" id="modalTrack">
+                            <div class="modal-slide"><img id="modalImg1" src="" alt="View 1"></div>
+                            <div class="modal-slide"><img id="modalImg2" src="" alt="View 2"></div>
+                            <div class="modal-slide"><img id="modalImg3" src="" alt="View 3"></div>
+                        </div>
+                        <button class="modal-slider-btn modal-prev" onclick="moveModalSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="modal-slider-btn modal-next" onclick="moveModalSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="modal-thumbs">
+                        <button class="modal-thumb-btn active" onclick="setModalSlide(0)"><img id="modalThumb1" src="" alt="Thumb"></button>
+                        <button class="modal-thumb-btn" onclick="setModalSlide(1)"><img id="modalThumb2" src="" alt="Thumb"></button>
+                        <button class="modal-thumb-btn" onclick="setModalSlide(2)"><img id="modalThumb3" src="" alt="Thumb"></button>
+                    </div>
+                </div>
+
+                <div class="modal-details">
+                    <div class="modal-tags-row">
+                        <div class="modal-category-tag" id="modalCatTag">Fire Extinguishers</div>
+                        <div class="modal-stock-badge" id="modalStockBadge"><i class="fa-solid fa-circle"></i> In Stock</div>
+                    </div>
+                    <h2 id="modalTitle">Product Title</h2>
+                    <span class="product-purpose" id="modalPurpose" style="margin-bottom: 15px;"><i class="fa-solid fa-bullseye"></i> Purpose: -</span>
+                    <p class="modal-desc" id="modalDesc">Detailed description goes here...</p>
+
+                    <table class="modal-spec-table">
+                        <tr>
+                            <th>Capacity / Size</th>
+                            <td id="specCapCell">-</td>
+                        </tr>
+                        <tr>
+                            <th>Performance Metric</th>
+                            <td id="specRangeCell">-</td>
+                        </tr>
+                        <tr>
+                            <th>Compliance Standard</th>
+                            <td id="specStdCell">-</td>
+                        </tr>
+                        <tr>
+                            <th>Extinguishing Agent</th>
+                            <td id="specAgentCell">-</td>
+                        </tr>
+                    </table>
+
+                    <button class="modal-inquire-btn" id="modalInquireBtn">
+                        <span>Request a Quote</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Suite -->
+    <script>
+        function switchView(viewName) {
+            const catalog = document.getElementById('catalogView');
+            const quote = document.getElementById('quoteView');
+            const catalogTab = document.getElementById('catalogTabBtn');
+            const quoteTab = document.getElementById('quoteTabBtn');
+
+            if (viewName === 'catalog') {
+                catalog.classList.add('active');
+                quote.classList.remove('active');
+                catalogTab.classList.add('active');
+                quoteTab.classList.remove('active');
+            } else {
+                catalog.classList.remove('active');
+                quote.classList.add('active');
+                catalogTab.classList.remove('active');
+                quoteTab.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filterTag = btn.getAttribute('data-filter');
+                productCards.forEach(card => {
+                    if (filterTag === 'all' || card.getAttribute('data-category') === filterTag) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const cardSlideIndices = {};
+
+        function updateCardSlider(cardId) {
+            const track = document.getElementById(`cardTrack-${cardId}`);
+            if (!track) return;
+            const idx = cardSlideIndices[cardId] || 0;
+            track.style.transform = `translateX(-${idx * 33.333}%)`;
+            const card = track.closest('.product-card');
+            const dots = card.querySelectorAll('.dot');
+            dots.forEach((d, i) => {
+                if (i === idx) d.classList.add('active');
+                else d.classList.remove('active');
+            });
+        }
+
+        function moveCardSlide(event, btn, direction) {
+            event.stopPropagation();
+            const card = btn.closest('.product-card');
+            const track = card.querySelector('.slider-track');
+            const cardId = track.id.split('-')[1];
+            if (!cardSlideIndices[cardId]) cardSlideIndices[cardId] = 0;
+            cardSlideIndices[cardId] += direction;
+            if (cardSlideIndices[cardId] > 2) cardSlideIndices[cardId] = 0;
+            if (cardSlideIndices[cardId] < 0) cardSlideIndices[cardId] = 2;
+            updateCardSlider(cardId);
+        }
+
+        function setCardSlide(event, dot, index) {
+            event.stopPropagation();
+            const card = dot.closest('.product-card');
+            const track = card.querySelector('.slider-track');
+            const cardId = track.id.split('-')[1];
+            cardSlideIndices[cardId] = index;
+            updateCardSlider(cardId);
+        }
+
+        let modalCurrentIndex = 0;
+
+        function updateModalSlider() {
+            const track = document.getElementById('modalTrack');
+            track.style.transform = `translateX(-${modalCurrentIndex * 33.333}%)`;
+            const thumbs = document.querySelectorAll('.modal-thumb-btn');
+            thumbs.forEach((t, i) => {
+                if (i === modalCurrentIndex) t.classList.add('active');
+                else t.classList.remove('active');
+            });
+        }
+
+        function moveModalSlide(direction) {
+            modalCurrentIndex += direction;
+            if (modalCurrentIndex > 2) modalCurrentIndex = 0;
+            if (modalCurrentIndex < 0) modalCurrentIndex = 2;
+            updateModalSlider();
+        }
+
+        function setModalSlide(index) {
+            modalCurrentIndex = index;
+            updateModalSlider();
+        }
+
+        const productModal = document.getElementById('productModal');
+        let currentModalTitle = "";
+        let currentModalCat = "";
+
+        function openModal(card) {
+            const title = card.getAttribute('data-title');
+            const catLabel = card.getAttribute('data-cat-label');
+            const purpose = card.getAttribute('data-purpose');
+            const stock = card.getAttribute('data-stock');
+            const desc = card.getAttribute('data-desc');
+            const img1 = card.getAttribute('data-img1');
+            const img2 = card.getAttribute('data-img2');
+            const img3 = card.getAttribute('data-img3');
+            const cap = card.getAttribute('data-spec-cap');
+            const range = card.getAttribute('data-spec-range');
+            const std = card.getAttribute('data-spec-std');
+            const agent = card.getAttribute('data-spec-agent');
+
+            currentModalTitle = title;
+            currentModalCat = catLabel;
+            modalCurrentIndex = 0;
+
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalCatTag').textContent = catLabel;
+            document.getElementById('modalPurpose').innerHTML = `<i class="fa-solid fa-bullseye"></i> Purpose: ${purpose}`;
+            document.getElementById('modalStockBadge').innerHTML = `<i class="fa-solid fa-circle"></i> ${stock}`;
+            document.getElementById('modalDesc').textContent = desc;
+
+            document.getElementById('modalImg1').src = img1;
+            document.getElementById('modalImg2').src = img2;
+            document.getElementById('modalImg3').src = img3;
+
+            document.getElementById('modalThumb1').src = img1;
+            document.getElementById('modalThumb2').src = img2;
+            document.getElementById('modalThumb3').src = img3;
+
+            document.getElementById('specCapCell').textContent = cap;
+            document.getElementById('specRangeCell').textContent = range;
+            document.getElementById('specStdCell').textContent = std;
+            document.getElementById('specAgentCell').textContent = agent;
+
+            updateModalSlider();
+            productModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            productModal.style.display = 'none';
+        }
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                openModal(card);
+            });
+        });
+
+        const categoryOptions = document.querySelectorAll('.cat-option');
+        const hiddenCategoryInput = document.getElementById('hiddenCategory');
+        const summaryCatDisplay = document.getElementById('summaryCatDisplay');
+        const summaryServiceDisplay = document.getElementById('summaryServiceDisplay');
+
+        document.getElementById('modalInquireBtn').addEventListener('click', () => {
+            closeModal();
+            switchView('quote');
+
+            categoryOptions.forEach(opt => {
+                if (opt.getAttribute('data-category') === currentModalCat) {
+                    categoryOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    hiddenCategoryInput.value = currentModalCat;
+                    summaryCatDisplay.textContent = currentModalCat;
+                    summaryServiceDisplay.textContent = opt.getAttribute('data-service');
+                }
+            });
+
+            document.getElementById('specsTextarea').value = `Requesting quote for: ${currentModalTitle} (Quantity: 1)`;
+        });
+
+        productModal.addEventListener('click', (e) => {
+            if (e.target === productModal) closeModal();
+        });
+
+        categoryOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                categoryOptions.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                const catName = opt.getAttribute('data-category');
+                const serviceDesc = opt.getAttribute('data-service');
+                hiddenCategoryInput.value = catName;
+                summaryCatDisplay.textContent = catName;
+                summaryServiceDisplay.textContent = serviceDesc;
+            });
+        });
+
+        const leadForm = document.getElementById('leadForm');
+        const successPopup = document.getElementById('successPopup');
+        const resetFormBtn = document.getElementById('resetFormBtn');
+
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const cat = hiddenCategoryInput.value;
+            const name = document.getElementById('nameInput').value;
+            const phone = document.getElementById('phoneInput').value;
+            const property = document.getElementById('propertySelect').value;
+            const details = document.getElementById('specsTextarea').value;
+
+            const formData = new FormData(leadForm);
+            try {
+                fetch(leadForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'json' } });
+            } catch (err) {}
+
+            const whatsappNumber = "919811000000";
+            const encodedMsg = `Hello DS Safety Systems,%0A%0A*New Lead Submission:*%0A- *Category:* ${cat}%0A- *Name:* ${name}%0A- *Phone:* ${phone}%0A- *Property:* ${property}%0A- *Details:* ${details}`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, '_blank');
+            successPopup.style.display = 'flex';
+        });
+
+        resetFormBtn.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+            leadForm.reset();
+            categoryOptions.forEach(o => o.classList.remove('active'));
+            categoryOptions[0].classList.add('active');
+            summaryCatDisplay.textContent = "Fire Extinguishers";
+            summaryServiceDisplay.textContent = "Supply & Maintenance";
+        });
+    </script>
+</body>
+</html>
