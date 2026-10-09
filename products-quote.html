@@ -84,7 +84,7 @@
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
-            backdrop-filter: blur(12px);
+            backdrop-filter: none;
         }
 
         .switcher-tab {
@@ -246,7 +246,7 @@
             align-items: center;
             gap: 6px;
             background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
+            backdrop-filter: none;
             border: 1px solid rgba(34, 197, 94, 0.3);
             color: #4ade80;
             padding: 5px 10px;
@@ -258,7 +258,7 @@
 
         .stock-indicator.in-stock i {
             color: #22c55e;
-            animation: pulseGlow 2s infinite;
+            animation: none;
         }
 
         /* --- CAROUSEL SLIDER DESIGN --- */
@@ -439,7 +439,7 @@
             position: fixed;
             inset: 0;
             background: rgba(3, 5, 9, 0.88);
-            backdrop-filter: blur(20px);
+            backdrop-filter: none;
             z-index: 100;
             align-items: center;
             justify-content: center;
@@ -456,7 +456,7 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 30, 56, 0.3);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
             padding: 40px;
         }
 
@@ -999,7 +999,7 @@
             position: absolute;
             inset: 0;
             background: rgba(5, 7, 11, 0.98);
-            backdrop-filter: blur(30px);
+            backdrop-filter: none;
             border-radius: 28px;
             flex-direction: column;
             align-items: center;
@@ -1122,9 +1122,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-1">
-                            <div class="slider-slide"><img src="images/abc-4kg-1.jpg" alt="ABC 4kg 1"></div>
-                            <div class="slider-slide"><img src="images/abc-4kg-2.jpg" alt="ABC 4kg 2"></div>
-                            <div class="slider-slide"><img src="images/abc-4kg-3.jpg" alt="ABC 4kg 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-1.jpg" alt="ABC 4kg 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-2.jpg" alt="ABC 4kg 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-3.jpg" alt="ABC 4kg 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1168,9 +1168,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-2">
-                            <div class="slider-slide"><img src="images/co2-4.5kg-1.jpg" alt="CO2 1"></div>
-                            <div class="slider-slide"><img src="images/co2-4.5kg-2.jpg" alt="CO2 2"></div>
-                            <div class="slider-slide"><img src="images/co2-4.5kg-3.jpg" alt="CO2 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/co2-4.5kg-1.jpg" alt="CO2 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/co2-4.5kg-2.jpg" alt="CO2 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/co2-4.5kg-3.jpg" alt="CO2 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1214,9 +1214,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-3">
-                            <div class="slider-slide"><img src="images/hose-reel-1.jpg" alt="Hose 1"></div>
-                            <div class="slider-slide"><img src="images/hose-reel-2.jpg" alt="Hose 2"></div>
-                            <div class="slider-slide"><img src="images/hose-reel-3.jpg" alt="Hose 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/hose-reel-1.jpg" alt="Hose 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/hose-reel-2.jpg" alt="Hose 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/hose-reel-3.jpg" alt="Hose 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1260,9 +1260,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-4">
-                            <div class="slider-slide"><img src="images/foam-9l-1.jpg" alt="Foam 1"></div>
-                            <div class="slider-slide"><img src="images/foam-9l-2.jpg" alt="Foam 2"></div>
-                            <div class="slider-slide"><img src="images/foam-9l-3.jpg" alt="Foam 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/foam-9l-1.jpg" alt="Foam 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/foam-9l-2.jpg" alt="Foam 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/foam-9l-3.jpg" alt="Foam 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1306,9 +1306,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-5">
-                            <div class="slider-slide"><img src="images/wet-chem-1.jpg" alt="Wet Chem 1"></div>
-                            <div class="slider-slide"><img src="images/wet-chem-2.jpg" alt="Wet Chem 2"></div>
-                            <div class="slider-slide"><img src="images/wet-chem-3.jpg" alt="Wet Chem 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/wet-chem-1.jpg" alt="Wet Chem 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/wet-chem-2.jpg" alt="Wet Chem 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/wet-chem-3.jpg" alt="Wet Chem 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1352,9 +1352,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-6">
-                            <div class="slider-slide"><img src="images/auto-ceiling-1.jpg" alt="Ceiling 1"></div>
-                            <div class="slider-slide"><img src="images/auto-ceiling-2.jpg" alt="Ceiling 2"></div>
-                            <div class="slider-slide"><img src="images/auto-ceiling-3.jpg" alt="Ceiling 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/auto-ceiling-1.jpg" alt="Ceiling 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/auto-ceiling-2.jpg" alt="Ceiling 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/auto-ceiling-3.jpg" alt="Ceiling 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1398,9 +1398,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-7">
-                            <div class="slider-slide"><img src="images/landing-valve-1.jpg" alt="Valve 1"></div>
-                            <div class="slider-slide"><img src="images/landing-valve-2.jpg" alt="Valve 2"></div>
-                            <div class="slider-slide"><img src="images/landing-valve-3.jpg" alt="Valve 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/landing-valve-1.jpg" alt="Valve 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/landing-valve-2.jpg" alt="Valve 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/landing-valve-3.jpg" alt="Valve 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1444,9 +1444,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-8">
-                            <div class="slider-slide"><img src="images/rrl-hose-1.jpg" alt="RRL 1"></div>
-                            <div class="slider-slide"><img src="images/rrl-hose-2.jpg" alt="RRL 2"></div>
-                            <div class="slider-slide"><img src="images/rrl-hose-3.jpg" alt="RRL 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/rrl-hose-1.jpg" alt="RRL 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/rrl-hose-2.jpg" alt="RRL 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/rrl-hose-3.jpg" alt="RRL 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1490,9 +1490,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-9">
-                            <div class="slider-slide"><img src="images/smoke-det-1.jpg" alt="Smoke 1"></div>
-                            <div class="slider-slide"><img src="images/smoke-det-2.jpg" alt="Smoke 2"></div>
-                            <div class="slider-slide"><img src="images/smoke-det-3.jpg" alt="Smoke 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/smoke-det-1.jpg" alt="Smoke 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/smoke-det-2.jpg" alt="Smoke 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/smoke-det-3.jpg" alt="Smoke 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1536,9 +1536,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-10">
-                            <div class="slider-slide"><img src="images/mcp-1.jpg" alt="MCP 1"></div>
-                            <div class="slider-slide"><img src="images/mcp-2.jpg" alt="MCP 2"></div>
-                            <div class="slider-slide"><img src="images/mcp-3.jpg" alt="MCP 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/mcp-1.jpg" alt="MCP 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/mcp-2.jpg" alt="MCP 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/mcp-3.jpg" alt="MCP 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1582,9 +1582,9 @@
                     
                     <div class="card-slider-wrapper">
                         <div class="slider-track" id="cardTrack-11">
-                            <div class="slider-slide"><img src="images/facp-1.jpg" alt="FACP 1"></div>
-                            <div class="slider-slide"><img src="images/facp-2.jpg" alt="FACP 2"></div>
-                            <div class="slider-slide"><img src="images/facp-3.jpg" alt="FACP 3"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/facp-1.jpg" alt="FACP 1"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/facp-2.jpg" alt="FACP 2"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/facp-3.jpg" alt="FACP 3"></div>
                         </div>
                         <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
                         <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
