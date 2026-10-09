@@ -908,6 +908,60 @@
 <div id="smooth-wrapper">
     <div id="smooth-content">
       <div id="root"></div>
+
+      <!-- Product catalog and quote form, placed after all existing site sections -->
+      <section class="ds-products-embed" id="ds-products-embed" aria-label="Product catalog and request a quote">
+        <iframe
+          id="ds-products-embed-frame"
+          class="ds-products-embed-frame"
+          src="products-quote.html"
+          title="DS Safety Systems Product Catalog and Request a Quote"
+          loading="eager"
+          scrolling="no"
+          style="height:2200px"
+        ></iframe>
+      </section>
+      <script>
+        (() => {
+          const frame = document.getElementById("ds-products-embed-frame");
+          if (!frame) return;
+          let resizeObserver;
+          const fitFrame = () => {
+            try {
+              const doc = frame.contentDocument;
+              if (!doc) return;
+              const height = Math.max(
+                doc.documentElement.scrollHeight,
+                doc.body ? doc.body.scrollHeight : 0,
+                doc.documentElement.offsetHeight,
+                doc.body ? doc.body.offsetHeight : 0
+              );
+              if (height > 0) frame.style.height = (height + 8) + "px";
+              if (resizeObserver) resizeObserver.disconnect();
+              if (doc.documentElement && "ResizeObserver" in window) {
+                resizeObserver = new ResizeObserver(fitFrame);
+                resizeObserver.observe(doc.documentElement);
+                if (doc.body) resizeObserver.observe(doc.body);
+              }
+            } catch (error) {
+              /* Keep a usable fallback height if the embedded page cannot be measured. */
+            }
+          };
+          frame.addEventListener("load", () => {
+            fitFrame();
+            [150, 500, 1200, 2500].forEach(delay => setTimeout(fitFrame, delay));
+            try {
+              const doc = frame.contentDocument;
+              if (doc) {
+                doc.addEventListener("load", fitFrame, true);
+                const observer = new MutationObserver(fitFrame);
+                observer.observe(doc.documentElement, { childList: true, subtree: true, attributes: true });
+              }
+            } catch (error) {}
+          });
+          window.addEventListener("resize", fitFrame);
+        })();
+      </script>
     </div>
   </div>
 
