@@ -1074,7 +1074,36 @@
             .product-grid, .category-selector-grid, .form-grid { grid-template-columns: 1fr; }
             .headline-group h1 { font-size: 2.4rem; }
         }
-    </style>
+    
+        
+        /* Extended cinematic gradients through the middle and bottom of the catalog.
+           Static layers only — no extra animation or blur workload. */
+        body {
+            background-color: #080a0d;
+            background-image:
+                radial-gradient(ellipse at 15% 8%, rgba(220, 38, 38, 0.24), transparent 34%),
+                radial-gradient(ellipse at 86% 14%, rgba(249, 115, 22, 0.16), transparent 31%),
+                radial-gradient(ellipse at 78% 43%, rgba(220, 38, 38, 0.18), transparent 32%),
+                radial-gradient(ellipse at 18% 61%, rgba(255, 255, 255, 0.055), transparent 27%),
+                radial-gradient(ellipse at 84% 78%, rgba(249, 115, 22, 0.15), transparent 30%),
+                radial-gradient(ellipse at 12% 94%, rgba(220, 38, 38, 0.20), transparent 34%),
+                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #0c090b 76%, #080a0d 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: scroll;
+        }
+        @media (max-width: 700px) {
+            body {
+                background-image:
+                    radial-gradient(ellipse at 12% 9%, rgba(220, 38, 38, 0.22), transparent 42%),
+                    radial-gradient(ellipse at 88% 34%, rgba(249, 115, 22, 0.13), transparent 38%),
+                    radial-gradient(ellipse at 14% 68%, rgba(255, 255, 255, 0.045), transparent 35%),
+                    radial-gradient(ellipse at 86% 91%, rgba(220, 38, 38, 0.18), transparent 42%),
+                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #0c090b 78%, #080a0d 100%);
+                background-size: 100% 100%;
+            }
+        }
+</style>
 </head>
 <body>
 
