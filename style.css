@@ -1442,3 +1442,43 @@ body{
       radial-gradient(ellipse at 100% 50%,rgba(249,115,22,.14),transparent 22%)!important;
   }
 }
+
+
+/* HERO FLAME GLOW — soft, low-cost flame tongues behind the hero content */
+.hero:before{
+  opacity:.72!important;
+  background:
+    /* rising flame tongues: concentrated low in the frame */
+    radial-gradient(ellipse 4.5% 27% at 5% 104%,rgba(255,75,24,.36) 0%,rgba(255,99,25,.19) 38%,transparent 76%),
+    radial-gradient(ellipse 3.2% 21% at 10% 102%,rgba(255,159,48,.3) 0%,rgba(255,77,25,.15) 42%,transparent 78%),
+    radial-gradient(ellipse 5% 32% at 16% 106%,rgba(220,38,38,.28) 0%,rgba(255,94,26,.14) 43%,transparent 78%),
+    radial-gradient(ellipse 4% 25% at 25% 105%,rgba(255,105,27,.19) 0%,transparent 76%),
+    radial-gradient(ellipse 4.5% 29% at 38% 106%,rgba(255,77,24,.17) 0%,transparent 78%),
+    radial-gradient(ellipse 5% 31% at 51% 106%,rgba(255,119,30,.16) 0%,transparent 78%),
+    radial-gradient(ellipse 4% 24% at 63% 106%,rgba(255,79,24,.17) 0%,transparent 78%),
+    radial-gradient(ellipse 5% 30% at 76% 106%,rgba(255,108,24,.2) 0%,transparent 78%),
+    radial-gradient(ellipse 4% 24% at 86% 105%,rgba(255,155,42,.27) 0%,transparent 78%),
+    radial-gradient(ellipse 5% 32% at 96% 105%,rgba(220,38,38,.31) 0%,rgba(255,91,25,.15) 44%,transparent 78%),
+    /* ember-lit haze and fine sparks */
+    radial-gradient(ellipse at 0% 86%,rgba(220,38,38,.2),transparent 30%),
+    radial-gradient(ellipse at 100% 86%,rgba(249,115,22,.18),transparent 30%),
+    radial-gradient(circle at 13% 23%,rgba(255,125,76,.82) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 31% 76%,rgba(255,78,55,.70) 0 1px,transparent 2px),
+    radial-gradient(circle at 67% 19%,rgba(255,164,100,.58) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 88% 67%,rgba(255,84,58,.64) 0 1px,transparent 2px),
+    radial-gradient(circle at 53% 89%,rgba(255,145,85,.48) 0 1px,transparent 1.8px)!important;
+  background-size:auto!important;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 100%)!important;
+  animation:heroFlameFlicker 5.2s ease-in-out infinite alternate!important;
+}
+@keyframes heroFlameFlicker{
+  0%{opacity:.48;filter:brightness(.88) blur(1.4px)}
+  45%{opacity:.76;filter:brightness(1.12) blur(.7px)}
+  100%{opacity:.58;filter:brightness(1.02) blur(1.2px)}
+}
+@media(max-width:700px){
+  .hero:before{
+    opacity:.42!important;
+    filter:blur(1px)!important;
+  }
+}
