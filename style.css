@@ -1444,55 +1444,41 @@ body{
 }
 
 
-/* HERO FLAMES — FIXED: flames rise INTO the hero instead of sitting below its edge */
-.hero{
-  position:relative!important;
-  isolation:isolate!important;
-  overflow:hidden!important;
-}
-.hero:before{
-  content:""!important;
-  position:absolute!important;
-  left:0!important;right:0!important;bottom:0!important;top:0!important;
-  z-index:2!important;
-  display:block!important;
-  pointer-events:none!important;
-  opacity:1!important;
+/* REAL HERO FLAME LAYER — dedicated DOM layer, not a pseudo-element */
+.hero{position:relative!important;isolation:isolate!important;overflow:hidden!important}
+.hero .hero-flames{
+  position:absolute!important;inset:0!important;z-index:4!important;display:block!important;
+  pointer-events:none!important;opacity:1!important;overflow:hidden!important;
   background:
-    /* tall, clearly visible flame tongues rising from the bottom edge */
-    radial-gradient(ellipse 3.8% 44% at 3% 105%,rgba(255,74,15,.96) 0%,rgba(255,67,13,.72) 34%,transparent 76%),
-    radial-gradient(ellipse 2.1% 36% at 8% 101%,rgba(255,195,53,.95) 0%,rgba(255,94,12,.68) 36%,transparent 76%),
-    radial-gradient(ellipse 4.2% 52% at 14% 108%,rgba(255,48,12,.93) 0%,rgba(255,81,13,.68) 35%,transparent 78%),
-    radial-gradient(ellipse 2.5% 38% at 20% 102%,rgba(255,183,42,.92) 0%,rgba(255,88,12,.65) 36%,transparent 77%),
-    radial-gradient(ellipse 4% 47% at 26% 106%,rgba(255,56,12,.92) 0%,rgba(255,86,13,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 2.2% 34% at 32% 101%,rgba(255,198,48,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 4.4% 54% at 38% 108%,rgba(255,48,12,.95) 0%,rgba(255,82,13,.68) 35%,transparent 78%),
-    radial-gradient(ellipse 2.4% 39% at 44% 102%,rgba(255,190,42,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 4.2% 48% at 50% 106%,rgba(255,53,12,.95) 0%,rgba(255,85,13,.67) 36%,transparent 78%),
-    radial-gradient(ellipse 2.4% 37% at 56% 101%,rgba(255,194,45,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 4.2% 53% at 62% 108%,rgba(255,48,12,.94) 0%,rgba(255,82,13,.67) 35%,transparent 78%),
-    radial-gradient(ellipse 2.4% 38% at 68% 102%,rgba(255,188,42,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 4.1% 47% at 74% 106%,rgba(255,55,12,.93) 0%,rgba(255,86,13,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 2.3% 36% at 80% 101%,rgba(255,192,45,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 4.3% 54% at 86% 108%,rgba(255,48,12,.95) 0%,rgba(255,82,13,.68) 35%,transparent 78%),
-    radial-gradient(ellipse 2.4% 38% at 92% 102%,rgba(255,190,42,.94) 0%,rgba(255,88,12,.66) 36%,transparent 77%),
-    radial-gradient(ellipse 3.8% 44% at 98% 105%,rgba(255,63,13,.96) 0%,rgba(255,67,13,.72) 34%,transparent 76%),
-    /* bright fire bed and warm glow visible across the whole hero bottom */
-    linear-gradient(to top,rgba(255,48,10,.34) 0%,rgba(255,74,12,.18) 8%,transparent 30%),
-    radial-gradient(ellipse 75% 32% at 50% 105%,rgba(255,80,12,.42),transparent 78%),
-    radial-gradient(circle at 13% 23%,rgba(255,125,76,.82) 0 1px,transparent 1.8px),
-    radial-gradient(circle at 31% 76%,rgba(255,78,55,.70) 0 1px,transparent 2px),
-    radial-gradient(circle at 67% 19%,rgba(255,164,100,.58) 0 1px,transparent 1.8px),
-    radial-gradient(circle at 88% 67%,rgba(255,84,58,.64) 0 1px,transparent 2px)!important;
-  background-size:auto!important;
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 4%,#000 100%)!important;
-  animation:heroFlameFlicker 2.7s ease-in-out infinite alternate!important;
+    radial-gradient(ellipse 5% 38% at 2% 105%,rgba(255,45,8,.96) 0%,rgba(255,77,10,.82) 36%,transparent 75%),
+    radial-gradient(ellipse 2.5% 34% at 7% 101%,rgba(255,205,58,.98) 0%,rgba(255,112,12,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5% 48% at 12% 108%,rgba(255,47,9,.94) 0%,rgba(255,87,10,.76) 35%,transparent 76%),
+    radial-gradient(ellipse 2.7% 35% at 18% 102%,rgba(255,194,45,.96) 0%,rgba(255,105,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5% 42% at 23% 106%,rgba(255,55,9,.95) 0%,rgba(255,80,10,.77) 36%,transparent 76%),
+    radial-gradient(ellipse 2.5% 34% at 29% 101%,rgba(255,209,55,.98) 0%,rgba(255,108,11,.74) 37%,transparent 76%),
+    radial-gradient(ellipse 5.5% 50% at 34% 108%,rgba(255,43,8,.96) 0%,rgba(255,80,10,.78) 35%,transparent 77%),
+    radial-gradient(ellipse 2.6% 37% at 40% 102%,rgba(255,198,46,.98) 0%,rgba(255,105,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5% 43% at 45% 106%,rgba(255,54,8,.96) 0%,rgba(255,82,10,.78) 36%,transparent 76%),
+    radial-gradient(ellipse 2.7% 35% at 51% 101%,rgba(255,208,55,.98) 0%,rgba(255,108,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5.5% 49% at 56% 108%,rgba(255,44,8,.96) 0%,rgba(255,80,10,.78) 35%,transparent 77%),
+    radial-gradient(ellipse 2.5% 36% at 62% 102%,rgba(255,198,46,.98) 0%,rgba(255,105,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5% 43% at 67% 106%,rgba(255,54,8,.96) 0%,rgba(255,82,10,.78) 36%,transparent 76%),
+    radial-gradient(ellipse 2.7% 35% at 73% 101%,rgba(255,208,55,.98) 0%,rgba(255,108,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5.5% 50% at 78% 108%,rgba(255,44,8,.96) 0%,rgba(255,80,10,.78) 35%,transparent 77%),
+    radial-gradient(ellipse 2.5% 36% at 84% 102%,rgba(255,198,46,.98) 0%,rgba(255,105,11,.75) 37%,transparent 76%),
+    radial-gradient(ellipse 5% 43% at 89% 106%,rgba(255,54,8,.96) 0%,rgba(255,82,10,.78) 36%,transparent 76%),
+    radial-gradient(ellipse 2.7% 35% at 95% 101%,rgba(255,208,55,.98) 0%,rgba(255,108,11,.75) 37%,transparent 76%),
+    linear-gradient(to top,rgba(255,53,7,.52) 0%,rgba(255,71,8,.28) 10%,rgba(255,56,8,.10) 22%,transparent 39%),
+    radial-gradient(ellipse 85% 35% at 50% 105%,rgba(255,65,8,.5),transparent 78%);
+  mix-blend-mode:screen!important;
+  animation:heroDomFireFlicker 2.4s ease-in-out infinite alternate!important;
 }
-@keyframes heroFlameFlicker{
-  0%{opacity:.9;filter:brightness(1.05) saturate(1.15)}
-  50%{opacity:1;filter:brightness(1.38) saturate(1.35)}
-  100%{opacity:.94;filter:brightness(1.12) saturate(1.2)}
+.hero .hero-content,.hero .hero-video-visual{position:relative!important;z-index:8!important}
+.hero .hero-grid{z-index:0!important}
+@keyframes heroDomFireFlicker{
+  0%{filter:brightness(.95) saturate(1.1);opacity:.88}
+  50%{filter:brightness(1.35) saturate(1.35);opacity:1}
+  100%{filter:brightness(1.08) saturate(1.18);opacity:.94}
 }
-@media(max-width:700px){
-  .hero:before{opacity:.86!important;animation:heroFlameFlicker 4s ease-in-out infinite alternate!important}
-}
+@media(max-width:700px){.hero .hero-flames{opacity:.88!important;animation:heroDomFireFlicker 3.5s ease-in-out infinite alternate!important}}
+@media(prefers-reduced-motion:reduce){.hero .hero-flames{animation:none!important}}
