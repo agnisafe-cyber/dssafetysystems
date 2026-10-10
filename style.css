@@ -1482,3 +1482,64 @@ body{
 }
 @media(max-width:700px){.hero .hero-flames{opacity:.88!important;animation:heroDomFireFlicker 3.5s ease-in-out infinite alternate!important}}
 @media(prefers-reduced-motion:reduce){.hero .hero-flames{animation:none!important}}
+
+
+/* HERO FIRE + SPARKS — stronger visibility, lightweight CSS only */
+.hero .hero-flames{
+  inset:auto 0 0!important;
+  height:58%!important;
+  z-index:4!important;
+  opacity:1!important;
+  background:
+    radial-gradient(ellipse 4% 78% at 3% 105%,rgba(255,44,8,.98) 0%,rgba(255,82,12,.78) 38%,transparent 74%),
+    radial-gradient(ellipse 2% 64% at 8% 105%,rgba(255,210,74,.98) 0%,rgba(255,115,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 5% 90% at 15% 110%,rgba(255,52,8,.96) 0%,rgba(255,91,11,.75) 38%,transparent 74%),
+    radial-gradient(ellipse 2.4% 70% at 21% 105%,rgba(255,205,66,.98) 0%,rgba(255,116,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 4.5% 82% at 28% 110%,rgba(255,45,7,.96) 0%,rgba(255,85,10,.76) 38%,transparent 74%),
+    radial-gradient(ellipse 2% 60% at 34% 105%,rgba(255,220,88,.98) 0%,rgba(255,121,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 5% 92% at 41% 110%,rgba(255,49,8,.97) 0%,rgba(255,86,10,.77) 38%,transparent 74%),
+    radial-gradient(ellipse 2.2% 68% at 47% 105%,rgba(255,210,66,.98) 0%,rgba(255,116,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 4.5% 82% at 54% 110%,rgba(255,46,8,.96) 0%,rgba(255,85,10,.76) 38%,transparent 74%),
+    radial-gradient(ellipse 2.3% 68% at 60% 105%,rgba(255,215,76,.98) 0%,rgba(255,117,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 5% 92% at 67% 110%,rgba(255,49,8,.97) 0%,rgba(255,86,10,.77) 38%,transparent 74%),
+    radial-gradient(ellipse 2% 65% at 73% 105%,rgba(255,210,66,.98) 0%,rgba(255,116,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 4.5% 85% at 80% 110%,rgba(255,46,8,.96) 0%,rgba(255,85,10,.76) 38%,transparent 74%),
+    radial-gradient(ellipse 2.2% 66% at 86% 105%,rgba(255,215,76,.98) 0%,rgba(255,117,12,.72) 40%,transparent 75%),
+    radial-gradient(ellipse 5% 90% at 94% 110%,rgba(255,49,8,.97) 0%,rgba(255,86,10,.77) 38%,transparent 74%),
+    radial-gradient(1.8px 1.8px at 5% 52%,rgba(255,194,92,.95) 0%,transparent 100%),
+    radial-gradient(2px 2px at 13% 30%,rgba(255,113,42,.95) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 19% 68%,rgba(255,215,124,.98) 0%,transparent 100%),
+    radial-gradient(2px 2px at 31% 42%,rgba(255,102,34,.95) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 38% 20%,rgba(255,201,105,.98) 0%,transparent 100%),
+    radial-gradient(2px 2px at 49% 58%,rgba(255,111,38,.95) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 57% 32%,rgba(255,210,116,.98) 0%,transparent 100%),
+    radial-gradient(2px 2px at 65% 72%,rgba(255,105,35,.95) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 76% 40%,rgba(255,200,100,.98) 0%,transparent 100%),
+    radial-gradient(2px 2px at 84% 60%,rgba(255,111,38,.95) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 92% 27%,rgba(255,215,124,.98) 0%,transparent 100%),
+    linear-gradient(to top,rgba(255,48,7,.48),transparent 72%);
+  background-repeat:no-repeat!important;
+  mix-blend-mode:screen!important;
+  animation:heroDomFireFlicker 1.8s ease-in-out infinite alternate!important;
+}
+.hero:after{
+  opacity:.9!important;
+  background:
+    radial-gradient(2px 2px at 3% 18%,rgba(255,190,92,.98) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 8% 45%,rgba(255,109,40,.95) 0,transparent 100%),
+    radial-gradient(2px 2px at 14% 72%,rgba(255,199,104,.95) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 23% 26%,rgba(255,116,43,.95) 0,transparent 100%),
+    radial-gradient(2px 2px at 31% 62%,rgba(255,197,98,.95) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 16%,rgba(255,111,40,.95) 0,transparent 100%),
+    radial-gradient(2px 2px at 48% 43%,rgba(255,207,112,.98) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 57% 22%,rgba(255,108,40,.95) 0,transparent 100%),
+    radial-gradient(2px 2px at 65% 66%,rgba(255,197,98,.95) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 74% 35%,rgba(255,116,43,.95) 0,transparent 100%),
+    radial-gradient(2px 2px at 83% 58%,rgba(255,207,112,.98) 0,transparent 100%),
+    radial-gradient(1.5px 1.5px at 92% 19%,rgba(255,108,40,.95) 0,transparent 100%),
+    radial-gradient(ellipse at 0% 65%,rgba(220,38,38,.15),transparent 25%),
+    radial-gradient(ellipse at 100% 65%,rgba(249,115,22,.13),transparent 25%);
+  animation:heroEdgeSparks 2.8s ease-in-out infinite alternate!important;
+}
+@media(max-width:700px){.hero .hero-flames{height:42%!important;opacity:.82!important}.hero:after{opacity:.55!important}}
+@media(prefers-reduced-motion:reduce){.hero .hero-flames,.hero:after{animation:none!important}}
