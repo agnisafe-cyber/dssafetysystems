@@ -1105,6 +1105,35 @@
                 radial-gradient(ellipse 46% 18% at 0% 98%, rgba(220, 38, 38, 0.13), transparent 76%),
                 linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #0d090b 76%, #080a0d 100%);
         }
+        /* Sparse, static ember flecks — no particles, timers, or animation loops. */
+        body::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.42;
+            background-image:
+                radial-gradient(2px 5px at 8% 7%, rgba(255, 125, 62, 0.8), transparent 100%),
+                radial-gradient(2px 4px at 19% 15%, rgba(255, 210, 150, 0.65), transparent 100%),
+                radial-gradient(2px 5px at 38% 5%, rgba(255, 85, 48, 0.7), transparent 100%),
+                radial-gradient(2px 4px at 66% 12%, rgba(255, 175, 105, 0.7), transparent 100%),
+                radial-gradient(2px 5px at 91% 8%, rgba(255, 85, 48, 0.75), transparent 100%),
+                radial-gradient(2px 4px at 84% 31%, rgba(255, 190, 120, 0.6), transparent 100%),
+                radial-gradient(2px 5px at 13% 43%, rgba(255, 100, 55, 0.65), transparent 100%),
+                radial-gradient(2px 4px at 55% 57%, rgba(255, 205, 145, 0.55), transparent 100%),
+                radial-gradient(2px 5px at 94% 68%, rgba(255, 100, 55, 0.65), transparent 100%),
+                radial-gradient(2px 4px at 26% 78%, rgba(255, 185, 110, 0.6), transparent 100%),
+                radial-gradient(2px 5px at 72% 91%, rgba(255, 100, 55, 0.65), transparent 100%),
+                radial-gradient(2px 4px at 7% 96%, rgba(255, 205, 145, 0.55), transparent 100%);
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 700px) {
+            body::after {
+                opacity: 0.28;
+            }
+        }
+
         @media (max-width: 700px) {
             body::before {
                 background:
