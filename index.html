@@ -17,7 +17,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Instrument+Serif:ital@0;1&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Unbounded:wght@660&display=swap" rel="stylesheet">
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css?v=marquee-cardshine-5">
@@ -906,6 +906,30 @@
 </style>
 
 
+
+  <style id="ds-user-hero-code">
+    /* Adaptation of the supplied hero content; navbar and video styling stay untouched. */
+    .ds-hero-content{z-index:8!important;max-width:780px!important;padding:110px 0 74px 5vw!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:0!important;color:#f8f9fa!important}
+    .ds-hero-eyebrow{display:inline-flex!important;align-items:center!important;gap:10px!important;margin:0 0 25px!important;padding:9px 14px!important;border:1px solid #272a35!important;border-radius:999px!important;background:rgba(21,23,30,.78)!important;color:#cbd0da!important;font:600 11px/1.4 "Inter",sans-serif!important;letter-spacing:1.15px!important;text-transform:uppercase!important}
+    .ds-hero-dot{width:8px!important;height:8px!important;flex:0 0 8px!important;border-radius:50%!important;background:#e63946!important;box-shadow:0 0 12px rgba(230,57,70,.75)!important;animation:dsHeroPulse 1.8s ease-in-out infinite}
+    @keyframes dsHeroPulse{50%{opacity:.48;box-shadow:0 0 3px rgba(230,57,70,.3)}}
+    .ds-hero-content h1.ds-hero-title{max-width:760px!important;margin:0!important;color:#f8f9fa!important;-webkit-text-fill-color:#f8f9fa!important;font:800 clamp(42px,4.45vw,70px)/1.08 "Inter",sans-serif!important;letter-spacing:-2.7px!important;text-shadow:none!important}
+    .ds-hero-highlight{display:inline!important;color:#e63946!important;-webkit-text-fill-color:#e63946!important;background:linear-gradient(100deg,#e63946,#ff725e)!important;-webkit-background-clip:text!important;background-clip:text!important}
+    .ds-hero-content .ds-hero-copy{max-width:660px!important;margin:22px 0 0!important;color:#aeb4c0!important;-webkit-text-fill-color:#aeb4c0!important;font:400 clamp(15px,1.15vw,18px)/1.8 "Inter",sans-serif!important;letter-spacing:0!important}
+    .ds-hero-actions{display:flex!important;flex-direction:row!important;align-items:center!important;gap:14px!important;margin-top:28px!important;width:auto!important;opacity:1}
+    .ds-hero-actions a{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;min-height:54px!important;padding:15px 22px!important;border-radius:11px!important;text-decoration:none!important;font:600 14px/1.3 "Inter",sans-serif!important;transition:background .25s ease,border-color .25s ease,transform .25s ease!important}
+    .ds-hero-primary{background:#e63946!important;border:1px solid #e63946!important;color:#fff!important;box-shadow:0 10px 28px rgba(230,57,70,.18)!important}
+    .ds-hero-primary:hover{background:#d90429!important;border-color:#d90429!important;transform:translateY(-2px)}
+    .ds-hero-arrow{font-size:20px!important;line-height:1!important}
+    .ds-hero-secondary{background:rgba(255,255,255,.015)!important;border:1px solid #272a35!important;color:#e2e5eb!important}
+    .ds-hero-secondary:hover{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.24)!important}
+    .ds-hero-services{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;width:100%!important;max-width:800px!important;margin-top:30px!important;padding-top:20px!important;border-top:1px solid rgba(255,255,255,.13)!important}
+    .ds-hero-service{display:flex!important;align-items:center!important;gap:10px!important;min-width:0!important;padding:12px 10px!important;border:1px solid rgba(255,255,255,.055)!important;border-radius:9px!important;background:rgba(21,23,30,.45)!important;color:#e0e3e9!important;font:500 11px/1.45 "Inter",sans-serif!important}
+    .ds-hero-service-icon{display:grid!important;place-items:center!important;flex:0 0 30px!important;width:30px!important;height:30px!important;border-radius:7px!important;background:rgba(230,57,70,.12)!important;color:#ff6470!important;font-size:16px!important}
+    @media(max-width:1100px) and (min-width:901px){.ds-hero-content{padding-left:4vw!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(40px,4.1vw,56px)!important;letter-spacing:-2px!important}.ds-hero-services{grid-template-columns:1fr!important;max-width:340px!important;gap:7px!important}.ds-hero-service{padding:8px 10px!important}}
+    @media(max-width:900px){.ds-hero-content{grid-column:1/-1!important;max-width:760px!important;padding:125px 6vw 70px!important;margin:0 auto!important;width:100%!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(39px,8vw,58px)!important;letter-spacing:-1.8px!important}.ds-hero-content .ds-hero-copy{font-size:16px!important;line-height:1.75!important}.ds-hero-services{grid-template-columns:1fr!important;max-width:420px!important;gap:8px!important}.ds-hero-service{font-size:12px!important;padding:9px 10px!important}.ds-hero-actions{flex-wrap:wrap!important}}
+    @media(max-width:480px){.ds-hero-content{padding:115px 6vw 52px!important}.ds-hero-eyebrow{font-size:9px!important;letter-spacing:.65px!important;padding:9px 11px!important;margin-bottom:21px!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(35px,9vw,44px)!important;letter-spacing:-1.3px!important}.ds-hero-actions{align-items:stretch!important;flex-direction:column!important;width:100%!important;max-width:330px!important}.ds-hero-actions a{width:100%!important}.ds-hero-services{max-width:100%!important}}
+  </style>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -1273,7 +1297,41 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           /* 02 — HERO */
           React.createElement("section",{className:"hero"},
             React.createElement("div",{className:"hero-grid"}),
-            React.createElement("div",{className:"hero-content"}),
+            React.createElement("div",{className:"hero-content ds-hero-content"},
+              React.createElement("div",{className:"hero-element ds-hero-eyebrow"},
+                React.createElement("span",{className:"ds-hero-dot"}),
+                React.createElement("span",null,"Professional Fire Safety & Protection")
+              ),
+              React.createElement("h1",{className:"hero-title ds-hero-title"},
+                "Protection That Never ",
+                React.createElement("span",{className:"ds-hero-highlight"},"Takes a Break"),
+                "."
+              ),
+              React.createElement("p",{className:"hero-copy ds-hero-copy"},
+                "Protecting people, property and businesses with reliable fire safety equipment, professional installation, expert servicing and dependable Annual Maintenance Contracts."
+              ),
+              React.createElement("div",{className:"hero-element ds-hero-actions"},
+                React.createElement("a",{href:"#products",className:"ds-hero-primary"},
+                  React.createElement("span",null,"Explore Our Solutions"),
+                  React.createElement("span",{className:"ds-hero-arrow"},"→")
+                ),
+                React.createElement("a",{href:"#contact",className:"ds-hero-secondary"},"Request a Consultation")
+              ),
+              React.createElement("div",{className:"hero-element ds-hero-services"},
+                React.createElement("div",{className:"ds-hero-service"},
+                  React.createElement("span",{className:"ds-hero-service-icon"},"✳"),
+                  React.createElement("span",null,"Fire Safety Equipment")
+                ),
+                React.createElement("div",{className:"ds-hero-service"},
+                  React.createElement("span",{className:"ds-hero-service-icon"},"⚒"),
+                  React.createElement("span",null,"Installation & Servicing")
+                ),
+                React.createElement("div",{className:"ds-hero-service"},
+                  React.createElement("span",{className:"ds-hero-service-icon"},"✓"),
+                  React.createElement("span",null,"AMC & Maintenance")
+                )
+              )
+            ),
             React.createElement("div",{className:"hero-video-visual"},
               React.createElement("div",{className:"hero-video-glow"}),
               React.createElement("video",{className:"hero-video",src:"herovideo.mp4",autoPlay:true,muted:true,loop:true,playsInline:true,preload:"metadata"})
