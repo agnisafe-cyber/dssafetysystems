@@ -1444,41 +1444,48 @@ body{
 }
 
 
-/* HERO FLAME GLOW — soft, low-cost flame tongues behind the hero content */
+/* HERO FLAMES — brighter, clearly visible flame tongues along the lower edge */
 .hero:before{
-  opacity:.72!important;
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.95!important;
   background:
-    /* rising flame tongues: concentrated low in the frame */
-    radial-gradient(ellipse 4.5% 27% at 5% 104%,rgba(255,75,24,.36) 0%,rgba(255,99,25,.19) 38%,transparent 76%),
-    radial-gradient(ellipse 3.2% 21% at 10% 102%,rgba(255,159,48,.3) 0%,rgba(255,77,25,.15) 42%,transparent 78%),
-    radial-gradient(ellipse 5% 32% at 16% 106%,rgba(220,38,38,.28) 0%,rgba(255,94,26,.14) 43%,transparent 78%),
-    radial-gradient(ellipse 4% 25% at 25% 105%,rgba(255,105,27,.19) 0%,transparent 76%),
-    radial-gradient(ellipse 4.5% 29% at 38% 106%,rgba(255,77,24,.17) 0%,transparent 78%),
-    radial-gradient(ellipse 5% 31% at 51% 106%,rgba(255,119,30,.16) 0%,transparent 78%),
-    radial-gradient(ellipse 4% 24% at 63% 106%,rgba(255,79,24,.17) 0%,transparent 78%),
-    radial-gradient(ellipse 5% 30% at 76% 106%,rgba(255,108,24,.2) 0%,transparent 78%),
-    radial-gradient(ellipse 4% 24% at 86% 105%,rgba(255,155,42,.27) 0%,transparent 78%),
-    radial-gradient(ellipse 5% 32% at 96% 105%,rgba(220,38,38,.31) 0%,rgba(255,91,25,.15) 44%,transparent 78%),
-    /* ember-lit haze and fine sparks */
-    radial-gradient(ellipse at 0% 86%,rgba(220,38,38,.2),transparent 30%),
-    radial-gradient(ellipse at 100% 86%,rgba(249,115,22,.18),transparent 30%),
+    /* taller flame tongues rise visibly into the hero */
+    radial-gradient(ellipse 3.8% 34% at 4% 105%,rgba(255,67,18,.82) 0%,rgba(255,92,20,.58) 26%,rgba(255,118,28,.22) 57%,transparent 78%),
+    radial-gradient(ellipse 2.5% 27% at 8% 101%,rgba(255,179,48,.76) 0%,rgba(255,88,19,.42) 34%,transparent 78%),
+    radial-gradient(ellipse 4.4% 39% at 14% 106%,rgba(220,35,25,.74) 0%,rgba(255,81,18,.43) 38%,transparent 79%),
+    radial-gradient(ellipse 2.8% 30% at 21% 103%,rgba(255,133,24,.68) 0%,rgba(255,72,18,.34) 39%,transparent 78%),
+    radial-gradient(ellipse 3.4% 33% at 30% 105%,rgba(255,79,17,.56) 0%,rgba(255,108,22,.28) 40%,transparent 78%),
+    radial-gradient(ellipse 3% 28% at 39% 103%,rgba(255,158,35,.54) 0%,rgba(255,75,17,.28) 39%,transparent 78%),
+    radial-gradient(ellipse 4.5% 38% at 49% 106%,rgba(255,69,16,.62) 0%,rgba(255,98,20,.32) 40%,transparent 78%),
+    radial-gradient(ellipse 2.7% 29% at 58% 103%,rgba(255,174,42,.58) 0%,rgba(255,75,17,.3) 40%,transparent 78%),
+    radial-gradient(ellipse 3.6% 34% at 67% 105%,rgba(255,77,17,.58) 0%,rgba(255,108,22,.28) 40%,transparent 78%),
+    radial-gradient(ellipse 2.8% 30% at 76% 103%,rgba(255,151,30,.64) 0%,rgba(255,73,17,.31) 40%,transparent 78%),
+    radial-gradient(ellipse 4.2% 39% at 86% 106%,rgba(220,35,25,.72) 0%,rgba(255,81,18,.4) 38%,transparent 79%),
+    radial-gradient(ellipse 3.1% 31% at 93% 103%,rgba(255,174,42,.68) 0%,rgba(255,75,17,.34) 40%,transparent 78%),
+    radial-gradient(ellipse 6% 25% at 2% 100%,rgba(255,50,20,.38),transparent 75%),
+    radial-gradient(ellipse 7% 25% at 99% 100%,rgba(255,82,20,.4),transparent 75%),
+    radial-gradient(ellipse at 50% 100%,rgba(255,66,18,.15),transparent 54%),
     radial-gradient(circle at 13% 23%,rgba(255,125,76,.82) 0 1px,transparent 1.8px),
     radial-gradient(circle at 31% 76%,rgba(255,78,55,.70) 0 1px,transparent 2px),
     radial-gradient(circle at 67% 19%,rgba(255,164,100,.58) 0 1px,transparent 1.8px),
     radial-gradient(circle at 88% 67%,rgba(255,84,58,.64) 0 1px,transparent 2px),
     radial-gradient(circle at 53% 89%,rgba(255,145,85,.48) 0 1px,transparent 1.8px)!important;
   background-size:auto!important;
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 100%)!important;
-  animation:heroFlameFlicker 5.2s ease-in-out infinite alternate!important;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 8%,#000 100%)!important;
+  animation:heroFlameFlicker 4.8s ease-in-out infinite alternate!important;
 }
 @keyframes heroFlameFlicker{
-  0%{opacity:.48;filter:brightness(.88) blur(1.4px)}
-  45%{opacity:.76;filter:brightness(1.12) blur(.7px)}
-  100%{opacity:.58;filter:brightness(1.02) blur(1.2px)}
+  0%{opacity:.68;filter:brightness(.96)}
+  45%{opacity:.98;filter:brightness(1.18)}
+  100%{opacity:.78;filter:brightness(1.04)}
 }
 @media(max-width:700px){
   .hero:before{
-    opacity:.42!important;
-    filter:blur(1px)!important;
+    opacity:.62!important;
+    animation:heroFlameFlicker 6s ease-in-out infinite alternate!important;
   }
 }
