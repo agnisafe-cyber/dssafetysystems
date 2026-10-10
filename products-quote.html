@@ -1076,8 +1076,7 @@
         }
     
         
-        /* Stronger full-page cinematic gradient, kept behind catalog cards.
-           A dedicated background layer avoids the subtle body-background rendering issue in the embedded page. */
+        /* Subtle, balanced cinematic gradient across both sides of the full catalog. */
         html {
             background: #080a0d;
         }
@@ -1096,22 +1095,22 @@
             z-index: 0;
             pointer-events: none;
             background:
-                radial-gradient(ellipse 62% 22% at 12% 10%, rgba(220, 38, 38, 0.34), transparent 72%),
-                radial-gradient(ellipse 58% 24% at 88% 24%, rgba(249, 115, 22, 0.24), transparent 72%),
-                radial-gradient(ellipse 66% 24% at 78% 48%, rgba(220, 38, 38, 0.30), transparent 72%),
-                radial-gradient(ellipse 58% 22% at 20% 66%, rgba(255, 255, 255, 0.095), transparent 72%),
-                radial-gradient(ellipse 62% 25% at 82% 82%, rgba(249, 115, 22, 0.26), transparent 72%),
-                radial-gradient(ellipse 66% 22% at 14% 97%, rgba(220, 38, 38, 0.32), transparent 72%),
-                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #10090b 76%, #080a0d 100%);
+                radial-gradient(ellipse 46% 18% at 0% 12%, rgba(220, 38, 38, 0.15), transparent 76%),
+                radial-gradient(ellipse 46% 18% at 100% 26%, rgba(249, 115, 22, 0.11), transparent 76%),
+                radial-gradient(ellipse 48% 20% at 100% 52%, rgba(220, 38, 38, 0.13), transparent 76%),
+                radial-gradient(ellipse 46% 18% at 0% 70%, rgba(255, 255, 255, 0.035), transparent 76%),
+                radial-gradient(ellipse 48% 20% at 100% 88%, rgba(249, 115, 22, 0.12), transparent 76%),
+                radial-gradient(ellipse 46% 18% at 0% 98%, rgba(220, 38, 38, 0.13), transparent 76%),
+                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #0d090b 76%, #080a0d 100%);
         }
         @media (max-width: 700px) {
             body::before {
                 background:
-                    radial-gradient(ellipse 90% 18% at 10% 10%, rgba(220, 38, 38, 0.30), transparent 75%),
-                    radial-gradient(ellipse 90% 20% at 90% 35%, rgba(249, 115, 22, 0.22), transparent 75%),
-                    radial-gradient(ellipse 90% 18% at 14% 67%, rgba(255, 255, 255, 0.075), transparent 75%),
-                    radial-gradient(ellipse 90% 20% at 86% 92%, rgba(220, 38, 38, 0.28), transparent 75%),
-                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #10090b 78%, #080a0d 100%);
+                    radial-gradient(ellipse 80% 16% at 0% 12%, rgba(220, 38, 38, 0.13), transparent 78%),
+                    radial-gradient(ellipse 80% 18% at 100% 35%, rgba(249, 115, 22, 0.09), transparent 78%),
+                    radial-gradient(ellipse 80% 16% at 0% 62%, rgba(255, 255, 255, 0.03), transparent 78%),
+                    radial-gradient(ellipse 80% 18% at 100% 88%, rgba(220, 38, 38, 0.12), transparent 78%),
+                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #0d090b 78%, #080a0d 100%);
             }
         }
 </style>
