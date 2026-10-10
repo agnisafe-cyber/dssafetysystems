@@ -1085,11 +1085,15 @@
             background: transparent !important;
             isolation: isolate;
         }
+        body > .container {
+            position: relative;
+            z-index: 2;
+        }
         body::before {
             content: "";
             position: absolute;
             inset: 0;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
             background:
                 radial-gradient(ellipse 62% 22% at 12% 10%, rgba(220, 38, 38, 0.34), transparent 72%),
