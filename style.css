@@ -1303,3 +1303,46 @@ body{
 @media(max-width:700px){
   .hero:before,.about-home:before,.services-home:before,.products:before,#contact:before,.footer:before{filter:blur(52px)!important}
 }
+
+
+/* =========================================================
+   DS CINEMATIC BACKGROUND POLISH — restrained, low-cost layers
+   ========================================================= */
+.hero{
+  position:relative!important;
+  isolation:isolate!important;
+  background:
+    radial-gradient(ellipse at 76% 46%,rgba(220,38,38,.15),transparent 32%),
+    radial-gradient(ellipse at 58% 86%,rgba(249,115,22,.075),transparent 31%),
+    linear-gradient(118deg,#090b0f 0%,#101216 48%,#0b0d11 100%)!important;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 92% 12%,rgba(255,94,60,.10),transparent 24%),
+    radial-gradient(ellipse at 38% 100%,rgba(255,255,255,.035),transparent 36%),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:auto,auto,96px 100%;
+  opacity:.8;
+}
+.hero-grid{opacity:.16!important;mask-image:linear-gradient(to bottom,#000 0%,transparent 72%)!important}
+.hero-content,.hero-video-visual{z-index:2!important}
+.hero-video-visual{transform:translateY(0)!important}
+.hero-video-glow{box-shadow:0 0 24px rgba(217,56,48,.22),0 0 58px rgba(217,56,48,.10)!important}
+@media(min-width:901px){
+  .hero-video-visual{align-self:center!important;transform:translateY(0)!important}
+}
+@media(max-width:900px){
+  .hero{
+    background:
+      radial-gradient(ellipse at 82% 42%,rgba(220,38,38,.13),transparent 42%),
+      linear-gradient(155deg,#090b0f 0%,#121418 60%,#0b0d11 100%)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-content h1.hero-title .hero-line{animation:none!important}
+}
