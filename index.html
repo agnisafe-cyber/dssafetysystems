@@ -607,10 +607,10 @@
     .section{padding:130px 5vw}
     .dark{background:#111;color:#fff}
     .section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#89847b;font-weight:700;margin-bottom:28px}
-    .about-home{background:#f4f0e8;padding-top:120px;padding-bottom:120px}
+    .about-home{position:relative;background:radial-gradient(ellipse at 82% 38%,rgba(220,38,38,.14),transparent 34%),radial-gradient(ellipse at 18% 85%,rgba(245,245,245,.045),transparent 38%),linear-gradient(118deg,#090b0f 0%,#111318 48%,#0b0d11 100%);padding-top:120px;padding-bottom:120px}
     .about-home-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
     .about-home-copy{max-width:680px}
-    .about-home-copy .section-label{opacity:1;transform:none;filter:none}
+    .about-home-copy .section-label{color:#a0a5af;opacity:1;transform:none;filter:none}
     .about-home-copy .about-home-title,
     .about-home-copy .about-home-text,
     .about-home-copy .about-home-facts{opacity:0;transform:translate(24px,24px);filter:blur(5px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1.15s cubic-bezier(.22,1,.36,1),filter 1.15s cubic-bezier(.22,1,.36,1)}
@@ -618,13 +618,13 @@
     .about-home-copy.about-copy-revealed .about-home-title{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.12s}
     .about-home-copy.about-copy-revealed .about-home-text{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.24s}
     .about-home-copy.about-copy-revealed .about-home-facts{opacity:1;transform:translate(0,0);filter:blur(0);transition-delay:.36s}
-    .about-home-title{font-family:"Poppins",sans-serif;font-size:48px;line-height:1.15;letter-spacing:-1.5px;font-weight:850;color:#111827;margin:0 0 15px 0}
+    .about-home-title{font-family:"Poppins",sans-serif;font-size:48px;line-height:1.15;letter-spacing:-1.5px;font-weight:850;color:#f7f7f8;margin:0 0 15px 0}
     .about-home-title span{color:#dc2626}
-    .about-home-text{color:#2a313d;font-size:16.5px;line-height:1.8;max-width:600px;margin-top:25px;margin-bottom:25px;font-weight:500}
-    .about-home-image{min-height:520px;border-radius:28px;overflow:hidden;background:#171717;position:relative;box-shadow:0 28px 80px rgba(16,16,16,.16)}
+    .about-home-text{color:#aeb4bf;font-size:16.5px;line-height:1.8;max-width:600px;margin-top:25px;margin-bottom:25px;font-weight:500}
+    .about-home-image{min-height:520px;border-radius:28px;overflow:hidden;background:#171717;position:relative;box-shadow:0 28px 80px rgba(0,0,0,.42)}
     .about-home-image img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}
     .about-home-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
-    .about-home-facts>div{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:"Poppins",sans-serif;font-size:16px;font-weight:650;color:#1f2937}
+    .about-home-facts>div{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:"Poppins",sans-serif;font-size:16px;font-weight:650;color:#e5e7eb}
     .about-home-facts>div:before{content:"✓";display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#dc2626;color:#fff;font-size:13px;font-weight:700;line-height:1}
 
     /* Cards & Products */
