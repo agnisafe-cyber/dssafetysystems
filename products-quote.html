@@ -1073,73 +1073,19 @@
         }
     
         
-        /* Subtle, balanced cinematic gradient across both sides of the full catalog. */
+        /* Remove the catalog-wide background glow and ember overlay. */
         html {
-            background: #080a0d;
+            background: transparent !important;
         }
         body {
             background: transparent !important;
             isolation: isolate;
         }
-        body > .container {
-            position: relative;
-            z-index: 2;
-        }
-        body::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background:
-                radial-gradient(ellipse 68% 24% at 8% 2%, rgba(220, 38, 38, 0.24), transparent 74%),
-                radial-gradient(ellipse 66% 24% at 92% 4%, rgba(249, 115, 22, 0.18), transparent 74%),
-                radial-gradient(ellipse 52% 18% at 48% 0%, rgba(255, 255, 255, 0.055), transparent 76%),
-                radial-gradient(ellipse 46% 18% at 100% 26%, rgba(249, 115, 22, 0.11), transparent 76%),
-                radial-gradient(ellipse 48% 20% at 100% 52%, rgba(220, 38, 38, 0.13), transparent 76%),
-                radial-gradient(ellipse 46% 18% at 0% 70%, rgba(255, 255, 255, 0.035), transparent 76%),
-                radial-gradient(ellipse 48% 20% at 100% 88%, rgba(249, 115, 22, 0.12), transparent 76%),
-                radial-gradient(ellipse 46% 18% at 0% 98%, rgba(220, 38, 38, 0.13), transparent 76%),
-                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #0d090b 76%, #080a0d 100%);
-        }
-        /* Sparse, static ember flecks — no particles, timers, or animation loops. */
+        body::before,
         body::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.42;
-            background-image:
-                radial-gradient(2px 5px at 8% 7%, rgba(255, 125, 62, 0.8), transparent 100%),
-                radial-gradient(2px 4px at 19% 15%, rgba(255, 210, 150, 0.65), transparent 100%),
-                radial-gradient(2px 5px at 38% 5%, rgba(255, 85, 48, 0.7), transparent 100%),
-                radial-gradient(2px 4px at 66% 12%, rgba(255, 175, 105, 0.7), transparent 100%),
-                radial-gradient(2px 5px at 91% 8%, rgba(255, 85, 48, 0.75), transparent 100%),
-                radial-gradient(2px 4px at 84% 31%, rgba(255, 190, 120, 0.6), transparent 100%),
-                radial-gradient(2px 5px at 13% 43%, rgba(255, 100, 55, 0.65), transparent 100%),
-                radial-gradient(2px 4px at 55% 57%, rgba(255, 205, 145, 0.55), transparent 100%),
-                radial-gradient(2px 5px at 94% 68%, rgba(255, 100, 55, 0.65), transparent 100%),
-                radial-gradient(2px 4px at 26% 78%, rgba(255, 185, 110, 0.6), transparent 100%),
-                radial-gradient(2px 5px at 72% 91%, rgba(255, 100, 55, 0.65), transparent 100%),
-                radial-gradient(2px 4px at 7% 96%, rgba(255, 205, 145, 0.55), transparent 100%);
-            background-repeat: no-repeat;
-        }
-        @media (max-width: 700px) {
-            body::after {
-                opacity: 0.28;
-            }
-        }
-
-        @media (max-width: 700px) {
-            body::before {
-                background:
-                    radial-gradient(ellipse 80% 16% at 0% 12%, rgba(220, 38, 38, 0.13), transparent 78%),
-                    radial-gradient(ellipse 80% 18% at 100% 35%, rgba(249, 115, 22, 0.09), transparent 78%),
-                    radial-gradient(ellipse 80% 16% at 0% 62%, rgba(255, 255, 255, 0.03), transparent 78%),
-                    radial-gradient(ellipse 80% 18% at 100% 88%, rgba(220, 38, 38, 0.12), transparent 78%),
-                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #0d090b 78%, #080a0d 100%);
-            }
+            content: none !important;
+            display: none !important;
+            background: none !important;
         }
 </style>
 </head>
