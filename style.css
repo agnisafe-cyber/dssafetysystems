@@ -753,7 +753,7 @@
    ========================================================= */
 
 body{
-  background:#0a0c10;
+  background:#111419;
 }
 
 /* HERO — polished industrial light field */
@@ -891,7 +891,7 @@ body{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:#090b0f!important;
+  background:#12151b!important;
 }
 .section.dark:before,
 #contact:before{
@@ -901,8 +901,8 @@ body{
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(ellipse at 15% 30%,rgba(220,38,38,.16),transparent 25%),
-    radial-gradient(ellipse at 84% 72%,rgba(249,115,22,.10),transparent 28%),
+    radial-gradient(ellipse at 15% 30%,rgba(220,38,38,.19),transparent 27%),
+    radial-gradient(ellipse at 84% 72%,rgba(249,115,22,.12),transparent 30%),
     radial-gradient(ellipse at 52% 48%,rgba(255,255,255,.025),transparent 36%);
   filter:blur(78px);
   animation:dsDarkAtmosphere 19s cubic-bezier(.45,0,.25,1) infinite alternate;
