@@ -1370,3 +1370,45 @@ body{
 
 
 /* Hero-only fire sparks are attached to .hero below. */
+
+
+/* HERO EDGE SPARKS — stronger, visible against the dark opening section only */
+.hero:after{
+  inset:0!important;
+  z-index:1!important;
+  opacity:1!important;
+  background:
+    radial-gradient(3px 3px at 1.4% 16%,rgba(255,190,105,.98) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 3.8% 31%,rgba(255,104,49,.98) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 1.8% 52%,rgba(255,151,66,.98) 0 45%,transparent 100%),
+    radial-gradient(3px 3px at 4.6% 74%,rgba(255,190,105,.92) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 2.2% 89%,rgba(255,94,43,.98) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 98.4% 13%,rgba(255,190,105,.98) 0 45%,transparent 100%),
+    radial-gradient(3px 3px at 96.3% 30%,rgba(255,105,49,.98) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 98.1% 49%,rgba(255,157,69,.98) 0 45%,transparent 100%),
+    radial-gradient(2px 2px at 95.4% 71%,rgba(255,190,105,.96) 0 45%,transparent 100%),
+    radial-gradient(3px 3px at 97.8% 88%,rgba(255,94,43,.98) 0 45%,transparent 100%),
+    linear-gradient(112deg,transparent 0 1.5%,rgba(255,99,48,.23) 2%,transparent 3.8%,transparent 95.2%,rgba(255,139,61,.22) 97%,transparent 98.5%),
+    radial-gradient(ellipse at 0% 52%,rgba(220,38,38,.22),transparent 24%),
+    radial-gradient(ellipse at 100% 52%,rgba(249,115,22,.17),transparent 24%)!important;
+  animation:heroEdgeSparkFlicker 3.6s ease-in-out infinite alternate!important;
+}
+@keyframes heroEdgeSparkFlicker{
+  0%{opacity:.62;filter:brightness(.88)}
+  45%{opacity:1;filter:brightness(1.25)}
+  100%{opacity:.78;filter:brightness(1.05)}
+}
+@media(max-width:700px){
+  .hero:after{
+    opacity:.7!important;
+    background:
+      radial-gradient(2px 2px at 1.5% 22%,rgba(255,166,82,.98) 0 45%,transparent 100%),
+      radial-gradient(2px 2px at 2.5% 48%,rgba(255,97,44,.98) 0 45%,transparent 100%),
+      radial-gradient(2px 2px at 1.8% 76%,rgba(255,166,82,.98) 0 45%,transparent 100%),
+      radial-gradient(2px 2px at 98.5% 18%,rgba(255,166,82,.98) 0 45%,transparent 100%),
+      radial-gradient(2px 2px at 97.5% 54%,rgba(255,97,44,.98) 0 45%,transparent 100%),
+      radial-gradient(2px 2px at 98% 80%,rgba(255,166,82,.98) 0 45%,transparent 100%),
+      radial-gradient(ellipse at 0% 50%,rgba(220,38,38,.18),transparent 22%),
+      radial-gradient(ellipse at 100% 50%,rgba(249,115,22,.14),transparent 22%)!important;
+  }
+}
