@@ -459,6 +459,7 @@
        ============================================================ */
     .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;column-gap:32px;align-items:center;background:radial-gradient(ellipse at 76% 42%,rgba(220,38,38,.18),transparent 34%),radial-gradient(ellipse at 91% 14%,rgba(255,105,75,.10),transparent 28%),radial-gradient(ellipse at 34% 100%,rgba(245,245,245,.055),transparent 38%),linear-gradient(118deg,#090b0f 0%,#111318 48%,#0b0d11 100%)}
     .hero-grid{position:absolute;inset:0;background:none!important;opacity:0!important;pointer-events:none}
+    .hero-border-sparks{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none!important;display:block}
     .hero-content{position:relative;z-index:8;grid-column:1;grid-row:1;align-self:center;padding:120px 0 80px 5vw;max-width:820px}
     .hero-content h1.hero-title{
       display:block!important;width:100%!important;max-width:1100px!important;
@@ -1299,6 +1300,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           /* 02 — HERO */
           React.createElement("section",{className:"hero"},
             React.createElement("div",{className:"hero-grid"}),
+            React.createElement("canvas",{className:"hero-border-sparks","aria-hidden":"true"}),
             React.createElement("div",{className:"hero-flames","aria-hidden":"true"}),
             React.createElement("div",{className:"hero-content ds-hero-content"},
               React.createElement("div",{className:"hero-element ds-hero-eyebrow"},
@@ -1413,6 +1415,88 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     }
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
   </script>
+<script id="ds-hero-border-sparks">
+(() => {
+  const init = () => {
+    const hero = document.querySelector(".hero");
+    const canvas = hero && hero.querySelector(".hero-border-sparks");
+    if (!hero || !canvas || canvas.dataset.ready) return;
+    canvas.dataset.ready = "true";
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let width = 0, height = 0, dpr = 1, raf = 0, visible = true;
+    let sparks = [];
+    const colors = ["#ff2200", "#ff3b0b", "#ff4b16", "#ff6a24"];
+    const count = () => window.innerWidth <= 600 ? 24 : 44;
+
+    function resize() {
+      const rect = hero.getBoundingClientRect();
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      sparks = Array.from({ length: count() }, () => makeSpark(true));
+    }
+
+    function makeSpark(randomLife = false) {
+      const side = Math.floor(Math.random() * 4);
+      const speed = .22 + Math.random() * .48;
+      const drift = (Math.random() - .5) * .32;
+      const edge = 3;
+      let x, y, vx, vy;
+      if (side === 0) { x = Math.random() * width; y = height - edge; vx = drift; vy = -speed; }
+      else if (side === 1) { x = width - edge; y = Math.random() * height; vx = -speed; vy = drift; }
+      else if (side === 2) { x = Math.random() * width; y = edge; vx = drift; vy = speed; }
+      else { x = edge; y = Math.random() * height; vx = speed; vy = drift; }
+      const life = randomLife ? Math.random() * 170 + 35 : Math.random() * 150 + 70;
+      return { x, y, vx, vy, size: .7 + Math.random() * 1.35, color: colors[Math.floor(Math.random() * colors.length)], life, maxLife: life };
+    }
+
+    function animate() {
+      if (!visible || document.hidden) { raf = 0; return; }
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < sparks.length; i++) {
+        const p = sparks[i];
+        p.x += p.vx; p.y += p.vy; p.life--;
+        if (p.life <= 0 || p.x < -12 || p.x > width + 12 || p.y < -12 || p.y > height + 12) {
+          sparks[i] = makeSpark();
+          continue;
+        }
+        ctx.globalAlpha = Math.min(1, p.life / 24, (p.maxLife - p.life + 1) / 18);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      ctx.shadowBlur = 0;
+      raf = requestAnimationFrame(animate);
+    }
+
+    const start = () => { if (visible && !document.hidden && !raf) raf = requestAnimationFrame(animate); };
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+      else if (raf) { cancelAnimationFrame(raf); raf = 0; }
+    }, { threshold: 0 });
+    observer.observe(hero);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; }
+      else start();
+    });
+    window.addEventListener("resize", resize, { passive: true });
+    resize();
+    start();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
+  else init();
+})();
+</script>
 <script id="ds-elite-products-js">
 (function(){
   function initEliteProducts(){
