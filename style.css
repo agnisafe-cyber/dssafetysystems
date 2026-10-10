@@ -1304,11 +1304,27 @@ body{
   .hero:before,.about-home:before,.services-home:before,.products:before,#contact:before,.footer:before{filter:blur(52px)!important}
 }
 
-/* HERO BACKGROUND ONLY — navbar and video styling intentionally untouched */
+/* HERO BACKGROUND — matched to the site's cinematic charcoal/red sections */
 .hero{
   background:
-    radial-gradient(ellipse at 76% 44%,rgba(220,38,38,.17),transparent 34%),
-    radial-gradient(ellipse at 92% 14%,rgba(255,105,75,.09),transparent 27%),
-    radial-gradient(ellipse at 34% 100%,rgba(245,245,245,.055),transparent 38%),
-    linear-gradient(118deg,#090b0f 0%,#111318 48%,#0b0d11 100%)!important;
+    radial-gradient(ellipse at 78% 28%,rgba(220,38,38,.22),transparent 27%),
+    radial-gradient(ellipse at 18% 82%,rgba(249,115,22,.13),transparent 25%),
+    radial-gradient(ellipse at 52% 48%,rgba(255,82,48,.045),transparent 38%),
+    linear-gradient(125deg,#07090d 0%,#101319 48%,#080a0e 100%)!important;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.26;
+  background:
+    radial-gradient(circle at 13% 23%,rgba(255,125,76,.82) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 31% 76%,rgba(255,78,55,.70) 0 1px,transparent 2px),
+    radial-gradient(circle at 67% 19%,rgba(255,164,100,.58) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 88% 67%,rgba(255,84,58,.64) 0 1px,transparent 2px),
+    radial-gradient(circle at 53% 89%,rgba(255,145,85,.48) 0 1px,transparent 1.8px);
+  background-size:430px 510px,510px 600px,470px 560px,550px 620px,390px 490px;
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
 }
