@@ -1428,7 +1428,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     let width = 0, height = 0, dpr = 1, raf = 0, visible = true;
     let sparks = [];
     const colors = ["#ff2200", "#ff3b0b", "#ff4b16", "#ff6a24"];
-    const count = () => window.innerWidth <= 600 ? 24 : 44;
+    const count = () => window.innerWidth <= 600 ? 10 : 20;
 
     function resize() {
       const rect = hero.getBoundingClientRect();
@@ -1452,7 +1452,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
       else if (side === 2) { x = Math.random() * width; y = edge; vx = drift; vy = speed; }
       else { x = edge; y = Math.random() * height; vx = speed; vy = drift; }
       const life = randomLife ? Math.random() * 170 + 35 : Math.random() * 150 + 70;
-      return { x, y, vx, vy, size: .7 + Math.random() * 1.35, color: colors[Math.floor(Math.random() * colors.length)], life, maxLife: life };
+      return { x, y, vx, vy, size: .45 + Math.random() * .8, color: colors[Math.floor(Math.random() * colors.length)], life, maxLife: life };
     }
 
     function animate() {
@@ -1468,7 +1468,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
         ctx.globalAlpha = Math.min(1, p.life / 24, (p.maxLife - p.life + 1) / 18);
         ctx.fillStyle = p.color;
         ctx.shadowColor = p.color;
-        ctx.shadowBlur = 5;
+        ctx.shadowBlur = 3;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
