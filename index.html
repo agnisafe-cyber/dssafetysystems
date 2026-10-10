@@ -1590,14 +1590,12 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   display:inline-block!important;
   font:inherit!important;
   font-weight:inherit!important;
-  color:transparent!important;
-  -webkit-text-fill-color:transparent!important;
-  background-image:linear-gradient(110deg,#101010 0%,#101010 38%,#ffffff 48%,#ffffff 52%,#101010 62%,#101010 100%)!important;
-  background-size:260% 100%!important;
-  background-position:100% 0!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  animation:dsRealMarqueeShine 3s linear infinite!important;
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  background:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  text-shadow:0 0 10px rgba(255,255,255,.08)!important;
 }
 @keyframes dsRealMarqueeShine{
   0%,45%{background-position:100% 0}
