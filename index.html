@@ -592,14 +592,14 @@
     /* ============================================================
        03 — FIRE-SAFETY MARQUEE
        ============================================================ */
-    .marquee{overflow:hidden!important;width:100%!important;padding:20px 0!important;background:#f4f0e8!important;font-family:"Poppins",sans-serif!important;}
+    .marquee{overflow:hidden!important;width:100%!important;padding:20px 0!important;background:linear-gradient(110deg,#0b0d11 0%,#15171d 50%,#0b0d11 100%)!important;border-top:1px solid rgba(255,255,255,.07)!important;border-bottom:1px solid rgba(255,255,255,.07)!important;font-family:"Poppins",sans-serif!important;}
     .marquee-track{display:flex!important;align-items:center!important;width:max-content!important;min-width:100%!important;gap:0!important;white-space:nowrap!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:750!important;letter-spacing:.2px!important;text-transform:uppercase!important;line-height:1!important;}
-    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:hidden!important;color:#101010!important;-webkit-text-fill-color:#101010!important;isolation:isolate!important;}
+    .marquee-track span{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:0 30px!important;position:relative!important;overflow:hidden!important;color:#f4f0e8!important;-webkit-text-fill-color:#f4f0e8!important;isolation:isolate!important;}
 .marquee-track span:after{content:""!important;position:absolute!important;top:-40%!important;bottom:-40%!important;left:-55%!important;width:18%!important;z-index:9!important;pointer-events:none!important;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.25) 20%,#fff 50%,rgba(255,255,255,.25) 80%,transparent 100%)!important;transform:skewX(-20deg)!important;filter:drop-shadow(0 0 8px rgba(255,255,255,.95))!important;animation:dsMarqueeTextShine 3s linear infinite!important;}
 @keyframes dsMarqueeTextShine{0%{left:-55%;opacity:0}10%{opacity:1}48%{left:145%;opacity:1}55%,100%{left:145%;opacity:0}}
     .marquee-track span:after{content:""!important;position:absolute!important;top:-15%!important;left:-120%!important;width:48%!important;height:130%!important;pointer-events:none!important;z-index:3!important;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.08) 34%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.08) 66%,transparent 100%)!important;transform:skewX(-18deg)!important;animation:marqueeCardShine 3s ease-in-out infinite!important;}
     @keyframes marqueeCardShine{0%,55%{left:-120%;opacity:0}62%{opacity:1}100%{left:140%;opacity:0}}
-    .marquee-track span:before{content:"•"!important;display:inline-block!important;margin-right:28px!important;color:#101010!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:900!important;line-height:1!important;}
+    .marquee-track span:before{content:"•"!important;display:inline-block!important;margin-right:28px!important;color:#dc2626!important;font-family:"Unbounded",sans-serif!important;font-size:22px!important;font-weight:900!important;line-height:1!important;}
 
     /* ============================================================
        04 — ABOUT STYLES
