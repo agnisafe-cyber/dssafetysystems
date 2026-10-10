@@ -753,7 +753,7 @@
    ========================================================= */
 
 body{
-  background:#111419;
+  background:#15181e;
 }
 
 /* HERO — polished industrial light field */
@@ -891,7 +891,10 @@ body{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:#12151b!important;
+  background:
+    radial-gradient(ellipse at 14% 8%,rgba(190,24,39,.12),transparent 34%),
+    radial-gradient(ellipse at 88% 78%,rgba(210,103,48,.075),transparent 31%),
+    linear-gradient(128deg,#1b1f27 0%,#171a21 44%,#1d191d 76%,#15181e 100%)!important;
 }
 .section.dark:before,
 #contact:before{
@@ -921,8 +924,10 @@ body{
     radial-gradient(circle at 63% 39%,rgba(255,130,65,.42) 0 1px,transparent 2px),
     radial-gradient(circle at 82% 76%,rgba(255,170,85,.48) 0 1px,transparent 2px),
     radial-gradient(circle at 94% 45%,rgba(220,38,38,.52) 0 1px,transparent 2px),
-    linear-gradient(180deg,rgba(0,0,0,.04),transparent 25%,transparent 75%,rgba(0,0,0,.45)),
-    radial-gradient(ellipse at center,transparent 34%,rgba(0,0,0,.35) 100%);
+    repeating-linear-gradient(0deg,transparent 0 69px,rgba(220,226,236,.018) 70px),
+    repeating-linear-gradient(90deg,transparent 0 69px,rgba(220,226,236,.018) 70px),
+    linear-gradient(180deg,rgba(0,0,0,.015),transparent 25%,transparent 75%,rgba(0,0,0,.20)),
+    radial-gradient(ellipse at center,transparent 34%,rgba(0,0,0,.18) 100%);
   animation:dsDarkEmbers 12s ease-in-out infinite alternate;
 }
 .section.dark > *,
@@ -944,8 +949,9 @@ body{
   isolation:isolate;
   overflow:hidden;
   background:
-    radial-gradient(ellipse at 50% -20%,rgba(220,38,38,.12),transparent 42%),
-    #07090c!important;
+    radial-gradient(ellipse at 50% -20%,rgba(220,38,38,.17),transparent 42%),
+    radial-gradient(ellipse at 88% 72%,rgba(249,115,22,.07),transparent 34%),
+    linear-gradient(135deg,#171a20 0%,#12151b 58%,#1a1518 100%)!important;
   color:#d8dbe0;
 }
 .footer:before{
