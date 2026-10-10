@@ -1793,3 +1793,29 @@ body{
 @media(max-width:700px){
   .hero .hero-flames{height:52%!important;opacity:.88!important}
 }
+
+
+/* HERO TEXT REVEAL — subtle staggered entrance, lightweight CSS only */
+.hero .ds-hero-eyebrow,
+.hero .ds-hero-title,
+.hero .ds-hero-copy,
+.hero .ds-hero-actions,
+.hero .ds-hero-services{
+  animation:dsHeroTextReveal .85s cubic-bezier(.2,.75,.25,1) both;
+  will-change:opacity,transform;
+}
+.hero .ds-hero-eyebrow{animation-delay:.08s}
+.hero .ds-hero-title{animation-delay:.2s}
+.hero .ds-hero-copy{animation-delay:.36s}
+.hero .ds-hero-actions{animation-delay:.5s}
+.hero .ds-hero-services{animation-delay:.66s}
+@keyframes dsHeroTextReveal{
+  from{opacity:0;transform:translate3d(0,22px,0);filter:blur(4px)}
+  to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .ds-hero-eyebrow,.hero .ds-hero-title,.hero .ds-hero-copy,
+  .hero .ds-hero-actions,.hero .ds-hero-services{
+    animation:none!important;opacity:1!important;transform:none!important;filter:none!important
+  }
+}
