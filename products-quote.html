@@ -1076,31 +1076,38 @@
         }
     
         
-        /* Extended cinematic gradients through the middle and bottom of the catalog.
-           Static layers only — no extra animation or blur workload. */
+        /* Stronger full-page cinematic gradient, kept behind catalog cards.
+           A dedicated background layer avoids the subtle body-background rendering issue in the embedded page. */
+        html {
+            background: #080a0d;
+        }
         body {
-            background-color: #080a0d;
-            background-image:
-                radial-gradient(ellipse at 15% 8%, rgba(220, 38, 38, 0.24), transparent 34%),
-                radial-gradient(ellipse at 86% 14%, rgba(249, 115, 22, 0.16), transparent 31%),
-                radial-gradient(ellipse at 78% 43%, rgba(220, 38, 38, 0.18), transparent 32%),
-                radial-gradient(ellipse at 18% 61%, rgba(255, 255, 255, 0.055), transparent 27%),
-                radial-gradient(ellipse at 84% 78%, rgba(249, 115, 22, 0.15), transparent 30%),
-                radial-gradient(ellipse at 12% 94%, rgba(220, 38, 38, 0.20), transparent 34%),
-                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #0c090b 76%, #080a0d 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-attachment: scroll;
+            background: transparent !important;
+            isolation: isolate;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 62% 22% at 12% 10%, rgba(220, 38, 38, 0.34), transparent 72%),
+                radial-gradient(ellipse 58% 24% at 88% 24%, rgba(249, 115, 22, 0.24), transparent 72%),
+                radial-gradient(ellipse 66% 24% at 78% 48%, rgba(220, 38, 38, 0.30), transparent 72%),
+                radial-gradient(ellipse 58% 22% at 20% 66%, rgba(255, 255, 255, 0.095), transparent 72%),
+                radial-gradient(ellipse 62% 25% at 82% 82%, rgba(249, 115, 22, 0.26), transparent 72%),
+                radial-gradient(ellipse 66% 22% at 14% 97%, rgba(220, 38, 38, 0.32), transparent 72%),
+                linear-gradient(180deg, #080a0d 0%, #0b0b10 48%, #10090b 76%, #080a0d 100%);
         }
         @media (max-width: 700px) {
-            body {
-                background-image:
-                    radial-gradient(ellipse at 12% 9%, rgba(220, 38, 38, 0.22), transparent 42%),
-                    radial-gradient(ellipse at 88% 34%, rgba(249, 115, 22, 0.13), transparent 38%),
-                    radial-gradient(ellipse at 14% 68%, rgba(255, 255, 255, 0.045), transparent 35%),
-                    radial-gradient(ellipse at 86% 91%, rgba(220, 38, 38, 0.18), transparent 42%),
-                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #0c090b 78%, #080a0d 100%);
-                background-size: 100% 100%;
+            body::before {
+                background:
+                    radial-gradient(ellipse 90% 18% at 10% 10%, rgba(220, 38, 38, 0.30), transparent 75%),
+                    radial-gradient(ellipse 90% 20% at 90% 35%, rgba(249, 115, 22, 0.22), transparent 75%),
+                    radial-gradient(ellipse 90% 18% at 14% 67%, rgba(255, 255, 255, 0.075), transparent 75%),
+                    radial-gradient(ellipse 90% 20% at 86% 92%, rgba(220, 38, 38, 0.28), transparent 75%),
+                    linear-gradient(180deg, #080a0d 0%, #0b0b10 50%, #10090b 78%, #080a0d 100%);
             }
         }
 </style>
