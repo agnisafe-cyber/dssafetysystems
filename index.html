@@ -1493,8 +1493,25 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     resize();
     start();
   };
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
-  else init();
+  const waitForHero = () => {
+    if (document.querySelector(".hero .hero-border-sparks")) {
+      init();
+      return;
+    }
+    const root = document.getElementById("root");
+    if (!root) {
+      document.addEventListener("DOMContentLoaded", waitForHero, { once: true });
+      return;
+    }
+    const mountObserver = new MutationObserver(() => {
+      if (document.querySelector(".hero .hero-border-sparks")) {
+        mountObserver.disconnect();
+        init();
+      }
+    });
+    mountObserver.observe(root, { childList: true, subtree: true });
+  };
+  waitForHero();
 })();
 </script>
 <script id="ds-elite-products-js">
