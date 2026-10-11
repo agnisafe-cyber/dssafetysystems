@@ -906,7 +906,23 @@
 @media(prefers-reduced-motion:reduce){.elite-products-page:before,.elite-view.active{animation:none!important}.elite-track{transition:none!important}}
 </style>
 <style id="ds-products-embed">
-.ds-products-embed{position:relative;width:100%;padding:0;margin:0;background:radial-gradient(ellipse 88% 28% at 50% 0%,rgba(220,38,38,.16),transparent 72%),radial-gradient(ellipse 58% 32% at 8% 38%,rgba(249,115,22,.08),transparent 74%),radial-gradient(ellipse 68% 34% at 90% 60%,rgba(220,38,38,.10),transparent 74%),radial-gradient(ellipse 90% 32% at 50% 100%,rgba(249,115,22,.07),transparent 76%),linear-gradient(180deg,#090b10 0%,#0b0d12 52%,#080a0e 100%)!important;overflow:hidden;isolation:isolate}
+.ds-products-embed{
+  position:relative;width:100%;padding:0;margin:0;
+  background:#080a0d!important;color:#f6f4ef;
+  overflow:hidden;isolation:isolate;
+}
+.ds-products-embed:before{
+  content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 38%,rgba(220,38,38,.17),transparent 25%),
+    radial-gradient(ellipse at 84% 65%,rgba(249,115,22,.10),transparent 25%),
+    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 36%);
+  filter:blur(70px);
+}
+.ds-products-embed:after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.48) 100%);
+}
 .ds-products-embed-frame{display:block;width:100%;min-height:1800px;height:1800px;border:0;margin:0;padding:0;background:transparent!important;overflow:hidden;position:relative;z-index:5}
 @media(max-width:900px){.ds-products-embed-frame{min-height:1000px}}
 </style>
