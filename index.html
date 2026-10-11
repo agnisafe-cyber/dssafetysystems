@@ -1427,14 +1427,15 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     if (!container || container.dataset.ready === "true") return;
     container.dataset.ready = "true";
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const sparkCount = 18;
+    const sparkCount = 24;
     for (let i = 0; i < sparkCount; i++) {
       const spark = document.createElement("div");
       spark.className = "spark";
       const size = Math.random() * 6 + 4;
       spark.style.width = size + "px";
       spark.style.height = size + "px";
-      spark.style.left = (Math.random() * 100) + "%";
+      // Divide the full width into equal zones so sparks reliably reach the right side.
+      spark.style.left = (((i + Math.random() * 0.85) / sparkCount) * 100) + "%";
       const duration = Math.random() * 6 + 6;
       const delay = Math.random() * 5;
       spark.style.animationDuration = duration + "s";
