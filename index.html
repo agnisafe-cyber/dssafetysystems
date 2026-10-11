@@ -1434,8 +1434,11 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
       const size = Math.random() * 6 + 4;
       spark.style.width = size + "px";
       spark.style.height = size + "px";
-      // Divide the full width into equal zones so sparks reliably reach the right side.
-      spark.style.left = (((i + Math.random() * 0.85) / sparkCount) * 100) + "%";
+      // Slightly reduce sparks on the left and give the right side more coverage.
+      const leftPercent = i < 8
+        ? Math.random() * 22
+        : 22 + ((i - 8 + Math.random() * 0.85) / (sparkCount - 8)) * 78;
+      spark.style.left = leftPercent + "%";
       const duration = Math.random() * 6 + 6;
       const delay = Math.random() * 5;
       spark.style.animationDuration = duration + "s";
