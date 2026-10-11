@@ -908,21 +908,15 @@
 <style id="ds-products-embed">
 .ds-products-embed{
   position:relative;width:100%;padding:0;margin:0;
-  background:#080a0d!important;color:#f6f4ef;
-  overflow:hidden;isolation:isolate;
-}
-.ds-products-embed:before{
-  content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;
+  color:#f6f4ef;overflow:hidden;isolation:isolate;
+  /* Lightweight static gradients: no oversized blurred layers or animation */
   background:
-    radial-gradient(ellipse at 18% 38%,rgba(220,38,38,.17),transparent 25%),
-    radial-gradient(ellipse at 84% 65%,rgba(249,115,22,.10),transparent 25%),
-    radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 36%);
-  filter:blur(70px);
+    radial-gradient(ellipse 55% 28% at 18% 38%,rgba(220,38,38,.12),transparent 72%),
+    radial-gradient(ellipse 50% 30% at 84% 65%,rgba(249,115,22,.075),transparent 74%),
+    radial-gradient(ellipse 70% 42% at 50% 50%,rgba(255,255,255,.018),transparent 75%),
+    linear-gradient(180deg,#080a0d 0%,#080a0d 100%)!important;
 }
-.ds-products-embed:after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.48) 100%);
-}
+.ds-products-embed:before,.ds-products-embed:after{content:none!important;display:none!important}
 .ds-products-embed-frame{display:block;width:100%;min-height:1800px;height:1800px;border:0;margin:0;padding:0;background:transparent!important;overflow:hidden;position:relative;z-index:5}
 @media(max-width:900px){.ds-products-embed-frame{min-height:1000px}}
 </style>
