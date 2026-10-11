@@ -40,21 +40,13 @@
             position: relative;
         }
 
-        /* Quiet cinematic backdrop matching the site's charcoal + DS red sections */
+        /* Transparent document canvas lets the parent site’s matching section background show through */
         html {
-            background: #080a0e !important;
+            background: transparent !important;
         }
         body {
-            background-color: #080a0e !important;
-            background-image:
-                radial-gradient(ellipse 78% 36% at 12% 8%, rgba(220, 38, 38, 0.105) 0%, transparent 72%),
-                radial-gradient(ellipse 62% 34% at 88% 42%, rgba(249, 115, 22, 0.065) 0%, transparent 72%),
-                radial-gradient(ellipse 76% 38% at 46% 100%, rgba(220, 38, 38, 0.075) 0%, transparent 74%),
-                linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px) !important;
-            background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat !important;
-            background-size: 100% 100%, 100% 100%, 100% 100%, 68px 68px, 68px 68px !important;
-            background-attachment: scroll !important;
+            background: transparent !important;
+            background-image: none !important;
         }
 
         /* Layout */
