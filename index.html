@@ -745,6 +745,11 @@
     @media(prefers-reduced-motion:reduce){.products-intro,.products .shell,.products .shell .wsk-cp-product{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}}
   /* Larger product detail gallery to use available modal space */
     @media(max-width:900px){.product-detail-main-image{min-height:430px;height:430px}.product-detail-main-image img{min-height:430px}}
+
+/* Replacement border-spark effect based on supplied transparent sparks code */
+.hero #sparks-container{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:3;display:block}
+.hero #sparks-container .spark{position:absolute;background:radial-gradient(circle,#ff4d4d 0%,rgba(255,0,0,0) 70%);border-radius:50%;pointer-events:none;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(105vh) scale(.5);opacity:0}20%{opacity:.8}80%{opacity:.8}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
 </style>
 
 <style>
@@ -1300,7 +1305,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           /* 02 — HERO */
           React.createElement("section",{className:"hero"},
             React.createElement("div",{className:"hero-grid"}),
-            React.createElement("canvas",{className:"hero-border-sparks","aria-hidden":"true"}),
+            React.createElement("div",{id:"sparks-container",className:"hero-border-sparks","aria-hidden":"true"}),
             React.createElement("div",{className:"hero-flames","aria-hidden":"true"}),
             React.createElement("div",{className:"hero-content ds-hero-content"},
               React.createElement("div",{className:"hero-element ds-hero-eyebrow"},
@@ -1418,98 +1423,39 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 <script id="ds-hero-border-sparks">
 (() => {
   const init = () => {
-    const hero = document.querySelector(".hero");
-    const canvas = hero && hero.querySelector(".hero-border-sparks");
-    if (!hero || !canvas || canvas.dataset.ready) return;
-    canvas.dataset.ready = "true";
-    const ctx = canvas.getContext("2d", { alpha: true });
-    if (!ctx || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let width = 0, height = 0, dpr = 1, raf = 0, visible = true;
-    let sparks = [];
-    const colors = ["#ff2200", "#ff3b0b", "#ff4b16", "#ff6a24"];
-    const count = () => window.innerWidth <= 600 ? 10 : 20;
-
-    function resize() {
-      const rect = hero.getBoundingClientRect();
-      width = Math.max(1, rect.width);
-      height = Math.max(1, rect.height);
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      canvas.width = Math.round(width * dpr);
-      canvas.height = Math.round(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      sparks = Array.from({ length: count() }, () => makeSpark(true));
+    const container = document.querySelector(".hero #sparks-container");
+    if (!container || container.dataset.ready === "true") return;
+    container.dataset.ready = "true";
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const sparkCount = 18;
+    for (let i = 0; i < sparkCount; i++) {
+      const spark = document.createElement("div");
+      spark.className = "spark";
+      const size = Math.random() * 6 + 4;
+      spark.style.width = size + "px";
+      spark.style.height = size + "px";
+      spark.style.left = (Math.random() * 100) + "%";
+      const duration = Math.random() * 6 + 6;
+      const delay = Math.random() * 5;
+      spark.style.animationDuration = duration + "s";
+      spark.style.animationDelay = delay + "s";
+      container.appendChild(spark);
     }
-
-    function makeSpark(randomLife = false) {
-      const side = Math.floor(Math.random() * 4);
-      const speed = .22 + Math.random() * .48;
-      const drift = (Math.random() - .5) * .32;
-      const edge = 3;
-      let x, y, vx, vy;
-      if (side === 0) { x = Math.random() * width; y = height - edge; vx = drift; vy = -speed; }
-      else if (side === 1) { x = width - edge; y = Math.random() * height; vx = -speed; vy = drift; }
-      else if (side === 2) { x = Math.random() * width; y = edge; vx = drift; vy = speed; }
-      else { x = edge; y = Math.random() * height; vx = speed; vy = drift; }
-      const life = randomLife ? Math.random() * 170 + 35 : Math.random() * 150 + 70;
-      return { x, y, vx, vy, size: .7 + Math.random() * 1.35, color: colors[Math.floor(Math.random() * colors.length)], life, maxLife: life };
-    }
-
-    function animate() {
-      if (!visible || document.hidden) { raf = 0; return; }
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < sparks.length; i++) {
-        const p = sparks[i];
-        p.x += p.vx; p.y += p.vy; p.life--;
-        if (p.life <= 0 || p.x < -12 || p.x > width + 12 || p.y < -12 || p.y > height + 12) {
-          sparks[i] = makeSpark();
-          continue;
-        }
-        ctx.globalAlpha = Math.min(1, p.life / 24, (p.maxLife - p.life + 1) / 18);
-        ctx.fillStyle = p.color;
-        ctx.shadowColor = p.color;
-        ctx.shadowBlur = 3;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-      raf = requestAnimationFrame(animate);
-    }
-
-    const start = () => { if (visible && !document.hidden && !raf) raf = requestAnimationFrame(animate); };
-    const observer = new IntersectionObserver(entries => {
-      visible = entries[0].isIntersecting;
-      if (visible) start();
-      else if (raf) { cancelAnimationFrame(raf); raf = 0; }
-    }, { threshold: 0 });
-    observer.observe(hero);
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; }
-      else start();
-    });
-    window.addEventListener("resize", resize, { passive: true });
-    resize();
-    start();
   };
   const waitForHero = () => {
-    if (document.querySelector(".hero .hero-border-sparks")) {
-      init();
-      return;
-    }
+    if (document.querySelector(".hero #sparks-container")) { init(); return; }
     const root = document.getElementById("root");
     if (!root) {
       document.addEventListener("DOMContentLoaded", waitForHero, { once: true });
       return;
     }
-    const mountObserver = new MutationObserver(() => {
-      if (document.querySelector(".hero .hero-border-sparks")) {
-        mountObserver.disconnect();
+    const observer = new MutationObserver(() => {
+      if (document.querySelector(".hero #sparks-container")) {
+        observer.disconnect();
         init();
       }
     });
-    mountObserver.observe(root, { childList: true, subtree: true });
+    observer.observe(root, { childList: true, subtree: true });
   };
   waitForHero();
 })();
