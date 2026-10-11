@@ -1096,10 +1096,51 @@
             min-height: 100vh;
             isolation: isolate;
         }
-        body::before,
+        /* Product-page atmosphere: broad, static gradients plus a few tiny embers.
+           Kept static and pointer-transparent to avoid adding scroll or animation lag. */
+        body {
+            position: relative;
+            background-color: #080a0e !important;
+            background-image:
+                radial-gradient(ellipse 86% 32% at 50% 0%, rgba(220, 38, 38, .15) 0%, transparent 72%),
+                radial-gradient(ellipse 58% 28% at 8% 36%, rgba(249, 115, 22, .075) 0%, transparent 74%),
+                radial-gradient(ellipse 68% 34% at 88% 58%, rgba(220, 38, 38, .09) 0%, transparent 74%),
+                radial-gradient(ellipse 90% 34% at 50% 100%, rgba(249, 115, 22, .065) 0%, transparent 76%),
+                linear-gradient(180deg, #090b10 0%, #0b0d12 48%, #080a0e 100%) !important;
+            background-repeat: no-repeat !important;
+            background-size: 100% 100% !important;
+            background-attachment: scroll !important;
+            min-height: 100vh;
+            isolation: isolate;
+        }
+        body::before {
+            content: "" !important;
+            display: block !important;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 8% 17%, rgba(255, 151, 77, .62) 0 1px, transparent 2px),
+                radial-gradient(circle at 22% 39%, rgba(255, 89, 55, .48) 0 1px, transparent 2px),
+                radial-gradient(circle at 76% 14%, rgba(255, 179, 100, .48) 0 1px, transparent 2px),
+                radial-gradient(circle at 91% 31%, rgba(255, 101, 57, .50) 0 1px, transparent 2px),
+                radial-gradient(circle at 66% 53%, rgba(255, 164, 83, .38) 0 1px, transparent 2px),
+                radial-gradient(circle at 13% 69%, rgba(255, 91, 51, .42) 0 1px, transparent 2px),
+                radial-gradient(circle at 84% 82%, rgba(255, 159, 79, .42) 0 1px, transparent 2px),
+                radial-gradient(circle at 39% 94%, rgba(255, 89, 55, .38) 0 1px, transparent 2px);
+            opacity: .68;
+        }
         body::after {
-            content: none !important;
-            display: none !important;
+            content: "" !important;
+            display: block !important;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 50% 0%, transparent 35%, rgba(0, 0, 0, .18) 100%),
+                linear-gradient(180deg, rgba(255,255,255,.012), transparent 24%, transparent 76%, rgba(0,0,0,.16));
         }
 </style>
 </head>
