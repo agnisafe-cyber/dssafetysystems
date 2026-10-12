@@ -1110,10 +1110,10 @@
     <style id="ds-product-section-sparks">
       /* Lightweight copy of the hero's red floating sparks, confined to the product/quote section. */
       .container{isolation:isolate;}
-      .product-section-sparks{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;contain:paint;}
-      .product-section-sparks .spark{position:absolute;top:0;background:radial-gradient(circle,#ff4d4d 0%,rgba(255,0,0,0) 70%);border-radius:50%;pointer-events:none;opacity:0;animation:dsProductSparkFloatUp linear infinite;will-change:transform,opacity;}
-      .container>.global-switcher-bar,.container>.panel-view{position:relative;z-index:1;}
-      @keyframes dsProductSparkFloatUp{0%{transform:translateY(105vh) scale(.5);opacity:0}20%{opacity:.55}80%{opacity:.55}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
+      .product-section-sparks{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;contain:paint;}
+      .product-section-sparks .spark{position:absolute;top:0;background:radial-gradient(circle,rgba(255,90,70,1) 0%,rgba(255,45,25,.72) 22%,rgba(255,0,0,0) 72%);border-radius:50%;pointer-events:none;opacity:0;animation:dsProductSparkFloatUp linear infinite;will-change:transform,opacity;}
+      .container>.global-switcher-bar,.container>.panel-view{position:relative;z-index:2;background:transparent;}
+      @keyframes dsProductSparkFloatUp{0%{transform:translateY(75vh) scale(.6);opacity:0}12%{opacity:.9}78%{opacity:.72}100%{transform:translateY(-12vh) scale(1.2);opacity:0}}
       @media(prefers-reduced-motion:reduce){.product-section-sparks .spark{animation:none!important;display:none!important}}
     </style>
 </head>
@@ -2052,7 +2052,7 @@
         if (!layer || layer.dataset.ready === "true") return;
         layer.dataset.ready = "true";
         if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const count = window.matchMedia && window.matchMedia("(max-width: 700px)").matches ? 10 : 18;
+        const count = window.matchMedia && window.matchMedia("(max-width: 700px)").matches ? 14 : 26;
         for (let i = 0; i < count; i++) {
           const spark = document.createElement("span");
           spark.className = "spark";
@@ -2060,8 +2060,8 @@
           spark.style.width = size + "px";
           spark.style.height = size + "px";
           spark.style.left = Math.random() * 100 + "%";
-          spark.style.animationDuration = (Math.random() * 6 + 6) + "s";
-          spark.style.animationDelay = (Math.random() * 8) + "s";
+          spark.style.animationDuration = (Math.random() * 5 + 6) + "s";
+          spark.style.animationDelay = (Math.random() * 3) + "s";
           layer.appendChild(spark);
         }
       };
