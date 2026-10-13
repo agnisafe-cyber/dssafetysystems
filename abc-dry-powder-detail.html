@@ -14,17 +14,11 @@
         .modal-container{background:#0b0f19;border:1px solid rgba(255,30,56,.4);border-radius:28px;max-width:1050px;width:100%;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 35px rgba(255,30,56,.2);padding:clamp(22px,4vw,40px)}
         .topline{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.07)}
         .brand{font-family:'Outfit',sans-serif;font-weight:900;letter-spacing:.02em;font-size:.95rem}.brand span{color:var(--neon-red)}
-        .back-link{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:11px;min-height:48px;padding:6px 18px 6px 7px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:linear-gradient(145deg,rgba(22,26,38,.96),rgba(8,10,16,.96));color:#f1f5f9;text-decoration:none;font-size:.76rem;font-weight:800;letter-spacing:.055em;text-transform:uppercase;box-shadow:0 5px 18px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07);overflow:hidden;transition:color .25s,border-color .25s,background .25s,transform .25s,box-shadow .25s}
-        .back-link i{width:32px;height:32px;display:grid;place-items:center;border:1px solid rgba(255,67,88,.28);border-radius:8px;background:linear-gradient(145deg,rgba(255,30,56,.2),rgba(255,119,0,.07));color:#ff6678;font-size:.78rem;transition:transform .28s,border-color .25s,background .25s,color .25s;flex-shrink:0}
-        .back-link::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:2px;background:linear-gradient(180deg,#ff5266,#ff7700);opacity:.8;transition:opacity .25s,box-shadow .25s}
-        .back-link::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 20%,rgba(255,30,56,.15) 48%,rgba(255,119,0,.08) 58%,transparent 82%);transform:translateX(-120%);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-        .back-link:hover{color:#fff;border-color:rgba(255,67,88,.52);background:linear-gradient(145deg,rgba(35,17,27,.98),rgba(10,12,19,.98));box-shadow:0 9px 28px rgba(255,30,56,.15),inset 0 1px 0 rgba(255,255,255,.09);transform:translateY(-2px)}
-        .back-link:hover i{color:#fff;border-color:rgba(255,67,88,.55);background:linear-gradient(145deg,rgba(255,30,56,.4),rgba(255,119,0,.17));transform:translateX(-2px)}
-        .back-link:hover::before{opacity:1;box-shadow:0 0 12px rgba(255,30,56,.55)}
-        .back-link:hover::after{transform:translateX(120%)}
-        .back-link:active{transform:translateY(0);box-shadow:0 3px 12px rgba(255,30,56,.12)}
-        .back-link:focus-visible{outline:2px solid #ff5266;outline-offset:4px}
-        @media(prefers-reduced-motion:reduce){.back-link,.back-link i,.back-link::after,.back-link::before{transition:none}}
+        .back-arrow{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;color:#f1f5f9;text-decoration:none;font-size:1.45rem;border-radius:50%;transition:color .22s ease,transform .22s ease,background .22s ease}
+        .back-arrow:hover{color:#ff5266;transform:translateX(-3px);background:rgba(255,30,56,.08)}
+        .back-arrow:focus-visible{outline:2px solid #ff5266;outline-offset:3px}
+        .back-arrow i{line-height:1}
+        @media(prefers-reduced-motion:reduce){.back-arrow{transition:none}}
         .modal-close{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;width:40px;height:40px;flex-shrink:0;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s}
         .modal-close:hover{background:var(--neon-red);border-color:var(--neon-red);box-shadow:var(--glow-intense)}
         .modal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:35px;align-items:start}
@@ -60,7 +54,7 @@
 <body>
     <main class="modal-container" id="productModal">
         <header class="topline">
-            <a class="back-link" href="index.html#ds-products-embed"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to products</span></a>
+            <a class="back-arrow" href="index.html#ds-products-embed" aria-label="Back to product catalog" title="Back to product catalog"><i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i></a>
             <button class="modal-close" type="button" aria-label="Back to product catalog" onclick="window.location.href='index.html#ds-products-embed'"><i class="fa-solid fa-xmark"></i></button>
         </header>
         <div class="modal-grid">
