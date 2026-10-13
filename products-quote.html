@@ -2001,49 +2001,54 @@
             productModal.style.display = 'none';
         }
 
-        // Dedicated standalone page for every product. Absolute URLs work from both
-        // the main page and when this catalog is embedded in an iframe.
-        const productDetailPages = {
-            "images/abc-4kg-1.jpg": "abc-dry-powder-detail.html",
-            "images/co2-4.5kg-1.jpg": "co2-clean-agent-detail.html",
-            "images/hose-reel-1.jpg": "fire-hose-reel-detail.html",
-            "images/foam-9l-1.jpg": "afff-foam-extinguisher-detail.html",
-            "images/wet-chem-1.jpg": "wet-chemical-kitchen-detail.html",
-            "images/auto-ceiling-1.jpg": "automatic-ceiling-extinguisher-detail.html",
-            "images/landing-valve-1.jpg": "landing-hydrant-valve-detail.html",
-            "images/rrl-hose-1.jpg": "rrl-fire-hose-detail.html",
-            "images/smoke-det-1.jpg": "smoke-detector-detail.html",
-            "images/mcp-1.jpg": "manual-call-point-detail.html",
-            "images/facp-1.jpg": "fire-alarm-control-panel-detail.html"
-        };
-        function openProductDetail(card) {
-            const detailPage = productDetailPages[card.getAttribute('data-img1')];
-            if (!detailPage) return;
-            window.top.location.href = 'https://agnisafe-cyber.github.io/dssafetysystems/' + detailPage;
-        }
+        // Match the proven first-card behavior, applied individually to every card.
+        // Absolute URLs ensure navigation works from the embedded catalog too.
+        const productDetailPages = [
+            "abc-dry-powder-detail.html",
+            "co2-clean-agent-detail.html",
+            "fire-hose-reel-detail.html",
+            "afff-foam-extinguisher-detail.html",
+            "wet-chemical-kitchen-detail.html",
+            "automatic-ceiling-extinguisher-detail.html",
+            "landing-hydrant-valve-detail.html",
+            "rrl-fire-hose-detail.html",
+            "smoke-detector-detail.html",
+            "manual-call-point-detail.html",
+            "fire-alarm-control-panel-detail.html"
+        ];
 
-        // Delegate clicks from the grid so every card keeps working if its contents change.
-        const matrixGrid = document.getElementById('matrixGrid');
-        if (matrixGrid) {
-            matrixGrid.addEventListener('click', (event) => {
-                const card = event.target.closest('.product-card');
-                if (!card || event.target.closest('.slider-btn, .dot')) return;
-                openProductDetail(card);
+        productCards.forEach((card, index) => {
+            const detailUrl = 'https://agnisafe-cyber.github.io/dssafetysystems/' + productDetailPages[index];
+            const openThisDetail = () => { window.top.location.href = detailUrl; };
+            const title = card.getAttribute('data-title') || 'Product';
+
+            card.style.cursor = 'pointer';
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'link');
+            card.setAttribute('aria-label', 'Open ' + title + ' detail page');
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('.slider-btn, .dot')) return;
+                openThisDetail();
             });
-            matrixGrid.querySelectorAll('.product-card').forEach((card) => {
-                card.style.cursor = 'pointer';
-                card.setAttribute('tabindex', '0');
-                card.setAttribute('role', 'link');
-                card.setAttribute('aria-label', 'Open ' + (card.getAttribute('data-title') || 'product') + ' detail page');
-                card.addEventListener('keydown', (event) => {
-                    if (event.target !== card) return;
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        openProductDetail(card);
-                    }
+
+            card.addEventListener('keydown', (event) => {
+                if (event.target !== card) return;
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openThisDetail();
+                }
+            });
+
+            const actionButton = card.querySelector('.action-btn');
+            if (actionButton) {
+                actionButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openThisDetail();
                 });
-            });
-        }
+            }
+        });
 
         const categoryOptions = document.querySelectorAll('.cat-option');
         const hiddenCategoryInput = document.getElementById('hiddenCategory');
