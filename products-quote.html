@@ -1968,9 +1968,33 @@
             productModal.style.display = 'none';
         }
 
-        // Disabled the broken card-to-modal click connection so opening a card
-        // can no longer trigger the blank popup. Product sliders and quote tab remain active.
-        // Re-enable only after the product detail popup is repaired.
+        // Connect only the first product card to the supplied product-detail popup.
+        // Keep the image slider controls independent so they do not open the popup.
+        const firstProductCard = productCards[0];
+        if (firstProductCard) {
+            firstProductCard.setAttribute('tabindex', '0');
+            firstProductCard.setAttribute('role', 'button');
+            firstProductCard.setAttribute('aria-label', 'View ABC Dry Powder Cylinder (4kg) details');
+
+            firstProductCard.addEventListener('click', (event) => {
+                if (event.target.closest('.slider-btn, .dot')) return;
+                openModal(firstProductCard);
+            });
+
+            firstProductCard.addEventListener('keydown', (event) => {
+                if (event.target !== firstProductCard) return;
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openModal(firstProductCard);
+                }
+            });
+
+            firstProductCard.querySelector('.action-btn')?.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                openModal(firstProductCard);
+            });
+        }
 
         const categoryOptions = document.querySelectorAll('.cat-option');
         const hiddenCategoryInput = document.getElementById('hiddenCategory');
