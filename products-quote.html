@@ -2019,7 +2019,14 @@
 
         productCards.forEach((card, index) => {
             const detailUrl = 'https://agnisafe-cyber.github.io/dssafetysystems/' + productDetailPages[index];
-            const openThisDetail = () => { window.top.location.href = detailUrl; };
+            const openThisDetail = () => {
+                // Remember the main page position so Back returns to this exact product section.
+                try {
+                    window.top.sessionStorage.setItem('dsProductReturnScroll', String(window.top.scrollY || 0));
+                    window.top.sessionStorage.setItem('dsProductReturnTime', String(Date.now()));
+                } catch (error) {}
+                window.top.location.href = detailUrl;
+            };
             const title = card.getAttribute('data-title') || 'Product';
 
             card.style.cursor = 'pointer';
