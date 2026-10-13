@@ -2022,8 +2022,11 @@
             const openThisDetail = () => {
                 // Remember the main page position so Back returns to this exact product section.
                 try {
-                    window.top.sessionStorage.setItem('dsProductReturnScroll', String(window.top.scrollY || 0));
-                    window.top.sessionStorage.setItem('dsProductReturnTime', String(Date.now()));
+                    const topWindow = window.top;
+                    const smoother = topWindow.ScrollSmoother && topWindow.ScrollSmoother.get();
+                    const currentScroll = smoother ? smoother.scrollTop() : (topWindow.scrollY || 0);
+                    topWindow.sessionStorage.setItem('dsProductReturnScroll', String(currentScroll));
+                    topWindow.sessionStorage.setItem('dsProductReturnTime', String(Date.now()));
                 } catch (error) {}
                 window.top.location.href = detailUrl;
             };
