@@ -1011,36 +1011,40 @@
   </div>
 
   <script>
-    // Restore the main page's GSAP virtual scroll position after returning from a product detail page.
+    // Re-apply the saved product position after ScrollSmoother and the page layout settle.
     (() => {
       const restoreProductPosition = () => {
+        let savedAt, savedY;
         try {
-          const storage = sessionStorage;
-          const savedAt = Number(storage.getItem('dsProductReturnTime') || 0);
-          const savedY = Number(storage.getItem('dsProductReturnScroll'));
-          if (!savedAt || !Number.isFinite(savedY) || Date.now() - savedAt > 30 * 60 * 1000) return;
+          savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
+          savedY = Number(sessionStorage.getItem('dsProductReturnScroll'));
+        } catch (error) { return; }
 
-          let attempts = 0;
-          const restore = () => {
-            attempts++;
+        if (!savedAt || !Number.isFinite(savedY) || Date.now() - savedAt > 30 * 60 * 1000) return;
+
+        let tries = 0;
+        const applyPosition = () => {
+          tries++;
+          try {
             const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
             if (smoother) {
               smoother.scrollTo(savedY, false);
-              storage.removeItem('dsProductReturnTime');
-              storage.removeItem('dsProductReturnScroll');
-              return;
-            }
-            // ScrollSmoother may initialize a moment after pageshow on a fresh load.
-            if (attempts < 12) {
-              setTimeout(restore, 100);
             } else {
               window.scrollTo(0, savedY);
-              storage.removeItem('dsProductReturnTime');
-              storage.removeItem('dsProductReturnScroll');
             }
-          };
-          requestAnimationFrame(restore);
-        } catch (error) {}
+          } catch (error) {}
+
+          // Re-apply after delayed layout/GSAP refreshes that can otherwise jump to the hero.
+          if (tries < 16) {
+            setTimeout(applyPosition, tries < 5 ? 120 : 250);
+          } else {
+            try {
+              sessionStorage.removeItem('dsProductReturnTime');
+              sessionStorage.removeItem('dsProductReturnScroll');
+            } catch (error) {}
+          }
+        };
+        requestAnimationFrame(applyPosition);
       };
       window.addEventListener('pageshow', restoreProductPosition);
     })();
