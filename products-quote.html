@@ -2020,13 +2020,20 @@
         productCards.forEach((card, index) => {
             const detailUrl = 'https://agnisafe-cyber.github.io/dssafetysystems/' + productDetailPages[index];
             const openThisDetail = () => {
-                // Remember the main page position so Back returns to this exact product section.
                 try {
                     const topWindow = window.top;
                     const smoother = topWindow.ScrollSmoother && topWindow.ScrollSmoother.get();
                     const currentScroll = smoother ? smoother.scrollTop() : (topWindow.scrollY || 0);
                     topWindow.sessionStorage.setItem('dsProductReturnScroll', String(currentScroll));
                     topWindow.sessionStorage.setItem('dsProductReturnTime', String(Date.now()));
+
+                    // Put the product section on this history entry. Browser Back will
+                    // return to this anchor instead of restoring the page at the hero.
+                    topWindow.history.replaceState(
+                        topWindow.history.state,
+                        '',
+                        topWindow.location.pathname + topWindow.location.search + '#ds-products-embed'
+                    );
                 } catch (error) {}
                 window.top.location.href = detailUrl;
             };
