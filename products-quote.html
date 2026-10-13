@@ -2001,38 +2001,52 @@
             productModal.style.display = 'none';
         }
 
-        // Open the dedicated standalone detail page for the first product.
-        // This page is outside the embedded catalog iframe, so navigate the top-level site.
-        const firstProductCard = productCards[0];
-        const firstProductDetailUrl = new URL('abc-dry-powder-detail.html', document.baseURI).href;
-        function openFirstProductDetail() {
-            window.top.location.href = firstProductDetailUrl;
+        // Each product card opens its own standalone detail page.
+        // Use the first image as a stable product identifier, including inside the catalog iframe.
+        const productDetailPages = {
+            "images/abc-4kg-1.jpg": "abc-dry-powder-detail.html",
+            "images/co2-4.5kg-1.jpg": "co2-clean-agent-detail.html",
+            "images/hose-reel-1.jpg": "fire-hose-reel-detail.html",
+            "images/foam-9l-1.jpg": "afff-foam-extinguisher-detail.html",
+            "images/wet-chem-1.jpg": "wet-chemical-kitchen-detail.html",
+            "images/auto-ceiling-1.jpg": "automatic-ceiling-extinguisher-detail.html",
+            "images/landing-valve-1.jpg": "landing-hydrant-valve-detail.html",
+            "images/rrl-hose-1.jpg": "rrl-fire-hose-detail.html",
+            "images/smoke-det-1.jpg": "smoke-detector-detail.html",
+            "images/mcp-1.jpg": "manual-call-point-detail.html",
+            "images/facp-1.jpg": "fire-alarm-control-panel-detail.html"
+        };
+        function openProductDetail(card) {
+            const firstImage = card.getAttribute('data-img1');
+            const detailPage = productDetailPages[firstImage];
+            if (detailPage) window.top.location.href = new URL(detailPage, document.baseURI).href;
         }
 
-        if (firstProductCard) {
-            firstProductCard.setAttribute('tabindex', '0');
-            firstProductCard.setAttribute('role', 'link');
-            firstProductCard.setAttribute('aria-label', 'Open ABC Dry Powder Cylinder (4kg) detail page');
+        productCards.forEach((card) => {
+            const title = card.getAttribute('data-title') || 'Product';
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'link');
+            card.setAttribute('aria-label', 'Open ' + title + ' detail page');
 
-            firstProductCard.addEventListener('click', (event) => {
+            card.addEventListener('click', (event) => {
                 if (event.target.closest('.slider-btn, .dot')) return;
-                openFirstProductDetail();
+                openProductDetail(card);
             });
 
-            firstProductCard.addEventListener('keydown', (event) => {
-                if (event.target !== firstProductCard) return;
+            card.addEventListener('keydown', (event) => {
+                if (event.target !== card) return;
                 if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
-                    openFirstProductDetail();
+                    openProductDetail(card);
                 }
             });
 
-            firstProductCard.querySelector('.action-btn')?.addEventListener('click', (event) => {
+            card.querySelector('.action-btn')?.addEventListener('click', (event) => {
                 event.preventDefault();
                 event.stopPropagation();
-                openFirstProductDetail();
+                openProductDetail(card);
             });
-        }
+        });
 
         const categoryOptions = document.querySelectorAll('.cat-option');
         const hiddenCategoryInput = document.getElementById('hiddenCategory');
