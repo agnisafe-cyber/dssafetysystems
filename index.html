@@ -1011,20 +1011,35 @@
   </div>
 
   <script>
-    // Restore the product-section position when the visitor returns from a product detail page.
+    // Restore the main page's GSAP virtual scroll position after returning from a product detail page.
     (() => {
       const restoreProductPosition = () => {
         try {
-          const savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
-          const savedY = Number(sessionStorage.getItem('dsProductReturnScroll'));
+          const storage = sessionStorage;
+          const savedAt = Number(storage.getItem('dsProductReturnTime') || 0);
+          const savedY = Number(storage.getItem('dsProductReturnScroll'));
           if (!savedAt || !Number.isFinite(savedY) || Date.now() - savedAt > 30 * 60 * 1000) return;
-          sessionStorage.removeItem('dsProductReturnTime');
-          sessionStorage.removeItem('dsProductReturnScroll');
-          requestAnimationFrame(() => {
-            window.scrollTo(0, savedY);
-            setTimeout(() => window.scrollTo(0, savedY), 120);
-            setTimeout(() => window.scrollTo(0, savedY), 500);
-          });
+
+          let attempts = 0;
+          const restore = () => {
+            attempts++;
+            const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
+            if (smoother) {
+              smoother.scrollTo(savedY, false);
+              storage.removeItem('dsProductReturnTime');
+              storage.removeItem('dsProductReturnScroll');
+              return;
+            }
+            // ScrollSmoother may initialize a moment after pageshow on a fresh load.
+            if (attempts < 12) {
+              setTimeout(restore, 100);
+            } else {
+              window.scrollTo(0, savedY);
+              storage.removeItem('dsProductReturnTime');
+              storage.removeItem('dsProductReturnScroll');
+            }
+          };
+          requestAnimationFrame(restore);
         } catch (error) {}
       };
       window.addEventListener('pageshow', restoreProductPosition);
