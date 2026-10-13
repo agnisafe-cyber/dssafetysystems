@@ -1968,31 +1968,36 @@
             productModal.style.display = 'none';
         }
 
-        // Connect only the first product card to the supplied product-detail popup.
-        // Keep the image slider controls independent so they do not open the popup.
+        // Open the dedicated standalone detail page for the first product.
+        // This page is outside the embedded catalog iframe, so navigate the top-level site.
         const firstProductCard = productCards[0];
+        const firstProductDetailUrl = new URL('abc-dry-powder-detail.html', document.baseURI).href;
+        function openFirstProductDetail() {
+            window.top.location.href = firstProductDetailUrl;
+        }
+
         if (firstProductCard) {
             firstProductCard.setAttribute('tabindex', '0');
-            firstProductCard.setAttribute('role', 'button');
-            firstProductCard.setAttribute('aria-label', 'View ABC Dry Powder Cylinder (4kg) details');
+            firstProductCard.setAttribute('role', 'link');
+            firstProductCard.setAttribute('aria-label', 'Open ABC Dry Powder Cylinder (4kg) detail page');
 
             firstProductCard.addEventListener('click', (event) => {
                 if (event.target.closest('.slider-btn, .dot')) return;
-                openModal(firstProductCard);
+                openFirstProductDetail();
             });
 
             firstProductCard.addEventListener('keydown', (event) => {
                 if (event.target !== firstProductCard) return;
                 if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
-                    openModal(firstProductCard);
+                    openFirstProductDetail();
                 }
             });
 
             firstProductCard.querySelector('.action-btn')?.addEventListener('click', (event) => {
                 event.preventDefault();
                 event.stopPropagation();
-                openModal(firstProductCard);
+                openFirstProductDetail();
             });
         }
 
