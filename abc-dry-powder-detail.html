@@ -14,11 +14,17 @@
         .modal-container{background:#0b0f19;border:1px solid rgba(255,30,56,.4);border-radius:28px;max-width:1050px;width:100%;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 35px rgba(255,30,56,.2);padding:clamp(22px,4vw,40px)}
         .topline{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.07)}
         .brand{font-family:'Outfit',sans-serif;font-weight:900;letter-spacing:.02em;font-size:.95rem}.brand span{color:var(--neon-red)}
-        .back-arrow{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;color:#f1f5f9;text-decoration:none;font-size:1.45rem;border-radius:50%;transition:color .22s ease,transform .22s ease,background .22s ease}
-        .back-arrow:hover{color:#ff5266;transform:translateX(-3px);background:rgba(255,30,56,.08)}
-        .back-arrow:focus-visible{outline:2px solid #ff5266;outline-offset:3px}
-        .back-arrow i{line-height:1}
-        @media(prefers-reduced-motion:reduce){.back-arrow{transition:none}}
+        .back-arrow{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;flex:0 0 46px;overflow:hidden;color:#f8fafc;text-decoration:none;font-size:1.12rem;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.09),transparent 58%),rgba(255,255,255,.025);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 5px 20px rgba(0,0,0,.2);transition:color .28s ease,border-color .28s ease,transform .35s cubic-bezier(.2,.8,.2,1),background .28s ease,box-shadow .28s ease}
+        .back-arrow::before{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;background:linear-gradient(125deg,rgba(255,30,56,.28),transparent 48%,rgba(255,119,0,.16));opacity:0;transition:opacity .28s ease}
+        .back-arrow::after{content:"";position:absolute;left:11px;right:11px;bottom:7px;height:1px;background:linear-gradient(90deg,transparent,#ff3049,transparent);transform:scaleX(.25);transform-origin:left;opacity:0;transition:transform .32s ease,opacity .25s ease}
+        .back-arrow:hover{color:#fff;border-color:rgba(255,48,73,.55);transform:translateX(-3px);background:rgba(255,30,56,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 0 22px rgba(255,30,56,.13),0 8px 24px rgba(0,0,0,.25)}
+        .back-arrow:hover::before{opacity:1}
+        .back-arrow:hover::after{opacity:.9;transform:scaleX(1)}
+        .back-arrow:active{transform:translateX(-5px) scale(.96)}
+        .back-arrow:focus-visible{outline:2px solid #ff5266;outline-offset:4px}
+        .back-arrow i{line-height:1;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+        .back-arrow:hover i{transform:translateX(-2px)}
+        @media(prefers-reduced-motion:reduce){.back-arrow,.back-arrow::before,.back-arrow::after,.back-arrow i{transition:none}}
         .modal-close{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;width:40px;height:40px;flex-shrink:0;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s}
         .modal-close:hover{background:var(--neon-red);border-color:var(--neon-red);box-shadow:var(--glow-intense)}
         .modal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:35px;align-items:start}
@@ -48,7 +54,7 @@
         .modal-inquire-btn i{transition:transform .3s}.modal-inquire-btn:hover i{transform:translateX(5px)}
         .small-note{color:#64748b;font-size:.72rem;line-height:1.6;margin-top:14px}
         @media(max-width:760px){body{align-items:flex-start;padding:12px}.modal-container{border-radius:20px;padding:18px}.topline{margin-bottom:20px}.modal-grid{grid-template-columns:1fr;gap:25px}.modal-slider-box{height:clamp(250px,72vw,380px)}.modal-details h1{font-size:1.6rem}.modal-thumb-btn{height:65px}}
-        @media(max-width:390px){.brand{font-size:.78rem}.back-link{font-size:.72rem}.modal-tags-row{gap:7px}.modal-category-tag,.modal-stock-badge{font-size:.62rem}}
+        @media(max-width:390px){.brand{font-size:.78rem}.back-arrow{width:42px;height:42px;flex-basis:42px}.modal-tags-row{gap:7px}.modal-category-tag,.modal-stock-badge{font-size:.62rem}}
     </style>
 </head>
 <body>
