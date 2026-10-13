@@ -1011,6 +1011,27 @@
   </div>
 
   <script>
+    // Restore the product-section position when the visitor returns from a product detail page.
+    (() => {
+      const restoreProductPosition = () => {
+        try {
+          const savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
+          const savedY = Number(sessionStorage.getItem('dsProductReturnScroll'));
+          if (!savedAt || !Number.isFinite(savedY) || Date.now() - savedAt > 30 * 60 * 1000) return;
+          sessionStorage.removeItem('dsProductReturnTime');
+          sessionStorage.removeItem('dsProductReturnScroll');
+          requestAnimationFrame(() => {
+            window.scrollTo(0, savedY);
+            setTimeout(() => window.scrollTo(0, savedY), 120);
+            setTimeout(() => window.scrollTo(0, savedY), 500);
+          });
+        } catch (error) {}
+      };
+      window.addEventListener('pageshow', restoreProductPosition);
+    })();
+  </script>
+
+  <script>
     /* ============================================================
        JAVASCRIPT / INTERACTIONS
        ============================================================ */
