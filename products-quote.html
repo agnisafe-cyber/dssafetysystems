@@ -2035,10 +2035,8 @@
                         topWindow.location.pathname + topWindow.location.search + '#ds-products-embed'
                     );
                 } catch (error) {}
-                // Keep the catalog page and its exact scroll position alive.
-                // Opening details in a new tab avoids the main site's ScrollSmoother
-                // resetting the catalog to the hero when navigating Back.
-                window.open(detailUrl, '_blank', 'noopener');
+                // Open the product detail in the same tab, as before.
+                window.top.location.href = detailUrl;
             };
             const title = card.getAttribute('data-title') || 'Product';
 
