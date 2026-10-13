@@ -1,60 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b10">
-<title>ABC Dry Powder Cylinder (4kg) | DS Safety Systems</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#090b10;--panel:#10131b;--muted:#9ca3af;--red:#ff263f;--orange:#ff7417;--line:rgba(255,255,255,.1)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 8%,rgba(255,38,63,.17),transparent 35%),radial-gradient(ellipse at 85% 75%,rgba(255,116,23,.09),transparent 32%),var(--bg);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.025),transparent 35%);z-index:-1}
-.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid var(--line)}.brand{font:800 1.05rem Outfit,sans-serif;letter-spacing:.02em}.brand span{color:var(--red)}a{color:inherit;text-decoration:none}.back{color:#d1d5db;font-size:.9rem;display:inline-flex;gap:10px;align-items:center}.back:hover{color:#fff}.eyebrow{color:#ff6878;font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.layout{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(35px,6vw,84px);align-items:center;padding:clamp(48px,8vw,100px) 0}.gallery{min-width:0}.hero-image{height:clamp(330px,44vw,540px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.09);border-radius:25px;background:radial-gradient(ellipse at center,rgba(255,255,255,.09),rgba(255,255,255,.015) 55%,transparent 75%),#0d1017;overflow:hidden}.hero-image img{width:100%;height:100%;object-fit:contain;padding:25px;filter:drop-shadow(0 24px 35px rgba(0,0,0,.4));transition:opacity .18s}.thumbs{display:flex;gap:12px;margin-top:14px}.thumb{width:88px;height:82px;border:1px solid var(--line);border-radius:12px;background:#10131b;overflow:hidden;cursor:pointer;padding:4px}.thumb.active{border-color:var(--red);box-shadow:0 0 0 1px rgba(255,38,63,.25)}.thumb img{width:100%;height:100%;object-fit:contain}.details h1{font:800 clamp(2.3rem,4.5vw,4.1rem)/1.04 Outfit,sans-serif;letter-spacing:-.045em;margin:15px 0 18px}.details h1 span{color:#ff5266}.lead{color:#b6bbc5;line-height:1.8;font-size:.98rem;max-width:580px}.chips{display:flex;flex-wrap:wrap;gap:9px;margin:23px 0}.chip{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);border-radius:999px;padding:8px 12px;font-size:.76rem;color:#e5e7eb}.chip i{color:#ff5266;font-style:normal;margin-right:6px}.specs{margin:28px 0;border-top:1px solid var(--line)}.spec{display:flex;justify-content:space-between;gap:18px;padding:15px 0;border-bottom:1px solid var(--line);font-size:.9rem}.spec span:first-child{color:var(--muted)}.spec strong{text-align:right;font-weight:700}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:10px;padding:15px 20px;font-weight:800;font-size:.9rem;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(115deg,var(--red),var(--orange));box-shadow:0 10px 30px rgba(255,38,63,.18)}.secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}.note{font-size:.78rem;color:#858b97;line-height:1.7;margin-top:19px}.section{padding:0 0 80px}.section h2{font:700 1.7rem Outfit,sans-serif}.section p{color:#aeb4bf;line-height:1.8;max-width:800px}.footer{border-top:1px solid var(--line);padding:22px 0;color:#777f8d;font-size:.78rem}
-@media(max-width:800px){.layout{grid-template-columns:1fr;padding-top:40px;gap:35px}.hero-image{height:min(95vw,440px)}.details h1{font-size:clamp(2.3rem,10vw,3.5rem)}.topbar{padding:19px 0}.wrap{width:min(100% - 30px,650px)}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#05070b">
+    <title>ABC Dry Powder Cylinder (4kg) | DS Safety Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        :root{--bg-deep:#05070b;--border-neon:rgba(239,68,68,.28);--neon-red:#ff1e38;--neon-orange:#ff7700;--text-light:#fff;--text-dim:#94a3b8;--glow-intense:0 0 30px rgba(255,30,56,.5);--font-premium-card:'Google Sans Flex',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif}
+        body{background:radial-gradient(ellipse at 15% 5%,rgba(255,30,56,.12),transparent 38%),radial-gradient(ellipse at 90% 90%,rgba(255,119,0,.08),transparent 34%),var(--bg-deep);color:var(--text-light);font-family:var(--font-body);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,28px)}
+        .modal-container{background:#0b0f19;border:1px solid rgba(255,30,56,.4);border-radius:28px;max-width:1050px;width:100%;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 35px rgba(255,30,56,.2);padding:clamp(22px,4vw,40px)}
+        .topline{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.07)}
+        .brand{font-family:'Outfit',sans-serif;font-weight:900;letter-spacing:.02em;font-size:.95rem}.brand span{color:var(--neon-red)}
+        .back-link{color:#cbd5e1;text-decoration:none;font-size:.82rem;font-weight:700}.back-link:hover{color:#fff}
+        .modal-close{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;width:40px;height:40px;flex-shrink:0;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s}
+        .modal-close:hover{background:var(--neon-red);border-color:var(--neon-red);box-shadow:var(--glow-intense)}
+        .modal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:35px;align-items:start}
+        .modal-slider-box{position:relative;width:100%;height:clamp(270px,36vw,390px);background:radial-gradient(ellipse at center,rgba(255,255,255,.055),transparent 68%),#020407;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin-bottom:15px}
+        .modal-track{display:flex;width:300%;height:100%;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+        .modal-slide{width:33.333%;height:100%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+        .modal-slide img{width:100%;height:100%;object-fit:contain;padding:18px}
+        .modal-slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(5,7,11,.82);border:1px solid rgba(255,255,255,.15);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;z-index:5;transition:all .3s}
+        .modal-slider-btn:hover{background:var(--neon-red);border-color:var(--neon-red)}.modal-prev{left:12px}.modal-next{right:12px}
+        .modal-thumbs{display:flex;gap:10px}
+        .modal-thumb-btn{flex:1;min-width:0;height:75px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#000;cursor:pointer;opacity:.55;padding:0;transition:all .3s}
+        .modal-thumb-btn img{width:100%;height:100%;object-fit:contain;padding:4px}
+        .modal-thumb-btn.active,.modal-thumb-btn:hover{opacity:1;border-color:var(--neon-red);box-shadow:0 0 15px rgba(255,30,56,.25)}
+        .modal-details h1{font-family:var(--font-premium-card);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#fff;margin:0 0 12px;line-height:1.2;letter-spacing:-.5px}
+        .modal-tags-row{display:flex;gap:10px;margin-bottom:15px;flex-wrap:wrap}
+        .modal-category-tag{background:rgba(255,30,56,.15);border:1px solid rgba(255,30,56,.35);color:#ff99a8;padding:5px 12px;border-radius:50px;font-size:.7rem;font-weight:800;text-transform:uppercase}
+        .modal-stock-badge{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:#4ade80;padding:5px 12px;border-radius:50px;font-size:.7rem;font-weight:800;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+        .product-purpose{display:inline-flex;align-items:center;gap:6px;color:#ff99a8;font-size:.78rem;font-weight:700;margin-bottom:14px;background:rgba(255,30,56,.1);border:1px solid rgba(255,30,56,.22);padding:5px 10px;border-radius:8px;letter-spacing:.2px}
+        .modal-desc{color:var(--text-dim);font-size:.9rem;line-height:1.75;margin-bottom:20px}
+        .modal-spec-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+        .modal-spec-table tr{border-bottom:1px solid rgba(255,255,255,.07)}
+        .modal-spec-table th,.modal-spec-table td{padding:12px 0;font-size:.82rem;text-align:left}
+        .modal-spec-table th{color:var(--text-dim);font-weight:700;width:45%}
+        .modal-spec-table td{color:#fff;font-weight:800}
+        .modal-inquire-btn{position:relative;width:100%;background:linear-gradient(135deg,#ff1e38 0%,#ff7700 100%);color:#fff;border:1px solid rgba(255,255,255,.25);padding:17px 20px;border-radius:13px;font-family:var(--font-body);font-size:.96rem;font-weight:800;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;box-shadow:0 12px 35px rgba(255,30,56,.3),inset 0 1px 0 rgba(255,255,255,.2);transition:all .3s;display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none}
+        .modal-inquire-btn:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(255,30,56,.45);border-color:rgba(255,255,255,.5)}
+        .modal-inquire-btn i{transition:transform .3s}.modal-inquire-btn:hover i{transform:translateX(5px)}
+        .small-note{color:#64748b;font-size:.72rem;line-height:1.6;margin-top:14px}
+        @media(max-width:760px){body{align-items:flex-start;padding:12px}.modal-container{border-radius:20px;padding:18px}.topline{margin-bottom:20px}.modal-grid{grid-template-columns:1fr;gap:25px}.modal-slider-box{height:clamp(250px,72vw,380px)}.modal-details h1{font-size:1.6rem}.modal-thumb-btn{height:65px}}
+        @media(max-width:390px){.brand{font-size:.78rem}.back-link{font-size:.72rem}.modal-tags-row{gap:7px}.modal-category-tag,.modal-stock-badge{font-size:.62rem}}
+    </style>
 </head>
 <body>
-<div class="wrap">
-<header class="topbar"><a class="brand" href="index.html">DS <span>SAFETY</span> SYSTEMS</a><a class="back" href="index.html#ds-products-embed">← Back to product catalog</a></header>
-<main>
-<div class="layout">
-<section class="gallery" aria-label="Product image gallery">
-<div class="hero-image"><img id="mainImage" src="images/abc-4kg-1.jpg" alt="ABC Dry Powder Cylinder 4kg"></div>
-<div class="thumbs" aria-label="Choose product image">
-<button class="thumb active" type="button" data-src="images/abc-4kg-1.jpg" aria-label="View image 1"><img src="images/abc-4kg-1.jpg" alt=""></button>
-<button class="thumb" type="button" data-src="images/abc-4kg-2.jpg" aria-label="View image 2"><img src="images/abc-4kg-2.jpg" alt=""></button>
-<button class="thumb" type="button" data-src="images/abc-4kg-3.jpg" aria-label="View image 3"><img src="images/abc-4kg-3.jpg" alt=""></button>
-</div>
-</section>
-<section class="details">
-<div class="eyebrow">DS Safety Systems / Product 01</div>
-<h1>ABC Dry Powder<br><span>Cylinder (4kg)</span></h1>
-<p class="lead">A multi-purpose stored-pressure fire extinguisher designed for a range of common fire risks. A practical choice for workplaces, commercial premises and other settings where dependable first-response protection matters.</p>
-<div class="chips"><span class="chip"><i>●</i>ISI Certified</span><span class="chip"><i>●</i>4 kg Capacity</span><span class="chip"><i>●</i>Class A, B &amp; C Fires</span></div>
-<div class="specs">
-<div class="spec"><span>Product</span><strong>ABC Dry Powder Fire Extinguisher</strong></div>
-<div class="spec"><span>Capacity</span><strong>4 kg</strong></div>
-<div class="spec"><span>Fire Classes</span><strong>A, B &amp; C</strong></div>
-<div class="spec"><span>Standard</span><strong>IS 15683</strong></div>
-<div class="spec"><span>Availability</span><strong style="color:#4ade80">Ready Stock</strong></div>
-</div>
-<div class="actions"><a class="btn primary" href="https://wa.me/919818701683?text=Hello%20DS%20Safety%20Systems%2C%20I%27m%20interested%20in%20the%20ABC%20Dry%20Powder%20Cylinder%20(4kg).">Request a Quote ↗</a><a class="btn secondary" href="index.html#ds-products-embed">← Product Catalog</a></div>
-<p class="note">For product specifications, installation guidance and availability, contact DS Safety Systems. Final suitability depends on the site and its fire-risk assessment.</p>
-</section>
-</div>
-<section class="section"><div class="eyebrow">Reliable protection</div><h2>Need this extinguisher for your site?</h2><p>Contact our team for pricing, quantity requirements and guidance on selecting fire-safety equipment for your premises.</p></section>
-</main>
-<footer class="footer">© DS Safety Systems · Govind Puri, New Delhi · Call / WhatsApp 9818701683</footer>
-</div>
-<script>
-const mainImage=document.getElementById('mainImage');
-document.querySelectorAll('.thumb').forEach(button=>button.addEventListener('click',()=>{
- mainImage.src=button.dataset.src;
- document.querySelectorAll('.thumb').forEach(item=>item.classList.toggle('active',item===button));
-}));
-</script>
+    <main class="modal-container" id="productModal">
+        <header class="topline">
+            <a class="brand" href="index.html">DS <span>SAFETY SYSTEMS</span></a>
+            <a class="back-link" href="index.html#ds-products-embed">← Product catalog</a>
+            <button class="modal-close" type="button" aria-label="Back to product catalog" onclick="window.location.href='index.html#ds-products-embed'"><i class="fa-solid fa-xmark"></i></button>
+        </header>
+        <div class="modal-grid">
+            <section aria-label="Product image gallery">
+                <div class="modal-slider-box">
+                    <div class="modal-track" id="modalTrack">
+                        <div class="modal-slide"><img id="modalImg1" src="images/abc-4kg-1.jpg" alt="ABC Dry Powder Cylinder 4kg - view 1"></div>
+                        <div class="modal-slide"><img id="modalImg2" src="images/abc-4kg-2.jpg" alt="ABC Dry Powder Cylinder 4kg - view 2"></div>
+                        <div class="modal-slide"><img id="modalImg3" src="images/abc-4kg-3.jpg" alt="ABC Dry Powder Cylinder 4kg - view 3"></div>
+                    </div>
+                    <button class="modal-slider-btn modal-prev" type="button" aria-label="Previous image" onclick="moveModalSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="modal-slider-btn modal-next" type="button" aria-label="Next image" onclick="moveModalSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="modal-thumbs" aria-label="Choose product image">
+                    <button class="modal-thumb-btn active" type="button" onclick="setModalSlide(0)" aria-label="View image 1"><img src="images/abc-4kg-1.jpg" alt=""></button>
+                    <button class="modal-thumb-btn" type="button" onclick="setModalSlide(1)" aria-label="View image 2"><img src="images/abc-4kg-2.jpg" alt=""></button>
+                    <button class="modal-thumb-btn" type="button" onclick="setModalSlide(2)" aria-label="View image 3"><img src="images/abc-4kg-3.jpg" alt=""></button>
+                </div>
+            </section>
+            <section class="modal-details">
+                <div class="modal-tags-row">
+                    <div class="modal-category-tag">Fire Extinguishers</div>
+                    <div class="modal-stock-badge"><i class="fa-solid fa-circle"></i> In Stock / Ready Stock</div>
+                </div>
+                <h1>ABC Dry Powder Cylinder (4kg)</h1>
+                <span class="product-purpose"><i class="fa-solid fa-bullseye"></i> Purpose: Class A, B &amp; C Fires</span>
+                <p class="modal-desc">Stored-pressure, multi-purpose fire extinguisher built for broad hazard mitigation with an anti-corrosion steel body. Suitable applications depend on the site’s fire-risk assessment and the product’s certified specifications.</p>
+                <table class="modal-spec-table">
+                    <tbody>
+                        <tr><th>Capacity / Size</th><td>4 kg</td></tr>
+                        <tr><th>Performance Metric</th><td>Refer to product label</td></tr>
+                        <tr><th>Compliance Standard</th><td>IS 15683</td></tr>
+                        <tr><th>Extinguishing Agent</th><td>ABC Dry Chemical Powder</td></tr>
+                    </tbody>
+                </table>
+                <a class="modal-inquire-btn" href="https://wa.me/919818701683?text=Hello%20DS%20Safety%20Systems%2C%20I%27d%20like%20a%20quote%20for%20the%20ABC%20Dry%20Powder%20Cylinder%20(4kg)." target="_blank" rel="noopener noreferrer">
+                    <span>Request a Quote</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <p class="small-note">For pricing, quantities and site-specific product guidance, contact DS Safety Systems, Govind Puri, New Delhi.</p>
+            </section>
+        </div>
+    </main>
+    <script>
+        let modalCurrentIndex = 0;
+        function updateModalSlider() {
+            const track = document.getElementById('modalTrack');
+            track.style.transform = `translateX(-${modalCurrentIndex * 33.333}%)`;
+            document.querySelectorAll('.modal-thumb-btn').forEach((thumb, i) => thumb.classList.toggle('active', i === modalCurrentIndex));
+        }
+        function moveModalSlide(direction) {
+            modalCurrentIndex = (modalCurrentIndex + direction + 3) % 3;
+            updateModalSlider();
+        }
+        function setModalSlide(index) {
+            modalCurrentIndex = index;
+            updateModalSlider();
+        }
+    </script>
 </body>
 </html>
