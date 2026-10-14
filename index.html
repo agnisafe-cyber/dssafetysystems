@@ -1318,6 +1318,29 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 
         const isMobile=window.matchMedia("(max-width:900px)").matches;
         const smoother = isMobile ? null : ScrollSmoother.create({wrapper:"#smooth-wrapper",content:"#smooth-content",smooth:1.15,effects:true,smoothTouch:0.12,normalizeScroll:true});
+
+        // Detail pages return here with #ds-products-embed. Wait for ScrollSmoother
+        // and the embedded catalog to settle, then land at Products instead of the hero.
+        if (window.location.hash === "#ds-products-embed") {
+          let productReturnAttempts = 0;
+          const landOnProducts = () => {
+            productReturnAttempts++;
+            const target = document.getElementById("ds-products-embed");
+            if (target) {
+              try {
+                const activeSmoother = window.ScrollSmoother && window.ScrollSmoother.get();
+                if (activeSmoother) activeSmoother.scrollTo(target, false);
+                else window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
+              } catch (error) {
+                window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
+              }
+            }
+            if (productReturnAttempts < 18) {
+              window.setTimeout(landOnProducts, productReturnAttempts < 5 ? 100 : 250);
+            }
+          };
+          requestAnimationFrame(landOnProducts);
+        }
         
         /* 02 — Hero entrance + 03 — Marquee */
         const heroLines = gsap.utils.toArray(".hero-title .hero-line");
