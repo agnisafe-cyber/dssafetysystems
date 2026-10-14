@@ -1011,32 +1011,30 @@
   </div>
 
   <script>
-    // Re-apply the saved product position after ScrollSmoother and the page layout settle.
+    // When returning from a product detail, land directly on the product section.
     (() => {
       const restoreProductPosition = () => {
-        let savedAt, savedY;
-        try {
-          savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
-          savedY = Number(sessionStorage.getItem('dsProductReturnScroll'));
-        } catch (error) { return; }
-
-        if (!savedAt || !Number.isFinite(savedY) || Date.now() - savedAt > 30 * 60 * 1000) return;
+        let savedAt = 0;
+        try { savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0); } catch (error) {}
+        const returningToProducts = location.hash === '#ds-products-embed' &&
+          savedAt && Date.now() - savedAt < 30 * 60 * 1000;
+        if (!returningToProducts && location.hash !== '#ds-products-embed') return;
 
         let tries = 0;
         const applyPosition = () => {
           tries++;
-          try {
-            const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
-            if (smoother) {
-              smoother.scrollTo(savedY, false);
-            } else {
-              window.scrollTo(0, savedY);
+          const target = document.getElementById('ds-products-embed');
+          if (target) {
+            try {
+              const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
+              if (smoother) smoother.scrollTo(target, false);
+              else window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
+            } catch (error) {
+              window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
             }
-          } catch (error) {}
-
-          // Re-apply after delayed layout/GSAP refreshes that can otherwise jump to the hero.
-          if (tries < 16) {
-            setTimeout(applyPosition, tries < 5 ? 120 : 250);
+          }
+          if (tries < 24) {
+            setTimeout(applyPosition, tries < 6 ? 100 : 220);
           } else {
             try {
               sessionStorage.removeItem('dsProductReturnTime');
@@ -1047,6 +1045,8 @@
         requestAnimationFrame(applyPosition);
       };
       window.addEventListener('pageshow', restoreProductPosition);
+      if (document.readyState === 'complete') restoreProductPosition();
+      else window.addEventListener('load', restoreProductPosition, { once: true });
     })();
   </script>
 
