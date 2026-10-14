@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080a0f">
+<title>ABC Fire Extinguisher | DS Safety Systems</title>
+<meta name="description" content="Explore the DS Safety Systems ABC dry powder fire extinguisher in an interactive 3D product showcase.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#080a0f;--panel:#10131a;--line:rgba(255,255,255,.1);--muted:#a3aab8;--red:#f04444;--orange:#ff7849}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 14% 18%,rgba(135,25,30,.19),transparent 35%),radial-gradient(ellipse at 85% 78%,rgba(176,57,24,.11),transparent 32%),var(--bg);color:#f6f7f9;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(circle at 12% 22%,#ff7652 0 1px,transparent 1.8px),radial-gradient(circle at 82% 35%,#ff5b48 0 1px,transparent 2px),radial-gradient(circle at 67% 78%,#ff9a60 0 1px,transparent 2px);background-size:190px 220px,270px 240px,330px 290px;z-index:-1}
+a{color:inherit;text-decoration:none}.topbar{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,6vw,88px);background:rgba(8,10,15,.78);backdrop-filter:blur(14px)}.brand{font:800 17px Outfit,sans-serif;letter-spacing:.035em;display:flex;align-items:center;gap:11px}.brand-mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(145deg,#ff674f,#b91c2c);display:grid;place-items:center;font-size:15px;box-shadow:0 0 24px #ef44442b}.back{color:#c8ccd5;font-size:13px;display:flex;align-items:center;gap:9px;transition:color .2s}.back:hover{color:#fff}.wrap{width:min(1200px,calc(100% - 40px));margin:auto}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#ff9a83;text-transform:uppercase;font-size:10px;letter-spacing:.2em;font-weight:800}.eyebrow:before{content:"";width:24px;height:1px;background:var(--red)}.intro{padding:56px 0 28px}.intro h1{font:700 clamp(34px,5vw,60px)/1.04 Outfit,sans-serif;letter-spacing:-.045em;margin:16px 0 14px;max-width:760px}.intro h1 span{color:#ff665e}.intro p{max-width:630px;color:var(--muted);line-height:1.8;font-size:14px;margin:0}.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,.8fr);gap:18px;padding-bottom:64px}.viewer-card,.info-card,.label-card{background:linear-gradient(145deg,rgba(20,23,31,.96),rgba(12,14,20,.97));border:1px solid var(--line);border-radius:22px;overflow:hidden}.viewer-card{min-height:550px;position:relative}.viewer-head{position:absolute;top:22px;left:24px;right:24px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px;pointer-events:none}.small-tag{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#d9dce4;border:1px solid #ffffff20;background:#0b0d13b8;padding:9px 12px;border-radius:999px}.live-dot{display:inline-block;width:6px;height:6px;background:#64d9a1;border-radius:50%;margin-right:7px;box-shadow:0 0 10px #64d9a1}.viewer-glow{position:absolute;left:15%;right:15%;bottom:15%;height:18%;background:#d62c35;filter:blur(85px);opacity:.16;pointer-events:none}model-viewer{display:block;width:100%;height:550px;--poster-color:transparent;background:radial-gradient(ellipse at 50% 57%,rgba(133,31,38,.19),transparent 47%)}model-viewer::part(default-progress-bar){background:linear-gradient(90deg,var(--red),var(--orange));height:3px}.viewer-hint{position:absolute;bottom:19px;left:22px;color:#8d95a4;font-size:11px;pointer-events:none}.side{display:flex;flex-direction:column;gap:18px}.info-card{padding:25px}.status{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#9ce5be;background:#163326;border:1px solid #27533c;padding:7px 10px;border-radius:7px}.status:before{content:"";width:6px;height:6px;background:#62d99b;border-radius:50%}.info-card h2{font:700 27px/1.15 Outfit,sans-serif;letter-spacing:-.025em;margin:18px 0 10px}.sub{font-size:12px;color:var(--muted);line-height:1.7;margin:0 0 22px}.specs{border-top:1px solid var(--line)}.spec{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:12px}.spec span:first-child{color:#929aa8}.spec strong{text-align:right;font-weight:600;color:#f0f1f5}.capacities{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.capacity{border:1px solid #ffffff22;background:#ffffff06;padding:9px 12px;border-radius:9px;font-size:12px;color:#f0f1f5}.capacity:first-child{border-color:#f0444466;background:#f0444414}.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:14px 17px;border-radius:10px;background:linear-gradient(105deg,#e7333d,#ff6846);color:white;font-size:12px;font-weight:800;box-shadow:0 8px 28px #ed343526;transition:transform .2s,box-shadow .2s}.cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px #ed34354a}.label-card{padding:21px;display:grid;grid-template-columns:100px 1fr;gap:18px;align-items:center}.label-preview{width:100px;height:150px;object-fit:contain;background:#f7f7f7;border-radius:5px;box-shadow:0 8px 24px #0006}.label-card h3{font:600 18px Outfit,sans-serif;margin:0 0 8px}.label-card p{font-size:11px;color:var(--muted);line-height:1.7;margin:0 0 12px}.text-link{font-size:11px;color:#ff8c7b;font-weight:700}.text-link:hover{color:#fff}.foot{border-top:1px solid var(--line);padding:22px 20px;text-align:center;color:#737b89;font-size:10px;letter-spacing:.04em}.foot strong{color:#c5c9d1}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.viewer-card,model-viewer{min-height:420px;height:480px}.intro{padding-top:42px}.side{display:grid;grid-template-columns:1fr}.label-card{grid-template-columns:90px 1fr}.label-preview{width:90px;height:135px}}
+@media(max-width:480px){.topbar{height:68px;padding:0 18px}.brand{font-size:14px}.back{font-size:11px}.wrap{width:calc(100% - 28px)}.intro h1{font-size:38px}.viewer-card,model-viewer{height:400px;min-height:400px}.viewer-head{top:14px;left:13px;right:13px}.small-tag{font-size:8px;padding:8px}.info-card{padding:20px}.label-card{padding:16px;gap:13px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="DS Safety Systems home"><span class="brand-mark">DS</span><span>DS SAFETY SYSTEMS</span></a>
+  <a class="back" href="index.html#ds-products-embed"><span aria-hidden="true">←</span> Back to products</a>
+</header>
+<main class="wrap">
+  <section class="intro">
+    <span class="eyebrow">Product showcase / Fire protection</span>
+    <h1>Ready when it<br><span>matters most.</span></h1>
+    <p>Explore our ABC dry powder fire extinguisher in an interactive 3D view. Rotate the model, inspect its form, and review the proposed DS Safety Systems label design.</p>
+  </section>
+  <section class="layout" aria-label="Fire extinguisher product details">
+    <div class="viewer-card">
+      <div class="viewer-head"><span class="small-tag">Interactive 3D model</span><span class="small-tag"><i class="live-dot"></i>Product preview</span></div>
+      <div class="viewer-glow"></div>
+      <model-viewer src="ds-fire-extinguisher.glb" alt="Three-dimensional fire extinguisher model" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="18deg" shadow-intensity="1.1" exposure="1" environment-image="neutral" camera-orbit="0deg 75deg auto" min-camera-orbit="auto 25deg auto" max-camera-orbit="auto 155deg auto" interaction-prompt="auto" loading="eager">
+        <div slot="poster" style="display:grid;place-items:center;height:100%;padding:32px;color:#c4cad4;text-align:center;font:13px 'Plus Jakarta Sans',sans-serif">Loading the 3D extinguisher…</div>
+      </model-viewer>
+      <span class="viewer-hint">Drag to rotate · Scroll or pinch to zoom</span>
+    </div>
+    <aside class="side">
+      <section class="info-card">
+        <span class="status">Ready stock · Product preview</span>
+        <h2>ABC Fire Extinguisher<br>Dry Powder Type</h2>
+        <p class="sub">A versatile dry chemical powder extinguisher concept for fire-safety installations. Confirm the exact capacity and specifications on the supplied unit before ordering.</p>
+        <div class="specs">
+          <div class="spec"><span>Extinguishing agent</span><strong>ABC Dry Chemical Powder</strong></div>
+          <div class="spec"><span>Capacity options</span><strong>2 kg · 4 kg · 6 kg · 9 kg</strong></div>
+          <div class="spec"><span>Compliance</span><strong>Refer to product label</strong></div>
+          <div class="spec"><span>Use</span><strong>As specified for the unit</strong></div>
+        </div>
+        <div class="capacities" aria-label="Available capacity options"><span class="capacity">2 kg</span><span class="capacity">4 kg</span><span class="capacity">6 kg</span><span class="capacity">9 kg</span></div>
+        <a class="cta" href="index.html#ds-products-embed">Request a quote <span aria-hidden="true">↗</span></a>
+      </section>
+      <section class="label-card">
+        <img class="label-preview" src="ds-extinguisher-sticker.svg" alt="Proposed DS Safety Systems extinguisher label design">
+        <div><h3>Label concept</h3><p>A custom DS Safety Systems label concept, designed to be reviewed separately before final print and fitting.</p><a class="text-link" href="ds-extinguisher-sticker.svg" target="_blank" rel="noopener">View full label ↗</a></div>
+      </section>
+    </aside>
+  </section>
+</main>
+<footer class="foot"><strong>DS SAFETY SYSTEMS</strong> · Fire protection equipment & safety solutions</footer>
+</body>
+</html>
