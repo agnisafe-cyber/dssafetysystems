@@ -6,6 +6,7 @@
     <title>DS Safety Systems | Elite Fire Protection Catalog</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -290,7 +291,16 @@
         .stock-indicator.in-stock i {
             color: #22c55e;
             animation: none;
-        }/* --- CAROUSEL SLIDER DESIGN --- */
+        }/* Lightweight interactive 3D viewer for the first extinguisher card */
+        .extinguisher-model-viewer {
+            display:block;width:100%;height:230px;
+            background:radial-gradient(ellipse at 50% 58%,rgba(180,35,43,.18),transparent 65%),#05070b;
+            --poster-color:#05070b;--progress-bar-color:#ff354b;cursor:grab;touch-action:pan-y;
+        }
+        .extinguisher-model-viewer:active{cursor:grabbing}
+        .model-viewer-hint{position:absolute;right:12px;bottom:10px;z-index:3;pointer-events:none;font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.7);background:rgba(5,7,11,.7);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:6px 9px}
+        .model-viewer-frame{position:relative;overflow:hidden}
+        /* --- CAROUSEL SLIDER DESIGN --- */
         .card-slider-wrapper {
             position: relative;
             width: 100%;
@@ -1193,19 +1203,9 @@
                         <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
                     </div>
                     
-                    <div class="card-slider-wrapper">
-                        <div class="slider-track" id="cardTrack-1">
-                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-1.jpg" alt="ABC dry powder extinguisher front view"></div>
-                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-2.jpg" alt="ABC dry powder extinguisher side view"></div>
-                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-3.jpg" alt="ABC dry powder extinguisher detail view"></div>
-                        </div>
-                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
-                    </div>
-                    <div class="slider-dots">
-                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
-                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
-                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
+                    <div class="card-slider-wrapper model-viewer-frame">
+                        <model-viewer class="extinguisher-model-viewer" src="https://agnisafe-cyber.github.io/dssafetysystems/ds-fire-extinguisher.glb" poster="https://agnisafe-cyber.github.io/dssafetysystems/assets/extinguisher-hero.png" alt="Interactive 3D ABC dry powder fire extinguisher" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="12deg" shadow-intensity="1" exposure="1" environment-image="neutral" camera-orbit="0deg 75deg auto" interaction-prompt="auto" loading="eager"></model-viewer>
+                        <span class="model-viewer-hint">DRAG TO ROTATE · SCROLL TO ZOOM</span>
                     </div>
 
                     <div class="product-info">
