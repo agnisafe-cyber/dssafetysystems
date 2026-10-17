@@ -623,9 +623,6 @@
     .about-home-text{color:#aeb4bf;font-size:16.5px;line-height:1.8;max-width:600px;margin-top:25px;margin-bottom:25px;font-weight:500}
     .about-home-image{min-height:520px;border-radius:28px;overflow:hidden;background:#171717;position:relative;box-shadow:0 28px 80px rgba(0,0,0,.42)}
     .about-home-image img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}
-    .about-3d-extinguisher{background:radial-gradient(ellipse at 50% 48%,rgba(220,38,38,.17),transparent 55%),#080a0e;border:1px solid rgba(255,255,255,.08)}
-    .about-extinguisher-viewer{display:block;width:100%;height:520px;min-height:520px;background:transparent;--poster-color:transparent;--progress-bar-color:#dc2626;touch-action:pan-y}
-    @media(max-width:800px){.about-extinguisher-viewer{height:420px;min-height:420px}.about-home-image{min-height:420px}}
 
     .about-home-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
     .about-home-facts>div{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:"Poppins",sans-serif;font-size:16px;font-weight:650;color:#e5e7eb}
@@ -952,7 +949,6 @@
     @media(max-width:900px){.ds-hero-content{grid-column:1/-1!important;max-width:760px!important;padding:125px 6vw 70px!important;margin:0 auto!important;width:100%!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(39px,8vw,58px)!important;letter-spacing:-1.8px!important}.ds-hero-content .ds-hero-copy{font-size:16px!important;line-height:1.75!important}.ds-hero-services{grid-template-columns:1fr!important;max-width:420px!important;gap:8px!important}.ds-hero-service{font-size:12px!important;padding:9px 10px!important}.ds-hero-actions{flex-wrap:wrap!important}}
     @media(max-width:480px){.ds-hero-content{padding:115px 6vw 52px!important}.ds-hero-eyebrow{font-size:9px!important;letter-spacing:.65px!important;padding:9px 11px!important;margin-bottom:21px!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(35px,9vw,44px)!important;letter-spacing:-1.3px!important}.ds-hero-actions{align-items:stretch!important;flex-direction:column!important;width:100%!important;max-width:330px!important}.ds-hero-actions a{width:100%!important}.ds-hero-services{max-width:100%!important}}
   </style>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -1436,8 +1432,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                   React.createElement("div",null,React.createElement("span",null,"Expert Installation"))
                 )
               ),
-              React.createElement("div",{className:"about-home-image about-image-wrap about-3d-extinguisher"},
-                React.createElement("model-viewer",{className:"about-extinguisher-viewer",src:"https://agnisafe-cyber.github.io/dssafetysystems/ds-fire-extinguisher.glb",poster:"https://agnisafe-cyber.github.io/dssafetysystems/images/abc-4kg-1.jpg",alt:"Interactive 3D DS Safety Systems ABC dry powder fire extinguisher", "camera-controls":true,"auto-rotate":true,"auto-rotate-delay":"1200","rotation-per-second":"12deg","shadow-intensity":"1","exposure":"1","environment-image":"neutral","camera-orbit":"0deg 75deg auto","interaction-prompt":"auto",loading:"eager"})
+              React.createElement("div",{className:"about-home-image about-image-wrap"},
+                React.createElement("img",{src:"about-us1.png",alt:"DS Safety Systems fire safety solutions"})
               )
             )
           ),
