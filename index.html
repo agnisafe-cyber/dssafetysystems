@@ -949,6 +949,56 @@
     @media(max-width:900px){.ds-hero-content{grid-column:1/-1!important;max-width:760px!important;padding:125px 6vw 70px!important;margin:0 auto!important;width:100%!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(39px,8vw,58px)!important;letter-spacing:-1.8px!important}.ds-hero-content .ds-hero-copy{font-size:16px!important;line-height:1.75!important}.ds-hero-services{grid-template-columns:1fr!important;max-width:420px!important;gap:8px!important}.ds-hero-service{font-size:12px!important;padding:9px 10px!important}.ds-hero-actions{flex-wrap:wrap!important}}
     @media(max-width:480px){.ds-hero-content{padding:115px 6vw 52px!important}.ds-hero-eyebrow{font-size:9px!important;letter-spacing:.65px!important;padding:9px 11px!important;margin-bottom:21px!important}.ds-hero-content h1.ds-hero-title{font-size:clamp(35px,9vw,44px)!important;letter-spacing:-1.3px!important}.ds-hero-actions{align-items:stretch!important;flex-direction:column!important;width:100%!important;max-width:330px!important}.ds-hero-actions a{width:100%!important}.ds-hero-services{max-width:100%!important}}
   </style>
+
+<style id="ds-unified-cinematic-backgrounds">
+  /* One shared charcoal palette across the main page; static gradients keep it lightweight. */
+  body { background-color:#080a0d!important; }
+  .hero {
+    background-color:#080a0d!important;
+    background-image:
+      radial-gradient(ellipse at 78% 30%,rgba(220,38,38,.11),transparent 35%),
+      radial-gradient(ellipse at 16% 78%,rgba(249,115,22,.045),transparent 32%),
+      linear-gradient(118deg,#080a0d 0%,#0b0d11 52%,#080a0d 100%)!important;
+  }
+  .about-home,
+  .services-home,
+  .protection-flow,
+  .manufacturing-section,
+  .ds-products-embed {
+    background-color:#080a0d!important;
+    background-image:
+      radial-gradient(ellipse at 14% 24%,rgba(220,38,38,.075),transparent 34%),
+      radial-gradient(ellipse at 86% 76%,rgba(249,115,22,.035),transparent 32%),
+      linear-gradient(180deg,#080a0d 0%,#090b0f 52%,#080a0d 100%)!important;
+    background-repeat:no-repeat!important;
+  }
+  /* Replace the older moving atmosphere with a single quiet, static glow. */
+  .services-home:before,
+  .protection-flow:before,
+  .manufacturing-section:before {
+    inset:0!important;
+    background:
+      radial-gradient(ellipse at 18% 30%,rgba(220,38,38,.055),transparent 38%),
+      radial-gradient(ellipse at 82% 72%,rgba(249,115,22,.025),transparent 36%)!important;
+    filter:none!important;
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+  }
+  .services-home:after,
+  .manufacturing-section:after { display:none!important;content:none!important; }
+  .protection-flow:after {
+    background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.16))!important;
+  }
+  .ds-products-embed:before,
+  .ds-products-embed:after { display:none!important;content:none!important; }
+  @media(prefers-reduced-motion:reduce) {
+    .services-home:before,.protection-flow:before,.manufacturing-section:before {
+      animation:none!important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <div id="smooth-wrapper">
