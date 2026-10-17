@@ -1005,6 +1005,56 @@
     <div id="smooth-content">
       <div id="root"></div>
 
+
+      <style id="industries-we-serve-section">
+        .industries-serve{position:relative;isolation:isolate;overflow:hidden;padding:112px clamp(22px,7vw,110px);color:#f5f6f8;background:radial-gradient(ellipse at 12% 35%,rgba(220,38,38,.14),transparent 34%),radial-gradient(ellipse at 88% 75%,rgba(249,115,22,.09),transparent 32%),#090b0f}
+        .industries-serve:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background:linear-gradient(115deg,transparent 0 49.8%,rgba(255,255,255,.045) 50%,transparent 50.2%);mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 75%,transparent)}
+        .industries-serve-inner{position:relative;z-index:1;max-width:1240px;margin:auto}
+        .industries-serve-kicker{display:flex;align-items:center;gap:11px;color:#ff777e;font:600 10px/1.4 "Poppins",sans-serif;letter-spacing:.2em;text-transform:uppercase}
+        .industries-serve-kicker:before{content:"";width:28px;height:1px;background:#e12b39}
+        .industries-serve-head{display:flex;justify-content:space-between;align-items:end;gap:34px;margin:24px 0 20px}
+        .industries-serve h2{font:560 clamp(42px,6.2vw,78px)/.99 "Google Sans Flex","Google Sans",sans-serif;letter-spacing:-.055em;max-width:760px}
+        .industries-serve h2 em{font-family:"Instrument Serif",Georgia,serif;font-weight:400;color:#f97316;letter-spacing:-.025em}
+        .industries-serve-intro{max-width:390px;color:#a7adb7;font-size:14px;line-height:1.8;padding-bottom:5px}
+        .industries-serve-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px}
+        .industry-serve-card{min-height:175px;display:flex;flex-direction:column;justify-content:space-between;padding:24px;border:1px solid rgba(255,255,255,.105);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));transition:border-color .22s,transform .22s,background .22s}
+        .industry-serve-card:hover{transform:translateY(-3px);border-color:rgba(239,68,68,.48);background:linear-gradient(145deg,rgba(225,43,57,.09),rgba(255,255,255,.015))}
+        .industry-serve-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .industry-serve-number{font:600 10px "Poppins",sans-serif;letter-spacing:.16em;color:#858b96}
+        .industry-serve-icon{font-size:20px;color:#ff6a70}
+        .industry-serve-card h3{font:600 18px/1.3 "Poppins",sans-serif;letter-spacing:-.025em;margin:26px 0 8px}
+        .industry-serve-card p{font-size:12px;line-height:1.7;color:#a5abb5;max-width:330px}
+        .industries-serve-bottom{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:30px;padding-top:23px;border-top:1px solid rgba(255,255,255,.10)}
+        .industries-serve-bottom p{max-width:650px;color:#9da4af;font-size:13px;line-height:1.7}
+        .industries-quote-link{display:inline-flex;align-items:center;justify-content:center;gap:22px;flex-shrink:0;padding:15px 18px;border:1px solid rgba(255,89,101,.4);border-radius:8px;background:linear-gradient(105deg,#bd1829,#e12b39);color:#fff;font:600 12px "Poppins",sans-serif;box-shadow:0 8px 24px rgba(190,24,41,.18);transition:transform .2s,box-shadow .2s}
+        .industries-quote-link:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(190,24,41,.28)}
+        .industries-quote-link span{font-size:20px;line-height:1}
+        @media(max-width:850px){.industries-serve{padding:82px 24px}.industries-serve-head{display:block}.industries-serve-intro{margin-top:18px}.industries-serve-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.industries-serve-bottom{align-items:flex-start;flex-direction:column}}
+        @media(max-width:520px){.industries-serve{padding:68px 17px}.industries-serve h2{font-size:clamp(40px,12vw,56px)}.industries-serve-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}.industry-serve-card{min-height:145px;padding:20px}.industry-serve-card h3{margin-top:18px}.industries-quote-link{width:100%;justify-content:space-between}}
+        @media(prefers-reduced-motion:reduce){.industry-serve-card,.industries-quote-link{transition:none}}
+      </style>
+      <section class="industries-serve" id="industries-we-serve" aria-labelledby="industries-serve-title">
+        <div class="industries-serve-inner">
+          <div class="industries-serve-kicker">DS Safety Systems / Industries</div>
+          <div class="industries-serve-head">
+            <h2 id="industries-serve-title">Protection for <em>every environment.</em></h2>
+            <p class="industries-serve-intro">Every facility has its own risks. We help businesses identify the right fire-safety equipment, installation and maintenance support for the spaces they need to protect.</p>
+          </div>
+          <div class="industries-serve-grid">
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">01 / COMMERCIAL</span><span class="industry-serve-icon" aria-hidden="true">▦</span></div><div><h3>Offices &amp; Commercial Spaces</h3><p>Fire extinguishers, alarms and practical protection for everyday workplaces.</p></div></article>
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">02 / INDUSTRIAL</span><span class="industry-serve-icon" aria-hidden="true">⌁</span></div><div><h3>Factories &amp; Workshops</h3><p>Equipment and maintenance planning for operational and production areas.</p></div></article>
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">03 / LOGISTICS</span><span class="industry-serve-icon" aria-hidden="true">▤</span></div><div><h3>Warehouses &amp; Storage</h3><p>Fire-safety solutions suited to storage layouts, stock and site requirements.</p></div></article>
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">04 / HEALTHCARE</span><span class="industry-serve-icon" aria-hidden="true">✚</span></div><div><h3>Hospitals &amp; Clinics</h3><p>Support for healthcare facilities where reliable protection matters every day.</p></div></article>
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">05 / HOSPITALITY</span><span class="industry-serve-icon" aria-hidden="true">⌂</span></div><div><h3>Hotels &amp; Restaurants</h3><p>Fire equipment and kitchen-safety enquiries for guest and service areas.</p></div></article>
+            <article class="industry-serve-card"><div class="industry-serve-card-top"><span class="industry-serve-number">06 / INSTITUTIONS</span><span class="industry-serve-icon" aria-hidden="true">▥</span></div><div><h3>Schools &amp; Residential Sites</h3><p>Equipment, servicing and AMC enquiries for shared and public-use buildings.</p></div></article>
+          </div>
+          <div class="industries-serve-bottom">
+            <p>Have a different facility or a multi-site requirement? Tell us about your building, equipment needs or maintenance plan and request a tailored quotation.</p>
+            <a class="industries-quote-link" href="contact.html#quote-form">Discuss Your Requirement <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
       <!-- Product catalog and quote form, placed after all existing site sections -->
       <section class="ds-products-embed" id="ds-products-embed" aria-label="Product catalog and request a quote">
         <iframe
