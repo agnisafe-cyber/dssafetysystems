@@ -106,18 +106,14 @@
         }
     </style>
     <style id="ds-industries-cinematic-theme">
-        html, body { background:#080a0d !important; color:#f6f4ef !important; }
-        body { margin:0; }
-        main { background:#080a0d !important; }
+        /* Let the parent page's existing section background show through this iframe. */
+        html, body, main { background:transparent !important; background-color:transparent !important; }
+        body { margin:0; color:#f6f4ef !important; }
         .industries-section {
             position:relative !important;
             isolation:isolate;
             overflow:hidden;
-            background:
-              radial-gradient(ellipse at 15% 28%,rgba(220,38,38,.15),transparent 32%),
-              radial-gradient(ellipse at 86% 72%,rgba(249,115,22,.10),transparent 34%),
-              radial-gradient(ellipse at 52% 50%,rgba(255,255,255,.025),transparent 42%),
-              #080a0d !important;
+            background:transparent !important;
             color:#f6f4ef !important;
         }
         .industries-section > div { position:relative; z-index:1; }
