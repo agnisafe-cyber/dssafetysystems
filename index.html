@@ -1022,8 +1022,9 @@
             section.style.cssText = 'width:100%;margin:0;padding:0;background:transparent;overflow:hidden;';
             const frame = document.createElement('iframe');
             frame.className = 'ds-why-safety-embed';
-            frame.src = 'dssafety.html';
+            frame.src = './dssafety.html?embed=why-ds-v2';
             frame.title = 'Why Choose DS Safety Systems';
+            frame.style.backgroundColor = '#f8f9fa';
             frame.loading = 'lazy';
             frame.setAttribute('scrolling', 'no');
             section.appendChild(frame);
