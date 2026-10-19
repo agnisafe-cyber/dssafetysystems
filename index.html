@@ -1079,6 +1079,41 @@
         })();
       </script>
 
+      <!-- Client Success Stories, placed directly after Industries We Serve -->
+      <style id="ds-client-stories-embed-style">
+        .ds-client-stories-embed-frame{display:block;width:100%;height:1050px;border:0;margin:0;padding:0;background:#080a0d;overflow:hidden}
+        @media(max-width:900px){.ds-client-stories-embed-frame{height:1450px}}
+        @media(max-width:480px){.ds-client-stories-embed-frame{height:1750px}}
+      </style>
+      <script>
+        (() => {
+          const installClientStories = () => {
+            const industries = document.getElementById('ds-industries-embed');
+            if (!industries || document.getElementById('ds-client-stories-embed')) return false;
+            const section = document.createElement('section');
+            section.id = 'ds-client-stories-embed';
+            section.style.cssText = 'width:100%;margin:0;padding:0;background:#080a0d;overflow:hidden;';
+            const frame = document.createElement('iframe');
+            frame.className = 'ds-client-stories-embed-frame';
+            frame.src = './test-html?embed=client-stories-v1';
+            frame.title = 'DS Safety Systems Client Success Stories';
+            frame.loading = 'lazy';
+            frame.setAttribute('scrolling', 'no');
+            section.appendChild(frame);
+            industries.insertAdjacentElement('afterend', section);
+            return true;
+          };
+          if (!installClientStories()) {
+            const root = document.getElementById('smooth-content') || document.body;
+            const observer = new MutationObserver(() => {
+              if (installClientStories()) observer.disconnect();
+            });
+            observer.observe(root, {childList:true,subtree:true});
+            document.addEventListener('DOMContentLoaded', installClientStories, {once:true});
+          }
+        })();
+      </script>
+
       <!-- Product catalog and quote form, placed after all existing site sections -->
       <section class="ds-products-embed" id="ds-products-embed" aria-label="Product catalog and request a quote">
         <iframe
