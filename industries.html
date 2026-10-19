@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Safety Systems | Industries We Serve</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Outfit for Cinematic Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Safety Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0b132b',
+                            slate: '#1c2541',
+                            blue: '#3a506b',
+                            accent: '#ff6b00',
+                            accentHover: '#e05d00',
+                            lightBg: '#f8f9fa',
+                            cardBg: '#ffffff',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        cinematic: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #ff6b00 0%, #ff8e3c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Completely Transparent Background */
+        .industries-section {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: transparent !important;
+        }
+
+        /* Modal Animation Keyframes & Classes */
+        #quote-modal {
+            transition: opacity 0.3s ease;
+        }
+        #quote-modal-card {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+        }
+        .modal-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-hidden #quote-modal-card {
+            transform: scale(0.85) translateY(20px);
+            opacity: 0;
+        }
+        .modal-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-visible #quote-modal-card {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        /* Smooth, Professional Card Hover & Slide Animation */
+        .sector-card {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+        }
+        .sector-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b00;
+            box-shadow: 0 10px 25px -5px rgba(255, 107, 0, 0.12), 0 8px 10px -6px rgba(255, 107, 0, 0.08);
+        }
+
+        /* Subtle smooth scale-fade transition for detail panel */
+        @keyframes panelFade {
+            from {
+                opacity: 0;
+                transform: scale(0.98) translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .animate-panel {
+            animation: panelFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
+
+    <main class="flex-grow">
+        <!-- ========================================== -->
+        <!-- DEDICATED SECTORS & SOLUTIONS SECTION      -->
+        <!-- ========================================== -->
+        <section class="py-16 industries-section bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Cinematic Heading & Exact 2-Line Description -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent font-bold text-xs tracking-[0.2em] uppercase mb-4 border border-brand-accent/20 shadow-sm backdrop-blur-sm">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>TURNKEY PROTECTION ARCHITECTURE</span>
+                    </span>
+                    <h1 class="font-cinematic text-4xl sm:text-6xl font-extrabold tracking-tight text-brand-navy mb-4 leading-tight">
+                        Industries We Serve
+                    </h1>
+                    <p class="font-sans text-gray-600 text-sm sm:text-base leading-relaxed font-medium">
+                        Delivering rigorous BIS-certified fire safety installations and rapid-response infrastructure.<br>
+                        Engineered to protect critical high-occupancy commercial and industrial facilities with zero downtime.
+                    </p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-t border-gray-200/60 pt-8">
+                    <div>
+                        <span class="text-xs font-extrabold text-orange-600 uppercase tracking-widest block mb-1">Sector Architecture</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-brand-navy">Select An Sector / Industry</h2>
+                        <p class="text-sm text-gray-600">Filter turnkey safety solutions by facility type</p>
+                    </div>
+                    <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 hide-scrollbar" id="industryFilters">
+                        <!-- Dynamic filter buttons generated in JS -->
+                    </div>
+                </div>
+
+                <!-- Dynamic Grid & Interactive Detail View -->
+                <div class="grid lg:grid-cols-12 gap-8">
+                    <!-- Left: Industry Cards Grid -->
+                    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5" id="industryCardsGrid">
+                        <!-- Cards injected via JS -->
+                    </div>
+
+                    <!-- Right: Sticky Detailed Spec Drawer/Panel -->
+                    <div class="lg:col-span-5">
+                        <div class="sticky top-6 rounded-2xl shadow-sm border border-gray-200 overflow-hidden bg-white/95 backdrop-blur-sm animate-panel" id="industryDetailPanel">
+                            <!-- Injected JS Panel -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- ANIMATED POPUP MODAL CARD FOR ENQUIRY      -->
+    <!-- ========================================== -->
+    <div id="quote-modal" onclick="if(event.target===this) closeQuoteModal()" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md modal-hidden">
+        <div id="quote-modal-card" class="bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 max-w-xl w-full text-slate-800 shadow-2xl relative">
+            
+            <!-- Close Button -->
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-gray-400 hover:text-slate-700 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Card Header -->
+            <div class="mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-orange-600 block mb-1">INSTANT REQUEST</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Send an Enquiry or Service Request</h2>
+                <p class="text-gray-500 text-xs sm:text-sm mt-1">Select your service need to route your enquiry directly to the right technician.</p>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">SERVICE TYPE <span class="text-orange-600">*</span></label>
+                    <select required class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-orange-500 focus:bg-white transition-all appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234B5563%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.65rem;">
+                        <option value="Annual Maintenance Contract (AMC)" selected>Annual Maintenance Contract (AMC)</option>
+                        <option value="Turnkey Fire Safety Installation">Turnkey Fire Safety Installation</option>
+                        <option value="Fire Extinguisher Refilling & Inspection">Fire Extinguisher Refilling & Inspection</option>
+                        <option value="Fire Safety Audit & NOC Certification">Fire Safety Audit & NOC Certification</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">FULL NAME <span class="text-orange-600">*</span></label>
+                        <input type="text" id="modal-name" required class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:bg-white transition-all" placeholder="e.g. David Smith">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">PHONE NUMBER <span class="text-orange-600">*</span></label>
+                        <input type="tel" id="modal-contact" required class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:bg-white transition-all" placeholder="e.g. +1 555-0192">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">COMPANY / FACILITY NAME</label>
+                        <input type="text" class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:bg-white transition-all" placeholder="e.g. Apex Industrial Works">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">INDUSTRY / FACILITY TYPE</label>
+                        <select id="quote-industry-select" class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-orange-500 focus:bg-white transition-all appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234B5563%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.65rem;">
+                            <option value="Offices & IT Parks">Offices & IT Parks</option>
+                            <option value="Factories & Manufacturing">Factories & Manufacturing</option>
+                            <option value="Warehouses & Logistics">Warehouses & Logistics</option>
+                            <option value="Hospitals & Healthcare">Hospitals & Healthcare</option>
+                            <option value="Hotels & Hospitality">Hotels & Hospitality</option>
+                            <option value="Commercial Buildings & Malls">Commercial Buildings & Malls</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">PROJECT DETAILS OR REQUIREMENTS</label>
+                    <textarea rows="3" class="w-full bg-slate-50 border border-gray-200 rounded-2xl px-4 py-3 text-sm text-slate-800 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:bg-white transition-all" placeholder="Describe the approximate area size (sq. ft.), existing equipment, or specific concerns..."></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-extrabold py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all text-base sm:text-lg flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-paper-plane text-base"></i>
+                        <span>Submit Request & Get Quote</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DATA & INTERACTION LOGIC -->
+    <script>
+        const industriesData = [
+            {
+                id: 'offices',
+                title: 'Offices & IT Parks',
+                icon: 'fa-building',
+                image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'Early-stage smoke detection and clean-agent server room protection for high-occupancy corporate facilities.',
+                solutions: ['Addressable Fire Alarms', 'Server Room Gas Suppression', 'Biometric Access Control', 'Emergency Voice Evacuation'],
+                compliance: 'NFPA 72 & Local Commercial Codes'
+            },
+            {
+                id: 'factories',
+                title: 'Factories & Manufacturing',
+                icon: 'fa-industry',
+                image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'Heavy-duty industrial fire hydrants, flame detectors, and chemical hazard control built for harsh environments.',
+                solutions: ['High-Pressure Fire Hydrants', 'Flame & Gas Leak Detectors', 'Deluge Foam Suppression', 'Industrial CCTV Cameras'],
+                compliance: 'Industrial Safety Standards & Factory Act'
+            },
+            {
+                id: 'warehouses',
+                title: 'Warehouses & Logistics',
+                icon: 'fa-warehouse',
+                image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'In-rack sprinkler networks and beam smoke detectors designed for high-bay storage facilities.',
+                solutions: ['ESFR In-Rack Sprinklers', 'Optical Beam Smoke Detectors', 'Perimeter CCTV Surveillance', 'Yard Fire Lines'],
+                compliance: 'High-Piled Storage Fire Regulations'
+            },
+            {
+                id: 'hospitals',
+                title: 'Hospitals & Healthcare',
+                icon: 'fa-hospital',
+                image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'Silent alarm signaling, oxygen line safe suppression, and non-disruptive panic alert networks.',
+                solutions: ['Zoned Fire Alarm Panel', 'Clean Agent Gas Suppression', 'Hospital Access Control', 'Nurse Call Systems'],
+                compliance: 'Healthcare Accreditation Safety Standards'
+            },
+            {
+                id: 'hotels',
+                title: 'Hotels & Hospitality',
+                icon: 'fa-hotel',
+                image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'Aesthetic sprinkler heads, kitchen hood suppression systems, and centralized surveillance.',
+                solutions: ['Kitchen Wet Chemical Systems', 'Concealed Sprinkler Heads', 'Public Address Integration', 'Keycard Access Control'],
+                compliance: 'Hospitality Fire NOC Requirements'
+            },
+            {
+                id: 'commercial',
+                title: 'Commercial Buildings & Malls',
+                icon: 'fa-store',
+                image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+                shortDesc: 'Integrated building management safety loops for heavy foot-traffic retail centers and multi-story towers.',
+                solutions: ['Multi-zone Sprinkler Risers', 'Crowd Management CCTV', 'Smoke Extract Ventilation', 'Stairwell Pressurization'],
+                compliance: 'High-Rise Fire Safety Ordinance'
+            }
+        ];
+
+        let selectedIndustryId = 'offices';
+
+        window.onload = function() {
+            renderIndustryFilters();
+            renderIndustryCards();
+            renderIndustryDetail(selectedIndustryId);
+        };
+
+        function renderIndustryFilters() {
+            const container = document.getElementById('industryFilters');
+            let html = `<button onclick="filterIndustryCards('all')" class="ind-filter-btn active-filter px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-navy text-white whitespace-nowrap shadow-sm" data-ind="all">All Sectors</button>`;
+            
+            industriesData.forEach(item => {
+                html += `<button onclick="filterIndustryCards('${item.id}')" class="ind-filter-btn px-4 py-2 rounded-xl text-xs font-bold text-gray-700 bg-white/80 border border-gray-200 hover:bg-white transition-all whitespace-nowrap shadow-sm" data-ind="${item.id}">${item.title}</button>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function filterIndustryCards(indId) {
+            document.querySelectorAll('.ind-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-ind') === indId) {
+                    btn.classList.add('bg-brand-navy', 'text-white');
+                    btn.classList.remove('text-gray-700', 'bg-white/80');
+                } else {
+                    btn.classList.remove('bg-brand-navy', 'text-white');
+                    btn.classList.add('text-gray-700', 'bg-white/80');
+                }
+            });
+
+            if (indId !== 'all') {
+                renderIndustryDetail(indId);
+            }
+            renderIndustryCards(indId);
+        }
+
+        function renderIndustryCards(filter = 'all') {
+            const container = document.getElementById('industryCardsGrid');
+            const itemsToDisplay = filter === 'all' 
+                ? industriesData 
+                : industriesData.filter(i => i.id === filter);
+
+            let html = '';
+            itemsToDisplay.forEach((item) => {
+                const isSelected = item.id === selectedIndustryId;
+                html += `
+                    <div onclick="selectIndustry('${item.id}')" class="sector-card rounded-2xl p-5 border ${isSelected ? 'border-brand-accent ring-2 ring-brand-accent/20 bg-white' : 'border-gray-200 bg-white/95'} backdrop-blur-sm cursor-pointer shadow-sm flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-accent flex items-center justify-center text-lg font-bold group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid ${item.icon}"></i>
+                                </div>
+                                <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded bg-gray-100 text-gray-600">Tailored Plan</span>
+                            </div>
+                            <h3 class="font-bold text-brand-navy text-lg mb-1 group-hover:text-brand-accent transition-colors">${item.title}</h3>
+                            <p class="text-xs text-gray-500 line-clamp-2 mb-4">${item.shortDesc}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-brand-accent">
+                            <span>View Safety Setup</span>
+                            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function selectIndustry(id) {
+            selectedIndustryId = id;
+            renderIndustryCards();
+            renderIndustryDetail(id);
+        }
+
+        function renderIndustryDetail(id) {
+            const data = industriesData.find(i => i.id === id) || industriesData[0];
+            const panel = document.getElementById('industryDetailPanel');
+
+            panel.classList.remove('animate-panel');
+            void panel.offsetWidth; // reset animation trigger
+            panel.classList.add('animate-panel');
+
+            let solutionsList = data.solutions.map(s => 
+                `<li class="flex items-center text-xs text-gray-700 font-medium"><i class="fa-solid fa-circle-check text-emerald-500 mr-2 text-sm"></i>${s}</li>`
+            ).join('');
+
+            panel.innerHTML = `
+                <div class="relative h-48 overflow-hidden">
+                    <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-accent bg-black/40 px-2 py-1 rounded backdrop-blur">Industry Profile</span>
+                        <h3 class="text-xl font-bold mt-1">${data.title}</h3>
+                    </div>
+                </div>
+
+                <div class="p-6 space-y-5">
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Primary Hazard Protection</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">${data.shortDesc}</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Recommended Safety Architecture</h4>
+                        <ul class="grid grid-cols-1 gap-2">
+                            ${solutionsList}
+                        </ul>
+                    </div>
+
+                    <div class="border border-orange-200 rounded-xl p-3 bg-orange-50/50">
+                        <div class="text-[11px] font-bold text-brand-navy uppercase"><i class="fa-solid fa-shield-cat text-brand-accent mr-1"></i> Compliance Standard</div>
+                        <div class="text-xs text-gray-700 mt-0.5">${data.compliance}</div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button onclick="openQuoteModal('${data.title}')" class="w-full bg-brand-accent hover:bg-brand-accentHover text-white py-3.5 px-6 rounded-xl font-extrabold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-file-invoice-dollar mr-1"></i>
+                            <span>Request Setup Quote</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openQuoteModal(industryTitle) {
+            const select = document.getElementById('quote-industry-select');
+            if(select && industryTitle) {
+                for(let option of select.options) {
+                    if(option.value === industryTitle) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            
+            const modal = document.getElementById('quote-modal');
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+        }
+
+        function closeQuoteModal() {
+            const modal = document.getElementById('quote-modal');
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+        }
+
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+            alert('Thank you! Your request has been successfully submitted. Our technical team will get back to you shortly.');
+            closeQuoteModal();
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
