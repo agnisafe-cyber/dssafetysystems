@@ -63,14 +63,39 @@
             opacity: 1;
         }
     </style>
+
+    <style id="ds-shared-section-background">
+        /* Let the main site's shared charcoal background show through this embedded section. */
+        html, body, main { background: transparent !important; background-color: transparent !important; }
+        body { color: #f6f4ef; }
+        .success-stories-section { background: transparent !important; color: #f6f4ef; }
+        .success-stories-section h1,
+        .success-stories-section h3 { color: #f6f4ef !important; }
+        .success-stories-section .text-gray-600,
+        .success-stories-section .text-gray-500,
+        .success-stories-section .text-slate-700 { color: #aeb4c0 !important; }
+        .success-stories-section .bg-orange-100 {
+            background: rgba(255,107,53,.10) !important;
+            color: #ff8a45 !important;
+            border: 1px solid rgba(255,107,53,.18);
+        }
+        .success-stories-section .grid.md\\:grid-cols-3 > div {
+            background: linear-gradient(145deg,rgba(24,27,33,.92),rgba(12,14,18,.96)) !important;
+            border-color: rgba(255,255,255,.10) !important;
+            box-shadow: 0 16px 42px rgba(0,0,0,.22) !important;
+        }
+        .success-stories-section .border-gray-100 { border-color: rgba(255,255,255,.12) !important; }
+        .success-stories-section .text-brand-navy { color: #f6f4ef !important; }
+    </style>
+
 </head>
-<body class="font-sans text-slate-800 flex flex-col min-h-screen bg-slate-50">
+<body class="font-sans text-slate-200 flex flex-col min-h-screen bg-transparent">
 
     <main class="flex-grow">
         <!-- ========================================== -->
         <!-- CLIENT SUCCESS STORIES SECTION             -->
         <!-- ========================================== -->
-        <section class="py-20 bg-transparent">
+        <section class="py-20 bg-transparent success-stories-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-4xl mx-auto mb-16">
