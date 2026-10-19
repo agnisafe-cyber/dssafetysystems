@@ -105,6 +105,39 @@
             animation: panelFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
+    <style id="ds-industries-cinematic-theme">
+        html, body { background:#080a0d !important; color:#f6f4ef !important; }
+        body { margin:0; }
+        main { background:#080a0d !important; }
+        .industries-section {
+            background:
+              radial-gradient(ellipse at 15% 28%,rgba(220,38,38,.15),transparent 32%),
+              radial-gradient(ellipse at 86% 72%,rgba(249,115,22,.10),transparent 34%),
+              radial-gradient(ellipse at 52% 50%,rgba(255,255,255,.025),transparent 42%),
+              #080a0d !important;
+            color:#f6f4ef !important;
+        }
+        .industries-section h1,.industries-section h2 { color:#f6f4ef !important; }
+        .industries-section p { color:#b8bcc3 !important; }
+        .industries-section .border-gray-200,
+        .industries-section .border-gray-200\/60 { border-color:rgba(255,255,255,.12) !important; }
+        .industries-section #industryDetailPanel {
+            background:linear-gradient(145deg,rgba(24,27,33,.94),rgba(12,14,18,.98)) !important;
+            border-color:rgba(255,255,255,.12) !important;
+            box-shadow:0 16px 42px rgba(0,0,0,.24) !important;
+        }
+        .industries-section .sector-card {
+            background:linear-gradient(145deg,rgba(24,27,33,.92),rgba(12,14,18,.96)) !important;
+            border-color:rgba(255,255,255,.11) !important;
+            color:#f6f4ef !important;
+        }
+        .industries-section .sector-card h3,
+        .industries-section .sector-card h4 { color:#f6f4ef !important; }
+        .industries-section .sector-card p { color:#aeb3bc !important; }
+        @media(max-width:1023px){.industries-section{padding-top:2rem!important;padding-bottom:2rem!important}}
+        @media(max-width:480px){.industries-section{padding-top:1.5rem!important;padding-bottom:1.5rem!important}}
+        @media(prefers-reduced-motion:reduce){.sector-card{transition:none!important;animation:none!important}}
+    </style>
 </head>
 <body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
 
