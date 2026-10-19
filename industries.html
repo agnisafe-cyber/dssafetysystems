@@ -106,17 +106,45 @@
         }
     </style>
     <style id="ds-industries-cinematic-theme">
-        /* Let the parent page's existing section background show through this iframe. */
+        /* Match the exact cinematic background treatment used by How Protection Works. */
         html, body, main { background:transparent !important; background-color:transparent !important; }
         body { margin:0; color:#f6f4ef !important; }
         .industries-section {
             position:relative !important;
             isolation:isolate;
             overflow:hidden;
-            background:transparent !important;
+            background:#080a0d !important;
             color:#f6f4ef !important;
         }
-        .industries-section > div { position:relative; z-index:1; }
+        .industries-section::before {
+            content:"";
+            position:absolute;
+            inset:-25%;
+            z-index:0;
+            pointer-events:none;
+            background:
+                radial-gradient(ellipse at 18% 38%,rgba(220,38,38,.17),transparent 25%),
+                radial-gradient(ellipse at 84% 65%,rgba(249,115,22,.10),transparent 25%),
+                radial-gradient(ellipse at 50% 50%,rgba(255,255,255,.025),transparent 36%);
+            filter:blur(70px);
+            animation:industriesAtmosphere 18s ease-in-out infinite alternate;
+        }
+        .industries-section::after {
+            content:"";
+            position:absolute;
+            inset:0;
+            z-index:0;
+            pointer-events:none;
+            background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.48) 100%);
+        }
+        .industries-section > div { position:relative; z-index:2; }
+        @keyframes industriesAtmosphere {
+            0% { transform:translate3d(-3%,2%,0) scale(.95); }
+            100% { transform:translate3d(4%,-3%,0) scale(1.08); }
+        }
+        @media(prefers-reduced-motion:reduce) {
+            .industries-section::before { animation:none !important; }
+        }
         .industries-section h1,.industries-section h2 { color:#f6f4ef !important; }
         .industries-section p { color:#b8bcc3 !important; }
         .industries-section .border-gray-200,
