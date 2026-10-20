@@ -1596,19 +1596,21 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               )
             )
           ),
-          /* 05 — SERVICES */
-          React.createElement("section",{className:"section services-home",id:"services"},
-            React.createElement("div",{className:"services-hero-copy"},
-              React.createElement("h2",null,"Our Complete Range of ",React.createElement("span",null,"Safety Services")),
-              React.createElement("p",null,"Protection doesn't stop at the product. We design, install, inspect and maintain the systems that keep your premises ready.")
-            ),
-            React.createElement("div",{className:"services-list"},
-              [["01","Fire Safety Installation","End-to-end installation for extinguishers, alarms, hydrants, sprinklers and fire pumps.","INSTALL"],["02","Inspection & Testing","Detailed inspection and testing to identify issues before they become protection gaps.","INSPECT"],["03","Annual Maintenance","Scheduled AMC support that keeps critical fire-safety equipment maintained and ready.","MAINTAIN"],["04","Safety Consultation","Site-focused guidance for selecting, upgrading and planning practical fire protection.","ADVISE"]].map(([n,t,p,k])=>React.createElement("article",{className:"service-row",key:n},
-                React.createElement("div",{className:"service-row-num"},n),
-                React.createElement("div",{className:"service-row-main"},React.createElement("div",{className:"service-kicker"},k),React.createElement("h3",null,t),React.createElement("p",null,p)),
-                React.createElement("div",{className:"service-row-arrow"},"↗")
-              ))
-            )
+          /* 05 — FULL SERVICES PAGE (after About) */
+          React.createElement("section",{id:"services",className:"service-page-embed",style:{width:"100%",margin:"0",padding:"0",overflow:"hidden",background:"transparent"}},
+            React.createElement("iframe",{
+              src:"service.html",
+              title:"DS Safety Systems — Complete Services",
+              loading:"lazy",
+              style:{display:"block",width:"100%",height:"2800px",border:"0",overflow:"hidden"},
+              onLoad:(e)=>{
+                const frame=e.currentTarget;
+                try{
+                  const doc=frame.contentDocument;
+                  frame.style.height=Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight)+"px";
+                }catch(err){}
+              }
+            })
           ),
 
           /* 06 — HOW PROTECTION WORKS */
