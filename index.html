@@ -1167,6 +1167,38 @@
           });
         })();
       </script>
+
+      <!-- Get a Quote page, placed at the very bottom after the product catalog -->
+      <section id="get-quote-embed" aria-label="Get a Quote" style="width:100%;margin:0;padding:0;overflow:hidden;background:transparent">
+        <iframe
+          id="get-quote-embed-frame"
+          src="get-quote.html"
+          title="DS Safety Systems — Get a Quote"
+          loading="eager"
+          scrolling="no"
+          style="display:block;width:100%;height:1800px;border:0;overflow:hidden;background:transparent"
+        ></iframe>
+      </section>
+      <script>
+        (() => {
+          const frame = document.getElementById("get-quote-embed-frame");
+          if (!frame) return;
+          const fitQuoteFrame = () => {
+            try {
+              const doc = frame.contentDocument;
+              if (!doc) return;
+              const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+              if (height > 0) frame.style.height = height + "px";
+            } catch (error) {}
+          };
+          frame.addEventListener("load", () => {
+            fitQuoteFrame();
+            window.setTimeout(fitQuoteFrame, 250);
+            window.setTimeout(fitQuoteFrame, 900);
+          });
+          window.addEventListener("resize", fitQuoteFrame);
+        })();
+      </script>
     </div>
   </div>
 
