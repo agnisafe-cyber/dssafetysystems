@@ -1015,7 +1015,7 @@
       <script>
         (() => {
           const installWhySection = () => {
-            const services = document.querySelector('#root .services-home, .services-home');
+            const services = document.querySelector('#root .service-page-embed, .service-page-embed, #root .services-home, .services-home');
             if (!services || document.getElementById('ds-why-safety-embed')) return false;
             const section = document.createElement('section');
             section.id = 'ds-why-safety-embed';
@@ -1027,6 +1027,7 @@
             frame.style.backgroundColor = '#f8f9fa';
             frame.loading = 'lazy';
             frame.setAttribute('scrolling', 'no');
+            frame.onload = () => { try { frame.style.height = Math.max(frame.contentDocument.body.scrollHeight, frame.contentDocument.documentElement.scrollHeight) + 'px'; } catch (e) {} };
             section.appendChild(frame);
             services.insertAdjacentElement('afterend', section);
             return true;
@@ -1064,6 +1065,7 @@
             frame.title = 'Industries We Serve';
             frame.loading = 'lazy';
             frame.setAttribute('scrolling', 'no');
+            frame.onload = () => { try { frame.style.height = Math.max(frame.contentDocument.body.scrollHeight, frame.contentDocument.documentElement.scrollHeight) + 'px'; } catch (e) {} };
             section.appendChild(frame);
             why.insertAdjacentElement('afterend', section);
             return true;
