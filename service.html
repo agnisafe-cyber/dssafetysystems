@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Safety Systems - Full Service Suite</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#DC2626',
+                        brandRedDark: '#991B1B',
+                        brandSlate: '#0F172A',
+                        brandGray: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .light-cinematic-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-transparent text-slate-800 font-sans antialiased selection:bg-brandRed selection:text-white">
+
+    <!-- Comprehensive Services Section -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
+        
+        <!-- Elegant Cinematic Light Header Container -->
+        <div class="relative bg-white rounded-3xl p-8 sm:p-14 lg:p-18 overflow-hidden shadow-xl mb-16 border border-slate-200/80 light-cinematic-glow">
+            
+            <!-- Subtle Decorative Ambient Light -->
+            <div class="absolute top-0 right-0 w-80 h-80 bg-red-100/60 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-100 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+                
+                <!-- Styled Tag Pill -->
+                <div>
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-brandRed text-xs font-bold uppercase tracking-widest shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brandRed animate-pulse"></span>
+                        Our Full Service Suite
+                    </span>
+                </div>
+
+                <!-- Main Heading (One Line) -->
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight whitespace-nowrap">
+                    Comprehensive Fire Safety Services
+                </h2>
+
+                <!-- Professional Subheading -->
+                <p class="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-light">
+                    Protecting your enterprise with high-grade equipment, expert installations, and round-the-clock maintenance. We design, install, inspect, and maintain the systems that keep your premises ready.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Category Filter Controls -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="filter-container">
+            <button onclick="filterServices('all', event)" class="filter-btn active px-6 py-3 rounded-full text-sm font-semibold transition-all bg-brandRed text-white shadow-md shadow-brandRed/20 hover:scale-105">All Services</button>
+            <button onclick="filterServices('refilling', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Extinguishers & Refill</button>
+            <button onclick="filterServices('installation', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Installations</button>
+            <button onclick="filterServices('compliance', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">AMC & Audits</button>
+            <button onclick="filterServices('training', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Training & Drills</button>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+            
+            <!-- Service 1 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="refilling">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Extinguisher Supply & Refilling</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Complete supply of ABC Powder, CO2, Foam, and Clean Agent extinguishers. Includes hydro-testing, pressure checks, refilling with high-grade agent, and guarantee seals.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Hydrostatic pressure testing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Free pickup in Delhi NCR</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Standby cylinders during refill</li>
+                    </ul>
+                </div>
+                <a href="calculator.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Calculate Refill Cost</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="installation">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-faucet-drip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Fire Hydrant & Sprinkler Systems</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Turnkey installation of wet and dry fire hydrant systems, automated sprinkler networks, fire pumps, hose reels, and heavy-duty water storage integration.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Custom piping layout design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Automated jockey & main pump setup</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Heavy-duty landing valves & nozzles</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Request Installation Survey</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="installation">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Smoke Detectors & Alarm Setup</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Advanced addressable and conventional smoke detector networks, heat sensors, manual call points, and central monitoring control panels.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Early optical & photoelectric sensing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Integrated hooters & strobes</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Battery backup & alert panel wiring</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Inquire Smoke Alarm Setup</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="compliance">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Annual Maintenance Contracts (AMC)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Hassle-free quarterly & monthly routine inspections, preventive repairs, emergency breakdown assistance, and formal fire compliance readiness logs.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Scheduled quarterly maintenance visits</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Priority 24/7 emergency response</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Maintenance logs & certificate</li>
+                    </ul>
+                </div>
+                <a href="calculator.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Get AMC Quote</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="compliance">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Safety Audits & Risk Assessment</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        In-depth auditing according to National Building Code (NBC) & NFPA standards. Detailed vulnerability reporting and actionable hazard reduction blueprints.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Fire hazard & risk analysis</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Official NOC assistance</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Emergency exit route mapping</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Book Audit Team</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="training">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Staff Training & Evacuation Drills</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Interactive practical training sessions for staff and security personnel. Live fire extinguisher operation workshops and structured mock evacuation drills.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Hands-on live fire handling</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Evacuation drill management</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Employee safety certificates</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Schedule Drill</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Filter JavaScript -->
+    <script>
+        function filterServices(category, event) {
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brandRed', 'text-white', 'shadow-md', 'shadow-brandRed/20');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            event.currentTarget.classList.add('bg-brandRed', 'text-white', 'shadow-md', 'shadow-brandRed/20');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
