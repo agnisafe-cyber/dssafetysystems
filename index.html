@@ -1099,8 +1099,15 @@
             frame.className = 'ds-client-stories-embed-frame';
             frame.src = './test-html.html?embed=client-stories-v2';
             frame.title = 'DS Safety Systems Client Success Stories';
-            frame.loading = 'lazy';
+            frame.loading = 'eager';
             frame.setAttribute('scrolling', 'no');
+            frame.onload = () => {
+              try {
+                const doc = frame.contentDocument;
+                const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+                if (height > 0) frame.style.height = height + 'px';
+              } catch (e) {}
+            };
             section.appendChild(frame);
             industries.insertAdjacentElement('afterend', section);
             return true;
