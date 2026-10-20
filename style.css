@@ -1860,3 +1860,6 @@ body{
   .nav::before{animation:none;background-position:50% 50%;opacity:.65}
 }
 
+
+/* Remove only the existing homepage Services section */
+.services-home{display:none!important}
