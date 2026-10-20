@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Free System Quote or Site Audit - DS Safety Systems</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fire: {
+              50: '#fff5f2',
+              100: '#ffe6de',
+              500: '#ff4500',
+              600: '#ea3800',
+              700: '#c62800',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          keyframes: {
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
+            }
+          },
+          animation: {
+            shimmer: 'shimmer 2.5s infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-transparent text-gray-800 min-h-screen flex flex-col antialiased">
+
+  <!-- HERO SECTION WITH SHIMMER EFFECT ONLY AT GET A QUOTE BOX -->
+  <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="bg-white/95 backdrop-blur-sm text-gray-900 rounded-3xl p-8 sm:p-12 shadow-lg relative overflow-hidden text-center border border-fire-100 ring-1 ring-fire-500/10">
+      <!-- Continuous Shimmer Effect Layer -->
+      <div class="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-fire-500/10 to-transparent pointer-events-none"></div>
+
+      <!-- Ambient Red Glows -->
+      <div class="absolute -top-16 -left-16 w-48 h-48 bg-fire-500/15 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-fire-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fire-50 border border-fire-200 text-fire-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+          <i class="fa-solid fa-shield-halved"></i> Govt. Approved & Certified Fire Engineers
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
+          Get a Free System Quote or Site Audit
+        </h1>
+        <p class="mt-4 text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
+          Have a question about AMC contracts, fire NOC compliance, or new installations? Fill out our simple form or reach out directly to our engineering desk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER: SIDEBAR + FORM -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: HQ DETAILS & EMBEDDED MAP (5 COLS) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Headquarters & Operating Hours Box -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-7 shadow-sm border border-gray-200/80 space-y-6">
+          <h2 class="text-lg font-bold text-gray-900 pb-3 border-b border-gray-100 flex items-center gap-2">
+            <i class="fa-solid fa-building-user text-fire-600"></i> Headquarters & Operating Hours
+          </h2>
+
+          <div class="space-y-5 text-xs text-gray-600">
+            
+            <!-- Address -->
+            <div class="flex items-start space-x-3.5">
+              <div class="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center text-sm shrink-0 mt-0.5">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 font-semibold block text-sm">Corporate & Field Operations:</strong>
+                <p class="mt-0.5 leading-relaxed">DS Safety Systems, Govind Puri, New Delhi - 110019</p>
+              </div>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="flex items-start space-x-3.5">
+              <div class="w-8 h-8 rounded-lg bg-gray-50 text-gray-700 flex items-center justify-center text-sm shrink-0 mt-0.5">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 font-semibold block text-sm">Working Hours:</strong>
+                <p class="mt-0.5">Monday – Saturday: 8:00 AM – 7:00 PM</p>
+              </div>
+            </div>
+
+            <!-- Email Inquiries -->
+            <div class="flex items-start space-x-3.5">
+              <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-sm shrink-0 mt-0.5">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 font-semibold block text-sm">Official Inquiries:</strong>
+                <a href="mailto:Dssafetysystems@hotmail.com" class="text-fire-600 font-semibold hover:underline block mt-0.5">Dssafetysystems@hotmail.com</a>
+                <p class="text-[11px] text-gray-400 mt-0.5">Estimates sent within 2 hours during business hours.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Central Hub Badge Box (DS Safety Box) -->
+          <div class="bg-white/95 backdrop-blur-sm text-gray-900 rounded-2xl p-6 text-center border border-fire-100 ring-1 ring-fire-500/10 shadow-lg relative overflow-hidden">
+            <!-- Ambient Red Glows in Both Corners -->
+            <div class="absolute -top-12 -left-12 w-32 h-32 bg-fire-500/15 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-fire-500/15 rounded-full blur-xl pointer-events-none"></div>
+
+            <!-- Top Left Phone Number Pin -->
+            <a href="tel:9818701683" class="absolute top-3 left-3 text-[11px] font-bold text-fire-600 hover:underline flex items-center gap-1 z-20 bg-fire-50/80 px-2 py-0.5 rounded-md border border-fire-200">
+              <i class="fa-solid fa-phone text-[10px]"></i> 9818701683
+            </a>
+
+            <!-- Top Right Email Pin -->
+            <a href="mailto:Dssafetysystems@hotmail.com" class="absolute top-3 right-3 text-[11px] font-medium text-gray-700 hover:underline flex items-center gap-1 z-20 bg-gray-50/80 px-2 py-0.5 rounded-md border border-gray-200">
+              <i class="fa-solid fa-envelope text-[10px] text-fire-600"></i> Dssafetysystems@hotmail.com
+            </a>
+
+            <!-- Center Corporate Logo -->
+            <div class="w-20 h-20 mx-auto mb-3 mt-6 flex items-center justify-center relative z-10">
+              <img src="DSF_logo_small.png" alt="DSF Fire Safety Device Logo" class="max-h-full max-w-full object-contain">
+            </div>
+
+            <!-- Company Name Header -->
+            <strong class="text-sm tracking-wide font-extrabold uppercase text-gray-900 block mb-1 relative z-10">DS SAFETY SYSTEMS</strong>
+
+            <!-- Address Tag -->
+            <div class="text-xs font-semibold text-gray-800 mb-2 relative z-10 flex items-center justify-center gap-1">
+              <i class="fa-solid fa-location-dot text-orange-500 text-xs"></i> Govind Puri, New Delhi - 110019
+            </div>
+
+            <!-- Corporate Mission Statement -->
+            <p class="text-xs text-gray-600 font-medium leading-tight max-w-xs mx-auto relative z-10">
+              Safeguarding commercial hubs and industrial zones<br>across NCR with certified safety standards.
+            </p>
+          </div>
+
+          <!-- Embedded Google Map Box -->
+          <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-inner relative h-48 w-full">
+            <iframe 
+              title="DS Safety Systems Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14019.981881518388!2d77.2515!3d28.5355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c1626353d9%3A0x63353b3924f3c7e4!2sGovindpuri%2C%20New%20Delhi%2C%20Delhi%20110019!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: MAIN QUOTE FORM (7 COLS) -->
+      <div class="lg:col-span-7 bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-200/80 p-6 sm:p-8 shadow-sm">
+        
+        <div class="mb-6">
+          <span class="text-[11px] font-bold text-fire-600 uppercase tracking-widest block">INSTANT REQUEST</span>
+          <h2 class="text-2xl font-extrabold text-gray-900 mt-1">Get a Free System Quote or Site Audit</h2>
+          <p class="text-xs text-gray-500 mt-1">Select your service need to route your enquiry directly to the right technician.</p>
+        </div>
+
+        <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-5">
+          
+          <!-- SERVICE TYPE SELECTION -->
+          <div>
+            <label for="serviceType" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
+              SERVICE TYPE <span class="text-fire-600">*</span>
+            </label>
+            <div class="relative">
+              <select id="serviceType" required class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm font-medium focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all appearance-none cursor-pointer">
+                <option value="amc">Annual Maintenance Contract (AMC)</option>
+                <option value="noc">Fire NOC & Govt. Compliance Renewal</option>
+                <option value="refill">Fire Extinguisher Refilling & Supply</option>
+                <option value="hydrant">Fire Hydrant System Installation</option>
+                <option value="alarm">Fire Alarm & Detection System</option>
+                <option value="audit">Complete Safety Audit & Risk Assessment</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- FULL NAME & PHONE NUMBER -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="fullName" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                FULL NAME <span class="text-fire-600">*</span>
+              </label>
+              <input type="text" id="fullName" required placeholder="e.g. David Smith" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all">
+            </div>
+
+            <div>
+              <label for="phoneNumber" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                PHONE NUMBER <span class="text-fire-600">*</span>
+              </label>
+              <input type="tel" id="phoneNumber" required placeholder="e.g. +91 98765-43210" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all">
+            </div>
+          </div>
+
+          <!-- COMPANY NAME & INDUSTRY TYPE -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="companyName" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                COMPANY / FACILITY NAME
+              </label>
+              <input type="text" id="companyName" placeholder="e.g. Apex Industrial Works" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all">
+            </div>
+
+            <div>
+              <label for="industryType" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+                INDUSTRY / FACILITY TYPE
+              </label>
+              <div class="relative">
+                <select id="industryType" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all appearance-none cursor-pointer">
+                  <option value="office">Commercial Office</option>
+                  <option value="factory">Manufacturing / Factory</option>
+                  <option value="residential">Residential High-Rise / Society</option>
+                  <option value="hospital">Hospital / Healthcare</option>
+                  <option value="education">Educational Institute / School</option>
+                  <option value="warehouse">Warehouse & Logistics</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DETAILS / REQUIREMENTS TEXTAREA -->
+          <div>
+            <label for="projectDetails" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+              PROJECT DETAILS OR REQUIREMENTS
+            </label>
+            <textarea id="projectDetails" rows="4" placeholder="Describe the approximate area size (sq. ft.), existing equipment, or specific concerns..." class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-gray-50/50 text-gray-900 text-sm focus:ring-2 focus:ring-fire-500 focus:border-fire-500 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+
+          <!-- SUBMIT BUTTON -->
+          <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-fire-600 text-white font-bold hover:bg-fire-700 transition-colors shadow-md shadow-fire-600/20">
+            Submit Request
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Form Handling Script -->
+  <script>
+    function handleQuoteSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerHTML;
+      
+      // Show loading state
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Submitting Request...';
+      
+      // Simulate submission feedback
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Request Sent Successfully!';
+        btn.classList.remove('bg-fire-600', 'hover:bg-fire-700');
+        btn.classList.add('bg-emerald-600');
+        
+        setTimeout(() => {
+          document.getElementById('quoteForm').reset();
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+          btn.classList.remove('bg-emerald-600');
+          btn.classList.add('bg-fire-600', 'hover:bg-fire-700');
+        }, 3000);
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>
