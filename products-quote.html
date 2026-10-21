@@ -1146,7 +1146,74 @@
             display: none !important;
             background: none !important;
         }
-</style>
+
+        /* White product cards to match the Services cards */
+        .product-card {
+            background: #ffffff !important;
+            color: #171717 !important;
+            border: 1px solid rgba(20, 24, 32, 0.10) !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18) !important;
+        }
+        .product-card::before {
+            background: radial-gradient(ellipse at 100% 0%, rgba(255, 30, 56, 0.045), transparent 52%) !important;
+            opacity: 1 !important;
+            animation: none !important;
+        }
+        .product-card:hover {
+            border-color: rgba(255, 30, 56, 0.45) !important;
+            box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 30, 56, 0.08) !important;
+        }
+        .product-card .product-info h3 {
+            color: #171717 !important;
+        }
+        .product-card .product-info p {
+            color: #555b65 !important;
+        }
+        .product-card .specs-list {
+            border-top-color: rgba(20, 24, 32, 0.12) !important;
+        }
+        .product-card .specs-list li {
+            color: #5c626d !important;
+        }
+        .product-card .specs-list li span:first-child {
+            color: #686f79 !important;
+        }
+        .product-card .specs-list li span:last-child {
+            color: #171717 !important;
+        }
+        .product-card .product-purpose {
+            color: #c81e35 !important;
+            background: rgba(255, 30, 56, 0.07) !important;
+            border-color: rgba(255, 30, 56, 0.18) !important;
+        }
+        .product-card .card-tag {
+            background: #fff1f2 !important;
+            border-color: rgba(255, 30, 56, 0.24) !important;
+            color: #c81e35 !important;
+        }
+        .product-card .stock-indicator {
+            background: #f0fdf4 !important;
+            border-color: rgba(22, 163, 74, 0.22) !important;
+            color: #166534 !important;
+        }
+        .product-card .action-btn {
+            background: #fff !important;
+            border: 1px solid rgba(20, 24, 32, 0.18) !important;
+            color: #171717 !important;
+        }
+        .product-card .action-btn:hover {
+            background: linear-gradient(135deg, var(--neon-red), var(--neon-orange)) !important;
+            border-color: transparent !important;
+            color: #fff !important;
+        }
+        .product-card .slider-dots .dot {
+            background: rgba(20, 24, 32, 0.18);
+        }
+        .product-card .slider-dots .dot.active {
+            background: var(--neon-red);
+        }
+
+    </style>
 
     <style id="ds-product-section-sparks">
       /* Lightweight copy of the hero's red floating sparks, confined to the product/quote section. */
