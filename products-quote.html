@@ -1213,6 +1213,86 @@
             background: var(--neon-red);
         }
 
+    
+/* Card polish: clean white surfaces, clearer hierarchy, and restrained interactions */
+.product-card {
+  padding: 24px !important;
+  gap: 0 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .10) !important;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease !important;
+}
+.product-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 38px rgba(15, 23, 42, .15), 0 0 0 1px rgba(255, 30, 56, .05) !important;
+}
+.product-card .card-slider-wrapper,
+.product-card .model-viewer-frame {
+  background: #f5f6f8 !important;
+  border: 1px solid #e7e9ee !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+}
+.product-card .card-slider-wrapper { margin-bottom: 14px !important; }
+.product-card .slider-slide img { object-fit: contain !important; padding: 10px !important; }
+.product-card .extinguisher-model-viewer {
+  background: radial-gradient(ellipse at 50% 58%, rgba(255, 30, 56, .08), transparent 65%), #f5f6f8 !important;
+  --poster-color: #f5f6f8 !important;
+}
+.product-card .model-viewer-hint {
+  color: #4b5563 !important;
+  background: rgba(255,255,255,.9) !important;
+  border-color: rgba(15,23,42,.1) !important;
+}
+.product-card .product-info h3 {
+  font-size: 1.18rem !important;
+  font-weight: 750 !important;
+  line-height: 1.32 !important;
+  letter-spacing: -.025em !important;
+  margin-bottom: 9px !important;
+}
+.product-card .product-purpose { margin-bottom: 12px !important; }
+.product-card .product-info p { line-height: 1.65 !important; margin-bottom: 18px !important; }
+.product-card .specs-list { gap: 9px !important; margin-bottom: 20px !important; padding-top: 13px !important; }
+.product-card .action-btn {
+  min-height: 48px !important;
+  border-radius: 11px !important;
+  background: linear-gradient(110deg, #ff1e38, #ff5a22) !important;
+  border: 1px solid rgba(255, 30, 56, .12) !important;
+  color: #fff !important;
+  box-shadow: 0 7px 16px rgba(255, 30, 56, .15) !important;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease !important;
+}
+.product-card .action-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 22px rgba(255, 30, 56, .24) !important;
+  filter: saturate(1.08) !important;
+}
+.product-card .slider-btn {
+  background: rgba(255,255,255,.94) !important;
+  color: #1f2937 !important;
+  border-color: rgba(15,23,42,.12) !important;
+}
+.product-card .slider-btn:hover {
+  background: #ff1e38 !important;
+  color: #fff !important;
+  border-color: #ff1e38 !important;
+}
+.product-card .slider-dots .dot { background: rgba(15,23,42,.18) !important; }
+.product-card .slider-dots .dot.active { background: var(--neon-red) !important; }
+@media (hover: none) {
+  .product-card .slider-btn { opacity: .92 !important; }
+}
+@media (max-width: 900px) {
+  .product-grid { gap: 22px !important; }
+  .product-card { padding: 20px !important; }
+}
+@media (max-width: 560px) {
+  .product-grid { gap: 18px !important; }
+  .product-card { padding: 17px !important; border-radius: 18px !important; }
+  .product-card .card-slider-wrapper { height: 210px !important; }
+}
+
     </style>
 
     <style id="ds-product-section-sparks">
