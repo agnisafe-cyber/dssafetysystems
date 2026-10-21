@@ -1212,7 +1212,10 @@
         let savedScroll = NaN;
         try {
           savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
-          savedScroll = Number(sessionStorage.getItem('dsProductReturnScroll'));
+          const savedScrollValue = sessionStorage.getItem('dsProductReturnScroll');
+          savedScroll = savedScrollValue !== null && savedScrollValue.trim() !== ''
+            ? Number(savedScrollValue)
+            : NaN;
         } catch (error) {}
         const recentProductReturn = savedAt && Date.now() - savedAt < 30 * 60 * 1000;
         if (location.hash !== '#ds-products-embed' && !recentProductReturn) return;
