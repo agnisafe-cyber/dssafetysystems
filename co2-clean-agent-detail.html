@@ -140,17 +140,21 @@
     </script>
 
 <script>
-/* Always return to the embedded product catalog, never the homepage hero. */
+/* Return to the exact page position where this product was opened. */
 function returnToProducts(event) {
   if (event) {
     event.preventDefault();
     event.stopPropagation();
   }
   try {
-    sessionStorage.setItem('dsProductReturnTime', String(Date.now()));
-    sessionStorage.setItem('dsProductReturnScroll', 'products');
+    const savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
+    const cameFromCatalog = savedAt && Date.now() - savedAt < 30 * 60 * 1000;
+    if (cameFromCatalog && window.history.length > 1) {
+      window.history.back();
+      return false;
+    }
   } catch (error) {}
-  window.location.replace('index.html#ds-products-embed');
+  window.location.href = 'index.html#ds-products-embed';
   return false;
 }
 </script>
