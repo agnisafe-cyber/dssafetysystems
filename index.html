@@ -1203,35 +1203,46 @@
   </div>
 
   <script>
-    // When returning from a product detail, land directly on the product section.
+    // Restore the exact catalog scroll position after a product detail is closed.
     (() => {
+      let restoring = false;
       const restoreProductPosition = () => {
+        if (restoring) return;
         let savedAt = 0;
-        try { savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0); } catch (error) {}
-        const returningToProducts = location.hash === '#ds-products-embed' &&
-          savedAt && Date.now() - savedAt < 30 * 60 * 1000;
-        if (!returningToProducts && location.hash !== '#ds-products-embed') return;
+        let savedScroll = NaN;
+        try {
+          savedAt = Number(sessionStorage.getItem('dsProductReturnTime') || 0);
+          savedScroll = Number(sessionStorage.getItem('dsProductReturnScroll'));
+        } catch (error) {}
+        const recentProductReturn = savedAt && Date.now() - savedAt < 30 * 60 * 1000;
+        if (location.hash !== '#ds-products-embed' && !recentProductReturn) return;
+        restoring = true;
 
         let tries = 0;
         const applyPosition = () => {
           tries++;
           const target = document.getElementById('ds-products-embed');
-          if (target) {
-            try {
-              const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
+          try {
+            const smoother = window.ScrollSmoother && window.ScrollSmoother.get();
+            if (Number.isFinite(savedScroll) && savedScroll >= 0) {
+              if (smoother) smoother.scrollTo(savedScroll, false);
+              else window.scrollTo(0, savedScroll);
+            } else if (target) {
               if (smoother) smoother.scrollTo(target, false);
               else window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
-            } catch (error) {
-              window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
             }
+          } catch (error) {
+            if (target) window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
           }
-          if (tries < 24) {
-            setTimeout(applyPosition, tries < 6 ? 100 : 220);
+
+          if (tries < 10) {
+            setTimeout(applyPosition, tries < 4 ? 100 : 220);
           } else {
             try {
               sessionStorage.removeItem('dsProductReturnTime');
               sessionStorage.removeItem('dsProductReturnScroll');
             } catch (error) {}
+            restoring = false;
           }
         };
         requestAnimationFrame(applyPosition);
