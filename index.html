@@ -1123,50 +1123,47 @@
         })();
       </script>
 
-      <!-- Product catalog and quote form, placed after all existing site sections -->
-      <section class="ds-products-embed" id="ds-products-embed" aria-label="Product catalog and request a quote">
-        <iframe
-          id="ds-products-embed-frame"
-          class="ds-products-embed-frame"
-          src="products-quote.html"
-          title="DS Safety Systems Product Catalog and Request a Quote"
-          loading="eager"
-          scrolling="no"
-          style="height:2200px;background:transparent"
-        ></iframe>
+      <!-- 04 — FEATURED PRODUCTS: the full inventory remains on products-quote.html -->
+      <style id="ds-featured-products-style">
+        #ds-featured-products{width:100%;padding:104px 5vw 112px;background:radial-gradient(ellipse at 15% 15%,rgba(220,38,38,.10),transparent 42%),linear-gradient(180deg,#f7f7f6,#f1f2f3);color:#171b24}
+        #ds-featured-products .featured-inner{max-width:1240px;margin:0 auto}
+        #ds-featured-products .featured-top{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+        #ds-featured-products .featured-kicker{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#c81e35;margin-bottom:13px}
+        #ds-featured-products h2{font-size:clamp(36px,5vw,62px);line-height:1.02;letter-spacing:-.045em;margin:0;color:#171b24}
+        #ds-featured-products .featured-copy{max-width:430px;color:#626b78;font-size:15px;line-height:1.75;margin:0}
+        #ds-featured-products .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+        #ds-featured-products .featured-card{display:flex;flex-direction:column;min-width:0;text-decoration:none;color:inherit;background:#fff;border:1px solid #e3e6eb;border-radius:16px;overflow:hidden;box-shadow:0 2px 6px rgba(15,23,42,.035);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+        #ds-featured-products .featured-card:hover{transform:translateY(-3px);border-color:rgba(220,38,38,.28);box-shadow:0 12px 28px rgba(15,23,42,.09)}
+        #ds-featured-products .featured-image{height:210px;display:grid;place-items:center;padding:18px;background:linear-gradient(145deg,#f8f9fa,#f0f2f5);border-bottom:1px solid #eceef2}
+        #ds-featured-products .featured-image img{display:block;width:100%;height:100%;object-fit:contain}
+        #ds-featured-products .featured-info{padding:19px 20px 21px;display:flex;flex-direction:column;gap:9px;flex:1}
+        #ds-featured-products .featured-type{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#c81e35}
+        #ds-featured-products .featured-name{font-size:17px;font-weight:750;line-height:1.35;margin:0;color:#1b2029}
+        #ds-featured-products .featured-arrow{margin-top:auto;padding-top:9px;font-size:13px;font-weight:700;color:#c81e35}
+        #ds-featured-products .featured-footer{display:flex;justify-content:center;margin-top:30px}
+        #ds-featured-products .featured-catalog-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-radius:10px;background:#c91f36;color:#fff;text-decoration:none;font-weight:750;font-size:14px;box-shadow:0 6px 18px rgba(201,31,54,.16);transition:background .2s ease,transform .2s ease}
+        #ds-featured-products .featured-catalog-link:hover{background:#a9172b;transform:translateY(-2px)}
+        @media(max-width:800px){#ds-featured-products{padding:78px 5vw}#ds-featured-products .featured-top{display:block}#ds-featured-products .featured-copy{margin-top:18px}#ds-featured-products .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}#ds-featured-products .featured-image{height:170px}#ds-featured-products .featured-info{padding:15px}}
+        @media(max-width:520px){#ds-featured-products .featured-grid{grid-template-columns:1fr}#ds-featured-products .featured-image{height:220px}}
+        @media(prefers-reduced-motion:reduce){#ds-featured-products .featured-card,#ds-featured-products .featured-catalog-link{transition:none}#ds-featured-products .featured-card:hover,#ds-featured-products .featured-catalog-link:hover{transform:none}}
+      </style>
+      <section id="ds-featured-products" aria-labelledby="ds-featured-products-heading">
+        <div class="featured-inner">
+          <div class="featured-top">
+            <div><div class="featured-kicker">Selected safety essentials</div><h2 id="ds-featured-products-heading">Featured <span style="color:#c81e35">Products.</span></h2></div>
+            <p class="featured-copy">Explore a selection of dependable fire-safety equipment for commercial and industrial environments. Browse the full range in our dedicated product catalog.</p>
+          </div>
+          <div class="featured-grid">
+            <a class="featured-card" href="abc-dry-powder-detail.html"><div class="featured-image"><img src="images/abc-4kg-1.jpg" alt="ABC dry powder fire extinguisher" loading="lazy"></div><div class="featured-info"><span class="featured-type">Fire extinguishers</span><h3 class="featured-name">ABC Dry Powder Fire Extinguisher</h3><span class="featured-arrow">View product ↗</span></div></a>
+            <a class="featured-card" href="co2-clean-agent-detail.html"><div class="featured-image"><img src="images/co2-4.5kg-1.jpg" alt="CO2 clean agent fire extinguisher" loading="lazy"></div><div class="featured-info"><span class="featured-type">Fire extinguishers</span><h3 class="featured-name">CO₂ Clean Agent Extinguisher</h3><span class="featured-arrow">View product ↗</span></div></a>
+            <a class="featured-card" href="fire-hose-reel-detail.html"><div class="featured-image"><img src="images/hose-reel-1.jpg" alt="Swing-type fire hose reel drum" loading="lazy"></div><div class="featured-info"><span class="featured-type">Hydrant systems</span><h3 class="featured-name">Swing-Type Fire Hose Reel</h3><span class="featured-arrow">View product ↗</span></div></a>
+            <a class="featured-card" href="afff-foam-extinguisher-detail.html"><div class="featured-image"><img src="images/foam-9l-1.jpg" alt="AFFF mechanical foam extinguisher" loading="lazy"></div><div class="featured-info"><span class="featured-type">Fire extinguishers</span><h3 class="featured-name">AFFF Mechanical Foam Extinguisher</h3><span class="featured-arrow">View product ↗</span></div></a>
+            <a class="featured-card" href="smoke-detector-detail.html"><div class="featured-image"><img src="images/smoke-det-1.jpg" alt="Addressable photoelectric smoke detector" loading="lazy"></div><div class="featured-info"><span class="featured-type">Detection & alarms</span><h3 class="featured-name">Photoelectric Smoke Detector</h3><span class="featured-arrow">View product ↗</span></div></a>
+            <a class="featured-card" href="manual-call-point-detail.html"><div class="featured-image"><img src="images/mcp-1.jpg" alt="Break glass manual call point" loading="lazy"></div><div class="featured-info"><span class="featured-type">Detection & alarms</span><h3 class="featured-name">Manual Call Point</h3><span class="featured-arrow">View product ↗</span></div></a>
+          </div>
+          <div class="featured-footer"><a class="featured-catalog-link" href="products-quote.html">View Full Product Catalog <span aria-hidden="true">→</span></a></div>
+        </div>
       </section>
-      <script>
-        // Measure the catalog's actual content only. Never observe the iframe viewport itself:
-        // doing so can create a height-feedback loop and endless blank scrolling.
-        (() => {
-          const frame = document.getElementById("ds-products-embed-frame");
-          if (!frame) return;
-          let resizeTimer;
-          const fitFrame = () => {
-            try {
-              const doc = frame.contentDocument;
-              if (!doc) return;
-              const main = doc.querySelector("main.container");
-              if (!main) return;
-              const styles = doc.defaultView.getComputedStyle(main);
-              const bottomMargin = parseFloat(styles.marginBottom) || 0;
-              const height = Math.ceil(main.getBoundingClientRect().height + bottomMargin);
-              if (height > 0 && Math.abs(frame.getBoundingClientRect().height - height) > 3) {
-                frame.style.height = height + "px";
-              }
-            } catch (error) {}
-          };
-          frame.addEventListener("load", () => {
-            fitFrame();
-            window.setTimeout(fitFrame, 250);
-            window.setTimeout(fitFrame, 900);
-          });
-          window.addEventListener("resize", () => {
-            window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(fitFrame, 120);
-          });
-        })();
-      </script>
 
       <!-- Get a Quote page, placed at the very bottom after the product catalog -->
       <section id="get-quote-embed" aria-label="Get a Quote" style="position:relative;width:100%;margin:100px 0 0;padding:80px 0 40px;overflow:hidden;background:radial-gradient(ellipse 60% 45% at 50% 0%,rgba(220,38,38,.16),transparent 72%),linear-gradient(180deg,#080a0f 0%,#05070b 100%);border-top:1px solid rgba(248,113,113,.22);box-shadow:0 -24px 70px rgba(220,38,38,.06)">
