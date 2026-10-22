@@ -2341,6 +2341,32 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   }
 }
 </style>
+<footer id="ds-site-footer" aria-label="DS Safety Systems contact and footer">
+<style>
+#ds-site-footer{background:#07090d;color:#f5f5f4;border-top:1px solid rgba(255,255,255,.1);padding:54px 5vw 28px;font-family:"Poppins",Arial,sans-serif}
+#ds-site-footer .footer-inner{max-width:1240px;margin:0 auto}
+#ds-site-footer .footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px;padding-bottom:38px}
+#ds-site-footer .footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+#ds-site-footer .footer-brand img{width:46px;height:46px;object-fit:contain}
+#ds-site-footer .footer-brand strong{font-size:17px;letter-spacing:.01em}
+#ds-site-footer p{font-size:13px;line-height:1.8;color:#a8adb7;margin:0;max-width:390px}
+#ds-site-footer h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#f7f5f0;margin:3px 0 17px}
+#ds-site-footer a{color:#c7cbd2;text-decoration:none;font-size:13px;line-height:2.1;transition:color .2s ease}
+#ds-site-footer a:hover{color:#ff5365}
+#ds-site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start}
+#ds-site-footer .footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#7f8590;font-size:11px}
+@media(max-width:700px){#ds-site-footer .footer-main{grid-template-columns:1fr;gap:28px}#ds-site-footer{padding-top:42px}}
+</style>
+<div class="footer-inner">
+  <div class="footer-main">
+    <div><div class="footer-brand"><img src="DSF_logo_small.png" alt="DS Safety Systems logo" loading="lazy"><strong>DS Safety Systems</strong></div><p>Fire protection equipment, installation and maintenance solutions to help protect people, property and operations.</p></div>
+    <div><h3>Contact</h3><div class="footer-links"><a href="tel:9818701683">Call / WhatsApp: 9818701683</a><a href="mailto:Dssafetystems@hotmail.com">Dssafetystems@hotmail.com</a><a href="https://www.google.com/maps/search/?api=1&query=Govind+Puri%2C+New+Delhi" target="_blank" rel="noopener noreferrer">Govind Puri, New Delhi</a></div></div>
+    <div><h3>Explore</h3><div class="footer-links"><a href="#root">Home</a><a href="#services">Our Services</a><a href="#ds-featured-products">Featured Products</a><a href="#ds-industries-embed">Industries We Protect</a><a href="#get-quote-embed">Request a Quotation</a><a href="products-quote.html">Full Product Catalog</a></div></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="ds-footer-year">2026</span> DS Safety Systems. All rights reserved.</span><span>Fire safety equipment · Installation · AMC & maintenance</span></div>
+</div>
+</footer>
+
 <script id="ds-final-homepage-order">
 (() => {
   const arrange = () => {
@@ -2351,7 +2377,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     const how = document.getElementById("protection-flow");
     const why = document.getElementById("ds-why-safety-embed");
     const quote = document.getElementById("get-quote-embed");
-    if (!root || !host || !featured || !industries || !how || !why || !quote) return false;
+    const footer = document.getElementById("ds-site-footer");
+    if (!root || !host || !featured || !industries || !how || !why || !quote || !footer) return false;
     const stories = document.getElementById("ds-client-stories-embed");
     if (stories) stories.remove();
     /* Keep the React-owned homepage root intact; move the finished sections after it. */
@@ -2360,6 +2387,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     host.appendChild(how);
     host.appendChild(why);
     host.appendChild(quote);
+    host.appendChild(footer);
     return true;
   };
   if (arrange()) return;
