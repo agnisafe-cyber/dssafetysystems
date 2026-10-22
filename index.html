@@ -1633,7 +1633,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           React.createElement("section",{className:"section about-home",id:"about"},
             React.createElement("div",{className:"about-home-grid"},
               React.createElement("div",{className:"about-home-copy"},
-                React.createElement("div",{className:"section-label"},"About DS Safety Systems"),
+                React.createElement("div",{className:"section-label"},"Trust & Company Highlights"),
                 React.createElement("h2",{className:"about-home-title"},"Dedicated to Protecting Lives & Property in ",React.createElement("span",null,"New Delhi")),
                 React.createElement("p",{className:"about-home-text"},"Based in Govind Puri, New Delhi, DS Safety Systems delivers industry-leading fire protection solutions backed by over 15 years of professional experience. From supplying certified fire extinguishers and hydrant setups to managing comprehensive Annual Maintenance Contracts (AMC), our certified experts ensure your premises remain fully compliant and secure."),
                 React.createElement("div",{className:"about-home-facts"},
@@ -2340,7 +2340,42 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     max-width:430px!important;
   }
 }
-</style></body>
+</style>
+<script id="ds-final-homepage-order">
+(() => {
+  const arrange = () => {
+    const root = document.getElementById("root");
+    const host = root && root.parentElement;
+    const featured = document.getElementById("ds-featured-products");
+    const industries = document.getElementById("ds-industries-embed");
+    const how = document.getElementById("protection-flow");
+    const why = document.getElementById("ds-why-safety-embed");
+    const quote = document.getElementById("get-quote-embed");
+    if (!root || !host || !featured || !industries || !how || !why || !quote) return false;
+    const stories = document.getElementById("ds-client-stories-embed");
+    if (stories) stories.remove();
+    /* Keep the React-owned homepage root intact; move the finished sections after it. */
+    host.appendChild(featured);
+    host.appendChild(industries);
+    host.appendChild(how);
+    host.appendChild(why);
+    host.appendChild(quote);
+    return true;
+  };
+  if (arrange()) return;
+  const root = document.getElementById("root");
+  if (!root) return;
+  const observer = new MutationObserver(() => {
+    if (arrange()) observer.disconnect();
+  });
+  observer.observe(root.parentElement || root, {childList:true,subtree:true});
+  document.addEventListener("DOMContentLoaded", () => {
+    if (arrange()) observer.disconnect();
+  }, {once:true});
+})();
+</script>
+
+</body>
 </html>
 
 <style id="product-description-visibility">
