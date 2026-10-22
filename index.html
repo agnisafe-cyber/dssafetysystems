@@ -3061,3 +3061,29 @@ background-size:120px 120px;mask-image:linear-gradient(to bottom,transparent,bla
 <style id="manufacturing-heading-same-size-as-protection">\n.manufacturing-head h2,.manufacturing-head h2 span,.manufacturing-head h2 .protection-heading-line,.manufacturing-head h2 .protection-ready-line{font-size:clamp(54px,6.6vw,90px)!important;}\n@media(max-width:900px){.manufacturing-head h2,.manufacturing-head h2 span,.manufacturing-head h2 .protection-heading-line,.manufacturing-head h2 .protection-ready-line{font-size:clamp(46px,8vw,62px)!important;}}\n</style>
 
 
+
+
+<style id="ds-css-parallax-scroll">
+/* Lightweight CSS parallax: the section content scrolls over a viewport-fixed glow. */
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .hero,
+  .about-home,
+  .services-home,
+  .protection-flow,
+  .manufacturing-section,
+  .ds-products-embed {
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+  }
+}
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .hero,
+  .about-home,
+  .services-home,
+  .protection-flow,
+  .manufacturing-section,
+  .ds-products-embed {
+    background-attachment: scroll !important;
+  }
+}
+</style>
