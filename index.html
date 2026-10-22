@@ -3064,26 +3064,25 @@ background-size:120px 120px;mask-image:linear-gradient(to bottom,transparent,bla
 
 
 <style id="ds-css-parallax-scroll">
-/* Lightweight CSS parallax: the section content scrolls over a viewport-fixed glow. */
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-  .hero,
-  .about-home,
-  .services-home,
-  .protection-flow,
-  .manufacturing-section,
-  .ds-products-embed {
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
-  }
+/* A viewport-fixed cinematic atmosphere creates a real parallax layer as content scrolls. */
+body::before {
+  content:"";
+  position:fixed;
+  inset:-12vh -8vw;
+  z-index:5;
+  pointer-events:none;
+  opacity:.44;
+  background:
+    radial-gradient(ellipse at 14% 28%,rgba(255,55,35,.16),transparent 34%),
+    radial-gradient(ellipse at 82% 66%,rgba(255,112,25,.13),transparent 32%),
+    radial-gradient(ellipse at 55% 8%,rgba(220,35,45,.09),transparent 30%);
+  mix-blend-mode:screen;
+  transform:translate3d(0,0,0);
 }
-@media (max-width: 900px), (prefers-reduced-motion: reduce) {
-  .hero,
-  .about-home,
-  .services-home,
-  .protection-flow,
-  .manufacturing-section,
-  .ds-products-embed {
-    background-attachment: scroll !important;
-  }
+@media (max-width:900px) {
+  body::before { opacity:.28; inset:-6vh -8vw; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body::before { opacity:.2; }
 }
 </style>
