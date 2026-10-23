@@ -48,8 +48,14 @@
         #services-grid .service-card {
             position: relative;
             overflow: hidden;
-            animation: serviceCardEnter .7s cubic-bezier(.2,.7,.2,1) both;
             transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+        }
+        #services-grid .service-card.reveal-pending {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+        #services-grid .service-card.reveal-pending.reveal-visible {
+            animation: serviceCardEnter .7s cubic-bezier(.2,.7,.2,1) both;
         }
         #services-grid .service-card:nth-child(1) { animation-delay: .06s; }
         #services-grid .service-card:nth-child(2) { animation-delay: .14s; }
@@ -113,10 +119,16 @@
             0% { transform: scaleX(0); opacity: .25; }
             100% { transform: scaleX(1); opacity: 1; }
         }
-        .service-suite-header .service-suite-tag {
+        .service-suite-header.reveal-pending .service-suite-tag,
+        .service-suite-header.reveal-pending .service-suite-title,
+        .service-suite-header.reveal-pending .service-suite-description {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .service-suite-header.reveal-visible .service-suite-tag {
             animation: suiteHeadingReveal .75s cubic-bezier(.2,.7,.2,1) both;
         }
-        .service-suite-header .service-suite-title {
+        .service-suite-header.reveal-visible .service-suite-title {
             position: relative;
             animation: suiteHeadingReveal .9s .12s cubic-bezier(.2,.7,.2,1) both;
         }
@@ -129,17 +141,26 @@
             border-radius: 99px;
             background: linear-gradient(90deg, transparent, #dc2626, #fb923c, transparent);
             transform-origin: center;
+            transform: scaleX(0);
+            opacity: .25;
+        }
+        .service-suite-header.reveal-visible .service-suite-title::after {
             animation: suiteAccentSweep .85s .65s ease-out both;
         }
-        .service-suite-header .service-suite-description {
+        .service-suite-header.reveal-visible .service-suite-description {
             animation: suiteHeadingReveal .85s .25s cubic-bezier(.2,.7,.2,1) both;
         }
         @media (prefers-reduced-motion: reduce) {
             .service-suite-header .service-suite-tag,
             .service-suite-header .service-suite-title,
             .service-suite-header .service-suite-description,
-            .service-suite-header .service-suite-title::after {
+            .service-suite-header .service-suite-title::after,
+            #services-grid .service-card {
                 animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
             }
         }
         /* Premium service cards and clearer calls to action */
@@ -379,6 +400,33 @@
 
     <!-- Filter JavaScript -->
     <script>
+        // Start entrance animations when the user scrolls each item into view.
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealItems = [
+                ...document.querySelectorAll('.service-suite-header'),
+                ...document.querySelectorAll('#services-grid .service-card')
+            ];
+
+            if (!('IntersectionObserver' in window)) {
+                revealItems.forEach(item => item.classList.add('reveal-visible'));
+                return;
+            }
+
+            revealItems.forEach(item => item.classList.add('reveal-pending'));
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        entry.target.classList.remove('reveal-pending');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            revealItems.forEach(item => revealObserver.observe(item));
+        });
+
         function filterServices(category, event) {
             const cards = document.querySelectorAll('.service-card');
             const buttons = document.querySelectorAll('.filter-btn');
