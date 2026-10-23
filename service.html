@@ -142,6 +142,54 @@
                 animation: none !important;
             }
         }
+        /* Premium service cards and clearer calls to action */
+        #services-grid .service-card {
+            border-color: rgba(203, 213, 225, .85);
+            background: radial-gradient(ellipse at 100% 0%, rgba(248, 113, 113, .055), transparent 48%), #fff;
+        }
+        #services-grid .service-card:hover {
+            border-color: rgba(220, 38, 38, .34);
+            background: radial-gradient(ellipse at 100% 0%, rgba(248, 113, 113, .10), transparent 52%), #fff;
+        }
+        #services-grid .service-card h3 {
+            letter-spacing: -.025em;
+            line-height: 1.35;
+            transition: color .25s ease;
+        }
+        #services-grid .service-card:hover h3 { color: #b91c1c; }
+        #services-grid .service-card a {
+            align-self: flex-start;
+            margin-top: 4px;
+            padding: 11px 14px;
+            border: 1px solid rgba(220, 38, 38, .17);
+            border-radius: 12px;
+            background: linear-gradient(110deg, #fef2f2, #fff7ed);
+            transition: color .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+        #services-grid .service-card a:hover {
+            color: #991b1b;
+            border-color: rgba(220, 38, 38, .32);
+            background: linear-gradient(110deg, #fee2e2, #ffedd5);
+            box-shadow: 0 7px 18px rgba(220, 38, 38, .09);
+            transform: translateY(-1px);
+        }
+        #services-grid .service-card a i { color: #ea580c; }
+        #filter-container .filter-btn:focus-visible,
+        #services-grid .service-card a:focus-visible {
+            outline: 3px solid rgba(220, 38, 38, .38);
+            outline-offset: 3px;
+        }
+        @media (max-width: 640px) {
+            #services-grid .service-card { padding: 1.5rem; }
+            .service-suite-header .service-suite-title { white-space: normal; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #services-grid .service-card h3,
+            #services-grid .service-card a {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
         .light-cinematic-glow {
             background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
