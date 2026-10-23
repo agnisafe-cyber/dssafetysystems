@@ -54,7 +54,7 @@
             opacity: 0;
             transform: translateY(22px);
         }
-        #services-grid .service-card.reveal-pending.reveal-visible {
+        #services-grid .service-card.reveal-visible {
             animation: serviceCardEnter .7s cubic-bezier(.2,.7,.2,1) both;
         }
         #services-grid .service-card:nth-child(1) { animation-delay: .06s; }
@@ -119,9 +119,9 @@
             0% { transform: scaleX(0); opacity: .25; }
             100% { transform: scaleX(1); opacity: 1; }
         }
-        .service-suite-header.reveal-pending .service-suite-tag,
-        .service-suite-header.reveal-pending .service-suite-title,
-        .service-suite-header.reveal-pending .service-suite-description {
+        .service-suite-header:not(.reveal-visible) .service-suite-tag,
+        .service-suite-header:not(.reveal-visible) .service-suite-title,
+        .service-suite-header:not(.reveal-visible) .service-suite-description {
             opacity: 0;
             transform: translateY(16px);
         }
@@ -401,31 +401,15 @@
 
     <!-- Filter JavaScript -->
     <script>
-        // Start entrance animations when the user scrolls each item into view.
+        // Start the service-page entrance animations as soon as this page loads.
         document.addEventListener('DOMContentLoaded', () => {
             const revealItems = [
                 ...document.querySelectorAll('.service-suite-header'),
                 ...document.querySelectorAll('#services-grid .service-card')
             ];
-
-            if (!('IntersectionObserver' in window)) {
+            requestAnimationFrame(() => {
                 revealItems.forEach(item => item.classList.add('reveal-visible'));
-                return;
-            }
-
-            revealItems.forEach(item => item.classList.add('reveal-pending'));
-
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal-visible');
-                        entry.target.classList.remove('reveal-pending');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-            revealItems.forEach(item => revealObserver.observe(item));
+            });
         });
 
         function filterServices(category, event) {
