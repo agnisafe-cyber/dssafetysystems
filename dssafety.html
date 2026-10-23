@@ -138,10 +138,11 @@
         @keyframes whyDividerSweep { to { transform:scaleX(1); } }
         .why-card {
             min-height:100%;
-            background:linear-gradient(145deg,#fff 0%,#fff 72%,#fff8f6 100%) !important;
-            border:1px solid rgba(203,213,225,.95) !important;
+            background:#fff !important;
+            border:1px solid rgba(203,213,225,.72) !important;
+            outline:0 !important;
             border-radius:18px !important;
-            box-shadow:0 10px 28px rgba(0,0,0,.12) !important;
+            box-shadow:0 7px 22px rgba(0,0,0,.10) !important;
             color:#172033 !important;
             animation:whyReveal .72s cubic-bezier(.2,.7,.2,1) both;
             transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease,border-color .32s ease !important;
@@ -151,7 +152,7 @@
         .why-card:nth-child(3){animation-delay:.26s}
         .why-card:nth-child(4){animation-delay:.35s}
         .why-card::before {
-            content:"";position:absolute;top:0;left:9%;width:82%;height:2px;border-radius:99px;
+            content:"";position:absolute;top:0;left:0;right:0;width:auto;height:2px;border-radius:18px 18px 0 0;
             background:linear-gradient(90deg,transparent,#dc2626,#fb923c,transparent);
             opacity:0;transform:scaleX(.5);transition:opacity .3s ease,transform .3s ease;
             pointer-events:none;
@@ -221,7 +222,7 @@
                             </p>
                         </div>
 
-                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
+                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card why-card cursor-pointer">
                             <div class="why-icon w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-certificate"></i>
                             </div>
@@ -231,7 +232,7 @@
                             </p>
                         </div>
 
-                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
+                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card why-card cursor-pointer">
                             <div class="why-icon w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-headset"></i>
                             </div>
@@ -241,7 +242,7 @@
                             </p>
                         </div>
 
-                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
+                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card why-card cursor-pointer">
                             <div class="why-icon w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                             </div>
