@@ -136,6 +136,35 @@
             animation:whyDividerSweep .9s .55s ease-out forwards;
         }
         @keyframes whyDividerSweep { to { transform:scaleX(1); } }
+
+        /* Cards are static: disable all shimmer, movement, and reveal effects */
+        .why-card,
+        .why-card:hover,
+        .why-card:active,
+        .why-card::after,
+        .why-card:hover::after,
+        .why-card:active::after,
+        .why-card::before,
+        .why-card:hover::before,
+        .why-card .why-icon,
+        .why-card:hover .why-icon {
+            animation:none !important;
+            transition:none !important;
+            transform:none !important;
+            filter:none !important;
+        }
+        .why-card::after { content:none !important; display:none !important; }
+        .why-card:hover,
+        .why-card:active {
+            background:#fff !important;
+            background-color:#fff !important;
+            background-image:none !important;
+            box-shadow:0 7px 22px rgba(0,0,0,.10) !important;
+            border-color:rgba(203,213,225,.72) !important;
+        }
+        .why-copy { animation:none !important; }
+        .why-section-label { animation:none !important; }
+
         /* Force every Why Choose card to use the same white card surface. */
         .why-card.shimmer-card,
         .why-card.shimmer-card:hover,
