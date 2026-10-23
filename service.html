@@ -28,6 +28,45 @@
         }
     </script>
     <style>
+
+        /* Refined entrance animation for the service-suite heading */
+        @keyframes suiteHeadingReveal {
+            from { opacity: 0; transform: translateY(16px); filter: blur(5px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes suiteAccentSweep {
+            0% { transform: scaleX(0); opacity: .25; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+        .service-suite-header .service-suite-tag {
+            animation: suiteHeadingReveal .75s cubic-bezier(.2,.7,.2,1) both;
+        }
+        .service-suite-header .service-suite-title {
+            position: relative;
+            animation: suiteHeadingReveal .9s .12s cubic-bezier(.2,.7,.2,1) both;
+        }
+        .service-suite-header .service-suite-title::after {
+            content: "";
+            display: block;
+            width: min(150px, 32%);
+            height: 3px;
+            margin: 18px auto 0;
+            border-radius: 99px;
+            background: linear-gradient(90deg, transparent, #dc2626, #fb923c, transparent);
+            transform-origin: center;
+            animation: suiteAccentSweep .85s .65s ease-out both;
+        }
+        .service-suite-header .service-suite-description {
+            animation: suiteHeadingReveal .85s .25s cubic-bezier(.2,.7,.2,1) both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .service-suite-header .service-suite-tag,
+            .service-suite-header .service-suite-title,
+            .service-suite-header .service-suite-description,
+            .service-suite-header .service-suite-title::after {
+                animation: none !important;
+            }
+        }
         .light-cinematic-glow {
             background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
@@ -39,7 +78,7 @@
     <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
         
         <!-- Elegant Cinematic Light Header Container -->
-        <div class="relative bg-white rounded-3xl p-8 sm:p-14 lg:p-18 overflow-hidden shadow-xl mb-16 border border-slate-200/80 light-cinematic-glow">
+        <div class="service-suite-header relative bg-white rounded-3xl p-8 sm:p-14 lg:p-18 overflow-hidden shadow-xl mb-16 border border-slate-200/80 light-cinematic-glow">
             
             <!-- Subtle Decorative Ambient Light -->
             <div class="absolute top-0 right-0 w-80 h-80 bg-red-100/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -49,19 +88,19 @@
                 
                 <!-- Styled Tag Pill -->
                 <div>
-                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-brandRed text-xs font-bold uppercase tracking-widest shadow-sm">
+                    <span class="service-suite-tag inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-brandRed text-xs font-bold uppercase tracking-widest shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-brandRed animate-pulse"></span>
                         Our Full Service Suite
                     </span>
                 </div>
 
                 <!-- Main Heading (One Line) -->
-                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight whitespace-nowrap">
+                <h2 class="service-suite-title text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight whitespace-nowrap">
                     Comprehensive Fire Safety Services
                 </h2>
 
                 <!-- Professional Subheading -->
-                <p class="text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-light">
+                <p class="service-suite-description text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-light">
                     Protecting your enterprise with high-grade equipment, expert installations, and round-the-clock maintenance. We design, install, inspect, and maintain the systems that keep your premises ready.
                 </p>
 
