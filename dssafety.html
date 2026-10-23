@@ -136,6 +136,14 @@
             animation:whyDividerSweep .9s .55s ease-out forwards;
         }
         @keyframes whyDividerSweep { to { transform:scaleX(1); } }
+        /* Force every Why Choose card to use the same white card surface. */
+        .why-card.shimmer-card,
+        .why-card.shimmer-card:hover,
+        .why-card.shimmer-card:active {
+            background:#fff !important;
+            background-color:#fff !important;
+            background-image:none !important;
+        }
         .why-card {
             min-height:100%;
             background:#fff !important;
