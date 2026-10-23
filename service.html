@@ -29,6 +29,81 @@
     </script>
     <style>
 
+        /* Service page: subtle cinematic motion for filters, cards, icons and links */
+        @keyframes serviceCardEnter {
+            from { opacity: 0; transform: translateY(26px) scale(.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes serviceIconGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(220,38,38,0); }
+            50% { box-shadow: 0 0 22px rgba(220,38,38,.14); }
+        }
+        #filter-container .filter-btn {
+            transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+        }
+        #filter-container .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(220,38,38,.12);
+        }
+        #services-grid .service-card {
+            position: relative;
+            overflow: hidden;
+            animation: serviceCardEnter .7s cubic-bezier(.2,.7,.2,1) both;
+            transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+        }
+        #services-grid .service-card:nth-child(1) { animation-delay: .06s; }
+        #services-grid .service-card:nth-child(2) { animation-delay: .14s; }
+        #services-grid .service-card:nth-child(3) { animation-delay: .22s; }
+        #services-grid .service-card:nth-child(4) { animation-delay: .30s; }
+        #services-grid .service-card:nth-child(5) { animation-delay: .38s; }
+        #services-grid .service-card:nth-child(6) { animation-delay: .46s; }
+        #services-grid .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 8%;
+            width: 84%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(220,38,38,.7), rgba(251,146,60,.65), transparent);
+            opacity: 0;
+            transform: scaleX(.45);
+            transform-origin: center;
+            transition: opacity .35s ease, transform .35s ease;
+            pointer-events: none;
+        }
+        #services-grid .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 48px rgba(15,23,42,.11), 0 0 0 1px rgba(220,38,38,.06);
+        }
+        #services-grid .service-card:hover::before {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        #services-grid .service-card > div:first-child > div:first-child {
+            transition: transform .35s ease, box-shadow .35s ease, background-color .3s ease, color .3s ease;
+        }
+        #services-grid .service-card:hover > div:first-child > div:first-child {
+            transform: translateY(-3px) rotate(-3deg);
+            animation: serviceIconGlow 1.8s ease-in-out infinite;
+        }
+        #services-grid .service-card a i {
+            transition: transform .25s ease;
+        }
+        #services-grid .service-card a:hover i {
+            transform: translateX(5px);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #filter-container .filter-btn,
+            #services-grid .service-card,
+            #services-grid .service-card::before,
+            #services-grid .service-card > div:first-child > div:first-child,
+            #services-grid .service-card a i {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+
         /* Refined entrance animation for the service-suite heading */
         @keyframes suiteHeadingReveal {
             from { opacity: 0; transform: translateY(16px); filter: blur(5px); }
