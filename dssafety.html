@@ -114,6 +114,69 @@
         @media(max-width:1023px){ main > section { padding-top:2rem !important;padding-bottom:2rem !important; } }
         @media(max-width:480px){ main > section { padding-top:1.5rem !important;padding-bottom:1.5rem !important; } main > section .grid { gap:1.25rem !important; } main > section h1 { font-size:2rem !important; } }
         @media(prefers-reduced-motion:reduce){.shimmer-card{transition:none!important;animation:none!important}}
+
+        /* Premium white service-style cards + lightweight entrance motion */
+        @keyframes whyReveal {
+            from { opacity: 0; transform: translateY(24px); filter: blur(3px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes whyIconPulse {
+            0%,100% { box-shadow: 0 0 0 rgba(220,38,38,0); }
+            50% { box-shadow: 0 0 20px rgba(220,38,38,.16); }
+        }
+        .why-copy { animation: whyReveal .8s cubic-bezier(.2,.7,.2,1) both; }
+        .why-copy h1 { line-height: 1.08 !important; letter-spacing: -.045em !important; }
+        .why-copy h1 .gradient-text { margin-top: .18em !important; }
+        .why-copy p { max-width: 40rem; }
+        .why-divider { position:relative; overflow:hidden; }
+        .why-divider::after {
+            content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+            background:linear-gradient(90deg,transparent,#dc2626,#fb923c,transparent);
+            transform:scaleX(0); transform-origin:center;
+            animation:whyDividerSweep .9s .55s ease-out forwards;
+        }
+        @keyframes whyDividerSweep { to { transform:scaleX(1); } }
+        .why-card {
+            min-height:100%;
+            background:linear-gradient(145deg,#fff 0%,#fff 72%,#fff8f6 100%) !important;
+            border:1px solid rgba(203,213,225,.95) !important;
+            border-radius:18px !important;
+            box-shadow:0 10px 28px rgba(0,0,0,.12) !important;
+            color:#172033 !important;
+            animation:whyReveal .72s cubic-bezier(.2,.7,.2,1) both;
+            transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease,border-color .32s ease !important;
+        }
+        .why-card:nth-child(1){animation-delay:.08s}
+        .why-card:nth-child(2){animation-delay:.17s}
+        .why-card:nth-child(3){animation-delay:.26s}
+        .why-card:nth-child(4){animation-delay:.35s}
+        .why-card::before {
+            content:"";position:absolute;top:0;left:9%;width:82%;height:2px;border-radius:99px;
+            background:linear-gradient(90deg,transparent,#dc2626,#fb923c,transparent);
+            opacity:0;transform:scaleX(.5);transition:opacity .3s ease,transform .3s ease;
+            pointer-events:none;
+        }
+        .why-card:hover {
+            transform:translateY(-7px) !important;
+            border-color:rgba(220,38,38,.38) !important;
+            box-shadow:0 20px 40px rgba(0,0,0,.18),0 0 0 1px rgba(220,38,38,.05) !important;
+        }
+        .why-card:hover::before { opacity:1;transform:scaleX(1); }
+        .why-card h3 { color:#172033 !important; letter-spacing:-.025em;line-height:1.35 !important; }
+        .why-card p { color:#5b6472 !important; }
+        .why-card .why-icon { transition:transform .3s ease,box-shadow .3s ease; }
+        .why-card:hover .why-icon { transform:translateY(-3px) rotate(-3deg);animation:whyIconPulse 1.8s ease-in-out infinite; }
+        .why-card .fa-award,.why-card .fa-certificate,.why-card .fa-headset,.why-card .fa-screwdriver-wrench { filter:drop-shadow(0 2px 4px rgba(220,38,38,.12)); }
+        .why-section-label { animation:whyReveal .7s .03s both; }
+        @media(max-width:1023px) {
+            .why-copy { text-align:center; }
+            .why-copy p { margin-inline:auto; }
+            .why-divider { display:none !important; }
+        }
+        @media(prefers-reduced-motion:reduce) {
+            .why-copy,.why-section-label,.why-card,.why-divider::after { animation:none !important;opacity:1 !important;transform:none !important;filter:none !important; }
+            .why-card,.why-card::before,.why-card .why-icon { transition:none !important; }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
@@ -127,8 +190,8 @@
                 
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     <!-- Left Side: Title & Description -->
-                    <div class="lg:col-span-5">
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent font-bold text-xs tracking-widest uppercase mb-4 border border-brand-accent/20 shadow-sm">
+                    <div class="lg:col-span-5 why-copy">
+                        <span class="why-section-label inline-block px-4 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent font-bold text-xs tracking-widest uppercase mb-4 border border-brand-accent/20 shadow-sm">
                             <i class="fa-solid fa-shield-halved mr-1.5"></i> Why Choose DS Safety Systems?
                         </span>
                         <h1 class="text-3xl sm:text-5xl font-black tracking-tight mt-2 mb-6 leading-normal text-brand-navy">
@@ -141,15 +204,15 @@
                     </div>
 
                     <!-- Vertical Divider Line for Desktop (Horizontal for Mobile) -->
-                    <div class="hidden lg:block lg:col-span-1 h-full flex justify-center">
+                    <div class="hidden lg:block lg:col-span-1 h-full flex justify-center why-divider">
                         <div class="w-px h-full bg-gradient-to-b from-transparent via-gray-300 to-transparent min-h-[300px]"></div>
                     </div>
                     <div class="block lg:hidden w-full h-px bg-gray-200 my-4"></div>
 
                     <!-- Right Side: 4 Pillars Cards Grid with Shimmer Effect -->
                     <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4 text-slate-800">
-                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
-                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-accent flex items-center justify-center text-xl font-bold mb-3">
+                        <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card why-card cursor-pointer">
+                            <div class="why-icon w-12 h-12 rounded-xl bg-orange-100 text-brand-accent flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-award"></i>
                             </div>
                             <h3 class="text-base font-bold text-brand-navy mb-1.5">Complete Fire Safety Solutions</h3>
@@ -159,7 +222,7 @@
                         </div>
 
                         <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
-                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center text-xl font-bold mb-3">
+                            <div class="why-icon w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-certificate"></i>
                             </div>
                             <h3 class="text-base font-bold text-brand-navy mb-1.5">Integrated Safety Systems</h3>
@@ -169,7 +232,7 @@
                         </div>
 
                         <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold mb-3">
+                            <div class="why-icon w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-headset"></i>
                             </div>
                             <h3 class="text-base font-bold text-brand-navy mb-1.5">Reliable Maintenance &amp; AMC</h3>
@@ -179,7 +242,7 @@
                         </div>
 
                         <div class="p-5 rounded-2xl border border-gray-200 shadow-sm bg-white/90 backdrop-blur-sm shimmer-card cursor-pointer">
-                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold mb-3">
+                            <div class="why-icon w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold mb-3">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                             </div>
                             <h3 class="text-base font-bold text-brand-navy mb-1.5">Solutions for Every Industry</h3>
