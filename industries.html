@@ -237,6 +237,17 @@
 .industries-section #industryDetailPanel button:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(220,38,38,.24)!important; }
 @media(max-width:639px){.industries-section .sector-card{min-height:220px}.industries-section .text-center.max-w-3xl{margin-bottom:2.25rem!important}}
 @media(prefers-reduced-motion:reduce){.industries-section .sector-card,.industries-section #industryDetailPanel button{transition:none!important}}
+
+/* Ensure the selected industry title is readable on the white detail card */
+.industries-section #industryDetailPanel > div:first-child h3 {
+  color:#ffffff !important;
+  text-shadow:0 2px 10px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.9) !important;
+  position:relative;
+  z-index:3;
+}
+.industries-section #industryDetailPanel > div:first-child .bg-gradient-to-t {
+  background-image:linear-gradient(to top,rgba(5,7,11,.96) 0%,rgba(5,7,11,.58) 52%,rgba(5,7,11,.08) 100%) !important;
+}
 </style>
 </head>
 <body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
