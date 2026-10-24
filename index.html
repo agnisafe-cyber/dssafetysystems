@@ -999,14 +999,6 @@
   }
 </style>
 
-
-  <!-- Uploaded footer component styling (Tailwind preflight disabled to protect the existing site) -->
-  <script>tailwind = { config: { corePlugins: { preflight: false }, darkMode: 'class', theme: { extend: { colors: { dark: { bg: '#090d16', card: '#111827', border: '#1f2937' } }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } };</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    #footer .glass-panel{background:rgba(17,24,39,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
-  </style>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -2342,92 +2334,33 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   }
 }
 </style>
-<footer id="footer" class="relative bg-gray-900 text-gray-300 dark:bg-dark-bg border-t border-gray-800/80 pt-16 pb-12 overflow-hidden transition-colors duration-300">
-        <!-- Ambient Background Glow Accents -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+<footer id="ds-site-footer" aria-label="DS Safety Systems contact and footer">
+<style>
+#ds-site-footer{background:#07090d;color:#f5f5f4;border-top:1px solid rgba(255,255,255,.1);padding:54px 5vw 28px;font-family:"Poppins",Arial,sans-serif}
+#ds-site-footer .footer-inner{max-width:1240px;margin:0 auto}
+#ds-site-footer .footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px;padding-bottom:38px}
+#ds-site-footer .footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+#ds-site-footer .footer-brand img{width:46px;height:46px;object-fit:contain}
+#ds-site-footer .footer-brand strong{font-size:17px;letter-spacing:.01em}
+#ds-site-footer p{font-size:13px;line-height:1.8;color:#a8adb7;margin:0;max-width:390px}
+#ds-site-footer h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#f7f5f0;margin:3px 0 17px}
+#ds-site-footer a{color:#c7cbd2;text-decoration:none;font-size:13px;line-height:2.1;transition:color .2s ease}
+#ds-site-footer a:hover{color:#ff5365}
+#ds-site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start}
+#ds-site-footer .footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#7f8590;font-size:11px}
+@media(max-width:700px){#ds-site-footer .footer-main{grid-template-columns:1fr;gap:28px}#ds-site-footer{padding-top:42px}}
+</style>
+<div class="footer-inner">
+  <div class="footer-main">
+    <div><div class="footer-brand"><img src="DSF_logo_small.png" alt="DS Safety Systems logo" loading="lazy"><strong>DS Safety Systems</strong></div><p>Fire protection equipment, installation and maintenance solutions to help protect people, property and operations.</p></div>
+    <div><h3>Contact</h3><div class="footer-links"><a href="tel:9818701683">Call / WhatsApp: 9818701683</a><a href="mailto:Dssafetystems@hotmail.com">Dssafetystems@hotmail.com</a><a href="https://www.google.com/maps/search/?api=1&query=Govind+Puri%2C+New+Delhi" target="_blank" rel="noopener noreferrer">Govind Puri, New Delhi</a></div></div>
+    <div><h3>Explore</h3><div class="footer-links"><a href="#root">Home</a><a href="#services">Our Services</a><a href="#ds-featured-products">Featured Products</a><a href="#ds-industries-embed">Industries We Protect</a><a href="#get-quote-embed">Request a Quotation</a><a href="products-quote.html">Full Product Catalog</a></div></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="ds-footer-year">2026</span> DS Safety Systems. All rights reserved.</span><span>Fire safety equipment · Installation · AMC & maintenance</span></div>
+</div>
+</footer>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            <!-- SECTION 1: FIRE SAFETY CONTACT CTA -->
-            <div class="relative rounded-3xl p-8 sm:p-12 mb-16 overflow-hidden glass-panel bg-gradient-to-br from-gray-800/90 to-gray-900/90 dark:from-gray-900/80 dark:to-dark-card border border-gray-700/50 shadow-2xl">
-                <div class="absolute -right-12 -top-12 w-64 h-64 bg-red-500/10 rounded-full blur-2xl pointer-events-none"></div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-8">
-                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-300 text-xs font-semibold mb-4">
-                            <i class="fas fa-shield-halved text-xs"></i><span>DS SAFETY SYSTEMS</span>
-                        </div>
-                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">Ready to strengthen your fire protection?</h2>
-                        <p class="mt-3 text-gray-400 text-sm sm:text-base max-w-xl">Talk to us about fire safety equipment, installation, inspection, and annual maintenance services.</p>
-                    </div>
-                    <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-                        <a href="tel:9818701683" class="px-6 py-3.5 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg text-center"><i class="fas fa-phone mr-2"></i>Call / WhatsApp</a>
-                        <a href="contact.html#quote-form" class="px-6 py-3.5 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-xl text-sm border border-gray-700 transition-all duration-200 text-center">Request a Quote <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- SECTION 2: MULTI-COLUMN NAVIGATION & BRANDING -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800/80">
-                
-                <!-- DS SAFETY SYSTEMS BRAND COLUMN -->
-                <div class="lg:col-span-4 space-y-5">
-                    <div class="flex items-center space-x-3">
-                        <img src="DSF_logo_small.png" alt="DS Safety Systems logo" class="h-10 w-10 object-contain">
-                        <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-white">DS Safety Systems</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed pr-4">Professional fire protection equipment, installation, inspection, and maintenance solutions for commercial, industrial, and residential properties.</p>
-                    <div class="space-y-2 text-sm">
-                        <a href="tel:9818701683" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i class="fas fa-phone text-red-400 w-4"></i>9818701683</a>
-                        <a href="mailto:Dssafetystems@hotmail.com" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i class="far fa-envelope text-red-400 w-4"></i>Dssafetystems@hotmail.com</a>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Govind+Puri%2C+New+Delhi" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i class="fas fa-location-dot text-red-400 w-4"></i>Govind Puri, New Delhi</a>
-                    </div>
-                </div>
-
-                <!-- NAVIGATION COLUMNS -->
-                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Explore</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="#root" class="text-gray-400 hover:text-white inline-block transition-all">Home</a></li>
-                            <li><a href="#about" class="text-gray-400 hover:text-white inline-block transition-all">About Us</a></li>
-                            <li><a href="#services" class="text-gray-400 hover:text-white inline-block transition-all">Our Services</a></li>
-                            <li><a href="#ds-industries-embed" class="text-gray-400 hover:text-white inline-block transition-all">Industries We Serve</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Solutions</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="#ds-featured-products" class="text-gray-400 hover:text-white inline-block transition-all">Fire Extinguishers</a></li>
-                            <li><a href="#ds-featured-products" class="text-gray-400 hover:text-white inline-block transition-all">Fire Alarm Systems</a></li>
-                            <li><a href="#ds-featured-products" class="text-gray-400 hover:text-white inline-block transition-all">Hydrant & Sprinkler Systems</a></li>
-                            <li><a href="#services" class="text-gray-400 hover:text-white inline-block transition-all">AMC & Maintenance</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Get in Touch</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="contact.html#quote-form" class="text-gray-400 hover:text-white inline-block transition-all">Request a Quote</a></li>
-                            <li><a href="products-quote.html" class="text-gray-400 hover:text-white inline-block transition-all">Full Product Catalog</a></li>
-                            <li><a href="tel:9818701683" class="text-gray-400 hover:text-white inline-block transition-all">Call / WhatsApp</a></li>
-                            <li><a href="mailto:Dssafetystems@hotmail.com" class="text-gray-400 hover:text-white inline-block transition-all">Email Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-                        </div>
-
-            <!-- SECTION 4: COPYRIGHT & LEGAL FOOTNOTE -->
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-                <div class="flex flex-wrap items-center gap-1 text-center sm:text-left">
-                    <span>&copy; <span id="ds-footer-year">2026</span> DS Safety Systems. All rights reserved.</span><span class="hidden sm:inline mx-1">•</span><span>Fire safety equipment · Installation · Service · AMC</span>
-                </div>
-
-                <div class="flex items-center space-x-6"><a href="contact.html#quote-form" class="hover:text-gray-300 transition-colors">Contact</a><a href="products-quote.html" class="hover:text-gray-300 transition-colors">Product Catalog</a></div></div></footer>
-<script>
-  (function(){var y=document.getElementById('ds-footer-year');if(y)y.textContent=new Date().getFullYear();})();
-</script>
 
 
 <script id="ds-final-homepage-order">
