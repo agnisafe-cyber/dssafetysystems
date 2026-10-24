@@ -2396,6 +2396,23 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
 })();
 </script>
 
+
+<!-- Lightweight site-wide Motion effects -->
+<script type="module">
+import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm";
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const selectors = ["main section h1","main section h2","main section h3","main section article","main section .card","main section .service-card","main section .product-card","main section .sector-card","main section [class*='grid'] > *"].join(",");
+  document.querySelectorAll(selectors).forEach((el) => {
+    if (el.dataset.motionSiteReveal) return;
+    el.dataset.motionSiteReveal = "true";
+    inView(el, () => {
+      const siblings = el.parentElement ? Array.from(el.parentElement.children).filter(n => n.dataset.motionSiteReveal === "true") : [];
+      animate(el,{opacity:[0,1],y:[14,0]},{duration:.52,delay:Math.min(Math.max(siblings.indexOf(el),0)*.045,.22),easing:[.22,1,.36,1]});
+    },{amount:.12});
+  });
+}
+</script>
+
 </body>
 </html>
 
