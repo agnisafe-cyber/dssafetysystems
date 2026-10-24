@@ -1189,6 +1189,38 @@
           window.addEventListener("resize", fitQuoteFrame);
         })();
       </script>
+
+      <!-- Footer, directly after Get a Quote -->
+      <section id="ds-footer-embed" aria-label="DS Safety Systems footer" style="width:100%;margin:0;padding:0;background:transparent;overflow:hidden;">
+        <iframe
+          id="ds-footer-embed-frame"
+          src="footer.html?embed=transparent-footer-v1"
+          title="DS Safety Systems footer"
+          loading="lazy"
+          scrolling="no"
+          style="display:block;width:100%;height:1100px;border:0;overflow:hidden;background:transparent"
+        ></iframe>
+      </section>
+      <script>
+        (() => {
+          const frame = document.getElementById("ds-footer-embed-frame");
+          if (!frame) return;
+          const fitFooterFrame = () => {
+            try {
+              const doc = frame.contentDocument;
+              if (!doc) return;
+              const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+              if (height > 0) frame.style.height = height + "px";
+            } catch (error) {}
+          };
+          frame.addEventListener("load", () => {
+            fitFooterFrame();
+            window.setTimeout(fitFooterFrame, 250);
+            window.setTimeout(fitFooterFrame, 900);
+          });
+          window.addEventListener("resize", fitFooterFrame);
+        })();
+      </script>
     </div>
   </div>
 
