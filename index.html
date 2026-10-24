@@ -2370,8 +2370,7 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     const how = document.getElementById("protection-flow");
     const why = document.getElementById("ds-why-safety-embed");
     const quote = document.getElementById("get-quote-embed");
-    const footer = document.getElementById("footer");
-    if (!root || !host || !featured || !industries || !how || !why || !quote || !footer) return false;
+    if (!root || !host || !featured || !industries || !how || !why || !quote) return false;
     const stories = document.getElementById("ds-client-stories-embed");
     if (stories) stories.remove();
     /* Keep the React-owned homepage root intact; move the finished sections after it. */
@@ -2380,7 +2379,6 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     host.appendChild(how);
     host.appendChild(why);
     host.appendChild(quote);
-    host.appendChild(footer);
     return true;
   };
   if (arrange()) return;
