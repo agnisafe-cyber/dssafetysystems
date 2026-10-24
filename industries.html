@@ -198,6 +198,27 @@
 .industries-section #industryDetailPanel { background:#fff !important; background-color:#fff !important; background-image:none !important; color:#172033 !important; border-color:#e2e8f0 !important; box-shadow:0 12px 32px rgba(0,0,0,.14) !important; backdrop-filter:none !important; }
 .industries-section #industryDetailPanel h3,.industries-section #industryDetailPanel h4,.industries-section #industryDetailPanel .text-gray-700,.industries-section #industryDetailPanel .text-slate-900 { color:#172033 !important; }
 .industries-section #industryDetailPanel p,.industries-section #industryDetailPanel .text-gray-500,.industries-section #industryDetailPanel .text-gray-600,.industries-section #industryDetailPanel li { color:#5b6472 !important; }
+
+/* Premium finish for the industry cards and interactive detail panel */
+.industries-section .text-center.max-w-3xl { margin-bottom:3rem!important; }
+.industries-section .sector-card { min-height:232px; border-radius:18px!important; padding:1.35rem!important; box-shadow:0 7px 22px rgba(0,0,0,.10)!important; }
+.industries-section .sector-card h3 { font-size:1.04rem!important; line-height:1.35!important; letter-spacing:-.015em; margin-bottom:.55rem!important; }
+.industries-section .sector-card p { font-size:.79rem!important; line-height:1.65!important; margin-bottom:1rem!important; }
+.industries-section .sector-card .text-brand-accent { color:#d9480f!important; }
+.industries-section .sector-card .border-t { border-color:#e5e7eb!important; }
+.industries-section #industryFilters { gap:.5rem; max-width:100%; }
+.industries-section .ind-filter-btn { border-radius:999px!important; border-color:rgba(255,255,255,.16)!important; transition:background-color .22s ease,color .22s ease,border-color .22s ease!important; }
+.industries-section .ind-filter-btn.bg-brand-navy { background:#dc2626!important; color:#fff!important; border-color:#dc2626!important; }
+.industries-section #industryDetailPanel { border-radius:20px!important; overflow:hidden; }
+.industries-section #industryDetailPanel > div:first-child .bg-gradient-to-t { background-image:linear-gradient(to top,rgba(8,10,13,.88),rgba(8,10,13,.35),transparent)!important; }
+.industries-section #industryDetailPanel h4 { font-size:.7rem!important; letter-spacing:.12em!important; color:#6b7280!important; }
+.industries-section #industryDetailPanel ul { gap:.45rem!important; }
+.industries-section #industryDetailPanel li { padding:.55rem .65rem; border:1px solid #e5e7eb; border-radius:10px; background:#f9fafb; line-height:1.4; }
+.industries-section #industryDetailPanel li i { flex-shrink:0; }
+.industries-section #industryDetailPanel button { background:linear-gradient(100deg,#e04416,#dc2626)!important; border-radius:12px!important; box-shadow:0 7px 18px rgba(220,38,38,.18)!important; transition:transform .22s ease,box-shadow .22s ease!important; }
+.industries-section #industryDetailPanel button:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(220,38,38,.24)!important; }
+@media(max-width:639px){.industries-section .sector-card{min-height:220px}.industries-section .text-center.max-w-3xl{margin-bottom:2.25rem!important}}
+@media(prefers-reduced-motion:reduce){.industries-section .sector-card,.industries-section #industryDetailPanel button{transition:none!important}}
 </style>
 </head>
 <body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
@@ -228,8 +249,8 @@
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-t border-gray-200/60 pt-8">
                     <div>
                         <span class="text-xs font-extrabold text-orange-600 uppercase tracking-widest block mb-1">Sector Architecture</span>
-                        <h2 class="text-xl sm:text-2xl font-bold text-brand-navy">Select An Sector / Industry</h2>
-                        <p class="text-sm text-gray-600">Filter turnkey safety solutions by facility type</p>
+                        <h2 class="text-xl sm:text-2xl font-bold text-brand-navy">Select an Industry</h2>
+                        <p class="text-sm text-gray-600">Explore tailored fire protection by facility type</p>
                     </div>
                     <div class="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 hide-scrollbar" id="industryFilters">
                         <!-- Dynamic filter buttons generated in JS -->
