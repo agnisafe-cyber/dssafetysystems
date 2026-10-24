@@ -207,49 +207,6 @@
                 </div>
             </div>
 
-            <!-- SECTION 3: UTILITY BAR (STATUS, LANGUAGE, CURRENCY) -->
-            <div class="py-6 border-b border-gray-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-                
-                <!-- Live System Status Indicator -->
-                <div class="flex items-center space-x-3 bg-white/5 border border-gray-800 rounded-full px-3.5 py-1.5">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-gray-300 font-medium">All Systems Operational</span>
-                    <span class="text-gray-600">|</span>
-                    <span class="text-gray-400">Latency: <span class="text-emerald-400">18ms</span></span>
-                </div>
-
-                <!-- Language & Currency Preferences -->
-                <div class="flex flex-wrap items-center gap-3">
-                    <!-- Language Selector -->
-                    <div class="relative inline-block">
-                        <select onchange="showToast('Language set to ' + this.value)" class="appearance-none bg-white/5 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-8 pr-8 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
-                            <option value="English (US)" class="bg-gray-900">English (US)</option>
-                            <option value="Spanish" class="bg-gray-900">Español</option>
-                            <option value="German" class="bg-gray-900">Deutsch</option>
-                            <option value="French" class="bg-gray-900">Français</option>
-                            <option value="Japanese" class="bg-gray-900">日本語</option>
-                        </select>
-                        <i class="fas fa-globe absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
-                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
-                    </div>
-
-                    <!-- Currency Selector -->
-                    <div class="relative inline-block">
-                        <select onchange="showToast('Currency set to ' + this.value)" class="appearance-none bg-white/5 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-7 pr-7 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
-                            <option value="USD ($)" class="bg-gray-900">USD ($)</option>
-                            <option value="EUR (€)" class="bg-gray-900">EUR (€)</option>
-                            <option value="GBP (£)" class="bg-gray-900">GBP (£)</option>
-                            <option value="JPY (¥)" class="bg-gray-900">JPY (¥)</option>
-                        </select>
-                        <i class="fas fa-dollar-sign absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
-                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
-                    </div>
-                </div>
-            </div>
-
             <!-- SECTION 4: COPYRIGHT & LEGAL FOOTNOTE -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
                 <div class="flex flex-wrap items-center gap-1 text-center sm:text-left">
