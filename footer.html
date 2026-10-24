@@ -1,1 +1,438 @@
 <!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standalone Modern Site Footer Component</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Glassmorphism styling */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-transparent text-gray-100 min-h-screen flex flex-col justify-end transition-colors duration-300">
+
+    <!-- DEMO THEME TOGGLE (Optional: Remove if your site has its own theme switcher) -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-3 rounded-xl border border-gray-700 bg-gray-900/90 text-gray-200 hover:bg-gray-800 shadow-xl backdrop-blur-md transition-all duration-200 flex items-center space-x-2">
+            <i id="themeIcon" class="fas fa-moon"></i>
+            <span class="text-xs font-semibold">Toggle Theme</span>
+        </button>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- START: MODULAR SITE FOOTER COMPONENT (COPY FROM HERE DOWN TO END FOOTER)  -->
+    <!-- ========================================================================= -->
+    <footer id="footer" class="relative bg-transparent text-gray-300 border-t border-gray-800/80 pt-16 pb-12 overflow-hidden transition-colors duration-300">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- SECTION 1: NEWSLETTER SUBSCRIBE BOX -->
+            <div class="relative rounded-3xl p-8 sm:p-12 mb-16 overflow-hidden glass-panel bg-gradient-to-br from-gray-800/90 to-gray-900/90 dark:from-gray-900/80 dark:to-dark-card border border-gray-700/50 shadow-2xl">
+                <div class="absolute -right-12 -top-12 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-4">
+                            <i class="fas fa-paper-plane text-xs"></i>
+                            <span>Stay Informed</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                            Subscribe to our tech digest & updates
+                        </h2>
+                        <p class="mt-2 text-gray-400 text-sm sm:text-base max-w-xl">
+                            Join 30,000+ creators receiving curated insights, design resources, and new feature announcements once a week.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <form id="newsletterForm" onsubmit="handleNewsletter(event)" class="space-y-3">
+                            <div class="relative flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-grow">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <input 
+                                        type="email" 
+                                        id="newsletterEmail"
+                                        required 
+                                        placeholder="Enter your email address" 
+                                        class="w-full pl-11 pr-4 py-3.5 bg-gray-950/70 dark:bg-gray-950/80 border border-gray-700 focus:border-blue-500 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 text-sm transition-all duration-200"
+                                    >
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    class="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg shadow-blue-600/30 flex items-center justify-center min-w-[120px]"
+                                >
+                                    <span>Subscribe</span>
+                                    <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between px-1">
+                                <p class="text-xs text-gray-400 flex items-center">
+                                    <i class="fas fa-shield-alt text-green-400 mr-1.5"></i>
+                                    Zero spam. Unsubscribe anytime.
+                                </p>
+                                <span class="text-xs text-gray-500">Weekly drop</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: MULTI-COLUMN NAVIGATION & BRANDING -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800/80">
+                
+                <!-- BRAND & SOCIAL COLUMN (4 Cols) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/20">
+                            N
+                        </div>
+                        <span class="font-extrabold text-2xl tracking-tight text-white">YourBrand</span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm leading-relaxed pr-4">
+                        Building the modern web with scalable design systems, robust developer infrastructure, and accessible components.
+                    </p>
+
+                    <!-- Trust Stats / Badges -->
+                    <div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-800/60">
+                        <div>
+                            <span class="block text-xl font-extrabold text-white">99.99%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Uptime SLA</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-extrabold text-white">120K+</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Active Users</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 block mb-3">Connect With Us</span>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="javascript:void(0)" onclick="notifySocial('X / Twitter')" aria-label="X Twitter" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-blue-500/20 hover:text-blue-400 border border-gray-700/60 hover:border-blue-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-x-twitter text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('GitHub')" aria-label="GitHub" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-gray-700 hover:text-white border border-gray-700/60 hover:border-gray-500 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-github text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('Discord')" aria-label="Discord" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-indigo-500/20 hover:text-indigo-400 border border-gray-700/60 hover:border-indigo-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-discord text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('LinkedIn')" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-blue-600/20 hover:text-blue-500 border border-gray-700/60 hover:border-blue-600/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-linkedin-in text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('YouTube')" aria-label="YouTube" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-red-500/20 hover:text-red-500 border border-gray-700/60 hover:border-red-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-youtube text-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION COLUMNS (8 Cols divided into 3) -->
+                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    
+                    <!-- Product Links -->
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Product</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Features & Core</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Integrations</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Enterprise Solution</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Design System</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Pricing Plans</a></li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center transition-all duration-200">
+                                    <span>Changelog</span>
+                                    <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">v2.4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Company Links -->
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">About Our Story</a></li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center transition-all duration-200">
+                                    <span>Careers</span>
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full animate-pulse">Hiring</span>
+                                </a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Press & Brand Kit</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Engineering Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Partnerships</a></li>
+                            <li>
+                                <button onclick="copyToClipboard('contact@yourdomain.com', 'Email copied to clipboard!')" class="text-gray-400 hover:text-blue-400 text-left hover:translate-x-1 inline-flex items-center transition-all duration-200 group">
+                                    <i class="far fa-copy mr-1.5 text-xs text-gray-500 group-hover:text-blue-400"></i> Contact Sales
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources & Support Links -->
+                    <div class="space-y-4 col-span-2 sm:col-span-1">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Resources</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Documentation</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">API Reference</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Community Forum</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Cookie Settings</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECTION 3: UTILITY BAR (STATUS, LANGUAGE, CURRENCY) -->
+            <div class="py-6 border-b border-gray-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+                
+                <!-- Live System Status Indicator -->
+                <div class="flex items-center space-x-3 bg-gray-900/80 border border-gray-800 rounded-full px-3.5 py-1.5">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-gray-300 font-medium">All Systems Operational</span>
+                    <span class="text-gray-600">|</span>
+                    <span class="text-gray-400">Latency: <span class="text-emerald-400">18ms</span></span>
+                </div>
+
+                <!-- Language & Currency Preferences -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <!-- Language Selector -->
+                    <div class="relative inline-block">
+                        <select onchange="showToast('Language set to ' + this.value)" class="appearance-none bg-gray-800/80 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-8 pr-8 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
+                            <option value="English (US)">English (US)</option>
+                            <option value="Spanish">Español</option>
+                            <option value="German">Deutsch</option>
+                            <option value="French">Français</option>
+                            <option value="Japanese">日本語</option>
+                        </select>
+                        <i class="fas fa-globe absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
+                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
+                    </div>
+
+                    <!-- Currency Selector -->
+                    <div class="relative inline-block">
+                        <select onchange="showToast('Currency set to ' + this.value)" class="appearance-none bg-gray-800/80 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-7 pr-7 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
+                            <option value="USD ($)">USD ($)</option>
+                            <option value="EUR (€)">EUR (€)</option>
+                            <option value="GBP (£)">GBP (£)</option>
+                            <option value="JPY (¥)">JPY (¥)</option>
+                        </select>
+                        <i class="fas fa-dollar-sign absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
+                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: COPYRIGHT & LEGAL FOOTNOTE -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <div class="flex flex-wrap items-center gap-1 text-center sm:text-left">
+                    <span>&copy; <span id="currentYear"></span> YourBrand Inc. All rights reserved.</span>
+                    <span class="hidden sm:inline mx-1">•</span>
+                    <span>Designed for performance & modern UI standards.</span>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="hover:text-gray-300 transition-colors">Security</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Sitemap</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Compliance</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- ========================================================================= -->
+    <!-- END: MODULAR SITE FOOTER COMPONENT                                       -->
+    <!-- ========================================================================= -->
+
+    <!-- Back To Top Button with Progress Indicator Ring -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button 
+            id="backToTopBtn" 
+            onclick="scrollToTop()" 
+            aria-label="Back to Top"
+            class="relative w-12 h-12 rounded-full bg-gray-900/90 text-white border border-gray-700 shadow-2xl backdrop-blur-md flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform opacity-0 translate-y-4 pointer-events-none group"
+        >
+            <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                <path
+                    class="text-gray-800"
+                    stroke-width="3"
+                    stroke="currentColor"
+                    fill="none"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                    id="scrollProgressPath"
+                    class="text-blue-500 group-hover:text-white transition-colors duration-200"
+                    stroke-dasharray="0, 100"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke="currentColor"
+                    fill="none"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+            </svg>
+            <i class="fas fa-arrow-up text-sm z-10 group-hover:-translate-y-0.5 transition-transform"></i>
+        </button>
+    </div>
+
+    <!-- Interactive Toast Notification Element -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+
+    <!-- FOOTER COMPONENT INTERACTIVE SCRIPT -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                themeIcon.className = 'fas fa-sun text-amber-500';
+                showToast('Light theme preview mode');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                themeIcon.className = 'fas fa-moon';
+                showToast('Dark theme preview mode');
+            }
+        });
+
+        // Newsletter Form Handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            const email = emailInput.value.trim();
+
+            if (email) {
+                showToast(`Subscribed successfully with ${email}! 🎉`);
+                emailInput.value = '';
+            }
+        }
+
+        // Clipboard Copy Helper
+        function copyToClipboard(text, successMessage) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(successMessage || 'Copied to clipboard!');
+        }
+
+        // Social Link Trigger
+        function notifySocial(platform) {
+            showToast(`Opening ${platform} page...`);
+        }
+
+        // Toast Popup Handler
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto flex items-center space-x-3 bg-gray-900/95 text-white border border-gray-700/80 px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-x-12 opacity-0 text-sm backdrop-blur-md';
+            toast.innerHTML = `
+                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-white ml-2">
+                    <i class="fas fa-times text-xs"></i>
+                </button>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-x-12', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-x-12', 'opacity-0');
+                setTimeout(() => {
+                    if (toast.parentElement) toast.remove();
+                }, 300);
+            }, 3500);
+        }
+
+        // Back To Top & Scroll Ring Progress
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const scrollProgressPath = document.getElementById('scrollProgressPath');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            
+            if (scrollTop > 200) {
+                backToTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+
+            if (docHeight > 0) {
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollProgressPath.setAttribute('stroke-dasharray', `${scrollPercent}, 100`);
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
