@@ -1104,7 +1104,7 @@
             frame.onload = () => {
               try {
                 const doc = frame.contentDocument;
-                const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - 250;
+                const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - 500;
                 if (height > 0) frame.style.height = height + 'px';
               } catch (e) {}
             };
