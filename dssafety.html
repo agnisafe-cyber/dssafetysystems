@@ -342,5 +342,42 @@
         </section>
     </main>
 
+
+    <!-- Lightweight site-wide Motion effects -->
+    <script type="module">
+      import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm";
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reducedMotion) {
+        const revealTargets = [
+          "main section h1",
+          "main section h2",
+          "main section h3",
+          "main section article",
+          "main section .card",
+          "main section .service-card",
+          "main section .product-card",
+          "main section .sector-card",
+          "main section [class*='grid'] > *"
+        ].join(",");
+
+        document.querySelectorAll(revealTargets).forEach((element) => {
+          if (element.dataset.motionSiteReveal) return;
+          element.dataset.motionSiteReveal = "true";
+          inView(element, () => {
+            const siblings = element.parentElement
+              ? Array.from(element.parentElement.children).filter((node) => node.dataset.motionSiteReveal === "true")
+              : [];
+            const stagger = Math.min(Math.max(siblings.indexOf(element), 0) * 0.045, 0.22);
+            animate(element, { opacity: [0, 1], y: [14, 0] }, {
+              duration: 0.52,
+              delay: stagger,
+              easing: [0.22, 1, 0.36, 1]
+            });
+          }, { amount: 0.12 });
+        });
+      }
+    </script>
+
 </body>
 </html>
