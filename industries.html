@@ -604,5 +604,57 @@
             event.target.reset();
         }
     </script>
+
+    <!-- Lightweight Motion.js effects for the Industries section -->
+    <script type="module">
+        import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm";
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reduceMotion) {
+            window.addEventListener("load", () => {
+                const heading = document.querySelector(".industries-section .text-center.max-w-3xl h1");
+                const intro = document.querySelector(".industries-section .text-center.max-w-3xl p");
+                const cardsGrid = document.getElementById("industryCardsGrid");
+                const detailPanel = document.getElementById("industryDetailPanel");
+
+                if (heading) {
+                    animate(heading, { opacity: [0, 1], y: [14, 0] }, {
+                        duration: 0.75,
+                        easing: [0.22, 1, 0.36, 1]
+                    });
+                }
+
+                if (intro) {
+                    animate(intro, { opacity: [0, 1], y: [8, 0] }, {
+                        duration: 0.65,
+                        delay: 0.12,
+                        easing: [0.22, 1, 0.36, 1]
+                    });
+                }
+
+                if (cardsGrid) {
+                    inView(cardsGrid, () => {
+                        const cards = cardsGrid.querySelectorAll(".sector-card");
+                        animate(cards, { opacity: [0, 1], y: [18, 0] }, {
+                            duration: 0.5,
+                            delay: (i) => i * 0.07,
+                            easing: [0.22, 1, 0.36, 1]
+                        });
+                    }, { amount: 0.12 });
+                }
+
+                if (detailPanel) {
+                    inView(detailPanel, () => {
+                        animate(detailPanel, { opacity: [0, 1], y: [12, 0], scale: [0.985, 1] }, {
+                            duration: 0.55,
+                            easing: [0.22, 1, 0.36, 1]
+                        });
+                    }, { amount: 0.12 });
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
