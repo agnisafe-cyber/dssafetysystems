@@ -2334,31 +2334,247 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
   }
 }
 </style>
-<footer id="ds-site-footer" aria-label="DS Safety Systems contact and footer">
+<!-- footer.html component styles; preflight disabled to preserve the existing website -->
+<script>tailwind = { config: { corePlugins: { preflight: false }, darkMode: 'class', theme: { extend: { colors: { dark: { bg: '#090d16', card: '#111827', border: '#1f2937' } }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } };</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-#ds-site-footer{background:#07090d;color:#f5f5f4;border-top:1px solid rgba(255,255,255,.1);padding:54px 5vw 28px;font-family:"Poppins",Arial,sans-serif}
-#ds-site-footer .footer-inner{max-width:1240px;margin:0 auto}
-#ds-site-footer .footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:42px;padding-bottom:38px}
-#ds-site-footer .footer-brand{display:flex;align-items:center;gap:13px;margin-bottom:15px}
-#ds-site-footer .footer-brand img{width:46px;height:46px;object-fit:contain}
-#ds-site-footer .footer-brand strong{font-size:17px;letter-spacing:.01em}
-#ds-site-footer p{font-size:13px;line-height:1.8;color:#a8adb7;margin:0;max-width:390px}
-#ds-site-footer h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#f7f5f0;margin:3px 0 17px}
-#ds-site-footer a{color:#c7cbd2;text-decoration:none;font-size:13px;line-height:2.1;transition:color .2s ease}
-#ds-site-footer a:hover{color:#ff5365}
-#ds-site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start}
-#ds-site-footer .footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;color:#7f8590;font-size:11px}
-@media(max-width:700px){#ds-site-footer .footer-main{grid-template-columns:1fr;gap:28px}#ds-site-footer{padding-top:42px}}
+#footer .glass-panel{background:rgba(17,24,39,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+#footer .footer-link{transition:color .2s ease}
 </style>
-<div class="footer-inner">
-  <div class="footer-main">
-    <div><div class="footer-brand"><img src="DSF_logo_small.png" alt="DS Safety Systems logo" loading="lazy"><strong>DS Safety Systems</strong></div><p>Fire protection equipment, installation and maintenance solutions to help protect people, property and operations.</p></div>
-    <div><h3>Contact</h3><div class="footer-links"><a href="tel:9818701683">Call / WhatsApp: 9818701683</a><a href="mailto:Dssafetystems@hotmail.com">Dssafetystems@hotmail.com</a><a href="https://www.google.com/maps/search/?api=1&query=Govind+Puri%2C+New+Delhi" target="_blank" rel="noopener noreferrer">Govind Puri, New Delhi</a></div></div>
-    <div><h3>Explore</h3><div class="footer-links"><a href="#root">Home</a><a href="#services">Our Services</a><a href="#ds-featured-products">Featured Products</a><a href="#ds-industries-embed">Industries We Protect</a><a href="#get-quote-embed">Request a Quotation</a><a href="products-quote.html">Full Product Catalog</a></div></div>
-  </div>
-  <div class="footer-bottom"><span>© <span id="ds-footer-year">2026</span> DS Safety Systems. All rights reserved.</span><span>Fire safety equipment · Installation · AMC & maintenance</span></div>
-</div>
-</footer>
+<footer id="footer" class="relative bg-gray-900 text-gray-300 dark:bg-dark-bg border-t border-gray-800/80 pt-16 pb-12 overflow-hidden transition-colors duration-300">
+        <!-- Ambient Background Glow Accents -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- SECTION 1: NEWSLETTER SUBSCRIBE BOX -->
+            <div class="relative rounded-3xl p-8 sm:p-12 mb-16 overflow-hidden glass-panel bg-gradient-to-br from-gray-800/90 to-gray-900/90 dark:from-gray-900/80 dark:to-dark-card border border-gray-700/50 shadow-2xl">
+                <div class="absolute -right-12 -top-12 w-64 h-64 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-4">
+                            <i class="fas fa-paper-plane text-xs"></i>
+                            <span>Stay Informed</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                            Subscribe to our tech digest & updates
+                        </h2>
+                        <p class="mt-2 text-gray-400 text-sm sm:text-base max-w-xl">
+                            Join 30,000+ creators receiving curated insights, design resources, and new feature announcements once a week.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <form id="newsletterForm" onsubmit="handleNewsletter(event)" class="space-y-3">
+                            <div class="relative flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-grow">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <input 
+                                        type="email" 
+                                        id="newsletterEmail"
+                                        required 
+                                        placeholder="Enter your email address" 
+                                        class="w-full pl-11 pr-4 py-3.5 bg-gray-950/70 dark:bg-gray-950/80 border border-gray-700 focus:border-blue-500 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 text-sm transition-all duration-200"
+                                    >
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    class="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg shadow-blue-600/30 flex items-center justify-center min-w-[120px]"
+                                >
+                                    <span>Subscribe</span>
+                                    <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between px-1">
+                                <p class="text-xs text-gray-400 flex items-center">
+                                    <i class="fas fa-shield-alt text-green-400 mr-1.5"></i>
+                                    Zero spam. Unsubscribe anytime.
+                                </p>
+                                <span class="text-xs text-gray-500">Weekly drop</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: MULTI-COLUMN NAVIGATION & BRANDING -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800/80">
+                
+                <!-- BRAND & SOCIAL COLUMN (4 Cols) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/20">
+                            N
+                        </div>
+                        <span class="font-extrabold text-2xl tracking-tight text-white">DS Safety Systems</span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm leading-relaxed pr-4">
+                        Building the modern web with scalable design systems, robust developer infrastructure, and accessible components.
+                    </p>
+
+                    <!-- Trust Stats / Badges -->
+                    <div class="grid grid-cols-2 gap-4 py-3 border-y border-gray-800/60">
+                        <div>
+                            <span class="block text-xl font-extrabold text-white">99.99%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Uptime SLA</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-extrabold text-white">120K+</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Active Users</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 block mb-3">Connect With Us</span>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="javascript:void(0)" onclick="notifySocial('X / Twitter')" aria-label="X Twitter" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-blue-500/20 hover:text-blue-400 border border-gray-700/60 hover:border-blue-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-x-twitter text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('GitHub')" aria-label="GitHub" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-gray-700 hover:text-white border border-gray-700/60 hover:border-gray-500 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-github text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('Discord')" aria-label="Discord" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-indigo-500/20 hover:text-indigo-400 border border-gray-700/60 hover:border-indigo-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-discord text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('LinkedIn')" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-blue-600/20 hover:text-blue-500 border border-gray-700/60 hover:border-blue-600/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-linkedin-in text-base"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="notifySocial('YouTube')" aria-label="YouTube" class="w-10 h-10 rounded-xl bg-gray-800/80 hover:bg-red-500/20 hover:text-red-500 border border-gray-700/60 hover:border-red-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
+                                <i class="fab fa-youtube text-base"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION COLUMNS (8 Cols divided into 3) -->
+                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    
+                    <!-- Product Links -->
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Product</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Features & Core</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Integrations</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Enterprise Solution</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Design System</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Pricing Plans</a></li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center transition-all duration-200">
+                                    <span>Changelog</span>
+                                    <span class="ml-2 px-1.5 py-0.5 text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded">v2.4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Company Links -->
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Company</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">About Our Story</a></li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center transition-all duration-200">
+                                    <span>Careers</span>
+                                    <span class="ml-2 px-2 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full animate-pulse">Hiring</span>
+                                </a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Press & Brand Kit</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Engineering Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Partnerships</a></li>
+                            <li>
+                                <button onclick="copyToClipboard('contact@yourdomain.com', 'Email copied to clipboard!')" class="text-gray-400 hover:text-blue-400 text-left hover:translate-x-1 inline-flex items-center transition-all duration-200 group">
+                                    <i class="far fa-copy mr-1.5 text-xs text-gray-500 group-hover:text-blue-400"></i> Contact Sales
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources & Support Links -->
+                    <div class="space-y-4 col-span-2 sm:col-span-1">
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Resources</h3>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Documentation</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">API Reference</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Community Forum</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Cookie Settings</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SECTION 3: UTILITY BAR (STATUS, LANGUAGE, CURRENCY) -->
+            <div class="py-6 border-b border-gray-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+                
+                <!-- Live System Status Indicator -->
+                <div class="flex items-center space-x-3 bg-gray-900/80 border border-gray-800 rounded-full px-3.5 py-1.5">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-gray-300 font-medium">All Systems Operational</span>
+                    <span class="text-gray-600">|</span>
+                    <span class="text-gray-400">Latency: <span class="text-emerald-400">18ms</span></span>
+                </div>
+
+                <!-- Language & Currency Preferences -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <!-- Language Selector -->
+                    <div class="relative inline-block">
+                        <select onchange="showToast('Language set to ' + this.value)" class="appearance-none bg-gray-800/80 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-8 pr-8 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
+                            <option value="English (US)">English (US)</option>
+                            <option value="Spanish">Español</option>
+                            <option value="German">Deutsch</option>
+                            <option value="French">Français</option>
+                            <option value="Japanese">日本語</option>
+                        </select>
+                        <i class="fas fa-globe absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
+                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
+                    </div>
+
+                    <!-- Currency Selector -->
+                    <div class="relative inline-block">
+                        <select onchange="showToast('Currency set to ' + this.value)" class="appearance-none bg-gray-800/80 text-gray-300 hover:text-white border border-gray-700/80 rounded-lg pl-7 pr-7 py-1.5 text-xs focus:outline-none focus:border-blue-500 cursor-pointer">
+                            <option value="USD ($)">USD ($)</option>
+                            <option value="EUR (€)">EUR (€)</option>
+                            <option value="GBP (£)">GBP (£)</option>
+                            <option value="JPY (¥)">JPY (¥)</option>
+                        </select>
+                        <i class="fas fa-dollar-sign absolute left-2.5 top-2.5 text-gray-400 pointer-events-none"></i>
+                        <i class="fas fa-chevron-down absolute right-2.5 top-2.5 text-gray-500 text-[10px] pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: COPYRIGHT & LEGAL FOOTNOTE -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <div class="flex flex-wrap items-center gap-1 text-center sm:text-left">
+                    <span>&copy; <span id="dsFooterCurrentYear"></span> DS Safety Systems All rights reserved.</span>
+                    <span class="hidden sm:inline mx-1">•</span>
+                    <span>Fire safety equipment · Installation · Inspection · AMC</span>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="contact.html#quote-form" class="hover:text-gray-300 transition-colors">Request a Quote</a>
+                    <a href="products-quote.html" class="hover:text-gray-300 transition-colors">Product Catalog</a>
+                    <a href="tel:9818701683" class="hover:text-gray-300 transition-colors">Call Us</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+<script>(function(){var y=document.getElementById('dsFooterCurrentYear');if(y)y.textContent=new Date().getFullYear();})();</script>
+
 
 
 
