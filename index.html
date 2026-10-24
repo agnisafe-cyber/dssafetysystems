@@ -1202,7 +1202,7 @@
             try {
               const doc = frame.contentDocument;
               if (!doc) return;
-              const height = Math.max(100, Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - 250);
+              const height = Math.max(100, Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - 350);
               if (height > 0) frame.style.height = height + "px";
             } catch (error) {}
           };
