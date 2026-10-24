@@ -200,6 +200,18 @@
 .industries-section #industryDetailPanel p,.industries-section #industryDetailPanel .text-gray-500,.industries-section #industryDetailPanel .text-gray-600,.industries-section #industryDetailPanel li { color:#5b6472 !important; }
 
 
+/* Subtle fade-in for the Industries We Serve heading */
+@keyframes industryHeadingFadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.industries-section .text-center.max-w-3xl h1 {
+  animation:industryHeadingFadeIn .7s ease-out both;
+}
+@media(prefers-reduced-motion:reduce) {
+  .industries-section .text-center.max-w-3xl h1 { animation:none!important; }
+}
+
 /* Subtle fade-in for the industry cards only */
 @keyframes industryCardFadeIn {
   from { opacity:0; transform:translateY(12px); }
