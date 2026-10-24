@@ -2574,6 +2574,20 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
         </div>
     </footer>
 <script>(function(){var y=document.getElementById('dsFooterCurrentYear');if(y)y.textContent=new Date().getFullYear();})();</script>
+<script id="ds-footer-after-quote">
+(function(){
+  function placeFooter(){
+    var quote=document.getElementById('get-quote-embed');
+    var footer=document.getElementById('footer');
+    if(!quote||!footer||!quote.parentNode)return false;
+    quote.parentNode.insertBefore(footer,quote.nextSibling);
+    return true;
+  }
+  if(placeFooter())return;
+  document.addEventListener('DOMContentLoaded',placeFooter,{once:true});
+})();
+</script>
+
 
 
 
