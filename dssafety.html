@@ -215,6 +215,53 @@
             .why-copy,.why-section-label,.why-card,.why-divider::after { animation:none !important;opacity:1 !important;transform:none !important;filter:none !important; }
             .why-card,.why-card::before,.why-card .why-icon { transition:none !important; }
         }
+
+        /* Smooth, subtle card motion — no shimmer or flashing effects */
+        @keyframes whyCardEnterSmooth {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .why-card,
+        .why-card:hover,
+        .why-card:active {
+            animation: whyCardEnterSmooth .65s cubic-bezier(.22,.61,.36,1) both !important;
+            transition: transform .28s cubic-bezier(.22,.61,.36,1),
+                        box-shadow .28s ease,
+                        border-color .28s ease !important;
+            filter:none !important;
+        }
+        .why-card:nth-child(1) { animation-delay: .06s !important; }
+        .why-card:nth-child(2) { animation-delay: .13s !important; }
+        .why-card:nth-child(3) { animation-delay: .20s !important; }
+        .why-card:nth-child(4) { animation-delay: .27s !important; }
+        .why-card:hover {
+            transform: translateY(-4px) !important;
+            border-color: rgba(220,38,38,.30) !important;
+            box-shadow: 0 14px 30px rgba(0,0,0,.14) !important;
+        }
+        .why-card:active { transform: translateY(-1px) !important; }
+        .why-card::before {
+            opacity: 0;
+            transform: scaleX(.45);
+            transition: opacity .28s ease, transform .28s ease !important;
+        }
+        .why-card:hover::before { opacity: 1; transform: scaleX(1) !important; }
+        .why-card .why-icon {
+            animation:none !important;
+            transition: transform .28s ease, box-shadow .28s ease !important;
+        }
+        .why-card:hover .why-icon {
+            transform: translateY(-2px) !important;
+            animation:none !important;
+        }
+        .why-card::after { content:none !important; display:none !important; }
+        @media(prefers-reduced-motion:reduce) {
+            .why-card,.why-card:hover,.why-card:active,.why-card::before,.why-card .why-icon {
+                animation:none !important;
+                transition:none !important;
+                transform:none !important;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 flex flex-col min-h-screen bg-transparent">
