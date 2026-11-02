@@ -1135,41 +1135,6 @@
         })();
       </script>
 
-      <!-- 04 — ORIGINAL PRODUCT CATALOG: restore the full catalog created for DS Safety Systems -->
-      <section id="ds-products-embed" class="ds-products-embed" aria-label="DS Safety Systems product catalog">
-        <iframe
-          id="ds-products-embed-frame"
-          class="ds-products-embed-frame"
-          src="products-quote.html"
-          title="DS Safety Systems — Full Product Catalog"
-          loading="eager"
-          scrolling="no"
-          style="height:1800px"
-        ></iframe>
-      </section>
-      <script>
-        (() => {
-          const frame = document.getElementById("ds-products-embed-frame");
-          if (!frame) return;
-          const fitCatalogFrame = () => {
-            try {
-              const doc = frame.contentDocument;
-              if (!doc) return;
-              const body = doc.body;
-              const html = doc.documentElement;
-              const height = Math.max(body.scrollHeight, html.scrollHeight, body.offsetHeight, html.offsetHeight);
-              if (height > 0) frame.style.height = height + "px";
-            } catch (error) {}
-          };
-          frame.addEventListener("load", () => {
-            fitCatalogFrame();
-            window.setTimeout(fitCatalogFrame, 250);
-            window.setTimeout(fitCatalogFrame, 900);
-          });
-          window.addEventListener("resize", fitCatalogFrame);
-        })();
-      </script>
-
       <!-- Get a Quote page, placed at the very bottom after the product catalog -->
       <section id="get-quote-embed" aria-label="Get a Quote" style="position:relative;width:100%;margin:0;padding:24px 0 0;overflow:hidden;background:radial-gradient(ellipse 60% 45% at 50% 0%,rgba(220,38,38,.16),transparent 72%),linear-gradient(180deg,#080a0f 0%,#05070b 100%);border-top:1px solid rgba(248,113,113,.22);box-shadow:0 -24px 70px rgba(220,38,38,.06)">
         <iframe
