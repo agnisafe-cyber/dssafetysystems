@@ -217,16 +217,9 @@
                 </div>
 
                 <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                    <div class="flex items-center gap-4">
-                        <div class="flex items-center border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-800 h-12">
-                            <button id="qv-qty-minus" class="px-4 h-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-lg transition">-</button>
-                            <span id="qv-qty" class="px-4 text-base font-bold text-slate-900 dark:text-white">1</span>
-                            <button id="qv-qty-plus" class="px-4 h-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-lg transition">+</button>
-                        </div>
-                        <button id="qv-add-btn" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-xl shadow-brand-500/30 flex items-center justify-center gap-2 transition transform active:scale-95 text-base">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i> Enquire Now
-                        </button>
-                    </div>
+                    <button id="qv-add-btn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-xl shadow-brand-500/30 flex items-center justify-center gap-2 transition transform active:scale-95 text-base">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i> Enquire Now
+                    </button>
                 </div>
             </div>
         </div>
@@ -362,7 +355,6 @@
         let searchQuery = '';
         let currentSort = 'featured';
         let activeQuickViewId = null;
-        let modalQty = 1;
         let wishlist = new Set();
 
         // DOM Element Selectors
@@ -386,7 +378,6 @@
         const qvRating = document.getElementById('qv-rating');
         const qvReviews = document.getElementById('qv-reviews');
         const qvBadge = document.getElementById('qv-badge');
-        const qvQtySpan = document.getElementById('qv-qty');
 
         // Cart Drawer Selectors
         const cartBtn = document.getElementById('cart-btn');
@@ -529,8 +520,6 @@
             if (!product) return;
             
             activeQuickViewId = id;
-            modalQty = 1;
-            qvQtySpan.textContent = modalQty;
 
             qvImage.src = product.image;
             document.getElementById('qv-thumb-1').src = product.image;
@@ -729,18 +718,6 @@
 
             // Reset Listener
             resetBtn.addEventListener('click', resetFilters);
-
-            // Modal Quantity Buttons
-            document.getElementById('qv-qty-minus').addEventListener('click', () => {
-                if (modalQty > 1) {
-                    modalQty--;
-                    qvQtySpan.textContent = modalQty;
-                }
-            });
-            document.getElementById('qv-qty-plus').addEventListener('click', () => {
-                modalQty++;
-                qvQtySpan.textContent = modalQty;
-            });
 
             // Quick View Enquiry
             document.getElementById('qv-add-btn').addEventListener('click', () => {
