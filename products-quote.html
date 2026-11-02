@@ -1389,9 +1389,19 @@
                         <div class="stock-indicator in-stock"><i class="fa-solid fa-circle"></i> In Stock</div>
                     </div>
                     
-                    <div class="card-slider-wrapper model-viewer-frame">
-                        <model-viewer class="extinguisher-model-viewer" src="https://agnisafe-cyber.github.io/dssafetysystems/ds-fire-extinguisher.glb" poster="https://agnisafe-cyber.github.io/dssafetysystems/assets/extinguisher-hero.png" alt="Interactive 3D ABC dry powder fire extinguisher" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="12deg" shadow-intensity="1" exposure="1" environment-image="neutral" camera-orbit="0deg 75deg auto" interaction-prompt="auto" loading="eager"></model-viewer>
-                        <span class="model-viewer-hint">DRAG TO ROTATE · SCROLL TO ZOOM</span>
+                    <div class="card-slider-wrapper">
+                        <div class="slider-track" id="cardTrack-1">
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-1.jpg" alt="ABC dry powder fire extinguisher"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-2.jpg" alt="ABC dry powder extinguisher side view"></div>
+                            <div class="slider-slide"><img loading="lazy" decoding="async" src="images/abc-4kg-3.jpg" alt="ABC dry powder extinguisher details"></div>
+                        </div>
+                        <button class="slider-btn slider-prev" onclick="moveCardSlide(event, this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" onclick="moveCardSlide(event, this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="setCardSlide(event, this, 0)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 1)"></span>
+                        <span class="dot" onclick="setCardSlide(event, this, 2)"></span>
                     </div>
 
                     <div class="product-info">
