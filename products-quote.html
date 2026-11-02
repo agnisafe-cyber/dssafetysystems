@@ -6,7 +6,6 @@
     <title>DS Safety Systems | Elite Fire Protection Catalog</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -291,16 +290,7 @@
         .stock-indicator.in-stock i {
             color: #22c55e;
             animation: none;
-        }/* Lightweight interactive 3D viewer for the first extinguisher card */
-        .extinguisher-model-viewer {
-            display:block;width:100%;height:230px;
-            background:radial-gradient(ellipse at 50% 58%,rgba(180,35,43,.18),transparent 65%),#05070b;
-            --poster-color:#05070b;--progress-bar-color:#ff354b;cursor:grab;touch-action:pan-y;
-        }
-        .extinguisher-model-viewer:active{cursor:grabbing}
-        .model-viewer-hint{position:absolute;right:12px;bottom:10px;z-index:3;pointer-events:none;font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.7);background:rgba(5,7,11,.7);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:6px 9px}
-        .model-viewer-frame{position:relative;overflow:hidden}
-        /* --- CAROUSEL SLIDER DESIGN --- */
+        }/* --- CAROUSEL SLIDER DESIGN --- */
         .card-slider-wrapper {
             position: relative;
             width: 100%;
@@ -1227,7 +1217,7 @@
   box-shadow: 0 20px 38px rgba(15, 23, 42, .15), 0 0 0 1px rgba(255, 30, 56, .05) !important;
 }
 .product-card .card-slider-wrapper,
-.product-card .model-viewer-frame {
+.product-card .-frame {
   background: #f5f6f8 !important;
   border: 1px solid #e7e9ee !important;
   border-radius: 15px !important;
@@ -2239,7 +2229,7 @@
             card.setAttribute('aria-label', 'Open ' + title + ' detail page');
 
             card.addEventListener('click', (event) => {
-                if (event.target.closest('.slider-btn, .dot, model-viewer')) return;
+                if (event.target.closest('.slider-btn, .dot')) return;
                 openThisDetail();
             });
 
