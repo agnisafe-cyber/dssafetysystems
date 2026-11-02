@@ -1120,7 +1120,7 @@
             return true;
           };
           if (!installProductCatalog()) {
-            const root = document.getElementById('smooth-content') || document.body;
+            const root = document.body;
             const observer = new MutationObserver(() => {
               if (installProductCatalog()) observer.disconnect();
             });
@@ -1170,7 +1170,8 @@
             });
             window.addEventListener('resize', fitClientStoriesFrame);
             section.appendChild(frame);
-            industries.insertAdjacentElement('afterend', section);
+            const products = document.getElementById('ds-products-embed');
+            (products || industries).insertAdjacentElement('afterend', section);
             return true;
           };
           if (!installClientStories()) {
