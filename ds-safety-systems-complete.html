@@ -3011,7 +3011,6 @@ body::before{content:"";position:fixed;inset:-12vh -8vw;z-index:5;pointer-events
     &lt;title&gt;DS Safety Systems | Elite Fire Protection Catalog&lt;/title&gt;
     &lt;!-- Google Fonts --&gt;
     &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
-    &lt;script type=&quot;module&quot; src=&quot;https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js&quot;&gt;&lt;/script&gt;
     &lt;!-- FontAwesome --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
     
@@ -3297,14 +3296,6 @@ body::before{content:"";position:fixed;inset:-12vh -8vw;z-index:5;pointer-events
             color: #22c55e;
             animation: none;
         }/* Lightweight interactive 3D viewer for the first extinguisher card */
-        .extinguisher-model-viewer {
-            display:block;width:100%;height:230px;
-            background:radial-gradient(ellipse at 50% 58%,rgba(180,35,43,.18),transparent 65%),#05070b;
-            --poster-color:#05070b;--progress-bar-color:#ff354b;cursor:grab;touch-action:pan-y;
-        }
-        .extinguisher-model-viewer:active{cursor:grabbing}
-        .model-viewer-hint{position:absolute;right:12px;bottom:10px;z-index:3;pointer-events:none;font-size:9px;letter-spacing:.08em;color:rgba(255,255,255,.7);background:rgba(5,7,11,.7);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:6px 9px}
-        .model-viewer-frame{position:relative;overflow:hidden}
         /* --- CAROUSEL SLIDER DESIGN --- */
         .card-slider-wrapper {
             position: relative;
@@ -4232,7 +4223,8 @@ body::before{content:"";position:fixed;inset:-12vh -8vw;z-index:5;pointer-events
   box-shadow: 0 20px 38px rgba(15, 23, 42, .15), 0 0 0 1px rgba(255, 30, 56, .05) !important;
 }
 .product-card .card-slider-wrapper,
-.product-card .model-viewer-frame {
+/* removed obsolete 3D viewer frame */
+        .product-card .image-slider-frame {
   background: #f5f6f8 !important;
   border: 1px solid #e7e9ee !important;
   border-radius: 15px !important;
@@ -4240,11 +4232,13 @@ body::before{content:"";position:fixed;inset:-12vh -8vw;z-index:5;pointer-events
 }
 .product-card .card-slider-wrapper { margin-bottom: 14px !important; }
 .product-card .slider-slide img { object-fit: contain !important; padding: 10px !important; }
-.product-card .extinguisher-model-viewer {
+/* removed obsolete 3D viewer element */
+        .product-card .extinguisher-model-viewer {
   background: radial-gradient(ellipse at 50% 58%, rgba(255, 30, 56, .08), transparent 65%), #f5f6f8 !important;
   --poster-color: #f5f6f8 !important;
 }
-.product-card .model-viewer-hint {
+/* removed obsolete 3D viewer hint */
+        .product-card .model-viewer-hint {
   color: #4b5563 !important;
   background: rgba(255,255,255,.9) !important;
   border-color: rgba(15,23,42,.1) !important;
@@ -4392,10 +4386,10 @@ body::before{content:"";position:fixed;inset:-12vh -8vw;z-index:5;pointer-events
                         &lt;div class=&quot;stock-indicator in-stock&quot;&gt;&lt;i class=&quot;fa-solid fa-circle&quot;&gt;&lt;/i&gt; In Stock&lt;/div&gt;
                     &lt;/div&gt;
                     
-                    &lt;div class=&quot;card-slider-wrapper model-viewer-frame&quot;&gt;
-                        &lt;model-viewer class=&quot;extinguisher-model-viewer&quot; src=&quot;https://agnisafe-cyber.github.io/dssafetysystems/ds-fire-extinguisher.glb&quot; poster=&quot;https://agnisafe-cyber.github.io/dssafetysystems/assets/extinguisher-hero.png&quot; alt=&quot;Interactive 3D ABC dry powder fire extinguisher&quot; camera-controls auto-rotate auto-rotate-delay=&quot;1200&quot; rotation-per-second=&quot;12deg&quot; shadow-intensity=&quot;1&quot; exposure=&quot;1&quot; environment-image=&quot;neutral&quot; camera-orbit=&quot;0deg 75deg auto&quot; interaction-prompt=&quot;auto&quot; loading=&quot;eager&quot;&gt;&lt;/model-viewer&gt;
-                        &lt;span class=&quot;model-viewer-hint&quot;&gt;DRAG TO ROTATE · SCROLL TO ZOOM&lt;/span&gt;
-                    &lt;/div&gt;
+                    &lt;div class=&quot;card-slider-wrapper&quot;&gt;
+                        &lt;div class=&quot;slider-track&quot; id=&quot;cardTrack-1&quot;&gt;
+                            &lt;div class=&quot;slider-slide&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;images/abc-4kg-1.jpg&quot; alt=&quot;ABC dry powder fire extinguisher&quot;&gt;&lt;/div&gt;
+                            &lt;div class=&quot;slider-slide&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;images/abc-4kg-2.jpg&quot; alt=&quot;ABC dry powder extinguisher side view&quot;&gt;&lt;/div&gt;
 
                     &lt;div class=&quot;product-info&quot;&gt;
                         &lt;h3&gt;ABC Dry Powder Cylinder (4kg)&lt;/h3&gt;
