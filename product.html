@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern E-Commerce Product Section</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 9999px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        /* Smooth fade-in transition */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen transition-colors duration-300">
+
+    <!-- Top Floating Mini-Cart Indicator -->
+    <div class="fixed top-5 right-5 z-40">
+        <button id="cart-btn" class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 p-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center justify-center">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center scale-0 transition-transform duration-300">0</span>
+        </button>
+    </div>
+
+    <!-- Main Section Container -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold tracking-wide uppercase mb-4">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Curated Collection
+            </div>
+            <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+                Explore Tech Essentials
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
+                Discover our hand-picked high-quality audio, wearables, and accessories crafted for maximum performance and style.
+            </p>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-white dark:bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md">
+            
+            <!-- Category Tabs (Horizontal Scrollable on mobile) -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none" id="category-tabs">
+                <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-brand-600 text-white shadow-md shadow-brand-500/20" data-category="all">
+                    All Products
+                </button>
+                <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white" data-category="audio">
+                    Audio & Sound
+                </button>
+                <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white" data-category="wearables">
+                    Wearables
+                </button>
+                <button class="cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white" data-category="accessories">
+                    Accessories
+                </button>
+            </div>
+
+            <!-- Search Input & Sort Options -->
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <div class="relative flex-1 md:w-64">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 dark:text-white placeholder-slate-400 transition-all">
+                </div>
+                
+                <select id="sort-select" class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl px-3 py-2 text-sm text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 cursor-pointer">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Active Filter Indicator Bar -->
+        <div class="flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-slate-400 px-1 mb-6">
+            <span id="results-count">Showing all products</span>
+            <span class="inline-flex items-center gap-1.5 cursor-pointer text-brand-600 dark:text-brand-400 hover:underline" id="reset-filters" style="display: none;">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Clear Filters
+            </span>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            <!-- Dynamic product cards will be rendered here by JS -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="empty-state" class="hidden text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 my-8">
+            <div class="w-16 h-16 mx-auto mb-4 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-full flex items-center justify-center">
+                <i data-lucide="package-search" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white mb-1">No products found</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Try altering your search criteria or category selection.</p>
+            <button onclick="resetFilters()" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl transition">
+                Reset All Filters
+            </button>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 p-4 sm:p-6 md:p-10">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-slate-800 transform scale-95 transition-transform duration-300 relative flex flex-col lg:flex-row">
+            
+            <button id="close-modal" class="absolute top-5 right-5 z-20 w-11 h-11 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full flex items-center justify-center transition shadow-md">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Product Image Section inside Modal (Background removed) -->
+            <div class="lg:w-1/2 p-8 sm:p-12 flex flex-col items-center justify-between relative min-h-[400px]">
+                <span id="qv-badge" class="absolute top-6 left-6 bg-brand-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                    Sale
+                </span>
+                
+                <div class="my-auto flex items-center justify-center w-full py-6">
+                    <img id="qv-image" src="" alt="Product" class="max-h-80 sm:max-h-96 w-auto object-contain drop-shadow-2xl transition-transform duration-300 hover:scale-105">
+                </div>
+
+                <!-- Gallery Miniatures (Background removed) -->
+                <div class="flex items-center gap-3 mt-4">
+                    <button class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden">
+                        <img id="qv-thumb-1" src="" class="w-full h-full object-contain">
+                    </button>
+                    <button class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden">
+                        <img id="qv-thumb-2" src="" class="w-full h-full object-contain">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Info Section inside Modal -->
+            <div class="lg:w-1/2 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span id="qv-category" class="text-xs font-extrabold tracking-widest text-brand-600 dark:text-brand-400 uppercase">Category</span>
+                        <div class="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-1 rounded-full">
+                            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> In Stock & Ready to Ship
+                        </div>
+                    </div>
+
+                    <h3 id="qv-title" class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3">Product Name</h3>
+                    
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="flex text-amber-400" id="qv-stars"></div>
+                        <span id="qv-rating" class="text-sm font-bold text-slate-800 dark:text-slate-200">4.8</span>
+                        <span class="text-slate-300 dark:text-slate-700">•</span>
+                        <span id="qv-reviews" class="text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline cursor-pointer">(128 customer reviews)</span>
+                    </div>
+
+                    <div class="flex items-baseline gap-4 mb-6 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <span id="qv-price" class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">$0.00</span>
+                        <span id="qv-old-price" class="text-lg text-slate-400 line-through">$0.00</span>
+                        <span id="qv-savings" class="ml-auto text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-1 rounded-lg">Save 20%</span>
+                    </div>
+
+                    <p id="qv-description" class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                        High-quality product engineered with precision materials and cutting-edge technology to elevate your daily tech setup.
+                    </p>
+
+                    <!-- Feature Bullet Points -->
+                    <div class="space-y-2 mb-6">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Key Features</h4>
+                        <ul id="qv-features" class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                            <!-- Injected by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center border-2 border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-800 h-12">
+                            <button id="qv-qty-minus" class="px-4 h-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-lg transition">-</button>
+                            <span id="qv-qty" class="px-4 text-base font-bold text-slate-900 dark:text-white">1</span>
+                            <button id="qv-qty-plus" class="px-4 h-full text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-lg transition">+</button>
+                        </div>
+                        <button id="qv-add-btn" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-xl shadow-brand-500/30 flex items-center justify-center gap-2 transition transform active:scale-95 text-base">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i> Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliding Shopping Cart Drawer -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+        <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-600"></i>
+                <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-white">Your Cart</h3>
+            </div>
+            <button id="close-cart" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Dynamic Cart Items Rendered Here -->
+        </div>
+
+        <div class="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+            <div class="flex items-center justify-between mb-2 text-sm text-slate-500">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="font-semibold text-slate-900 dark:text-white">$0.00</span>
+            </div>
+            <div class="flex items-center justify-between mb-4 text-xs text-slate-400">
+                <span>Shipping & Taxes</span>
+                <span>Calculated at checkout</span>
+            </div>
+            <button class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl shadow-lg shadow-brand-500/20 transition flex items-center justify-center gap-2">
+                Checkout Now <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <div class="bg-emerald-500 text-white p-1 rounded-full">
+            <i data-lucide="check" class="w-4 h-4"></i>
+        </div>
+        <span id="toast-message" class="text-sm font-medium">Added to cart!</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Sample Products Dataset
+        const products = [
+            {
+                id: 1,
+                name: "AeroPulse Wireless Noise-Canceling Headphones",
+                category: "audio",
+                price: 199.99,
+                originalPrice: 249.99,
+                rating: 4.9,
+                reviews: 342,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+                badge: "Best Seller",
+                features: ["Adaptive Active Noise Cancellation", "Up to 40 Hours Playback Time", "Memory Foam Premium Earcups", "Custom EQ via Companion App"],
+                description: "Experience pristine studio sound with industry-leading active noise cancellation, 40-hour battery life, and ultra-plush memory foam earcups designed for all-day immersive acoustic bliss."
+            },
+            {
+                id: 2,
+                name: "Chronos Ultra Smartwatch Series 7",
+                category: "wearables",
+                price: 299.00,
+                originalPrice: 349.00,
+                rating: 4.7,
+                reviews: 189,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+                badge: "Sale",
+                features: ["Continuous ECG & SpO2 Sensors", "1.9-inch Ultra Bright AMOLED Display", "Water Resistant to 50 meters", "7-Day Extended Battery Life"],
+                description: "Comprehensive health monitoring including ECG, SpO2 tracking, AMOLED sapphire glass display, and seamless cellular connectivity housed in an aerospace-grade aluminum casing."
+            },
+            {
+                id: 3,
+                name: "StudioCraft Mechanical Wireless Keyboard",
+                category: "accessories",
+                price: 129.50,
+                originalPrice: 150.00,
+                rating: 4.8,
+                reviews: 215,
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
+                badge: "New",
+                features: ["Hot-Swappable Tactile Switches", "Per-Key RGB Lighting", "Multi-Device Bluetooth 5.2", "Solid Aluminum Frame"],
+                description: "Hot-swappable custom switches with sound-dampening acoustic foam, per-key RGB backlighting, and multi-device seamless pairing for unmatched typing tactile precision."
+            },
+            {
+                id: 4,
+                name: "SonicMini Portable Bluetooth Speaker",
+                category: "audio",
+                price: 79.99,
+                originalPrice: 99.99,
+                rating: 4.6,
+                reviews: 94,
+                image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80",
+                badge: null,
+                features: ["360-Degree Omnidirectional Sound", "IPX7 Full Waterproofing", "18 Hours Battery Life", "Built-in Speakerphone Mic"],
+                description: "IPX7 waterproof rating, dual passive radiators for deep bass, and compact design built for outdoor adventures without compromising on rich audio depth."
+            },
+            {
+                id: 5,
+                name: "ErgoPrecision Wireless Gaming Mouse",
+                category: "accessories",
+                price: 89.99,
+                originalPrice: 109.99,
+                rating: 4.9,
+                reviews: 412,
+                image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80",
+                badge: "Popular",
+                features: ["Sub-1ms Ultra-Low Latency", "26,000 DPI Optical Sensor", "Ultra Light 63g Honeycomb Frame", "100% Virgin Grade PTFE Feet"],
+                description: "Sub-1ms latency, 26,000 DPI optical sensor, lightweight 63g chassis with PTFE feet for frictionless glides and pinpoint competitive gaming accuracy."
+            },
+            {
+                id: 6,
+                name: "PulseFit Pro Fitness Tracker",
+                category: "wearables",
+                price: 59.95,
+                originalPrice: 79.95,
+                rating: 4.5,
+                reviews: 160,
+                image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=600&q=80",
+                badge: "Sale",
+                features: ["Advanced HRV & Stress Analytics", "14-Day Battery Runtime", "Automatic Workout Detection", "Sleep Stage Optimization"],
+                description: "Slim heart rate and sleep tracker featuring continuous HRV tracking, 14-day battery life, and stress analytics to help optimize recovery daily."
+            }
+        ];
+
+        // State Management
+        let cart = [];
+        let activeCategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'featured';
+        let activeQuickViewId = null;
+        let modalQty = 1;
+        let wishlist = new Set();
+
+        // DOM Element Selectors
+        const productGrid = document.getElementById('product-grid');
+        const emptyState = document.getElementById('empty-state');
+        const searchInput = document.getElementById('search-input');
+        const sortSelect = document.getElementById('sort-select');
+        const resultsCount = document.getElementById('results-count');
+        const resetBtn = document.getElementById('reset-filters');
+        
+        // Modal Selectors
+        const modal = document.getElementById('quickview-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const qvImage = document.getElementById('qv-image');
+        const qvTitle = document.getElementById('qv-title');
+        const qvCategory = document.getElementById('qv-category');
+        const qvPrice = document.getElementById('qv-price');
+        const qvOldPrice = document.getElementById('qv-old-price');
+        const qvDescription = document.getElementById('qv-description');
+        const qvStars = document.getElementById('qv-stars');
+        const qvRating = document.getElementById('qv-rating');
+        const qvReviews = document.getElementById('qv-reviews');
+        const qvBadge = document.getElementById('qv-badge');
+        const qvQtySpan = document.getElementById('qv-qty');
+
+        // Cart Drawer Selectors
+        const cartBtn = document.getElementById('cart-btn');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartOverlay = document.getElementById('cart-drawer-overlay');
+        const closeCartBtn = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+
+        // Render Star Rating SVG Helper
+        function generateStarRating(rating) {
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    starsHtml += `<i data-lucide="star" class="w-4 h-4 fill-amber-400 text-amber-400"></i>`;
+                } else if (i - rating < 1) {
+                    starsHtml += `<i data-lucide="star-half" class="w-4 h-4 fill-amber-400 text-amber-400"></i>`;
+                } else {
+                    starsHtml += `<i data-lucide="star" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i>`;
+                }
+            }
+            return starsHtml;
+        }
+
+        // Render Product Cards
+        function renderProducts() {
+            let filtered = products.filter(p => {
+                const matchesCat = activeCategory === 'all' || p.category === activeCategory;
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      p.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCat && matchesSearch;
+            });
+
+            // Sorting Logic
+            if (currentSort === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (currentSort === 'rating') {
+                filtered.sort((a, b) => b.rating - a.rating);
+            }
+
+            // Update UI Counters
+            resultsCount.textContent = `Showing ${filtered.length} of ${products.length} products`;
+            resetBtn.style.display = (activeCategory !== 'all' || searchQuery !== '') ? 'inline-flex' : 'none';
+
+            if (filtered.length === 0) {
+                productGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            productGrid.innerHTML = filtered.map(product => {
+                const isWishlisted = wishlist.has(product.id);
+                const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+                
+                return `
+                <div onclick="openQuickView(${product.id})" class="product-card group relative bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all p-3 sm:p-4 cursor-pointer min-h-[580px]">
+                    
+                    <!-- Top Badges & Image Section (Background removed for a clean transparent showcase) -->
+                    <div class="relative rounded-2xl p-8 flex items-center justify-center overflow-hidden h-80 sm:h-96 w-full">
+                        ${product.badge ? `
+                            <span class="absolute top-4 left-4 z-10 bg-brand-600 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                                ${product.badge}
+                            </span>
+                        ` : discount > 0 ? `
+                            <span class="absolute top-4 left-4 z-10 bg-emerald-600 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                                Save ${discount}%
+                            </span>
+                        ` : ''}
+
+                        <!-- Wishlist Button -->
+                        <button onclick="event.stopPropagation(); toggleWishlist(${product.id})" class="absolute top-4 right-4 z-10 w-11 h-11 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-rose-500 dark:hover:text-rose-500 transition-colors shadow-md">
+                            <i data-lucide="heart" class="w-5 h-5 ${isWishlisted ? 'fill-rose-500 text-rose-500' : ''}"></i>
+                        </button>
+
+                        <!-- Image -->
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 drop-shadow-xl">
+
+                        <!-- Hover Overlay Quick View Button -->
+                        <div class="absolute inset-0 bg-slate-900/10 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 p-4">
+                            <button onclick="event.stopPropagation(); openQuickView(${product.id})" class="bg-white/90 dark:bg-slate-900/90 hover:bg-white dark:hover:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg backdrop-blur-md flex items-center gap-2 transition-transform transform hover:scale-105">
+                                <i data-lucide="eye" class="w-4 h-4 text-brand-600"></i> Quick View
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-extrabold text-brand-600 dark:text-brand-400 uppercase tracking-widest">
+                                    ${product.category}
+                                </span>
+                                <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i> In Stock
+                                </span>
+                            </div>
+
+                            <h3 class="font-heading text-xl sm:text-2xl font-bold text-slate-900 dark:text-white line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-3 leading-snug">
+                                ${product.name}
+                            </h3>
+
+                            <!-- Rating -->
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="flex text-amber-400">
+                                    ${generateStarRating(product.rating)}
+                                </div>
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300">${product.rating}</span>
+                                <span class="text-xs text-slate-400">(${product.reviews} reviews)</span>
+                            </div>
+
+                            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4 leading-relaxed">
+                                ${product.description}
+                            </p>
+                        </div>
+
+                        <!-- Pricing & Action Buttons -->
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3">
+                            <div>
+                                <div class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                                    $${product.price.toFixed(2)}
+                                </div>
+                                ${product.originalPrice ? `
+                                    <div class="text-xs text-slate-400 line-through">
+                                        $${product.originalPrice.toFixed(2)}
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="event.stopPropagation(); openQuickView(${product.id})" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 p-3 rounded-xl transition text-xs font-medium" title="Quick View">
+                                    <i data-lucide="eye" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="event.stopPropagation(); addToCart(${product.id})" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-3 rounded-xl transition-all shadow-md shadow-brand-500/20 flex items-center gap-2 text-xs sm:text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            // Re-initialize Lucide Icons for dynamic content
+            lucide.createIcons();
+        }
+
+        // Quick View Modal Handlers
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            
+            activeQuickViewId = id;
+            modalQty = 1;
+            qvQtySpan.textContent = modalQty;
+
+            qvImage.src = product.image;
+            document.getElementById('qv-thumb-1').src = product.image;
+            document.getElementById('qv-thumb-2').src = product.image;
+            
+            qvTitle.textContent = product.name;
+            qvCategory.textContent = product.category;
+            qvPrice.textContent = `$${product.price.toFixed(2)}`;
+            qvOldPrice.textContent = product.originalPrice ? `$${product.originalPrice.toFixed(2)}` : '';
+            qvDescription.textContent = product.description;
+            qvRating.textContent = product.rating;
+            qvReviews.textContent = `(${product.reviews} customer reviews)`;
+            qvStars.innerHTML = generateStarRating(product.rating);
+
+            // Populate features
+            const featuresList = document.getElementById('qv-features');
+            if (product.features && product.features.length > 0) {
+                featuresList.innerHTML = product.features.map(f => `
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                        <span>${f}</span>
+                    </li>
+                `).join('');
+            } else {
+                featuresList.innerHTML = '';
+            }
+
+            const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+            const savingsEl = document.getElementById('qv-savings');
+            if (discount > 0) {
+                savingsEl.textContent = `Save ${discount}%`;
+                savingsEl.style.display = 'inline-block';
+            } else {
+                savingsEl.style.display = 'none';
+            }
+
+            if (product.badge) {
+                qvBadge.textContent = product.badge;
+                qvBadge.style.display = 'inline-block';
+            } else {
+                qvBadge.style.display = 'none';
+            }
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-95');
+            modal.firstElementChild.classList.add('scale-100');
+            lucide.createIcons();
+        }
+
+        function closeQuickView() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+        }
+
+        // Add To Cart Functionality
+        function addToCart(id, qty = 1) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += qty;
+            } else {
+                cart.push({ ...product, quantity: qty });
+            }
+
+            updateCartUI();
+            showToast(`Added ${product.name.substring(0, 20)}... to cart!`);
+        }
+
+        function updateCartQty(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            // Count total items
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadge.textContent = totalCount;
+            if (totalCount > 0) {
+                cartBadge.classList.remove('scale-0');
+            } else {
+                cartBadge.classList.add('scale-0');
+            }
+
+            // Render Cart Drawer List
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-3 stroke-1"></i>
+                        <p class="text-sm">Your cart is empty.</p>
+                    </div>
+                `;
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-800">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain rounded-lg p-1">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">${item.name}</h4>
+                            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-0.5">$${item.price.toFixed(2)}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateCartQty(${item.id}, -1)" class="w-5 h-5 bg-white dark:bg-slate-700 rounded border border-slate-200 dark:border-slate-600 flex items-center justify-center text-xs font-bold">-</button>
+                                <span class="text-xs font-semibold text-slate-700 dark:text-slate-200">${item.quantity}</span>
+                                <button onclick="updateCartQty(${item.id}, 1)" class="w-5 h-5 bg-white dark:bg-slate-700 rounded border border-slate-200 dark:border-slate-600 flex items-center justify-center text-xs font-bold">+</button>
+                            </div>
+                        </div>
+                        <button onclick="updateCartQty(${item.id}, -${item.quantity})" class="text-slate-400 hover:text-rose-500 p-1 transition">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Subtotal Calculation
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            lucide.createIcons();
+        }
+
+        // Toggle Wishlist
+        function toggleWishlist(id) {
+            if (wishlist.has(id)) {
+                wishlist.delete(id);
+                showToast("Removed from wishlist");
+            } else {
+                wishlist.add(id);
+                showToast("Added to wishlist!");
+            }
+            renderProducts();
+        }
+
+        // Toast Notification Trigger
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Filter Reset Helper
+        function resetFilters() {
+            activeCategory = 'all';
+            searchQuery = '';
+            searchInput.value = '';
+            
+            // Reset tab styles
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.category === 'all') {
+                    btn.className = 'cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-brand-600 text-white shadow-md shadow-brand-500/20';
+                } else {
+                    btn.className = 'cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white';
+                }
+            });
+
+            renderProducts();
+        }
+
+        // Event Listeners Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+
+            // Category Filter Buttons
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.cat-btn').forEach(b => {
+                        b.className = 'cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white';
+                    });
+                    e.currentTarget.className = 'cat-btn px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap bg-brand-600 text-white shadow-md shadow-brand-500/20';
+                    activeCategory = e.currentTarget.dataset.category;
+                    renderProducts();
+                });
+            });
+
+            // Search Listener
+            searchInput.addEventListener('input', (e) => {
+                searchQuality = e.target.value;
+                renderProducts();
+            });
+
+            // Sort Listener
+            sortSelect.addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderProducts();
+            });
+
+            // Reset Listener
+            resetBtn.addEventListener('click', resetFilters);
+
+            // Modal Quantity Buttons
+            document.getElementById('qv-qty-minus').addEventListener('click', () => {
+                if (modalQty > 1) {
+                    modalQty--;
+                    qvQtySpan.textContent = modalQty;
+                }
+            });
+            document.getElementById('qv-qty-plus').addEventListener('click', () => {
+                modalQty++;
+                qvQtySpan.textContent = modalQty;
+            });
+
+            // Modal Add to Cart
+            document.getElementById('qv-add-btn').addEventListener('click', () => {
+                if (activeQuickViewId) {
+                    addToCart(activeQuickViewId, modalQty);
+                    closeQuickView();
+                }
+            });
+
+            // Modal Close Triggers
+            closeModalBtn.addEventListener('click', closeQuickView);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeQuickView();
+            });
+
+            // Cart Drawer Triggers
+            cartBtn.addEventListener('click', () => {
+                cartDrawer.classList.remove('translate-x-full');
+                cartOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            });
+            
+            const closeCartDrawer = () => {
+                cartDrawer.classList.add('translate-x-full');
+                cartOverlay.classList.add('opacity-0', 'pointer-events-none');
+            };
+
+            closeCartBtn.addEventListener('click', closeCartDrawer);
+            cartOverlay.addEventListener('click', closeCartDrawer);
+        });
+    </script>
+</body>
+</html>
