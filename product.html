@@ -158,22 +158,27 @@
             </button>
 
             <!-- Product Image Section inside Modal (Background removed) -->
-            <div class="lg:w-1/2 p-8 sm:p-12 flex flex-col items-center justify-between relative min-h-[400px]">
-                <span id="qv-badge" class="absolute top-6 left-6 bg-brand-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+            <div class="lg:w-1/2 p-6 sm:p-10 flex flex-col items-center justify-between relative min-h-[480px] lg:min-h-[580px]">
+                <span id="qv-badge" class="absolute top-6 left-6 z-10 bg-brand-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
                     Sale
                 </span>
-                
-                <div class="my-auto flex items-center justify-center w-full py-6">
-                    <img id="qv-image" src="" alt="Product" class="max-h-80 sm:max-h-96 w-auto object-contain drop-shadow-2xl transition-transform duration-300 hover:scale-105">
+
+                <div class="relative my-auto flex items-center justify-center w-full min-h-[360px] sm:min-h-[440px] lg:min-h-[500px] py-4">
+                    <img id="qv-image" src="" alt="Product" class="max-h-[390px] sm:max-h-[470px] lg:max-h-[520px] w-full object-contain rounded-2xl drop-shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
+                    <button type="button" onclick="stepQuickViewImage(-1)" aria-label="Previous product image" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <button type="button" onclick="stepQuickViewImage(1)" aria-label="Next product image" class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
                 </div>
 
-                <!-- Gallery Miniatures (Background removed) -->
-                <div class="flex items-center gap-3 mt-4">
-                    <button class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden">
-                        <img id="qv-thumb-1" src="" class="w-full h-full object-contain">
+                <div class="flex items-center gap-3 mt-3">
+                    <button type="button" id="qv-thumb-btn-1" onclick="selectQuickViewImage(0)" class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition">
+                        <img id="qv-thumb-1" src="" alt="Product view 1" class="w-full h-full object-contain rounded-lg">
                     </button>
-                    <button class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden">
-                        <img id="qv-thumb-2" src="" class="w-full h-full object-contain">
+                    <button type="button" id="qv-thumb-btn-2" onclick="selectQuickViewImage(1)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden">
+                        <img id="qv-thumb-2" src="" alt="Product view 2" class="w-full h-full object-contain rounded-lg">
                     </button>
                 </div>
             </div>
@@ -277,7 +282,12 @@
                 originalPrice: 249.99,
                 rating: 4.9,
                 reviews: 342,
-                image: "https://raw.githubusercontent.com/agnisafe-cyber/dssafetysystems/main/FIREEXTINGUISHER.png",
+                image: "https://raw.githubusercontent.com/agnisafe-cyber/dssafetysystems/main/fire1st.png",
+                images: [
+                    "https://raw.githubusercontent.com/agnisafe-cyber/dssafetysystems/main/fire1st.png",
+                    "https://raw.githubusercontent.com/agnisafe-cyber/dssafetysystems/main/fire2nd.png"
+                ],
+                cardImageIndex: 0,
                 badge: "Best Seller",
                 features: ["Multi-Purpose ABC Dry Chemical Powder", "Suitable for Class A, B & C Fires", "Designed for Electrical Fire Risk Protection", "Robust & Durable Cylinder Construction", "Quick-Response Discharge Mechanism", "Ideal for Industrial & Commercial Applications"],
                 description: "The ABC Dry Powder Fire Extinguisher delivers dependable, multipurpose fire protection against Class A, B and C fire risks, including electrical hazards. Built with a durable cylinder and effective dry chemical powder, it offers a reliable safety solution for factories, warehouses, offices, hotels, hospitals, commercial buildings and residential spaces."
@@ -355,6 +365,7 @@
         let searchQuery = '';
         let currentSort = 'featured';
         let activeQuickViewId = null;
+        let currentQuickViewImageIndex = 0;
         let wishlist = new Set();
 
         // DOM Element Selectors
@@ -458,7 +469,16 @@
                         </button>
 
                         <!-- Image -->
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain rounded-2xl scale-110 transform group-hover:scale-[1.16] transition-transform duration-500 drop-shadow-xl">
+                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" class="w-full h-full object-contain rounded-2xl scale-110 transform group-hover:scale-[1.16] transition-transform duration-500 drop-shadow-xl">
+
+                        ${product.images && product.images.length > 1 ? `
+                            <button type="button" onclick="changeCardImage(event, ${product.id}, -1)" aria-label="Previous product image" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
+                                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            </button>
+                            <button type="button" onclick="changeCardImage(event, ${product.id}, 1)" aria-label="Next product image" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        ` : ''}
 
                         <!-- Hover Overlay Quick View Button -->
                         <div class="absolute inset-0 bg-slate-900/10 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 p-4">
@@ -514,17 +534,60 @@
             lucide.createIcons();
         }
 
+        // Product image gallery controls
+        function changeCardImage(event, id, direction) {
+            event.stopPropagation();
+            const product = products.find(p => p.id === id);
+            if (!product || !product.images || product.images.length < 2) return;
+            product.cardImageIndex = ((product.cardImageIndex || 0) + direction + product.images.length) % product.images.length;
+            const image = document.getElementById(`product-image-${id}`);
+            if (image) image.src = product.images[product.cardImageIndex];
+        }
+
+        function updateQuickViewImage(index) {
+            const product = products.find(p => p.id === activeQuickViewId);
+            if (!product) return;
+            const images = product.images && product.images.length ? product.images : [product.image];
+            currentQuickViewImageIndex = ((index % images.length) + images.length) % images.length;
+            qvImage.src = images[currentQuickViewImageIndex];
+            const firstThumb = document.getElementById('qv-thumb-btn-1');
+            const secondThumb = document.getElementById('qv-thumb-btn-2');
+            document.getElementById('qv-thumb-1').src = images[0];
+            document.getElementById('qv-thumb-2').src = images[1] || images[0];
+            firstThumb.className = currentQuickViewImageIndex === 0
+                ? 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition'
+                : 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
+            secondThumb.className = currentQuickViewImageIndex === 1
+                ? 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition'
+                : 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
+        }
+
+        function selectQuickViewImage(index) {
+            updateQuickViewImage(index);
+        }
+
+        function stepQuickViewImage(direction) {
+            const product = products.find(p => p.id === activeQuickViewId);
+            if (!product) return;
+            const images = product.images && product.images.length ? product.images : [product.image];
+            updateQuickViewImage(currentQuickViewImageIndex + direction);
+        }
+
         // Quick View Modal Handlers
         function openQuickView(id) {
             const product = products.find(p => p.id === id);
             if (!product) return;
             
             activeQuickViewId = id;
+            currentQuickViewImageIndex = 0;
+            const galleryImages = product.images && product.images.length ? product.images : [product.image];
+            updateQuickViewImage(0);
 
-            qvImage.src = product.image;
-            document.getElementById('qv-thumb-1').src = product.image;
-            document.getElementById('qv-thumb-2').src = product.image;
-            
+            const thumbTwo = document.getElementById('qv-thumb-btn-2');
+            thumbTwo.style.display = galleryImages.length > 1 ? 'block' : 'none';
+            document.getElementById('qv-thumb-1').src = galleryImages[0];
+            document.getElementById('qv-thumb-2').src = galleryImages[1] || galleryImages[0];
+
             qvTitle.textContent = product.name;
             qvCategory.textContent = product.category;
             qvPrice.textContent = `$${product.price.toFixed(2)}`;
