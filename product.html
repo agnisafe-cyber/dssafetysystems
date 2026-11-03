@@ -469,7 +469,7 @@
                         </button>
 
                         <!-- Image -->
-                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:112%;height:112%;max-width:none;border-radius:38px!important;clip-path:inset(0 round 38px);" class="w-[112%] h-[112%] max-w-none object-contain rounded-[38px] overflow-hidden scale-100 transform group-hover:scale-[1.04] transition-transform duration-500 drop-shadow-xl">
+                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:132%;height:132%;max-width:none;border-radius:38px!important;clip-path:inset(0 round 38px);" class="w-[132%] h-[132%] max-w-none object-contain rounded-[38px] overflow-hidden scale-100 transform group-hover:scale-[1.03] transition-transform duration-500 drop-shadow-xl">
 
                         ${product.images && product.images.length > 1 ? `
                             <button type="button" onclick="changeCardImage(event, ${product.id}, -1)" aria-label="Previous product image" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
