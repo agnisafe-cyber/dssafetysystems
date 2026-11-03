@@ -164,7 +164,7 @@
                 </span>
 
                 <div class="relative my-auto flex items-center justify-center w-full min-h-[360px] sm:min-h-[440px] lg:min-h-[500px] py-4">
-                    <img id="qv-image" src="" alt="Product" style="border-radius:32px!important;clip-path:inset(0 round 32px);" class="max-h-[390px] sm:max-h-[470px] lg:max-h-[520px] w-full object-contain rounded-[32px] drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                    <img id="qv-image" src="" alt="Product" style="max-height:600px;border-radius:40px!important;clip-path:inset(0 round 40px);" class="max-h-[460px] sm:max-h-[540px] lg:max-h-[600px] w-full object-contain rounded-[40px] drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
                     <button type="button" onclick="stepQuickViewImage(-1)" aria-label="Previous product image" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition">
                         <i data-lucide="chevron-left" class="w-5 h-5"></i>
                     </button>
@@ -452,7 +452,7 @@
                 <div onclick="openQuickView(${product.id})" class="product-card group relative bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all p-3 sm:p-4 cursor-pointer min-h-[580px]">
                     
                     <!-- Top Badges & Image Section (Background removed for a clean transparent showcase) -->
-                    <div style="border-radius:34px!important;overflow:hidden!important;clip-path:inset(0 round 34px);" class="relative rounded-[34px] p-5 sm:p-6 flex items-center justify-center overflow-hidden h-80 sm:h-96 w-full bg-slate-50 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-700/60">
+                    <div style="border-radius:38px!important;overflow:hidden!important;clip-path:inset(0 round 38px);" class="relative rounded-[38px] p-2 flex items-center justify-center overflow-hidden h-80 sm:h-96 w-full bg-slate-50 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-700/60">
                         ${product.badge ? `
                             <span class="absolute top-4 left-4 z-10 bg-brand-600 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
                                 ${product.badge}
@@ -469,7 +469,7 @@
                         </button>
 
                         <!-- Image -->
-                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="border-radius:28px!important;clip-path:inset(0 round 28px);" class="w-full h-full object-contain rounded-[28px] overflow-hidden scale-100 transform group-hover:scale-[1.02] transition-transform duration-500 drop-shadow-xl">
+                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:112%;height:112%;max-width:none;border-radius:38px!important;clip-path:inset(0 round 38px);" class="w-[112%] h-[112%] max-w-none object-contain rounded-[38px] overflow-hidden scale-100 transform group-hover:scale-[1.04] transition-transform duration-500 drop-shadow-xl">
 
                         ${product.images && product.images.length > 1 ? `
                             <button type="button" onclick="changeCardImage(event, ${product.id}, -1)" aria-label="Previous product image" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
