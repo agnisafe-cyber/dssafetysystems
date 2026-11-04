@@ -195,14 +195,14 @@
 
                     <h3 id="qv-title" class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3">Product Name</h3>
                     
-                    <div class="flex items-center gap-3 mb-6">
+                    <div class="hidden flex items-center gap-3 mb-6">
                         <div class="flex text-amber-400" id="qv-stars"></div>
                         <span id="qv-rating" class="text-sm font-bold text-slate-800 dark:text-slate-200">4.8</span>
                         <span class="text-slate-300 dark:text-slate-700">•</span>
                         <span id="qv-reviews" class="text-sm font-medium text-brand-600 dark:text-brand-400 hover:underline cursor-pointer">(128 customer reviews)</span>
                     </div>
 
-                    <div class="flex items-baseline gap-4 mb-6 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div class="hidden flex items-baseline gap-4 mb-6 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <span id="qv-price" class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">$0.00</span>
                         <span id="qv-old-price" class="text-lg text-slate-400 line-through">$0.00</span>
                         <span id="qv-savings" class="ml-auto text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-1 rounded-lg">Save 20%</span>
@@ -504,8 +504,8 @@
                                 ${product.name}
                             </h3>
 
-                            <!-- Rating -->
-                            <div class="flex items-center gap-2 mb-4">
+                            <!-- Rating hidden -->
+                            <div class="hidden flex items-center gap-2 mb-4">
                                 <div class="flex text-amber-400">
                                     ${generateStarRating(product.rating)}
                                 </div>
