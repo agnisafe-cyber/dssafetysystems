@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Product photo coming soon">
+<rect width="400" height="400" fill="#f3f4f6"/>
+<g transform="translate(200 170)" fill="none" stroke="#d93830" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<rect x="-42" y="-30" width="84" height="130" rx="22"/>
+<path d="M-12 -30v-22h24v22"/>
+<path d="M12 -48h38l16 14"/>
+<path d="M-26 8h52M-26 32h52" stroke-width="5" opacity=".55"/>
+</g>
+<text x="200" y="330" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#374151">Product photo coming soon</text>
+<text x="200" y="358" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#6b7280">DS Safety Systems</text>
+</svg>

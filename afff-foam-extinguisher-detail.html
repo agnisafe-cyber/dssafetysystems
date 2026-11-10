@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>/* product image fallback */(function(){var P="placeholder-product.svg";function fix(i){if(i&&i.tagName==="IMG"&&!i.dataset.fb&&/(^|\/)images\//.test(i.getAttribute("src")||"")){i.dataset.fb="1";i.src=P}}
+document.addEventListener("error",function(e){fix(e.target)},true);
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("img").forEach(function(i){if(i.complete&&i.naturalWidth===0)fix(i)})});})();</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#05070b">
