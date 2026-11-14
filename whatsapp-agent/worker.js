@@ -1,7 +1,7 @@
 const BUSINESS = {
   name: "DS Safety Systems",
-  phone: "+91 98187 01683",
-  whatsapp: "919818701683",
+  phone: "+91 88105 65391",
+  whatsapp: "918810565391",
   address: "Ground floor, Kalka Ji, 1420/13, Block 4, Govindpuri Extension, Chittaranjan Park, New Delhi, Delhi 110019",
   hours: "Daily, 9:00 AM–9:00 PM (as listed on Google Business Profile)",
   website: "https://agnisafe-cyber.github.io/dssafetysystems/",
@@ -54,7 +54,7 @@ export default {
       await sendWhatsApp(from, reply, env);
     } catch (error) {
       console.error("WhatsApp handler error:", error);
-      await sendWhatsApp(from, "Thanks for contacting DS Safety Systems. We received your message. Please call +91 98187 01683 for assistance.", env);
+      await sendWhatsApp(from, "Thanks for contacting DS Safety Systems. We received your message. Please call +91 88105 65391 for assistance.", env);
     }
     return new Response("EVENT_RECEIVED", { status: 200 });
   }
