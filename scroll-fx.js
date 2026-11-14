@@ -36,7 +36,7 @@
 
   if(!reduce){
     /* Decorative layers and image subjects move at a slower rate than the page. */
-    var parallaxSelector="[data-ds-parallax],.parallax-layer,.hero .grid,.hero .orb,.hero .hero-bg,.hero img,.hero video,.modal-slide img,.modal-slider-box img,.product-visual img,.product-image img,.about-visual img,.image-panel img";
+    var parallaxSelector="[data-ds-parallax],.parallax-layer,.hero .grid,.hero .orb,.hero .hero-bg,.hero img,.hero video,.hero-video-visual,.hero-video-visual video,.about-image-wrap img,.manufacturing-slider img,.modal-slide img,.modal-slider-box img,.product-visual img,.product-image img,.about-visual img,.image-panel img";
     var seenParallax=new Set();
     document.querySelectorAll(parallaxSelector).forEach(function(el){
       if(seenParallax.has(el)||el.closest("nav,button,a,[role='dialog']"))return;
