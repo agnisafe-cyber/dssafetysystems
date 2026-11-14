@@ -1863,3 +1863,10 @@ body{
 
 /* Remove only the existing homepage Services section */
 .services-home{display:none!important}
+
+/* ===== Mobile fixes (phones) ===== */
+@media (max-width:760px){
+  .hero .hero-content .hero-copy,
+  .hero-content .hero-copy{width:100%!important;max-width:100%!important;font-size:17px!important;line-height:1.6!important;font-weight:400!important;margin-top:18px!important}
+  .hero-content .hero-copy .hero-copy-line{display:inline!important;width:auto!important;max-width:100%!important;white-space:normal!important}
+}
