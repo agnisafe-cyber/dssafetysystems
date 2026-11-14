@@ -4,7 +4,7 @@ A WhatsApp Cloud API webhook assistant for DS Safety Systems. It answers routine
 
 ## Business details preloaded
 - **Business:** DS Safety Systems
-- **Phone:** +91 98187 01683
+- **Phone:** +91 88105 65391
 - **Address:** Ground floor, Kalka Ji, 1420/13, Block 4, Govindpuri Extension, Chittaranjan Park, New Delhi, Delhi 110019
 - **Hours:** 9:00 AM–9:00 PM, as shown on the supplied Google Business Profile
 - **Website:** https://agnisafe-cyber.github.io/dssafetysystems/
