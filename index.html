@@ -1677,19 +1677,33 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},React.createElement("b",{className:"marquee-label"},x)))
             )
           ),
-          /* 03A — PARALLAX TRANSITION BETWEEN MARQUEE AND ABOUT */
-          React.createElement("section",{className:"ds-parallax-interlude","aria-label":"Sky parallax transition"},
-            React.createElement("div",{className:"ds-parallax-header",id:"ds-parallax-header"},
-              React.createElement("div",{className:"ds-parallax-header-shade"}),
-              React.createElement("div",{className:"ds-parallax-center",id:"ds-parallax-center"},
-                React.createElement("div",{className:"ds-parallax-middle"},
-                  React.createElement("h2",null,"Sky"),
-                  React.createElement("p",null,"A moment of perspective before we get back to protecting what matters.")
+          /* 03A — THREE-PANEL FULL-PAGE PARALLAX TRANSITION */
+          React.createElement("section",{className:"ds-parallax-container","aria-label":"Fire safety parallax transition",id:"ds-parallax-container"},
+            React.createElement("div",{className:"ds-parallax-stage"},
+              React.createElement("article",{className:"ds-parallax-slide ds-slide-one"},
+                React.createElement("div",{className:"ds-parallax-content"},
+                  React.createElement("p",{className:"ds-parallax-kicker"},"DS SAFETY SYSTEMS"),
+                  React.createElement("h2",null,"Protection That Never Takes a Break."),
+                  React.createElement("p",{className:"ds-parallax-copy"},"Scroll to explore the world of dependable fire protection.")
                 )
+              ),
+              React.createElement("article",{className:"ds-parallax-slide ds-slide-two"},
+                React.createElement("div",{className:"ds-parallax-content"},
+                  React.createElement("p",{className:"ds-parallax-kicker"},"ENGINEERED FOR EVERY SPACE"),
+                  React.createElement("h2",null,"Safety in Every Layer."),
+                  React.createElement("p",{className:"ds-parallax-copy"},"From detection to suppression, every detail matters.")
+                )
+              ),
+              React.createElement("article",{className:"ds-parallax-slide ds-slide-three"},
+                React.createElement("div",{className:"ds-parallax-content"},
+                  React.createElement("p",{className:"ds-parallax-kicker"},"READY WHEN IT MATTERS"),
+                  React.createElement("h2",null,"Built Around Protection."),
+                  React.createElement("p",{className:"ds-parallax-copy"},"Reliable equipment. Expert service. Greater peace of mind.")
+                )
+              ),
+              React.createElement("div",{className:"ds-parallax-progress","aria-hidden":"true"},
+                React.createElement("span",null)
               )
-            ),
-            React.createElement("div",{className:"ds-parallax-divider","aria-hidden":"true"},
-              React.createElement("span",null)
             )
           ),
           /* 04 — ABOUT */
