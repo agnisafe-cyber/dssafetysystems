@@ -34,37 +34,53 @@
 
 })();
 
-/* DS PARALLAX INTERLUDE — lightweight scroll-linked background movement */
+/* DS PARALLAX INTERLUDE — wait for the React homepage to mount before binding */
 (() => {
   "use strict";
-  const section = document.querySelector(".ds-parallax-interlude");
-  const header = document.querySelector("#ds-parallax-header");
-  const center = document.querySelector("#ds-parallax-center");
-  if (!section || !header || !center) return;
 
-  const reduceMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) return;
+  const startParallax = () => {
+    const section = document.querySelector(".ds-parallax-interlude");
+    const header = document.querySelector("#ds-parallax-header");
+    const center = document.querySelector("#ds-parallax-center");
+    if (!section || !header || !center) return false;
 
-  let ticking = false;
-  const update = () => {
-    ticking = false;
-    const rect = section.getBoundingClientRect();
-    const viewport = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.bottom < 0 || rect.top > viewport) return;
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return true;
 
-    const progress = (viewport - rect.top) / (viewport + rect.height);
-    const offset = Math.round((progress - 0.5) * 115);
-    const contentOffset = Math.round((progress - 0.5) * -34);
-    header.style.setProperty("--ds-parallax-y", offset + "px");
-    center.style.setProperty("--ds-parallax-content-y", contentOffset + "px");
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const rect = section.getBoundingClientRect();
+      const viewport = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.bottom < 0 || rect.top > viewport) return;
+
+      const progress = Math.max(0, Math.min(1,
+        (viewport - rect.top) / (viewport + rect.height)
+      ));
+      const offset = Math.round((progress - 0.5) * 220);
+      const contentOffset = Math.round((progress - 0.5) * -54);
+      header.style.backgroundPosition = "center calc(50% + " + offset + "px)";
+      center.style.transform = "translate3d(0," + contentOffset + "px,0)";
+    };
+    const requestUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    update();
+    return true;
   };
-  const requestUpdate = () => {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(update);
-  };
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", requestUpdate, { passive: true });
-  update();
+
+  if (startParallax()) return;
+
+  /* React 18 may commit the homepage after this deferred file executes. */
+  const observer = new MutationObserver(() => {
+    if (startParallax()) observer.disconnect();
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+  window.addEventListener("pagehide", () => observer.disconnect(), { once: true });
 })();
