@@ -1873,127 +1873,107 @@ body{
 
 
 /* ============================================================
-   DS FULL-PAGE PARALLAX — three layered scroll-driven panels
+   DS PARALLAX INTERLUDE — isolated transition after the marquee
    ============================================================ */
-.ds-parallax-container{
+.ds-parallax-interlude{
+  --ds-parallax-y:0px;
   position:relative;
-  height:300vh;
+  isolation:isolate;
+  height:90vh;
+  min-height:560px;
   margin:0;
   padding:0;
-  isolation:isolate;
-  background:#080b11;
-  color:#fff;
-}
-.ds-parallax-stage{
-  position:sticky;
-  top:0;
-  height:100vh;
-  min-height:560px;
   overflow:hidden;
   background:#080b11;
-}
-.ds-parallax-slide{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  will-change:transform,opacity;
-  backface-visibility:hidden;
-  transform:translate3d(0,100%,0);
-  transition:transform 1.05s cubic-bezier(.22,.44,0,1);
-}
-.ds-parallax-slide::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(5,8,14,.38),rgba(5,8,14,.52) 52%,rgba(5,8,14,.78));
-}
-.ds-slide-one{
-  z-index:3;
-  transform:translate3d(0,0,0);
-  background-image:url("https://i.postimg.cc/kXq9Qmnj/bgd1.jpg");
-}
-.ds-slide-two{
-  z-index:2;
-  background-image:url("https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg");
-}
-.ds-slide-three{
+  color:#f7f5f0;
   z-index:1;
-  background-image:url("https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg");
 }
-.ds-parallax-content{
-  position:relative;
-  z-index:2;
-  width:min(100% - 48px,1050px);
-  margin:auto;
+.ds-parallax-header{
+  position:absolute;
+  inset:-7% 0;
+  overflow:hidden;
+  background-image:
+    linear-gradient(180deg,rgba(5,8,14,.30),rgba(5,8,14,.52) 55%,rgba(5,8,14,.82)),
+    url("https://upload.wikimedia.org/wikipedia/commons/0/06/Cloud_sky_over_Brest.jpg");
+  background-size:cover;
+  background-position:center calc(50% + var(--ds-parallax-y));
+  will-change:background-position;
+}
+.ds-parallax-header-shade{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 50% 42%,rgba(15,20,29,.08),rgba(5,8,14,.42) 75%),
+    linear-gradient(90deg,rgba(5,8,14,.28),transparent 45%,rgba(5,8,14,.28));
+  pointer-events:none;
+}
+.ds-parallax-center{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
   text-align:center;
-  color:#fff;
-  transform:translate3d(0,0,0);
+  padding:100px 24px 80px;
+  transform:translate3d(0,var(--ds-parallax-content-y,0px),0);
   will-change:transform;
 }
-.ds-parallax-kicker{
-  margin:0 0 22px;
-  color:#ff7777;
-  font:700 12px/1.4 "Google Sans Flex","Inter",sans-serif;
-  letter-spacing:.24em;
-}
-.ds-parallax-content h2{
-  margin:0 auto 22px;
-  max-width:1000px;
+.ds-parallax-middle{max-width:900px}
+.ds-parallax-middle h2{
+  margin:0 0 18px;
   color:#fff;
-  font-family:"Poppins","Inter",sans-serif;
-  font-size:clamp(42px,7.4vw,104px);
-  font-weight:800;
-  line-height:1.04;
+  font-family:"Instrument Serif","Georgia",serif;
+  font-size:clamp(76px,13vw,168px);
+  font-weight:400;
+  line-height:.92;
   letter-spacing:-.055em;
-  text-wrap:balance;
-  text-shadow:0 10px 40px rgba(0,0,0,.35);
+  text-shadow:0 12px 45px rgba(0,0,0,.28);
 }
-.ds-parallax-copy{
-  max-width:660px;
+.ds-parallax-middle p{
   margin:0 auto;
+  max-width:620px;
   color:rgba(255,255,255,.88);
-  font:500 clamp(14px,1.35vw,18px)/1.75 "Google Sans Flex","Inter",sans-serif;
+  font-family:"Google Sans Flex","Inter",sans-serif;
+  font-size:clamp(14px,1.35vw,18px);
+  font-weight:500;
+  line-height:1.7;
+  letter-spacing:.015em;
 }
-.ds-parallax-progress{
+.ds-parallax-divider{
   position:absolute;
-  z-index:5;
-  left:50%;
-  bottom:34px;
-  width:84px;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
   height:3px;
-  overflow:hidden;
-  transform:translateX(-50%);
-  background:rgba(255,255,255,.28);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 18%,#fff 50%,rgba(255,255,255,.9) 82%,transparent);
+  box-shadow:0 0 18px rgba(255,255,255,.16);
 }
-.ds-parallax-progress span{
-  display:block;
-  width:33.333%;
-  height:100%;
-  background:linear-gradient(90deg,#dc2626,#fb923c);
-  transform:translateX(0);
-  transition:transform .35s ease;
+.ds-parallax-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  transform:translate(-50%,-50%) rotate(45deg);
+  border:2px solid rgba(255,255,255,.92);
+  background:linear-gradient(135deg,#bd1826,#68131b);
+  color:#fff;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+  box-shadow:0 8px 30px rgba(0,0,0,.34),0 0 24px rgba(220,38,38,.18);
 }
-.ds-parallax-container[data-slide="1"] .ds-slide-one{transform:translate3d(0,-50%,0)}
-.ds-parallax-container[data-slide="1"] .ds-slide-two{transform:translate3d(0,0,0)}
-.ds-parallax-container[data-slide="1"] .ds-slide-three{transform:translate3d(0,100%,0)}
-.ds-parallax-container[data-slide="2"] .ds-slide-one{transform:translate3d(0,-100%,0)}
-.ds-parallax-container[data-slide="2"] .ds-slide-two{transform:translate3d(0,-50%,0)}
-.ds-parallax-container[data-slide="2"] .ds-slide-three{transform:translate3d(0,0,0)}
-.ds-parallax-container[data-slide="1"] .ds-parallax-progress span{transform:translateX(100%)}
-.ds-parallax-container[data-slide="2"] .ds-parallax-progress span{transform:translateX(200%)}
+.ds-parallax-divider span::before{content:"↓";display:block;transform:rotate(-45deg)}
 @media(max-width:700px){
-  .ds-parallax-stage{min-height:480px}
-  .ds-parallax-content{width:min(100% - 40px,600px)}
-  .ds-parallax-content h2{font-size:clamp(38px,10vw,68px)}
-  .ds-parallax-kicker{font-size:10px;letter-spacing:.18em}
-  .ds-parallax-progress{bottom:24px}
+  .ds-parallax-interlude{height:70vh;min-height:440px}
+  .ds-parallax-header{inset:-4% 0}
+  .ds-parallax-center{padding:80px 22px 65px}
+  .ds-parallax-middle h2{font-size:clamp(70px,19vw,112px)}
+  .ds-parallax-middle p{max-width:340px;font-size:14px}
+  .ds-parallax-divider span{width:42px;height:42px;font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){
-  .ds-parallax-slide,.ds-parallax-progress span{transition:none!important}
+  .ds-parallax-header,.ds-parallax-center{will-change:auto}
 }
