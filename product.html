@@ -48,16 +48,17 @@
         .product-section-header h1 {
             animation: productHeadingFadeIn .7s ease-out both;
         }
-        /* Keep the complete product heading inside the available desktop width. */
+        /* Restore the original heading size while sizing the heading to its text,
+           so it stays centered without being squeezed by the content column. */
         .product-page-title {
             display: block;
-            width: 100%;
-            max-width: 100%;
+            width: max-content;
+            max-width: calc(100vw - 32px);
             margin-left: auto;
             margin-right: auto;
             padding: 0 8px;
             box-sizing: border-box;
-            font-size: clamp(1.35rem, 2.15vw, 2rem) !important;
+            font-size: clamp(1.25rem, 3.05vw, 2.75rem) !important;
             line-height: 1.15 !important;
             white-space: nowrap !important;
             overflow: visible !important;
