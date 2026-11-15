@@ -58,15 +58,24 @@
             margin-right: auto;
             padding: 0 8px;
             box-sizing: border-box;
-            font-size: clamp(1.5rem, 3.3vw, 3rem) !important;
-            line-height: 1.15 !important;
+            font-size: clamp(2.5rem, 6vw, 3.75rem) !important;
+            font-weight: 800 !important;
+            line-height: 1.08 !important;
+            letter-spacing: -0.035em !important;
             white-space: nowrap !important;
             overflow: visible !important;
             text-align: center;
         }
+        .product-section-header .gradient-text {
+            background: linear-gradient(100deg, #ffb59f 0%, #ff6b45 48%, #ff293d 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         @media (max-width: 700px) {
             .product-page-title {
-                font-size: clamp(1.2rem, 5.2vw, 1.8rem) !important;
+                width: auto;
+                font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
                 white-space: normal !important;
                 text-wrap: balance;
             }
@@ -127,14 +136,14 @@
         
         <!-- Section Header -->
         <div class="text-center w-full max-w-none mx-auto mb-12 product-section-header">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold tracking-wide uppercase mb-4">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> DS Safety Systems
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-950/40 border border-orange-700/50 text-orange-500 text-xs font-bold tracking-[0.18em] uppercase mb-4">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Fire Safety Equipment &amp; Solutions
             </div>
             <h1 class="product-page-title font-cinematic gradient-text font-extrabold tracking-tight mb-4 leading-tight">
                 Complete Fire Protection Solutions.
             </h1>
-            <p class="text-white text-base sm:text-lg">
-                Explore dependable fire safety equipment and protection solutions designed to safeguard lives, property and businesses.
+            <p class="mx-auto max-w-4xl px-2 text-center text-base sm:text-lg font-semibold leading-relaxed text-slate-300">
+                Explore dependable fire protection equipment and engineered safety solutions for commercial, industrial and residential spaces.
             </p>
         </div>
 
