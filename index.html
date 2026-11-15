@@ -1022,92 +1022,7 @@
   
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://agnisafe-cyber.github.io/dssafetysystems/#business","name":"DS Safety Systems","url":"https://agnisafe-cyber.github.io/dssafetysystems/","image":"https://agnisafe-cyber.github.io/dssafetysystems/DSF_logo_small.png","telephone":"+919818777517","description":"Fire safety equipment supplier and fire protection service provider in Govind Puri, New Delhi. Supplies fire extinguishers and fire protection systems with installation, inspection, refilling, repairs and annual maintenance.","address":{"@type":"PostalAddress","addressLocality":"Govind Puri","addressRegion":"Delhi","addressCountry":"IN"},"areaServed":[{"@type":"City","name":"New Delhi"},{"@type":"AdministrativeArea","name":"South Delhi"}],"knowsAbout":["Fire extinguishers","Fire alarm systems","Fire hydrant systems","Fire hose reels","Fire safety equipment installation","Fire extinguisher refilling","Fire safety maintenance"]}</script>
 
-<style id="ds-home-parallax-transition">
-.interlude-parallax{
-  --interlude-progress:0;
-  position:relative;isolation:isolate;overflow:hidden;
-  min-height:76vh;display:grid;place-items:center;
-  padding:110px 6vw 105px;background:#090b0f;color:#f7f5f0;
-  border-top:1px solid rgba(255,255,255,.07);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.interlude-parallax-bg{
-  position:absolute;inset:-12% 0;z-index:-2;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 50% 48%,rgba(220,38,38,.23),transparent 34%),
-    radial-gradient(ellipse at 16% 70%,rgba(249,115,22,.12),transparent 32%),
-    radial-gradient(ellipse at 86% 24%,rgba(220,38,38,.13),transparent 30%),
-    linear-gradient(120deg,#080a0e 0%,#15171d 52%,#090b10 100%);
-  transform:translate3d(0,var(--interlude-bg-y,0px),0) scale(1.08);
-  will-change:transform;
-}
-.interlude-parallax::before,.interlude-parallax::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
-}
-.interlude-parallax::before{
-  opacity:.22;
-  background-image:linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);
-  background-size:76px 76px;
-  mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
-}
-.interlude-parallax::after{
-  background:linear-gradient(90deg,rgba(5,6,9,.25),transparent 50%,rgba(5,6,9,.25));
-}
-.interlude-parallax-grain{
-  position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;
-  background-image:radial-gradient(rgba(255,255,255,.55) .55px,transparent .7px);
-  background-size:5px 5px;
-}
-.interlude-parallax-content{
-  width:min(1050px,100%);text-align:center;
-  transform:translate3d(0,var(--interlude-content-y,0px),0);
-  will-change:transform;
-}
-.interlude-kicker{
-  display:inline-flex;align-items:center;gap:12px;
-  color:#aeb1b7;font:700 11px/1.4 "Poppins",sans-serif;
-  letter-spacing:.2em;text-transform:uppercase;
-}
-.interlude-kicker i{width:28px;height:1px;background:#dc2626;display:inline-block}
-.interlude-parallax h2{
-  margin:30px auto 0;max-width:1000px;
-  font:800 clamp(42px,7.3vw,100px)/.98 "Poppins",sans-serif;
-  letter-spacing:-.065em;color:#f7f5f0;
-}
-.interlude-parallax h2 em{
-  color:#dc2626;font-style:normal;
-  text-shadow:0 0 42px rgba(220,38,38,.18);
-}
-.interlude-parallax-content>p{
-  max-width:590px;margin:25px auto 0;
-  color:#aeb1b7;font:400 clamp(14px,1.35vw,17px)/1.8 "Plus Jakarta Sans",sans-serif;
-}
-.interlude-indicator{
-  display:inline-flex;flex-direction:column;align-items:center;gap:9px;
-  margin-top:45px;color:#f7f5f0;text-decoration:none;
-}
-.interlude-indicator span{
-  display:grid;place-items:center;width:43px;height:43px;
-  border:1px solid rgba(220,38,38,.7);border-radius:50%;
-  color:#ff554d;font-size:25px;line-height:1;
-  box-shadow:0 0 24px rgba(220,38,38,.12);
-  transition:transform .25s ease,background .25s ease;
-}
-.interlude-indicator:hover span{transform:translateY(5px);background:rgba(220,38,38,.12)}
-.interlude-indicator small{
-  color:#858b95;font:700 9px/1.4 "Poppins",sans-serif;letter-spacing:.19em;
-}
-@media(max-width:700px){
-  .interlude-parallax{min-height:66vh;padding:90px 24px}
-  .interlude-parallax h2{letter-spacing:-.055em}
-  .interlude-parallax-content>p{margin-top:20px;max-width:420px}
-  .interlude-indicator{margin-top:35px}
-}
-@media(prefers-reduced-motion:reduce){
-  .interlude-parallax-bg,.interlude-parallax-content{transform:none!important;will-change:auto}
-  .interlude-indicator span{transition:none}
-}
-</style>
+
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -1760,20 +1675,6 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           React.createElement("div",{className:"marquee"},
             React.createElement("div",{className:"marquee-track"},
               ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},React.createElement("b",{className:"marquee-label"},x)))
-            )
-          ),
-          /* 03A — PARALLAX TRANSITION BETWEEN HERO AND ABOUT */
-          React.createElement("section",{className:"interlude-parallax", "aria-label":"Protection in every direction"},
-            React.createElement("div",{className:"interlude-parallax-bg","aria-hidden":"true"}),
-            React.createElement("div",{className:"interlude-parallax-grain","aria-hidden":"true"}),
-            React.createElement("div",{className:"interlude-parallax-content"},
-              React.createElement("span",{className:"interlude-kicker"},React.createElement("i",null)," DS SAFETY SYSTEMS  /  BUILT FOR READINESS"),
-              React.createElement("h2",null,"Protection, ",React.createElement("em",null,"in every direction.")),
-              React.createElement("p",null,"From the first assessment to ongoing maintenance, every detail moves your site closer to being ready."),
-              React.createElement("a",{className:"interlude-indicator",href:"#about","aria-label":"Continue to About DS Safety Systems"},
-                React.createElement("span",null,"◇"),
-                React.createElement("small",null,"DISCOVER DS SAFETY")
-              )
             )
           ),
           /* 04 — ABOUT */
