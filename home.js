@@ -31,4 +31,29 @@
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate, { passive: true });
   update();
+
+  /* Dedicated parallax transition between the fire-safety marquee and About. */
+  const interlude = document.querySelector(".interlude-parallax");
+  if (interlude) {
+    const background = interlude.querySelector(".interlude-parallax-bg");
+    const content = interlude.querySelector(".interlude-parallax-content");
+    let interludeTicking = false;
+    const updateInterlude = () => {
+      interludeTicking = false;
+      const rect = interlude.getBoundingClientRect();
+      const span = Math.max(1, window.innerHeight + rect.height);
+      const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / span));
+      if (background) background.style.setProperty("--interlude-bg-y", Math.round((progress - 0.5) * -105) + "px");
+      if (content) content.style.setProperty("--interlude-content-y", Math.round((progress - 0.5) * 24) + "px");
+    };
+    const requestInterludeUpdate = () => {
+      if (interludeTicking) return;
+      interludeTicking = true;
+      window.requestAnimationFrame(updateInterlude);
+    };
+    window.addEventListener("scroll", requestInterludeUpdate, { passive: true });
+    window.addEventListener("resize", requestInterludeUpdate, { passive: true });
+    updateInterlude();
+  }
+
 })();
