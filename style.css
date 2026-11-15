@@ -1965,7 +1965,7 @@ body{
   line-height:1;
   box-shadow:0 8px 30px rgba(0,0,0,.34),0 0 24px rgba(220,38,38,.18);
 }
-.ds-parallax-divider span::first-letter{transform:rotate(-45deg)}
+.ds-parallax-divider span::before{content:"↓";display:block;transform:rotate(-45deg)}
 @media(max-width:700px){
   .ds-parallax-interlude{height:70vh;min-height:440px}
   .ds-parallax-header{inset:-4% 0}
