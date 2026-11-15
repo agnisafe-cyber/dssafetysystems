@@ -22,6 +22,7 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css?v=parallax-interlude-1">
+  <link rel="stylesheet" href="parallax.css?v=1">
 
   <!-- GSAP & React CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -1679,14 +1680,16 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             )
           ),
           /* 03A — PARALLAX TRANSITION BETWEEN MARQUEE AND ABOUT */
-          React.createElement("section",{className:"ds-parallax-interlude","aria-label":"Sky parallax transition"},
-            React.createElement("div",{className:"ds-parallax-header",id:"ds-parallax-header"},
-              React.createElement("div",{className:"ds-parallax-header-shade"}),
-              React.createElement("div",{className:"ds-parallax-center",id:"ds-parallax-center"},
-                React.createElement("div",{className:"ds-parallax-middle"},
-                  React.createElement("h2",null,"Sky"),
-                  React.createElement("p",null,"A moment of perspective before we get back to protecting what matters.")
-                )
+          React.createElement("section",{className:"ds-parallax-interlude","aria-label":"Fire safety highlight"},
+            React.createElement("div",{className:"ds-px-media"},
+              React.createElement("img",{className:"ds-px-img",src:"assets/parallax-extinguishers.webp",alt:"",width:1050,height:1400,loading:"lazy","data-speed":"auto"})
+            ),
+            React.createElement("div",{className:"ds-px-shade"}),
+            React.createElement("div",{className:"ds-px-embers","aria-hidden":"true","data-speed":"1.35"}),
+            React.createElement("div",{className:"ds-px-copy","data-speed":"1.12"},
+              React.createElement("div",{className:"ds-parallax-middle"},
+                React.createElement("h2",null,"Ready before it matters."),
+                React.createElement("p",null,"Fire safety equipment, installation and AMC for homes, factories and businesses across Delhi NCR.")
               )
             ),
             React.createElement("div",{className:"ds-parallax-divider","aria-hidden":"true"},
