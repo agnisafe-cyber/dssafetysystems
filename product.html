@@ -48,6 +48,28 @@
         .product-section-header h1 {
             animation: productHeadingFadeIn .7s ease-out both;
         }
+        /* Keep the complete product heading inside the available desktop width. */
+        .product-page-title {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 8px;
+            box-sizing: border-box;
+            font-size: clamp(1.25rem, 3.05vw, 2.75rem) !important;
+            line-height: 1.15 !important;
+            white-space: nowrap !important;
+            overflow: visible !important;
+            text-align: center;
+        }
+        @media (max-width: 700px) {
+            .product-page-title {
+                font-size: clamp(1.25rem, 6vw, 2rem) !important;
+                white-space: normal !important;
+                text-wrap: balance;
+            }
+        }
         @media (prefers-reduced-motion: reduce) {
             .product-section-header h1 { animation: none !important; }
         }
@@ -103,11 +125,11 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         
         <!-- Section Header -->
-        <div class="text-center max-w-5xl mx-auto mb-12 product-section-header">
+        <div class="text-center w-full max-w-none mx-auto mb-12 product-section-header">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold tracking-wide uppercase mb-4">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> DS Safety Systems
             </div>
-            <h1 class="font-cinematic gradient-text text-[clamp(1.1rem,4.2vw,3.5rem)] whitespace-nowrap font-extrabold tracking-tight mb-4 leading-tight w-full">
+            <h1 class="product-page-title font-cinematic gradient-text font-extrabold tracking-tight mb-4 leading-tight">
                 Complete Fire Protection Solutions.
             </h1>
             <p class="text-white text-base sm:text-lg">
