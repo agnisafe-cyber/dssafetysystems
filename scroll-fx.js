@@ -19,6 +19,8 @@
     var max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
     bar.style.transform="scaleX("+Math.min(1,y/max)+")";
     if(reduce)return;
+    /* Slow drift for the fixed glow layer so it reads as depth behind the content. */
+    document.documentElement.style.setProperty("--dsfx-y",(-90*Math.tanh(y/3500)).toFixed(1)+"px");
     var vh=window.innerHeight||800,center=vh*.5;
     for(var i=0;i<parallax.length;i++){
       var item=parallax[i],el=item.el;
@@ -39,7 +41,7 @@
     var parallaxSelector="[data-ds-parallax],.parallax-layer,.hero .grid,.hero .orb,.hero .hero-bg,.hero img,.hero video,.hero-video-visual,.hero-video-visual video,.about-image-wrap img,.manufacturing-slider img,.modal-slide img,.modal-slider-box img,.product-visual img,.product-image img,.about-visual img,.image-panel img";
     var seenParallax=new Set();
     document.querySelectorAll(parallaxSelector).forEach(function(el){
-      if(seenParallax.has(el)||el.closest("nav,button,a,[role='dialog']"))return;
+      if(seenParallax.has(el)||el.hasAttribute("data-speed")||el.closest("nav,button,a,[role='dialog']"))return; /* data-speed = driven by ScrollSmoother */
       seenParallax.add(el);
       var speed=Number(el.getAttribute("data-ds-parallax-speed"))||0.105;
       el.style.willChange="translate";
