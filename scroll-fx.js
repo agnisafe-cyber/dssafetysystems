@@ -95,7 +95,7 @@
   if(!reduce){
     var waveStyle=document.createElement("style");
     waveStyle.textContent=
-      "#dsfx-wave{position:fixed;inset:0;z-index:9997;display:flex;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .18s ease;contain:strict}" +
+      "#dsfx-wave{position:fixed;inset:0;z-index:8;display:flex;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .18s ease;contain:strict}" +
       "#dsfx-wave.is-active{opacity:1}" +
       "#dsfx-wave .dsfx-wave-slice{height:100%;flex:1 1 0;min-width:0;transform:translate3d(0,0,0);will-change:transform; border-right:1px solid rgba(255,115,65,.035);background:linear-gradient(180deg,rgba(255,74,42,.13),rgba(12,12,14,.025) 38%,rgba(255,112,52,.075) 72%,rgba(0,0,0,.025))}" +
       "@media(prefers-reduced-motion:reduce){#dsfx-wave{display:none!important}}";
