@@ -89,6 +89,102 @@
     }
   }
 
+
+  /* Wavescroll interaction: staggered vertical slices react to page scroll and background dragging.
+     Kept as a lightweight overlay so normal page layout, links and native scrolling remain intact. */
+  if(!reduce){
+    var waveStyle=document.createElement("style");
+    waveStyle.textContent=
+      "#dsfx-wave{position:fixed;inset:0;z-index:9997;display:flex;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .18s ease;contain:strict}" +
+      "#dsfx-wave.is-active{opacity:1}" +
+      "#dsfx-wave .dsfx-wave-slice{height:100%;flex:1 1 0;min-width:0;transform:translate3d(0,0,0);will-change:transform; border-right:1px solid rgba(255,115,65,.035);background:linear-gradient(180deg,rgba(255,74,42,.13),rgba(12,12,14,.025) 38%,rgba(255,112,52,.075) 72%,rgba(0,0,0,.025))}" +
+      "@media(prefers-reduced-motion:reduce){#dsfx-wave{display:none!important}}";
+    document.head.appendChild(waveStyle);
+    var wave=document.createElement("div");
+    wave.id="dsfx-wave";
+    wave.setAttribute("aria-hidden","true");
+    var waveSlices=[];
+    for(var wi=0;wi<24;wi++){
+      var slice=document.createElement("i");
+      slice.className="dsfx-wave-slice";
+      wave.appendChild(slice);
+      waveSlices.push(slice);
+    }
+    document.body.appendChild(wave);
+
+    var waveBusy=false,waveReset=null,lastScrollY=window.scrollY||0;
+    function pulseWave(direction,amount){
+      if(waveBusy)return;
+      waveBusy=true;
+      wave.classList.add("is-active");
+      var distance=Math.max(10,Math.min(34,Math.abs(amount)*.65));
+      waveSlices.forEach(function(slice,i){
+        if(slice.getAnimations) slice.getAnimations().forEach(function(a){a.cancel()});
+        var phase=Math.sin((i/23)*Math.PI);
+        var sign=(i%2===0?1:-1);
+        var offset=direction*distance*(.35+phase*.65)*sign;
+        slice.animate(
+          [{transform:"translate3d(0,0,0)"},{transform:"translate3d(0,"+offset.toFixed(1)+"px,0)"},{transform:"translate3d(0,0,0)"}],
+          {duration:460,easing:"cubic-bezier(.22,1,.36,1)",delay:Math.abs(i-11.5)*7,fill:"none"}
+        );
+      });
+      window.clearTimeout(waveReset);
+      waveReset=window.setTimeout(function(){wave.classList.remove("is-active");waveBusy=false},650);
+    }
+    var waveScrollTick=false;
+    addEventListener("scroll",function(){
+      if(waveScrollTick)return;
+      waveScrollTick=true;
+      requestAnimationFrame(function(){
+        var now=window.scrollY||0,delta=now-lastScrollY;
+        lastScrollY=now;
+        if(Math.abs(delta)>3)pulseWave(delta>0?1:-1,delta);
+        waveScrollTick=false;
+      });
+    },{passive:true});
+
+    var dragY=0,dragX=0,dragging=false,dragMoved=false;
+    function isInteractive(target){
+      return !!(target&&target.closest("a,button,input,select,textarea,label,[role='button'],[role='dialog'],.modal,[contenteditable='true']"));
+    }
+    document.addEventListener("pointerdown",function(e){
+      if(e.button!==0||isInteractive(e.target))return;
+      dragging=true;dragMoved=false;dragY=e.clientY;dragX=e.clientX;
+    },{passive:true});
+    document.addEventListener("pointermove",function(e){
+      if(!dragging)return;
+      var dy=e.clientY-dragY,dx=e.clientX-dragX;
+      if(Math.abs(dy)<4&&Math.abs(dx)<10)return;
+      dragMoved=true;
+      wave.classList.add("is-active");
+      var strength=Math.max(-52,Math.min(52,dy*.42));
+      var focus=(e.clientX/Math.max(1,window.innerWidth))*23;
+      waveSlices.forEach(function(slice,i){
+        var spread=Math.abs(i-focus);
+        var falloff=Math.max(0,1-spread/12);
+        var curve=Math.sin((i/23)*Math.PI);
+        var offset=strength*falloff*(.35+curve*.65);
+        slice.style.transform="translate3d(0,"+offset.toFixed(1)+"px,0)";
+      });
+    },{passive:true});
+    function finishWaveDrag(){
+      if(!dragging)return;
+      dragging=false;
+      if(!dragMoved)return;
+      waveSlices.forEach(function(slice,i){
+        slice.animate(
+          [{transform:getComputedStyle(slice).transform},{transform:"translate3d(0,0,0)"}],
+          {duration:420,easing:"cubic-bezier(.22,1,.36,1)",delay:Math.abs(i-11.5)*6,fill:"forwards"}
+        );
+        slice.style.transform="";
+      });
+      window.clearTimeout(waveReset);
+      waveReset=window.setTimeout(function(){wave.classList.remove("is-active")},600);
+    }
+    document.addEventListener("pointerup",finishWaveDrag,{passive:true});
+    document.addEventListener("pointercancel",finishWaveDrag,{passive:true});
+  }
+
   update();
   if("fonts" in document)document.fonts.ready.then(requestUpdate);
   addEventListener("load",requestUpdate,{once:true});
