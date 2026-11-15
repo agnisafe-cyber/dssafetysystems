@@ -58,9 +58,9 @@
       const progress = Math.max(0, Math.min(1,
         (viewport - rect.top) / (viewport + rect.height)
       ));
-      const offset = Math.round((progress - 0.5) * 220);
-      const contentOffset = Math.round((progress - 0.5) * -54);
-      header.style.backgroundPosition = "center calc(50% + " + offset + "px)";
+      const offset = Math.round((progress - 0.5) * 300);
+      const contentOffset = Math.round((progress - 0.5) * -88);
+      header.style.transform = "translate3d(0," + offset + "px,0)";
       center.style.transform = "translate3d(0," + contentOffset + "px,0)";
     };
     const requestUpdate = () => {
