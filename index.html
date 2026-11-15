@@ -1677,6 +1677,21 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               ...Array(3).fill(["Fire extinguishers","Smoke detectors","Fire alarms","Hydrant systems","Sprinklers","Fire pumps","AMC & maintenance"]).flat().map((x,i)=>React.createElement("span",{key:i},React.createElement("b",{className:"marquee-label"},x)))
             )
           ),
+          /* 03A — PARALLAX TRANSITION BETWEEN MARQUEE AND ABOUT */
+          React.createElement("section",{className:"ds-parallax-interlude","aria-label":"Sky parallax transition"},
+            React.createElement("div",{className:"ds-parallax-header",id:"ds-parallax-header"},
+              React.createElement("div",{className:"ds-parallax-header-shade"}),
+              React.createElement("div",{className:"ds-parallax-center",id:"ds-parallax-center"},
+                React.createElement("div",{className:"ds-parallax-middle"},
+                  React.createElement("h2",null,"Sky"),
+                  React.createElement("p",null,"A moment of perspective before we get back to protecting what matters.")
+                )
+              )
+            ),
+            React.createElement("div",{className:"ds-parallax-divider","aria-hidden":"true"},
+              React.createElement("span",null,"↓")
+            )
+          ),
           /* 04 — ABOUT */
           React.createElement("section",{className:"section about-home",id:"about"},
             React.createElement("div",{className:"about-home-grid"},
