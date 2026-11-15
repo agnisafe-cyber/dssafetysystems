@@ -1,0 +1,92 @@
+/* DS Safety Systems — homepage parallax section.
+   Lives in its own file so it applies independently of style.css. */
+.ds-parallax-interlude{
+  --ds-parallax-y:0px;
+  position:relative;
+  isolation:isolate;
+  height:90vh;
+  min-height:560px;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:#080b11;
+  color:#f7f5f0;
+  z-index:1;
+}
+
+.ds-px-media{position:absolute;inset:0;overflow:hidden;background:#080b11}
+.ds-px-img{position:absolute;left:0;top:-17.5%;width:100%;height:135%;object-fit:cover;object-position:center 62%;display:block;will-change:transform}
+@media(min-width:901px){.ds-px-img{top:0}}
+.ds-px-shade{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 50% 45%,rgba(8,11,17,.38),rgba(5,8,14,.78) 80%),
+    linear-gradient(180deg,rgba(5,8,14,.55),rgba(5,8,14,.42) 50%,rgba(5,8,14,.9))}
+.ds-px-embers{position:absolute;inset:-12% 0;pointer-events:none;opacity:.8;mix-blend-mode:screen;
+  background:
+    radial-gradient(circle at 12% 70%,rgba(255,110,40,.55) 0 2px,transparent 3px),
+    radial-gradient(circle at 24% 30%,rgba(255,160,60,.5) 0 2px,transparent 3px),
+    radial-gradient(circle at 38% 82%,rgba(255,90,40,.5) 0 3px,transparent 4px),
+    radial-gradient(circle at 61% 22%,rgba(255,140,50,.55) 0 2px,transparent 3px),
+    radial-gradient(circle at 74% 64%,rgba(255,100,40,.5) 0 3px,transparent 4px),
+    radial-gradient(circle at 88% 36%,rgba(255,170,70,.5) 0 2px,transparent 3px),
+    radial-gradient(ellipse at 18% 100%,rgba(220,38,38,.35),transparent 45%),
+    radial-gradient(ellipse at 85% 100%,rgba(249,115,22,.28),transparent 42%)}
+.ds-px-copy{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:100px 24px 80px;z-index:2}
+.ds-parallax-middle{max-width:900px}
+.ds-parallax-middle h2{
+  margin:0 0 18px;
+  color:#fff;
+  font-family:"Instrument Serif","Georgia",serif;
+  font-size:clamp(76px,13vw,168px);
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:-.055em;
+  text-shadow:0 12px 45px rgba(0,0,0,.28);
+}
+.ds-parallax-middle p{
+  margin:0 auto;
+  max-width:620px;
+  color:rgba(255,255,255,.88);
+  font-family:"Google Sans Flex","Inter",sans-serif;
+  font-size:clamp(14px,1.35vw,18px);
+  font-weight:500;
+  line-height:1.7;
+  letter-spacing:.015em;
+}
+.ds-parallax-divider{
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 18%,#fff 50%,rgba(255,255,255,.9) 82%,transparent);
+  box-shadow:0 0 18px rgba(255,255,255,.16);
+}
+.ds-parallax-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  transform:translate(-50%,-50%) rotate(45deg);
+  border:2px solid rgba(255,255,255,.92);
+  background:linear-gradient(135deg,#bd1826,#68131b);
+  color:#fff;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+  box-shadow:0 8px 30px rgba(0,0,0,.34),0 0 24px rgba(220,38,38,.18);
+}
+.ds-parallax-divider span::before{content:"↓";display:block;transform:rotate(-45deg)}
+.ds-px-copy h2{font-size:clamp(44px,7.4vw,108px);line-height:1;letter-spacing:-.04em}
+@media(max-width:700px){
+  .ds-parallax-interlude{height:70vh;min-height:440px}
+  .ds-px-copy{padding:80px 22px 65px}
+  .ds-px-copy h2{font-size:clamp(40px,12vw,64px)}
+  .ds-parallax-middle p{max-width:340px;font-size:14px}
+  .ds-parallax-divider span{width:42px;height:42px;font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){.ds-px-img{will-change:auto}}
