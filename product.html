@@ -294,6 +294,10 @@
                         <ul id="qv-features" class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
                             <!-- Injected by JS -->
                         </ul>
+                        <div id="qv-capacities" class="hidden mt-4 rounded-xl border border-red-500/25 bg-red-500/5 px-4 py-3 text-sm">
+                            <p class="text-[11px] font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-1">Available Capacities</p>
+                            <p class="font-bold text-slate-800 dark:text-white">2 KG <span class="text-red-500">·</span> 4 KG <span class="text-red-500">·</span> 6 KG <span class="text-red-500">·</span> 9 KG</p>
+                        </div>
                     </div>
                 </div>
 
@@ -365,7 +369,7 @@
                 ],
                 cardImageIndex: 0,
                 badge: "Best Seller",
-                features: ["Multi-Purpose ABC Dry Chemical Powder", "Suitable for Class A, B & C Fires", "Available Capacities: 2 KG, 4 KG, 6 KG & 9 KG", "Designed for Electrical Fire Risk Protection", "Robust & Durable Cylinder Construction"],
+                features: ["Multi-Purpose ABC Dry Chemical Powder", "Suitable for Class A, B & C Fires", "Designed for Electrical Fire Risk Protection"],
                 description: "The ABC Dry Powder Fire Extinguisher delivers dependable, multipurpose fire protection against Class A, B and C fire risks, including electrical hazards. Built with a durable cylinder and effective dry chemical powder, it offers a reliable safety solution for factories, warehouses, offices, hotels, hospitals, commercial buildings and residential spaces."
             },
             {
@@ -674,6 +678,9 @@
             qvStars.innerHTML = generateStarRating(product.rating);
 
             // Populate features
+            const capacitiesPanel = document.getElementById('qv-capacities');
+            capacitiesPanel.classList.toggle('hidden', product.id !== 1);
+
             const featuresList = document.getElementById('qv-features');
             if (product.features && product.features.length > 0) {
                 featuresList.innerHTML = product.features.map(f => `
