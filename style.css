@@ -1890,14 +1890,16 @@ body{
 }
 .ds-parallax-header{
   position:absolute;
-  inset:-7% 0;
+  inset:-22% 0;
   overflow:hidden;
   background-image:
     linear-gradient(180deg,rgba(5,8,14,.30),rgba(5,8,14,.52) 55%,rgba(5,8,14,.82)),
     url("https://upload.wikimedia.org/wikipedia/commons/0/06/Cloud_sky_over_Brest.jpg");
   background-size:cover;
-  background-position:center calc(50% + var(--ds-parallax-y));
-  will-change:background-position;
+  background-position:center center;
+  filter:none!important;
+  transform:translate3d(0,0,0);
+  will-change:transform;
 }
 .ds-parallax-header-shade{
   position:absolute;
@@ -1968,7 +1970,7 @@ body{
 .ds-parallax-divider span::before{content:"↓";display:block;transform:rotate(-45deg)}
 @media(max-width:700px){
   .ds-parallax-interlude{height:70vh;min-height:440px}
-  .ds-parallax-header{inset:-4% 0}
+  .ds-parallax-header{inset:-14% 0}
   .ds-parallax-center{padding:80px 22px 65px}
   .ds-parallax-middle h2{font-size:clamp(70px,19vw,112px)}
   .ds-parallax-middle p{max-width:340px;font-size:14px}
