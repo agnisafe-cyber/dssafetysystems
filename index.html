@@ -1049,7 +1049,7 @@
             frame.src = './dssafety.html?embed=why-ds-v3-whitecards';
             frame.title = 'Why Choose DS Safety Systems';
             frame.style.backgroundColor = '#f8f9fa';
-            frame.loading = 'lazy';
+            frame.loading = 'eager';
             frame.setAttribute('scrolling', 'no');
             frame.onload = () => { try { frame.style.height = Math.max(frame.contentDocument.body.scrollHeight, frame.contentDocument.documentElement.scrollHeight) + 'px'; } catch (e) {} };
             section.appendChild(frame);
