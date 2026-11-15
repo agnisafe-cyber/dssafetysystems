@@ -7,10 +7,10 @@
     <meta name="description" content="Explore fire extinguishers and fire protection equipment from DS Safety Systems in New Delhi, including ABC dry powder and CO2 extinguisher solutions.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Inter & Plus Jakarta Sans) -->
+    <!-- Google Fonts (Inter & Outfit, matching Industries We Serve) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -20,7 +20,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        cinematic: ['Outfit', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -36,6 +36,21 @@
         }
     </script>
     <style>
+        .gradient-text {
+            background: linear-gradient(100deg, #f6f4ef 0%, #ff6b35 42%, #ff1e38 72%, #ff8a24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes productHeadingFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-section-header h1 {
+            animation: productHeadingFadeIn .7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .product-section-header h1 { animation: none !important; }
+        }
         html, body { background: transparent !important; background-color: transparent !important; }
         body > section { background: transparent !important; }
         /* Custom scrollbar for webkit */
@@ -88,15 +103,15 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-center max-w-3xl mx-auto mb-12 product-section-header">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-100 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-semibold tracking-wide uppercase mb-4">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> DS Safety Systems
             </div>
-            <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-                Fire Protection. Built on Trust.
-            </h2>
+            <h1 class="font-cinematic gradient-text text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                Complete Fire Protection Solutions.
+            </h1>
             <p class="text-white text-base sm:text-lg">
-                Explore dependable fire safety equipment engineered to protect people, property, and the places where business happens.
+                Explore dependable fire safety equipment and protection solutions designed to safeguard lives, property and businesses.
             </p>
         </div>
 
