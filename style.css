@@ -1870,3 +1870,110 @@ body{
   .hero-content .hero-copy{width:100%!important;max-width:100%!important;font-size:17px!important;line-height:1.6!important;font-weight:400!important;margin-top:18px!important}
   .hero-content .hero-copy .hero-copy-line{display:inline!important;width:auto!important;max-width:100%!important;white-space:normal!important}
 }
+
+
+/* ============================================================
+   DS PARALLAX INTERLUDE — isolated transition after the marquee
+   ============================================================ */
+.ds-parallax-interlude{
+  --ds-parallax-y:0px;
+  position:relative;
+  isolation:isolate;
+  height:90vh;
+  min-height:560px;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:#080b11;
+  color:#f7f5f0;
+  z-index:1;
+}
+.ds-parallax-header{
+  position:absolute;
+  inset:-7% 0;
+  overflow:hidden;
+  background-image:
+    linear-gradient(180deg,rgba(5,8,14,.30),rgba(5,8,14,.52) 55%,rgba(5,8,14,.82)),
+    url("https://upload.wikimedia.org/wikipedia/commons/0/06/Cloud_sky_over_Brest.jpg");
+  background-size:cover;
+  background-position:center calc(50% + var(--ds-parallax-y));
+  will-change:background-position;
+}
+.ds-parallax-header-shade{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 50% 42%,rgba(15,20,29,.08),rgba(5,8,14,.42) 75%),
+    linear-gradient(90deg,rgba(5,8,14,.28),transparent 45%,rgba(5,8,14,.28));
+  pointer-events:none;
+}
+.ds-parallax-center{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:100px 24px 80px;
+  transform:translate3d(0,var(--ds-parallax-content-y,0px),0);
+  will-change:transform;
+}
+.ds-parallax-middle{max-width:900px}
+.ds-parallax-middle h2{
+  margin:0 0 18px;
+  color:#fff;
+  font-family:"Instrument Serif","Georgia",serif;
+  font-size:clamp(76px,13vw,168px);
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:-.055em;
+  text-shadow:0 12px 45px rgba(0,0,0,.28);
+}
+.ds-parallax-middle p{
+  margin:0 auto;
+  max-width:620px;
+  color:rgba(255,255,255,.88);
+  font-family:"Google Sans Flex","Inter",sans-serif;
+  font-size:clamp(14px,1.35vw,18px);
+  font-weight:500;
+  line-height:1.7;
+  letter-spacing:.015em;
+}
+.ds-parallax-divider{
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 18%,#fff 50%,rgba(255,255,255,.9) 82%,transparent);
+  box-shadow:0 0 18px rgba(255,255,255,.16);
+}
+.ds-parallax-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  transform:translate(-50%,-50%) rotate(45deg);
+  border:2px solid rgba(255,255,255,.92);
+  background:linear-gradient(135deg,#bd1826,#68131b);
+  color:#fff;
+  font-family:Georgia,serif;
+  font-size:25px;
+  line-height:1;
+  box-shadow:0 8px 30px rgba(0,0,0,.34),0 0 24px rgba(220,38,38,.18);
+}
+.ds-parallax-divider span::first-letter{transform:rotate(-45deg)}
+@media(max-width:700px){
+  .ds-parallax-interlude{height:70vh;min-height:440px}
+  .ds-parallax-header{inset:-4% 0}
+  .ds-parallax-center{padding:80px 22px 65px}
+  .ds-parallax-middle h2{font-size:clamp(70px,19vw,112px)}
+  .ds-parallax-middle p{max-width:340px;font-size:14px}
+  .ds-parallax-divider span{width:42px;height:42px;font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ds-parallax-header,.ds-parallax-center{will-change:auto}
+}
