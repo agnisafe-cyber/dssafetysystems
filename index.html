@@ -22,7 +22,6 @@
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="style.css?v=parallax-interlude-1">
-  <link rel="stylesheet" href="parallax.css?v=1">
 
   <!-- GSAP & React CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -1680,16 +1679,6 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             )
           ),
           /* 03A — PARALLAX TRANSITION BETWEEN MARQUEE AND ABOUT */
-          React.createElement("section",{className:"ds-parallax-interlude","aria-label":"Fire safety highlight"},
-            React.createElement("div",{className:"ds-px-media"},
-              React.createElement("img",{className:"ds-px-img",src:"assets/parallax-extinguishers.webp",alt:"",width:1050,height:1400,loading:"lazy","data-speed":"auto"})
-            ),
-            React.createElement("div",{className:"ds-px-shade"}),
-            React.createElement("div",{className:"ds-px-embers","aria-hidden":"true","data-speed":"1.35"}),
-            React.createElement("div",{className:"ds-parallax-divider","aria-hidden":"true"},
-              React.createElement("span",null)
-            )
-          ),
           /* 04 — ABOUT */
           React.createElement("section",{className:"section about-home",id:"about"},
             React.createElement("div",{className:"about-home-grid"},
