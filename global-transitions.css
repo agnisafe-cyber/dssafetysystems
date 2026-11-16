@@ -6,7 +6,5 @@
 html.ds-motion-ready body{animation:dsPageEnter 680ms var(--ds-transition-ease) both}
 html.ds-motion-ready body.ds-page-leaving{animation:none;opacity:.96}
 html.ds-motion-ready body.ds-page-leaving #ds-page-transition{pointer-events:auto}
-[data-ds-reveal]{opacity:0;transform:translate3d(0,24px,0);transition:opacity 760ms var(--ds-transition-ease),transform 760ms var(--ds-transition-ease);transition-delay:var(--ds-reveal-delay,0ms);will-change:opacity,transform}
-[data-ds-reveal].ds-revealed{opacity:1;transform:translate3d(0,0,0);will-change:auto}
 @keyframes dsPageEnter{from{opacity:.72;transform:translate3d(0,9px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
-@media(prefers-reduced-motion:reduce){:root{--ds-transition-duration:1ms}#ds-page-transition{display:none!important}html.ds-motion-ready body{animation:none!important}[data-ds-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){:root{--ds-transition-duration:1ms}#ds-page-transition{display:none!important}html.ds-motion-ready body{animation:none!important}}
