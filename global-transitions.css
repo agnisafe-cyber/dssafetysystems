@@ -1,0 +1,10 @@
+/* DS Safety Systems — global motion layer (Phase 1)
+   Lightweight, page-agnostic transitions. No layout wrappers or scroll hijacking. */
+:root{--ds-transition-duration:520ms;--ds-transition-ease:cubic-bezier(.22,.72,.18,1)}
+#ds-page-transition{position:fixed;inset:0;z-index:99999;pointer-events:none;opacity:0;visibility:hidden;background:radial-gradient(ellipse at 50% 48%,rgba(205,37,48,.22),transparent 48%),linear-gradient(135deg,#080a0e 0%,#11131a 55%,#090a0e 100%);transform:scaleY(.015);transform-origin:bottom;transition:transform var(--ds-transition-duration) var(--ds-transition-ease),opacity 220ms ease,visibility 0s linear var(--ds-transition-duration)}
+#ds-page-transition.is-active{opacity:1;visibility:visible;transform:scaleY(1);transform-origin:bottom;transition:transform var(--ds-transition-duration) var(--ds-transition-ease),opacity 220ms ease}
+html.ds-motion-ready body{animation:dsPageEnter 680ms var(--ds-transition-ease) both}
+html.ds-motion-ready body.ds-page-leaving{animation:none;opacity:.96}
+html.ds-motion-ready body.ds-page-leaving #ds-page-transition{pointer-events:auto}
+@keyframes dsPageEnter{from{opacity:.72;transform:translate3d(0,9px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){:root{--ds-transition-duration:1ms}#ds-page-transition{display:none!important}html.ds-motion-ready body{animation:none!important}}
