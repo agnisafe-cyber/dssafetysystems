@@ -45,18 +45,18 @@
     const section = document.querySelector(".ds-parallax-interlude");
     const img = section && section.querySelector(".ds-px-img");
     const copy = section && section.querySelector(".ds-px-copy");
-    if (!img || !copy) return false;
+    if (!img) return false;
 
     let ticking = false;
     const update = () => {
       ticking = false;
-      if (!small.matches) { img.style.translate = ""; copy.style.translate = ""; return; }
+      if (!small.matches) { img.style.translate = ""; if (copy) copy.style.translate = ""; return; }
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight || 800;
       if (rect.bottom < 0 || rect.top > vh) return;
       const p = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
       img.style.translate = "0 " + Math.round((p - 0.5) * -0.3 * rect.height) + "px";
-      copy.style.translate = "0 " + Math.round((p - 0.5) * -46) + "px";
+      if (copy) copy.style.translate = "0 " + Math.round((p - 0.5) * -46) + "px";
     };
     const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener("scroll", request, { passive: true });
