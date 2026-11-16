@@ -25,23 +25,9 @@
       if(document.body.classList.contains("ds-page-leaving"))return;
       document.body.classList.add("ds-page-leaving");
       overlay.classList.add("is-active");
-      window.setTimeout(function(){location.href=url.href},390);
+      window.setTimeout(function(){location.href=url.href},560);
     },true);
-    if("IntersectionObserver" in window){
-      var candidates=Array.prototype.slice.call(document.querySelectorAll("main section,body>section,section:not(.marquee):not([aria-hidden='true']),.service-card,.product-card,.industry-card,.testimonial-card"));
-      var count=0;
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("ds-revealed");io.unobserve(entry.target)}});
-      },{rootMargin:"0px 0px -7% 0px",threshold:.08});
-      candidates.forEach(function(el){
-        if(el.closest("nav,header footer,[role='dialog'],#quote-modal,.marquee")||el.hasAttribute("data-no-reveal"))return;
-        if(el.getBoundingClientRect().height<35)return;
-        el.setAttribute("data-ds-reveal","");
-        el.style.setProperty("--ds-reveal-delay",Math.min(count%4,3)*75+"ms");
-        count++;io.observe(el);
-      });
-      window.addEventListener("pageshow",function(){if(window.scrollY>0)requestAnimationFrame(function(){candidates.forEach(function(el){if(el.getBoundingClientRect().bottom<0)el.classList.add("ds-revealed")})})});
-    }
+
   }else{
     root.classList.add("ds-motion-ready");
   }
