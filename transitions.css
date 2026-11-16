@@ -1,0 +1,80 @@
+/* ==========================================================================
+   DS Safety Systems — global page-transition engine (CSS)
+   One shared motion language for every page. Loaded in <head> on each page.
+   Primary path : cross-document View Transitions (Chrome, Edge, Safari 18.2+).
+   Fallback path: charcoal curtain (Firefox / older browsers), driven by transitions.js.
+   ========================================================================== */
+
+:root{
+  --ds-ease-out:cubic-bezier(.22,1,.36,1);
+  --ds-ease-in:cubic-bezier(.55,0,.8,.3);
+  --ds-t-out:340ms;
+  --ds-t-in:680ms;
+  --ds-shift:26px;
+  --ds-curtain:#0b0d11;
+}
+
+/* Opt every same-origin navigation in to a view transition. */
+@view-transition{ navigation:auto; }
+
+/* Cross-fade without the default additive blend (prevents brightness flashes). */
+::view-transition-group(root){ animation-duration:var(--ds-t-in); }
+::view-transition-image-pair(root){ isolation:isolate; }
+::view-transition-old(root),
+::view-transition-new(root){ mix-blend-mode:normal; animation-fill-mode:both; }
+
+/* OUT: the old page stays fully opaque (so there is never a gap), recedes and dims slightly. */
+::view-transition-old(root){
+  animation:ds-out var(--ds-t-out) var(--ds-ease-in) both;
+}
+/* IN: the new page rises in over the top, fading and settling from a slight scale. */
+::view-transition-new(root){
+  animation:ds-in var(--ds-t-in) var(--ds-ease-out) both;
+}
+
+@keyframes ds-out{
+  from{ transform:translate3d(0,0,0) scale(1); filter:brightness(1); }
+  to  { transform:translate3d(0,calc(var(--ds-shift) * -.5),0) scale(.985); filter:brightness(.55); }
+}
+@keyframes ds-in{
+  from{ opacity:0; transform:translate3d(0,var(--ds-shift),0) scale(1.012); }
+  to  { opacity:1; transform:translate3d(0,0,0) scale(1); }
+}
+
+/* Browser back: the motion is mirrored so history feels like going backwards. */
+html[data-vt-dir="back"]::view-transition-old(root){ animation-name:ds-out-back; }
+html[data-vt-dir="back"]::view-transition-new(root){ animation-name:ds-in-back; }
+@keyframes ds-out-back{
+  from{ transform:translate3d(0,0,0) scale(1); filter:brightness(1); }
+  to  { transform:translate3d(0,calc(var(--ds-shift) * .5),0) scale(.985); filter:brightness(.55); }
+}
+@keyframes ds-in-back{
+  from{ opacity:0; transform:translate3d(0,calc(var(--ds-shift) * -1),0) scale(1.012); }
+  to  { opacity:1; transform:translate3d(0,0,0) scale(1); }
+}
+
+/* ---------- Fallback curtain (browsers without cross-document View Transitions) ---------- */
+html.ds-novt::before{
+  content:"";
+  position:fixed; inset:0;
+  z-index:2147483647;
+  background:var(--ds-curtain);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity var(--ds-t-out) cubic-bezier(.4,0,.2,1);
+}
+html.ds-novt.ds-leaving::before{ opacity:1; pointer-events:auto; }
+html.ds-novt.ds-entering::before{
+  opacity:1;
+  transition:none;
+  animation:ds-curtain-up var(--ds-t-in) var(--ds-ease-out) 60ms forwards;
+}
+@keyframes ds-curtain-up{ from{ opacity:1; } to{ opacity:0; } }
+
+/* ---------- Accessibility: no transitions at all when the visitor prefers reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  @view-transition{ navigation:none; }
+  html.ds-novt::before,
+  html.ds-novt.ds-leaving::before,
+  html.ds-novt.ds-entering::before{ display:none; animation:none; transition:none; }
+}

@@ -1024,6 +1024,8 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://agnisafe-cyber.github.io/dssafetysystems/#business","name":"DS Safety Systems","url":"https://agnisafe-cyber.github.io/dssafetysystems/","image":"https://agnisafe-cyber.github.io/dssafetysystems/DSF_logo_small.png","telephone":"+919818777517","description":"Fire safety equipment supplier and fire protection service provider in Govind Puri, New Delhi. Supplies fire extinguishers and fire protection systems with installation, inspection, refilling, repairs and annual maintenance.","address":{"@type":"PostalAddress","addressLocality":"Govind Puri","addressRegion":"Delhi","addressCountry":"IN"},"areaServed":[{"@type":"City","name":"New Delhi"},{"@type":"AdministrativeArea","name":"South Delhi"}],"knowsAbout":["Fire extinguishers","Fire alarm systems","Fire hydrant systems","Fire hose reels","Fire safety equipment installation","Fire extinguisher refilling","Fire safety maintenance"]}</script>
 
 
+<link rel="stylesheet" href="transitions.css?v=1">
+<script src="transitions.js?v=1"></script>
 </head>
 <body>
 <div id="smooth-wrapper">
@@ -1746,7 +1748,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
           /* 07 — MANUFACTURING */
         )      );
     }
-    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+    var dsRoot = ReactDOM.createRoot(document.getElementById("root"));
+    ReactDOM.flushSync(function () { dsRoot.render(React.createElement(App)); });
   </script>
 <script id="ds-hero-border-sparks">
 (() => {
