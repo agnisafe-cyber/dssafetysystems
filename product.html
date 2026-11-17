@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,8 @@
         @media (prefers-reduced-motion: reduce) {
             .product-section-header h1 { animation: none !important; }
         }
-        html, body { background: transparent !important; background-color: transparent !important; }
+        html, body { background-color: #090b0f !important; background-image: radial-gradient(ellipse at 14% 18%, rgba(220,38,38,.16), transparent 34%), radial-gradient(ellipse at 86% 78%, rgba(249,115,22,.10), transparent 36%), linear-gradient(180deg, #090b0f 0%, #0d0f14 52%, #090b0f 100%) !important; background-attachment: fixed !important; }
+        body { color: #f1f5f9; }
         body > section { background: transparent !important; }
         /* Custom scrollbar for webkit */
         ::-webkit-scrollbar {
