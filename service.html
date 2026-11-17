@@ -1,124 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090a0d">
-  <title>Fire Safety Services | DS Safety Systems</title>
-  <meta name="description" content="Professional fire extinguisher supply and refilling, hydrant and sprinkler installation, alarm systems, AMC, audits, training and fire safety services by DS Safety Systems.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--red:#ed2529;--ink:#171b2d;--muted:#59657b;--paper:#fff;--dark:#090a0d}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;min-height:100vh;color:#fff;background:radial-gradient(ellipse at 15% 28%,rgba(87,24,29,.20),transparent 35%),radial-gradient(ellipse at 88% 72%,rgba(39,23,26,.13),transparent 32%),#090a0d;font-family:"Plus Jakarta Sans",Arial,sans-serif}
-    .services-wrap{width:min(1045px,calc(100% - 48px));margin:0 auto;padding:76px 0 90px}
-    .intro{min-height:296px;padding:48px 54px 45px;border-radius:22px;background:radial-gradient(circle at 80% 42%,rgba(255,230,230,.7),transparent 42%),linear-gradient(115deg,#fff 0%,#fffafa 100%);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 55px rgba(0,0,0,.12)}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border:1px solid #ffcaca;border-radius:30px;color:#e92328;font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
-    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#f07878}
-    h1{margin:17px 0 12px;font-family:Outfit,sans-serif;font-size:clamp(29px,4vw,42px);line-height:1.13;letter-spacing:-1.4px;font-weight:800}
-    .title-rule{width:min(440px,70%);height:2px;background:linear-gradient(90deg,transparent,#ef3438 42%,#ff8b45 65%,transparent);margin:0 auto 20px}
-    .intro p{max-width:650px;margin:0;color:#68748a;font-size:16px;line-height:1.5}
-    .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:55px 0 41px}
-    .filter{border:0;border-radius:28px;background:#fff;color:#39445b;padding:13px 21px;font:700 11px "Plus Jakarta Sans",sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .2s,background .2s,color .2s}
-    .filter:hover{transform:translateY(-2px)}
-    .filter.active{background:#ed2529;color:#fff;box-shadow:0 5px 15px rgba(237,37,41,.22)}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
-    .service-card{min-height:350px;padding:28px 28px 26px;border-radius:14px;background:linear-gradient(145deg,#fff 0%,#fff 72%,#fffafa 100%);color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.16);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-    .service-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(0,0,0,.23)}
-    .service-card[hidden]{display:none}
-    .icon-box{width:48px;height:48px;border-radius:14px;background:#fff0f0;color:#ed2529;display:grid;place-items:center;margin-bottom:21px}
-    .icon-box svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-    h2{font-family:Outfit,sans-serif;font-size:17px;line-height:1.3;letter-spacing:-.35px;margin:0 0 10px;font-weight:700}
-    .service-card p{font-size:11.5px;line-height:1.7;color:#59677f;margin:0 0 19px}
-    .service-card ul{list-style:none;padding:0;margin:auto 0 0;display:grid;gap:9px}
-    .service-card li{position:relative;padding-left:18px;color:#46536a;font-size:11.5px;line-height:1.45}
-    .service-card li:before{content:"✓";position:absolute;left:0;top:0;color:#ed2529;font-size:15px;font-weight:800}
-    .contact-strip{margin-top:48px;padding:24px 28px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.045);display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .contact-strip strong{font-family:Outfit,sans-serif;font-size:18px}
-    .contact-strip p{margin:5px 0 0;color:#aeb4c0;font-size:12px;line-height:1.5}
-    .contact-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:28px;background:#ed2529;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
-    .contact-btn:hover{background:#cf171c;transform:translateY(-2px)}
-    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.services-wrap{width:min(700px,calc(100% - 36px))}}
-    @media(max-width:560px){.services-wrap{width:calc(100% - 28px);padding:40px 0 55px}.intro{min-height:0;padding:36px 20px;border-radius:17px}.intro p{font-size:13px}.filters{margin:34px 0 25px;gap:7px}.filter{padding:11px 13px;font-size:10px}.grid{grid-template-columns:1fr;gap:16px}.service-card{min-height:0;padding:24px}.contact-strip{align-items:flex-start;flex-direction:column;padding:22px}.contact-btn{width:100%}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Safety Services, Installation & AMC in New Delhi | DS Safety Systems</title>
+    <meta name="description" content="DS Safety Systems provides fire alarm installation, extinguisher servicing and refilling, fire safety inspections, repairs, testing and AMC support in New Delhi.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#DC2626',
+                        brandRedDark: '#991B1B',
+                        brandSlate: '#0F172A',
+                        brandGray: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+
+        /* Service page: subtle cinematic motion for filters, cards, icons and links */
+        @keyframes serviceCardEnter {
+            from { opacity: 0; transform: translateY(26px) scale(.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes serviceIconGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(220,38,38,0); }
+            50% { box-shadow: 0 0 22px rgba(220,38,38,.14); }
+        }
+        #filter-container .filter-btn {
+            transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+        }
+        #filter-container .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(220,38,38,.12);
+        }
+        #services-grid .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+        }
+        #services-grid .service-card.reveal-pending {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+        #services-grid .service-card.reveal-visible {
+            animation: serviceCardEnter .7s cubic-bezier(.2,.7,.2,1) both;
+        }
+        #services-grid .service-card:nth-child(1) { animation-delay: .06s; }
+        #services-grid .service-card:nth-child(2) { animation-delay: .14s; }
+        #services-grid .service-card:nth-child(3) { animation-delay: .22s; }
+        #services-grid .service-card:nth-child(4) { animation-delay: .30s; }
+        #services-grid .service-card:nth-child(5) { animation-delay: .38s; }
+        #services-grid .service-card:nth-child(6) { animation-delay: .46s; }
+        #services-grid .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 8%;
+            width: 84%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(220,38,38,.7), rgba(251,146,60,.65), transparent);
+            opacity: 0;
+            transform: scaleX(.45);
+            transform-origin: center;
+            transition: opacity .35s ease, transform .35s ease;
+            pointer-events: none;
+        }
+        #services-grid .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 48px rgba(15,23,42,.11), 0 0 0 1px rgba(220,38,38,.06);
+        }
+        #services-grid .service-card:hover::before {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        #services-grid .service-card > div:first-child > div:first-child {
+            transition: transform .35s ease, box-shadow .35s ease, background-color .3s ease, color .3s ease;
+        }
+        #services-grid .service-card:hover > div:first-child > div:first-child {
+            transform: translateY(-3px) rotate(-3deg);
+            animation: serviceIconGlow 1.8s ease-in-out infinite;
+        }
+        #services-grid .service-card a i {
+            transition: transform .25s ease;
+        }
+        #services-grid .service-card a:hover i {
+            transform: translateX(5px);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #filter-container .filter-btn,
+            #services-grid .service-card,
+            #services-grid .service-card::before,
+            #services-grid .service-card > div:first-child > div:first-child,
+            #services-grid .service-card a i {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+
+        /* Refined entrance animation for the service-suite heading */
+        @keyframes suiteHeadingReveal {
+            from { opacity: 0; transform: translateY(16px); filter: blur(5px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes suiteAccentSweep {
+            0% { transform: scaleX(0); opacity: .25; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+        .service-suite-header:not(.reveal-visible) .service-suite-tag,
+        .service-suite-header:not(.reveal-visible) .service-suite-title,
+        .service-suite-header:not(.reveal-visible) .service-suite-description {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .service-suite-header.reveal-visible .service-suite-tag {
+            animation: suiteHeadingReveal .75s cubic-bezier(.2,.7,.2,1) both;
+        }
+        .service-suite-header.reveal-visible .service-suite-title {
+            position: relative;
+            animation: suiteHeadingReveal .9s .12s cubic-bezier(.2,.7,.2,1) both;
+        }
+        .service-suite-header .service-suite-title::after {
+            content: "";
+            display: block;
+            width: min(520px, 100%);
+            height: 3px;
+            margin: 18px auto 0;
+            border-radius: 99px;
+            background: linear-gradient(90deg, transparent, #dc2626, #fb923c, transparent);
+            transform-origin: center;
+            transform: scaleX(0);
+            opacity: .25;
+        }
+        .service-suite-header.reveal-visible .service-suite-title::after {
+            animation: suiteAccentSweep .85s .65s ease-out both;
+        }
+        .service-suite-header.reveal-visible .service-suite-description {
+            animation: suiteHeadingReveal .85s .25s cubic-bezier(.2,.7,.2,1) both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .service-suite-header .service-suite-tag,
+            .service-suite-header .service-suite-title,
+            .service-suite-header .service-suite-description,
+            .service-suite-header .service-suite-title::after,
+            #services-grid .service-card {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+        /* Premium service cards and clearer calls to action */
+        #services-grid .service-card {
+            border: 1px solid rgba(203, 213, 225, .9) !important;
+            border-color: rgba(203, 213, 225, .9);
+            background: radial-gradient(ellipse at 100% 0%, rgba(248, 113, 113, .055), transparent 48%), #fff;
+        }
+        #services-grid .service-card:hover {
+            border-color: rgba(220, 38, 38, .34);
+            background: radial-gradient(ellipse at 100% 0%, rgba(248, 113, 113, .10), transparent 52%), #fff;
+        }
+        #services-grid .service-card h3 {
+            letter-spacing: -.025em;
+            line-height: 1.35;
+            transition: color .25s ease;
+        }
+        #services-grid .service-card:hover h3 { color: #b91c1c; }
+        #services-grid .service-card a {
+            align-self: flex-start;
+            margin-top: 4px;
+            padding: 11px 14px;
+            border: 1px solid rgba(220, 38, 38, .17);
+            border-radius: 12px;
+            background: linear-gradient(110deg, #fef2f2, #fff7ed);
+            transition: color .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+        #services-grid .service-card a:hover {
+            color: #991b1b;
+            border-color: rgba(220, 38, 38, .32);
+            background: linear-gradient(110deg, #fee2e2, #ffedd5);
+            box-shadow: 0 7px 18px rgba(220, 38, 38, .09);
+            transform: translateY(-1px);
+        }
+        #services-grid .service-card a i { color: #ea580c; }
+        #filter-container .filter-btn:focus-visible,
+        #services-grid .service-card a:focus-visible {
+            outline: 3px solid rgba(220, 38, 38, .38);
+            outline-offset: 3px;
+        }
+        @media (max-width: 640px) {
+            #services-grid .service-card { padding: 1.5rem; }
+            .service-suite-header .service-suite-title { white-space: normal; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #services-grid .service-card h3,
+            #services-grid .service-card a {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+        .light-cinematic-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+    </style>
+  <link rel="canonical" href="https://dssafetysystems.com/service.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DS Safety Systems">
+  <meta property="og:title" content="Fire Safety Services, Installation &amp; AMC in New Delhi | DS Safety Systems">
+  <meta property="og:description" content="DS Safety Systems provides fire alarm installation, extinguisher servicing and refilling, fire safety inspections, repairs, testing and AMC support in New Delhi.">
+  <meta property="og:url" content="https://dssafetysystems.com/service.html">
+  <meta property="og:image" content="https://dssafetysystems.com/DSF_logo_small.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fire Safety Services, Installation &amp; AMC in New Delhi | DS Safety Systems">
+  <meta name="twitter:description" content="DS Safety Systems provides fire alarm installation, extinguisher servicing and refilling, fire safety inspections, repairs, testing and AMC support in New Delhi.">
+<script>try{if(window.self!==window.top)document.documentElement.className+=" px-embedded"}catch(e){document.documentElement.className+=" px-embedded"}</script>
+<link rel="stylesheet" href="parallax.css?v=3">
+<link rel="stylesheet" href="transitions.css?v=1">
+<script src="transitions.js?v=1"></script>
 </head>
-<body>
-  <main class="services-wrap">
-    <header class="intro">
-      <span class="eyebrow">Our Full Service Suite</span>
-      <h1>Comprehensive Fire Safety Services</h1>
-      <div class="title-rule"></div>
-      <p>Protecting your enterprise with high-grade equipment, expert installations, and round-the-clock maintenance. We design, install, inspect, and maintain the systems that keep your premises ready.</p>
-    </header>
+<body class="bg-transparent text-slate-800 font-sans antialiased selection:bg-brandRed selection:text-white">
 
-    <nav class="filters" aria-label="Filter services">
-      <button class="filter active" data-filter="all" type="button">All Services</button>
-      <button class="filter" data-filter="refill" type="button">Extinguishers &amp; Refill</button>
-      <button class="filter" data-filter="install" type="button">Installations</button>
-      <button class="filter" data-filter="amc" type="button">AMC &amp; Audits</button>
-      <button class="filter" data-filter="training" type="button">Training &amp; Drills</button>
-    </nav>
+    <!-- Comprehensive Services Section -->
+    <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
+        
+        <!-- Elegant Cinematic Light Header Container -->
+        <div class="service-suite-header relative bg-white rounded-3xl p-8 sm:p-14 lg:p-18 overflow-hidden shadow-xl mb-16 border border-slate-200/80 light-cinematic-glow">
+            
+            <!-- Subtle Decorative Ambient Light -->
+            <div class="absolute top-0 right-0 w-80 h-80 bg-red-100/60 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-slate-100 rounded-full blur-3xl pointer-events-none"></div>
 
-    <section class="grid" aria-label="Fire safety services">
-      <article class="service-card" data-category="refill">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 7h7l2 2v2H7V9zM9 11v8a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-8M11 7V4h5l2 2M18 6l2-2M7 14H5"/></svg></div>
-        <h2>Extinguisher Supply &amp; Refilling</h2>
-        <p>Complete supply of ABC Powder, CO2, Foam, and Clean Agent extinguishers. Includes hydro-testing, pressure checks, refilling with high-grade agent, and guarantee seals.</p>
-        <ul><li>Hydrostatic pressure testing</li><li>Free pickup in Delhi NCR</li><li>Standby cylinders during refill</li></ul>
-      </article>
+            <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+                
+                <!-- Styled Tag Pill -->
+                <div>
+                    <span class="service-suite-tag inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-brandRed text-xs font-bold uppercase tracking-widest shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brandRed animate-pulse"></span>
+                        Our Full Service Suite
+                    </span>
+                </div>
 
-      <article class="service-card" data-category="install">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 8h11a3 3 0 0 1 3 3v2M8 5h6M11 3v2M18 13v4M15 17h6M18 17v3M5 8v8h4"/></svg></div>
-        <h2>Fire Hydrant &amp; Sprinkler Systems</h2>
-        <p>Turnkey installation of wet and dry fire hydrant systems, automated sprinkler networks, fire pumps, hose reels, and heavy-duty water storage integration.</p>
-        <ul><li>Custom piping layout design</li><li>Automated jockey &amp; main pump setup</li><li>Heavy-duty landing valves &amp; nozzles</li></ul>
-      </article>
+                <!-- Main Heading (One Line) -->
+                <h1 class="service-suite-title text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight whitespace-nowrap">
+                    Comprehensive Fire Safety Services
+                </h1>
 
-      <article class="service-card" data-category="install">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5v3c0 2-1 3-2 4h14c-1-1-2-2-2-4V8a5 5 0 0 0-5-5zM10 18a2 2 0 0 0 4 0M12 1v2"/></svg></div>
-        <h2>Smoke Detectors &amp; Alarm Setup</h2>
-        <p>Advanced addressable and conventional smoke detector networks, heat sensors, manual call points, and central monitoring control panels.</p>
-        <ul><li>Early optical &amp; photoelectric sensing</li><li>Integrated hooters &amp; strobes</li><li>Battery backup &amp; alert panel wiring</li></ul>
-      </article>
+                <!-- Professional Subheading -->
+                <p class="service-suite-description text-slate-600 text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto font-light">
+                    Protecting your enterprise with high-grade equipment, expert installations, and round-the-clock maintenance. We design, install, inspect, and maintain the systems that keep your premises ready.
+                </p>
 
-      <article class="service-card" data-category="amc">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4"/></svg></div>
-        <h2>Annual Maintenance Contracts</h2>
-        <p>Planned maintenance to help keep your fire protection equipment and safety systems inspected, serviceable, and ready when needed.</p>
-        <ul><li>Scheduled inspection visits</li><li>Equipment condition reporting</li><li>Preventive maintenance support</li></ul>
-      </article>
+            </div>
+        </div>
 
-      <article class="service-card" data-category="amc">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 3h8l3 3v15H5V3zM8 10h8M8 14h8M8 18h5M16 3v4h4"/></svg></div>
-        <h2>Fire Safety Audits &amp; Inspections</h2>
-        <p>Systematic reviews of fire safety arrangements to help identify gaps, review equipment condition, and improve on-site preparedness.</p>
-        <ul><li>On-site safety inspections</li><li>Observations &amp; action reports</li><li>Equipment and system checks</li></ul>
-      </article>
+        <!-- Category Filter Controls -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="filter-container">
+            <button onclick="filterServices('all', event)" class="filter-btn active px-6 py-3 rounded-full text-sm font-semibold transition-all bg-brandRed text-white shadow-md shadow-brandRed/20 hover:scale-105">All Services</button>
+            <button onclick="filterServices('refilling', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Extinguishers & Refill</button>
+            <button onclick="filterServices('installation', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Installations</button>
+            <button onclick="filterServices('compliance', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">AMC & Audits</button>
+            <button onclick="filterServices('training', event)" class="filter-btn px-6 py-3 rounded-full text-sm font-semibold transition-all bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 hover:scale-105">Training & Drills</button>
+        </div>
 
-      <article class="service-card" data-category="training">
-        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 5h18v12H3zM8 21h8M12 17v4M8 10l3 3 5-5"/></svg></div>
-        <h2>Fire Safety Training &amp; Drills</h2>
-        <p>Practical awareness sessions to help staff understand emergency procedures and respond calmly and appropriately during a fire emergency.</p>
-        <ul><li>Fire extinguisher awareness</li><li>Evacuation and assembly guidance</li><li>On-site mock drill coordination</li></ul>
-      </article>
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+            
+            <!-- Service 1 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="refilling">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Extinguisher Supply & Refilling</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Complete supply of ABC Powder, CO2, Foam, and Clean Agent extinguishers. Includes hydro-testing, pressure checks, refilling with high-grade agent, and guarantee seals.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Hydrostatic pressure testing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Free pickup in Delhi NCR</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Standby cylinders during refill</li>
+                    </ul>
+                </div>
+                <a href="contact.html#quote-form" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Calculate Refill Cost</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="installation">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-faucet-drip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Fire Hydrant & Sprinkler Systems</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Turnkey installation of wet and dry fire hydrant systems, automated sprinkler networks, fire pumps, hose reels, and heavy-duty water storage integration.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Custom piping layout design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Automated jockey & main pump setup</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Heavy-duty landing valves & nozzles</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Request Installation Survey</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="installation">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Smoke Detectors & Alarm Setup</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Advanced addressable and conventional smoke detector networks, heat sensors, manual call points, and central monitoring control panels.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Early optical & photoelectric sensing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Integrated hooters & strobes</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Battery backup & alert panel wiring</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Inquire Smoke Alarm Setup</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="compliance">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Annual Maintenance Contracts (AMC)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Hassle-free quarterly & monthly routine inspections, preventive repairs, emergency breakdown assistance, and formal fire compliance readiness logs.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Scheduled quarterly maintenance visits</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Priority 24/7 emergency response</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Maintenance logs & certificate</li>
+                    </ul>
+                </div>
+                <a href="contact.html#quote-form" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Get AMC Quote</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="compliance">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Safety Audits & Risk Assessment</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        In-depth auditing according to National Building Code (NBC) & NFPA standards. Detailed vulnerability reporting and actionable hazard reduction blueprints.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Fire hazard & risk analysis</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Official NOC assistance</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Emergency exit route mapping</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Book Audit Team</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card group bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-brandRed/30 transition-all duration-300 flex flex-col justify-between" data-category="training">
+                <div>
+                    <div class="w-14 h-14 bg-red-50 text-brandRed rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Staff Training & Evacuation Drills</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Interactive practical training sessions for staff and security personnel. Live fire extinguisher operation workshops and structured mock evacuation drills.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-700 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Hands-on live fire handling</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Evacuation drill management</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed"></i> Employee safety certificates</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="inline-flex items-center gap-2 text-brandRed font-semibold text-sm hover:gap-3 transition-all">
+                    <span>Schedule Drill</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+        </div>
     </section>
+<section class="px-band" aria-label="Fire safety highlight"><div class="px-media"><img class="px-img" src="assets/px-cylinders.webp" alt="" width="900" height="1600" loading="lazy" decoding="async"></div><div class="px-shade"></div><div class="px-embers" aria-hidden="true"></div><div class="px-copy"><div><h2>Refilled and ready when it matters.</h2><p>Professional refilling and servicing for your fire safety equipment.</p></div></div></section>
 
-    <aside class="contact-strip">
-      <div><strong>Need a fire safety solution for your premises?</strong><p>Talk to DS Safety Systems about equipment, installation, maintenance, and support.</p></div>
-      <a class="contact-btn" href="https://wa.me/919818701683" target="_blank" rel="noopener">Request a Consultation&nbsp; →</a>
-    </aside>
-  </main>
-  <script>
-    const filterButtons = document.querySelectorAll(".filter");
-    const serviceCards = document.querySelectorAll(".service-card");
-    filterButtons.forEach(button => button.addEventListener("click", () => {
-      const selected = button.dataset.filter;
-      filterButtons.forEach(item => item.classList.toggle("active", item === button));
-      serviceCards.forEach(card => card.hidden = selected !== "all" && card.dataset.category !== selected);
-    }));
-  </script>
+
+    <!-- Filter JavaScript -->
+    <script>
+        // Start the service-page entrance animations as soon as this page loads.
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealItems = [
+                ...document.querySelectorAll('.service-suite-header'),
+                ...document.querySelectorAll('#services-grid .service-card')
+            ];
+            requestAnimationFrame(() => {
+                revealItems.forEach(item => item.classList.add('reveal-visible'));
+            });
+        });
+
+        function filterServices(category, event) {
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brandRed', 'text-white', 'shadow-md', 'shadow-brandRed/20');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            event.currentTarget.classList.add('bg-brandRed', 'text-white', 'shadow-md', 'shadow-brandRed/20');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+<!-- Lightweight site-wide Motion effects --><script type="module">import {animate,inView} from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm";if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){const s=["main section h1","main section h2","main section h3","main section article","main section .card","main section .service-card","main section .product-card","main section .sector-card","main section [class*='grid'] > *"].join(",");document.querySelectorAll(s).forEach(el=>{if(el.dataset.motionSiteReveal)return;el.dataset.motionSiteReveal="true";inView(el,()=>{const sib=el.parentElement?Array.from(el.parentElement.children).filter(n=>n.dataset.motionSiteReveal==="true"):[];animate(el,{opacity:[0,1],y:[14,0]},{duration:.52,delay:Math.min(Math.max(sib.indexOf(el),0)*.045,.22),easing:[.22,1,.36,1]});},{amount:.12});});}</script>
+<!-- ds-sticky-contact -->
+<style>
+#ds-sticky-contact{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;display:flex;flex-direction:column;gap:10px}
+#ds-sticky-contact a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .15s}
+#ds-sticky-contact a:hover{transform:scale(1.08)}
+#ds-sticky-contact svg{width:26px;height:26px;fill:#fff}
+</style>
+<div id="ds-sticky-contact">
+<a href="https://wa.me/918810565391?text=Hello%20DS%20Safety%20Systems%2C%20I%20would%20like%20to%20enquire%20about%20fire%20safety." target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="background:#25D366"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 .9-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.400 0 .6l-.4.600-.3.400c-.1.2-.3.400-.1.700.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.7-.1l1-1.200c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.400z"/></svg></a>
+<a href="tel:+918810565391" aria-label="Call DS Safety Systems" style="background:#d62828"><svg viewBox="0 0 24 24"><path d="M6.6 10.800a15.100 15.100 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.25c1.100.37 2.300.57 3.600.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.300.2 2.500.57 3.600a1 1 0 0 1-.25 1z"/></svg></a>
+</div>
+<script src="scroll-fx.js" defer></script>
+<script src="parallax-site.js?v=1" defer></script>
 </body>
 </html>
