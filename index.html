@@ -624,7 +624,9 @@
     .about-home-text{color:#aeb4bf;font-size:16.5px;line-height:1.8;max-width:600px;margin-top:25px;margin-bottom:25px;font-weight:500}
     .about-home-image{min-height:520px;border-radius:28px;overflow:hidden;background:#171717;position:relative;box-shadow:0 28px 80px rgba(0,0,0,.42)}
     .about-home-image img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}
-    @media (min-width:901px){.about-home-image img{position:absolute;top:0;left:0;width:100%;height:125%;min-height:0}}
+    .about-home-image img.about-slide{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:cover;opacity:0;transition:opacity 1.25s cubic-bezier(.22,1,.36,1);will-change:opacity}
+    .about-home-image img.about-slide.is-active{opacity:1}
+    @media (min-width:901px){.about-home-image img{position:absolute;top:0;left:0;width:100%;height:125%;min-height:0}.about-home-image img.about-slide{height:100%;min-height:0}}
 
     .about-home-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
     .about-home-facts>div{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:"Poppins",sans-serif;font-size:16px;font-weight:650;color:#e5e7eb}
@@ -1315,7 +1317,10 @@
         /* 04 — About reveal */
         const aboutImage=document.querySelector(".about-image-wrap"), aboutCopy=document.querySelector(".about-home-copy");
         if(aboutImage){ScrollTrigger.create({trigger:aboutImage,start:"top 92%",once:true,onEnter:()=>aboutImage.classList.add("revealed")});}
-        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}        const manufacturingSlider=document.querySelector(".manufacturing-slider");
+        if(aboutCopy){ScrollTrigger.create({trigger:aboutCopy,start:"top 92%",once:true,onEnter:()=>aboutCopy.classList.add("about-copy-revealed")});}
+        const aboutSlides=aboutImage?[...aboutImage.querySelectorAll(".about-slide")]:[];
+        if(aboutSlides.length>1){let aboutSlideIndex=0;setInterval(()=>{aboutSlides[aboutSlideIndex].classList.remove("is-active");aboutSlideIndex=(aboutSlideIndex+1)%aboutSlides.length;aboutSlides[aboutSlideIndex].classList.add("is-active");},4000);}
+        const manufacturingSlider=document.querySelector(".manufacturing-slider");
 if(manufacturingSlider){
   const track=manufacturingSlider.querySelector(".manufacturing-slider-track");
   const slides=[...manufacturingSlider.querySelectorAll(".manufacturing-slide")];
@@ -1696,7 +1701,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
                 )
               ),
               React.createElement("div",{className:"about-home-image about-image-wrap"},
-                React.createElement("img",{src:"about-us1.webp",alt:"DS Safety Systems fire safety solutions","data-speed":"auto"})
+                React.createElement("img",{className:"about-slide is-active",src:"1st.png",alt:"DS Safety Systems fire safety solutions","data-speed":"auto"}),
+                React.createElement("img",{className:"about-slide",src:"2nd.png",alt:"DS Safety Systems fire safety solutions — second view",loading:"lazy"})
               )
             )
           ),
