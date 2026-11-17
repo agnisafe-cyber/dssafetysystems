@@ -80,60 +80,6 @@
     .menu{display:none}
 
     /* ============================================================
-       05 — SERVICES STYLES
-       ============================================================ */
-        .services-home{
-      background:#090b0f!important;position:relative;overflow:hidden;padding-top:125px;padding-bottom:125px;color:#fff;isolation:isolate;
-    }
-    .services-home:before{
-      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-      background:
-        radial-gradient(ellipse at 8% 72%,rgba(220,38,38,.20),transparent 34%),
-        radial-gradient(ellipse at 92% 26%,rgba(249,75,35,.12),transparent 30%),
-        radial-gradient(ellipse at 50% 48%,rgba(255,255,255,.025),transparent 52%),
-        linear-gradient(135deg,#090b0f 0%,#0c0d12 52%,#090a0e 100%);
-    }
-    .services-home:after{
-      content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;
-      background:
-        radial-gradient(circle at 8% 82%,rgba(255,82,48,.55) 0 1px,transparent 2px),
-        radial-gradient(circle at 17% 55%,rgba(255,170,85,.42) 0 1px,transparent 2px),
-        radial-gradient(circle at 29% 91%,rgba(220,38,38,.48) 0 1px,transparent 2px),
-        radial-gradient(circle at 41% 68%,rgba(255,130,65,.38) 0 1px,transparent 2px),
-        radial-gradient(circle at 64% 42%,rgba(220,38,38,.35) 0 1px,transparent 2px),
-        radial-gradient(circle at 84% 51%,rgba(255,170,85,.38) 0 1px,transparent 2px),
-        linear-gradient(180deg,rgba(0,0,0,.04),transparent 35%,rgba(0,0,0,.30));
-    }
-    .services-home > *{position:relative;z-index:3}
-    .services-home .services-topline,.services-home .services-hero-copy,.services-home .services-list{z-index:4}
-    .services-home .services-list{background:linear-gradient(90deg,rgba(255,255,255,.012),transparent 25%,transparent 75%,rgba(220,38,38,.018));box-shadow:0 -1px 0 rgba(255,255,255,.035),0 1px 0 rgba(0,0,0,.4)}
-    .service-row{background:linear-gradient(90deg,rgba(255,255,255,.012),transparent 45%,rgba(220,38,38,.012))}
-    .service-row:hover{background:linear-gradient(90deg,rgba(220,38,38,.07),rgba(255,255,255,.025),rgba(249,115,22,.035))!important}
-    @keyframes servicesAtmosphereMove{0%{transform:translate3d(-5%,4%,0) scale(.91) rotate(-2deg)}45%{transform:translate3d(2%,-2%,0) scale(1.02) rotate(1deg)}100%{transform:translate3d(6%,-5%,0) scale(1.10) rotate(3deg)}}
-    @keyframes servicesEmberDrift{0%{transform:translate3d(0,1.5%,0) scale(1);opacity:.52}50%{opacity:.88}100%{transform:translate3d(-1.5%,-2.5%,0) scale(1.015);opacity:.76}}
-
-    .services-topline{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:18px}
-    .services-topline .section-label{color:#fff!important;opacity:1!important;transform:none!important;filter:none!important}
-    .services-topline>span{font-family:"Poppins",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;color:#dc2626}
-    .services-hero-copy{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:80px;align-items:end;padding:55px 0 70px;opacity:0;transform:translateX(-55px);filter:blur(6px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1)}
-.services-home.revealed .services-hero-copy{opacity:1;transform:translateY(0);filter:blur(0)}
-    .services-hero-copy h2{font-family:"Poppins",sans-serif;font-size:clamp(46px,5.2vw,76px);line-height:.98;letter-spacing:-3.2px;font-weight:800;margin:0;color:#f7f5f0;max-width:850px}
-    .services-hero-copy h2 span{color:#dc2626}
-    .services-hero-copy p{font-size:17px;line-height:1.75;color:#aeb1b7;max-width:470px;margin:0 0 4px}
-    .services-list{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.14)}
-    .service-row{display:grid;grid-template-columns:90px 1fr 70px;align-items:center;min-height:170px;border-bottom:1px solid rgba(255,255,255,.14);opacity:0;transform:translateX(-55px);filter:blur(5px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s cubic-bezier(.22,1,.36,1),background .35s ease}
-    .services-list.revealed .service-row{opacity:1;transform:translate(0,0);filter:blur(0)}
-    .services-list.revealed .service-row:nth-child(1){transition-delay:.04s}.services-list.revealed .service-row:nth-child(2){transition-delay:.13s}.services-list.revealed .service-row:nth-child(3){transition-delay:.22s}.services-list.revealed .service-row:nth-child(4){transition-delay:.31s}
-    .service-row:hover{background:rgba(255,255,255,.035)}
-    .service-row-num{font-family:"Poppins",sans-serif;font-size:13px;font-weight:700;color:#dc2626;align-self:start;padding-top:28px}
-    .service-row-main{padding:27px 25px 27px 0}
-    .service-kicker{font-family:"Poppins",sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;color:#73777f;margin-bottom:9px}
-    .service-row h3{font-family:"Poppins",sans-serif;font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-.8px;color:#f7f5f0;margin:0 0 9px}
-    .service-row p{font-size:15px;line-height:1.65;color:#979ba3;max-width:680px;margin:0}
-    .service-row-arrow{width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;transition:.3s ease}
-    .service-row:hover .service-row-arrow{background:#dc2626;border-color:#dc2626;transform:rotate(45deg)}
-
-    /* ============================================================
        06 — PRODUCTS STYLES
        ============================================================ */
     .products{position:relative;background:#f4f0e8;padding-top:130px;padding-bottom:130px;overflow:hidden}
@@ -1755,12 +1701,12 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
               src:"service.html",
               title:"DS Safety Systems — Complete Services",
               loading:"lazy",
-              style:{display:"block",width:"100%",height:"2800px",border:"0",overflow:"hidden",marginTop:"-75px"},
+              style:{display:"block",width:"100%",height:"2800px",border:"0",overflow:"hidden",background:"#090b0f"},
               onLoad:(e)=>{
                 const frame=e.currentTarget;
                 try{
                   const doc=frame.contentDocument;
-                  frame.style.height=Math.max(0,Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight)-1125)+"px";
+                  frame.style.height=Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight)+"px";
                 }catch(err){}
               }
             })
