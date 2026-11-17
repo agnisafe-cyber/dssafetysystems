@@ -216,6 +216,105 @@
         .light-cinematic-glow {
             background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
+    
+        /* DS Safety Systems — premium dark standalone services theme */
+        html, body { min-height:100%; background:#080b10 !important; color:#e8edf4 !important; }
+        body { color:#e8edf4 !important; }
+        body > section { background:transparent !important; }
+        .service-suite-header {
+            background:
+              radial-gradient(ellipse at 92% 4%, rgba(220,38,38,.19), transparent 42%),
+              radial-gradient(ellipse at 8% 100%, rgba(249,115,22,.08), transparent 42%),
+              linear-gradient(145deg,#151b24 0%,#0d1219 58%,#111820 100%) !important;
+            border:1px solid rgba(255,255,255,.10) !important;
+            box-shadow:0 24px 70px rgba(0,0,0,.38) !important;
+        }
+        .service-suite-header .bg-red-100\/60,
+        .service-suite-header .bg-slate-100 { background:rgba(220,38,38,.10) !important; }
+        .service-suite-tag {
+            background:rgba(220,38,38,.12) !important;
+            border-color:rgba(248,113,113,.28) !important;
+            color:#ff7777 !important;
+            box-shadow:none !important;
+        }
+        .service-suite-title {
+            color:#f8fafc !important;
+            white-space:normal !important;
+            text-wrap:balance;
+        }
+        .service-suite-description { color:#aeb9c8 !important; }
+        #filter-container .filter-btn {
+            background:#151d27 !important;
+            color:#d5deea !important;
+            border:1px solid rgba(255,255,255,.12) !important;
+            box-shadow:none !important;
+        }
+        #filter-container .filter-btn.active,
+        #filter-container .filter-btn[aria-pressed="true"] {
+            background:linear-gradient(110deg,#dc2626,#b91c1c) !important;
+            color:#fff !important;
+            border-color:rgba(248,113,113,.55) !important;
+            box-shadow:0 8px 24px rgba(220,38,38,.22) !important;
+        }
+        #filter-container .filter-btn:hover {
+            background:#202a36 !important;
+            color:#fff !important;
+        }
+        #filter-container .filter-btn.active:hover {
+            background:linear-gradient(110deg,#ef4444,#b91c1c) !important;
+        }
+        #services-grid .service-card {
+            background:
+              radial-gradient(ellipse at 100% 0%,rgba(220,38,38,.11),transparent 48%),
+              linear-gradient(145deg,#171f2a,#10161e) !important;
+            border:1px solid rgba(255,255,255,.11) !important;
+            box-shadow:0 14px 38px rgba(0,0,0,.24) !important;
+        }
+        #services-grid .service-card:hover {
+            background:
+              radial-gradient(ellipse at 100% 0%,rgba(220,38,38,.17),transparent 52%),
+              linear-gradient(145deg,#1b2531,#121a24) !important;
+            border-color:rgba(248,113,113,.38) !important;
+            box-shadow:0 24px 52px rgba(0,0,0,.38),0 0 28px rgba(220,38,38,.08) !important;
+        }
+        #services-grid .service-card h3 { color:#f4f7fb !important; }
+        #services-grid .service-card:hover h3 { color:#ff7777 !important; }
+        #services-grid .service-card p { color:#aeb9c8 !important; }
+        #services-grid .service-card ul { color:#cbd5e1 !important; }
+        #services-grid .service-card ul li i { color:#fb6262 !important; }
+        #services-grid .service-card > div:first-child > div:first-child {
+            background:rgba(220,38,38,.14) !important;
+            color:#ff7777 !important;
+            border:1px solid rgba(248,113,113,.18);
+        }
+        #services-grid .service-card:hover > div:first-child > div:first-child {
+            background:#dc2626 !important;
+            color:#fff !important;
+        }
+        #services-grid .service-card a {
+            color:#ff7777 !important;
+            background:linear-gradient(110deg,rgba(220,38,38,.13),rgba(249,115,22,.08)) !important;
+            border:1px solid rgba(248,113,113,.24) !important;
+        }
+        #services-grid .service-card a:hover {
+            color:#fff !important;
+            background:linear-gradient(110deg,#dc2626,#b91c1c) !important;
+            border-color:rgba(248,113,113,.55) !important;
+            box-shadow:0 8px 22px rgba(220,38,38,.2) !important;
+        }
+        #services-grid .service-card a i { color:#fb7777 !important; }
+        #services-grid .service-card a:hover i { color:#fff !important; }
+        .light-cinematic-glow {
+            background:
+              radial-gradient(circle at 50% -20%,rgba(220,38,38,.13) 0%,transparent 70%) !important;
+        }
+        @media (max-width:640px) {
+            .service-suite-header { padding:2rem 1.25rem !important; border-radius:1.4rem !important; }
+            .service-suite-header .service-suite-title { font-size:clamp(1.8rem,7vw,2.5rem) !important; }
+            #filter-container { gap:.55rem !important; }
+            #filter-container .filter-btn { padding:.65rem .9rem !important; font-size:.78rem !important; }
+        }
+
     </style>
   <link rel="canonical" href="https://dssafetysystems.com/services.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -233,7 +332,7 @@
 <link rel="stylesheet" href="transitions.css?v=1">
 <script src="transitions.js?v=1"></script>
 </head>
-<body class="bg-transparent text-slate-800 font-sans antialiased selection:bg-brandRed selection:text-white">
+<body class="bg-transparent text-slate-100 font-sans antialiased selection:bg-brandRed selection:text-white">
 
     <!-- Comprehensive Services Section -->
     <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
