@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a0d">
+  <title>Fire Safety Services | DS Safety Systems</title>
+  <meta name="description" content="Professional fire extinguisher supply and refilling, hydrant and sprinkler installation, alarm systems, AMC, audits, training and fire safety services by DS Safety Systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#ed2529;--ink:#171b2d;--muted:#59657b;--paper:#fff;--dark:#090a0d}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;color:#fff;background:radial-gradient(ellipse at 15% 28%,rgba(87,24,29,.20),transparent 35%),radial-gradient(ellipse at 88% 72%,rgba(39,23,26,.13),transparent 32%),#090a0d;font-family:"Plus Jakarta Sans",Arial,sans-serif}
+    .services-wrap{width:min(1045px,calc(100% - 48px));margin:0 auto;padding:76px 0 90px}
+    .intro{min-height:296px;padding:48px 54px 45px;border-radius:22px;background:radial-gradient(circle at 80% 42%,rgba(255,230,230,.7),transparent 42%),linear-gradient(115deg,#fff 0%,#fffafa 100%);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 55px rgba(0,0,0,.12)}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border:1px solid #ffcaca;border-radius:30px;color:#e92328;font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#f07878}
+    h1{margin:17px 0 12px;font-family:Outfit,sans-serif;font-size:clamp(29px,4vw,42px);line-height:1.13;letter-spacing:-1.4px;font-weight:800}
+    .title-rule{width:min(440px,70%);height:2px;background:linear-gradient(90deg,transparent,#ef3438 42%,#ff8b45 65%,transparent);margin:0 auto 20px}
+    .intro p{max-width:650px;margin:0;color:#68748a;font-size:16px;line-height:1.5}
+    .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:55px 0 41px}
+    .filter{border:0;border-radius:28px;background:#fff;color:#39445b;padding:13px 21px;font:700 11px "Plus Jakarta Sans",sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .2s,background .2s,color .2s}
+    .filter:hover{transform:translateY(-2px)}
+    .filter.active{background:#ed2529;color:#fff;box-shadow:0 5px 15px rgba(237,37,41,.22)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+    .service-card{min-height:350px;padding:28px 28px 26px;border-radius:14px;background:linear-gradient(145deg,#fff 0%,#fff 72%,#fffafa 100%);color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.16);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+    .service-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(0,0,0,.23)}
+    .service-card[hidden]{display:none}
+    .icon-box{width:48px;height:48px;border-radius:14px;background:#fff0f0;color:#ed2529;display:grid;place-items:center;margin-bottom:21px}
+    .icon-box svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    h2{font-family:Outfit,sans-serif;font-size:17px;line-height:1.3;letter-spacing:-.35px;margin:0 0 10px;font-weight:700}
+    .service-card p{font-size:11.5px;line-height:1.7;color:#59677f;margin:0 0 19px}
+    .service-card ul{list-style:none;padding:0;margin:auto 0 0;display:grid;gap:9px}
+    .service-card li{position:relative;padding-left:18px;color:#46536a;font-size:11.5px;line-height:1.45}
+    .service-card li:before{content:"✓";position:absolute;left:0;top:0;color:#ed2529;font-size:15px;font-weight:800}
+    .contact-strip{margin-top:48px;padding:24px 28px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.045);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .contact-strip strong{font-family:Outfit,sans-serif;font-size:18px}
+    .contact-strip p{margin:5px 0 0;color:#aeb4c0;font-size:12px;line-height:1.5}
+    .contact-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:28px;background:#ed2529;color:#fff;text-decoration:none;font-size:12px;font-weight:800;transition:background .2s,transform .2s}
+    .contact-btn:hover{background:#cf171c;transform:translateY(-2px)}
+    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.services-wrap{width:min(700px,calc(100% - 36px))}}
+    @media(max-width:560px){.services-wrap{width:calc(100% - 28px);padding:40px 0 55px}.intro{min-height:0;padding:36px 20px;border-radius:17px}.intro p{font-size:13px}.filters{margin:34px 0 25px;gap:7px}.filter{padding:11px 13px;font-size:10px}.grid{grid-template-columns:1fr;gap:16px}.service-card{min-height:0;padding:24px}.contact-strip{align-items:flex-start;flex-direction:column;padding:22px}.contact-btn{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="services-wrap">
+    <header class="intro">
+      <span class="eyebrow">Our Full Service Suite</span>
+      <h1>Comprehensive Fire Safety Services</h1>
+      <div class="title-rule"></div>
+      <p>Protecting your enterprise with high-grade equipment, expert installations, and round-the-clock maintenance. We design, install, inspect, and maintain the systems that keep your premises ready.</p>
+    </header>
 
+    <nav class="filters" aria-label="Filter services">
+      <button class="filter active" data-filter="all" type="button">All Services</button>
+      <button class="filter" data-filter="refill" type="button">Extinguishers &amp; Refill</button>
+      <button class="filter" data-filter="install" type="button">Installations</button>
+      <button class="filter" data-filter="amc" type="button">AMC &amp; Audits</button>
+      <button class="filter" data-filter="training" type="button">Training &amp; Drills</button>
+    </nav>
+
+    <section class="grid" aria-label="Fire safety services">
+      <article class="service-card" data-category="refill">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 7h7l2 2v2H7V9zM9 11v8a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-8M11 7V4h5l2 2M18 6l2-2M7 14H5"/></svg></div>
+        <h2>Extinguisher Supply &amp; Refilling</h2>
+        <p>Complete supply of ABC Powder, CO2, Foam, and Clean Agent extinguishers. Includes hydro-testing, pressure checks, refilling with high-grade agent, and guarantee seals.</p>
+        <ul><li>Hydrostatic pressure testing</li><li>Free pickup in Delhi NCR</li><li>Standby cylinders during refill</li></ul>
+      </article>
+
+      <article class="service-card" data-category="install">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 8h11a3 3 0 0 1 3 3v2M8 5h6M11 3v2M18 13v4M15 17h6M18 17v3M5 8v8h4"/></svg></div>
+        <h2>Fire Hydrant &amp; Sprinkler Systems</h2>
+        <p>Turnkey installation of wet and dry fire hydrant systems, automated sprinkler networks, fire pumps, hose reels, and heavy-duty water storage integration.</p>
+        <ul><li>Custom piping layout design</li><li>Automated jockey &amp; main pump setup</li><li>Heavy-duty landing valves &amp; nozzles</li></ul>
+      </article>
+
+      <article class="service-card" data-category="install">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5v3c0 2-1 3-2 4h14c-1-1-2-2-2-4V8a5 5 0 0 0-5-5zM10 18a2 2 0 0 0 4 0M12 1v2"/></svg></div>
+        <h2>Smoke Detectors &amp; Alarm Setup</h2>
+        <p>Advanced addressable and conventional smoke detector networks, heat sensors, manual call points, and central monitoring control panels.</p>
+        <ul><li>Early optical &amp; photoelectric sensing</li><li>Integrated hooters &amp; strobes</li><li>Battery backup &amp; alert panel wiring</li></ul>
+      </article>
+
+      <article class="service-card" data-category="amc">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M12 7v5l3 2M17 3h4v4"/></svg></div>
+        <h2>Annual Maintenance Contracts</h2>
+        <p>Planned maintenance to help keep your fire protection equipment and safety systems inspected, serviceable, and ready when needed.</p>
+        <ul><li>Scheduled inspection visits</li><li>Equipment condition reporting</li><li>Preventive maintenance support</li></ul>
+      </article>
+
+      <article class="service-card" data-category="amc">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 3h8l3 3v15H5V3zM8 10h8M8 14h8M8 18h5M16 3v4h4"/></svg></div>
+        <h2>Fire Safety Audits &amp; Inspections</h2>
+        <p>Systematic reviews of fire safety arrangements to help identify gaps, review equipment condition, and improve on-site preparedness.</p>
+        <ul><li>On-site safety inspections</li><li>Observations &amp; action reports</li><li>Equipment and system checks</li></ul>
+      </article>
+
+      <article class="service-card" data-category="training">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 5h18v12H3zM8 21h8M12 17v4M8 10l3 3 5-5"/></svg></div>
+        <h2>Fire Safety Training &amp; Drills</h2>
+        <p>Practical awareness sessions to help staff understand emergency procedures and respond calmly and appropriately during a fire emergency.</p>
+        <ul><li>Fire extinguisher awareness</li><li>Evacuation and assembly guidance</li><li>On-site mock drill coordination</li></ul>
+      </article>
+    </section>
+
+    <aside class="contact-strip">
+      <div><strong>Need a fire safety solution for your premises?</strong><p>Talk to DS Safety Systems about equipment, installation, maintenance, and support.</p></div>
+      <a class="contact-btn" href="https://wa.me/919818701683" target="_blank" rel="noopener">Request a Consultation&nbsp; →</a>
+    </aside>
+  </main>
+  <script>
+    const filterButtons = document.querySelectorAll(".filter");
+    const serviceCards = document.querySelectorAll(".service-card");
+    filterButtons.forEach(button => button.addEventListener("click", () => {
+      const selected = button.dataset.filter;
+      filterButtons.forEach(item => item.classList.toggle("active", item === button));
+      serviceCards.forEach(card => card.hidden = selected !== "all" && card.dataset.category !== selected);
+    }));
+  </script>
+</body>
+</html>
