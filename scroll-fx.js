@@ -53,18 +53,40 @@
       var selector="h1,h2,h3,h4,p,img,video,figure,article,form,blockquote,.btn,[class*='card'],[class*='stat'],[class*='step'],[class*='feature'],.modal-grid > *, .modal-spec-table, .capacity-options";
       var all=[].slice.call(document.querySelectorAll(selector));
       var candidates=new Set(all);
+      /* Queue reveals in document order so a later section never wakes before an earlier one. */
+      var revealQueue=[],revealing=false;
+      function runNextReveal(){
+        if(revealing||!revealQueue.length)return;
+        revealing=true;
+        var el=revealQueue.shift();
+        var anim=el.animate(
+          [{opacity:0,translate:"0 28px"},{opacity:1,translate:"0 0"}],
+          {duration:740,easing:"cubic-bezier(.22,1,.36,1)",fill:"both"}
+        );
+        anim.onfinish=function(){
+          anim.cancel();
+          revealing=false;
+          runNextReveal();
+        };
+      }
       var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(!entry.isIntersecting)return;
-          var el=entry.target;io.unobserve(el);
-        /* The About crossfade slider controls its own opacity; keep generic scroll reveals off its images. */
-        if(el.matches(".about-home-image img.about-slide"))return;
-          var anim=el.animate(
-            [{opacity:0,translate:"0 28px"},{opacity:1,translate:"0 0"}],
-            {duration:740,easing:"cubic-bezier(.22,1,.36,1)",fill:"both"}
-          );
-          anim.onfinish=function(){anim.cancel()};
+        var ready=entries.filter(function(entry){return entry.isIntersecting;});
+        ready.sort(function(a,b){
+          if(a.target===b.target)return 0;
+          return a.target.compareDocumentPosition(b.target)&Node.DOCUMENT_POSITION_FOLLOWING?-1:1;
         });
+        ready.forEach(function(entry){
+          var el=entry.target;
+          io.unobserve(el);
+          /* The About crossfade slider controls its own opacity; keep generic scroll reveals off its images. */
+          if(el.matches(".about-home-image img.about-slide"))return;
+          if(revealQueue.indexOf(el)===-1)revealQueue.push(el);
+        });
+        revealQueue.sort(function(a,b){
+          if(a===b)return 0;
+          return a.compareDocumentPosition(b)&Node.DOCUMENT_POSITION_FOLLOWING?-1:1;
+        });
+        runNextReveal();
       },{rootMargin:"0px 0px -7% 0px",threshold:0.08});
 
       all.forEach(function(el){
