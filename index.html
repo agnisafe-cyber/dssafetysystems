@@ -1380,7 +1380,24 @@ if(manufacturingSlider){
 
 const protectionFlow=document.querySelector(".protection-flow");
         if(protectionFlow){
-          ScrollTrigger.create({trigger:protectionFlow,start:"top 78%",once:true,onEnter:()=>protectionFlow.classList.add("revealed")});
+          /* Observe the live section position after homepage sections have been arranged.
+             This avoids ScrollTrigger firing against its pre-reorder position. */
+          let protectionRevealed=false;
+          const revealProtection=()=>{
+            if(protectionRevealed)return;
+            protectionRevealed=true;
+            protectionFlow.classList.add("revealed");
+            protectionObserver&&protectionObserver.disconnect();
+          };
+          let protectionObserver=null;
+          if("IntersectionObserver" in window){
+            protectionObserver=new IntersectionObserver(entries=>{
+              if(entries.some(entry=>entry.isIntersecting))revealProtection();
+            },{rootMargin:"0px 0px -18% 0px",threshold:0.01});
+            protectionObserver.observe(protectionFlow);
+          }else{
+            ScrollTrigger.create({trigger:protectionFlow,start:"top 82%",once:true,onEnter:revealProtection});
+          }
         }
         const productsSection=document.querySelector(".products"),productsIntro=document.querySelector(".products-intro");
         if(productsSection){
