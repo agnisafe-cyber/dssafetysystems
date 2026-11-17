@@ -234,18 +234,9 @@
 <script src="transitions.js?v=1"></script>
 
 <style id="ds-services-cinematic-background">
-  body{
-    position:relative;
-    isolation:isolate;
-    background:#090b0f!important;
-    color:#f7f5f0!important;
-  }
+  body{position:relative;isolation:isolate;background:#090b0f!important;color:#f7f5f0!important}
   body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     background:
       radial-gradient(ellipse at 8% 30%,rgba(220,38,38,.19),transparent 38%),
       radial-gradient(ellipse at 92% 72%,rgba(249,75,35,.12),transparent 34%),
@@ -253,20 +244,7 @@
       linear-gradient(135deg,#090b0f 0%,#0c0d12 52%,#090a0e 100%);
   }
   body > section{background:transparent!important}
-  .service-suite-header{
-    background:linear-gradient(135deg,rgba(19,21,27,.96),rgba(10,12,17,.96))!important;
-    border-color:rgba(255,255,255,.10)!important;
-    box-shadow:0 22px 65px rgba(0,0,0,.28)!important;
-  }
-  .service-suite-title{color:#f7f5f0!important}
-  .service-suite-description{color:#b5bac3!important}
-  .service-suite-tag{
-    background:rgba(220,38,38,.10)!important;
-    border-color:rgba(220,38,38,.32)!important;
-    color:#ff6b68!important;
-  }
-  .service-suite-header .bg-red-100\/60{background:rgba(220,38,38,.08)!important}
-  .service-suite-header .bg-slate-100{background:rgba(255,255,255,.035)!important}
+  /* Preserve the original white Comprehensive Fire Safety Services panel and its original text colours. */
   @media(prefers-reduced-motion:reduce){body::before{background-attachment:initial}}
 </style>
 </head>
