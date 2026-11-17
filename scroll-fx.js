@@ -57,6 +57,8 @@
         entries.forEach(function(entry){
           if(!entry.isIntersecting)return;
           var el=entry.target;io.unobserve(el);
+        /* The About crossfade slider controls its own opacity; keep generic scroll reveals off its images. */
+        if(el.matches(".about-home-image img.about-slide"))return;
           var anim=el.animate(
             [{opacity:0,translate:"0 28px"},{opacity:1,translate:"0 0"}],
             {duration:740,easing:"cubic-bezier(.22,1,.36,1)",fill:"both"}
