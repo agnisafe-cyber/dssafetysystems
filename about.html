@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d11">
+  <title>About Us | DS Safety Systems</title>
+  <meta name="description" content="Learn about DS Safety Systems in New Delhi, delivering fire protection equipment, installation and annual maintenance services.">
+  <link rel="canonical" href="https://dssafetysystems.com/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{min-height:100%;scroll-behavior:smooth}
+    body{min-height:100vh;font-family:"Google Sans Flex",sans-serif;background:#0b0d11;color:#f7f7f8;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    .nav{position:fixed;z-index:50;top:22px;left:50%;transform:translateX(-50%);width:min(1280px,calc(100% - 40px));height:82px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,14,19,.88);border:1px solid rgba(255,255,255,.075);border-radius:20px;box-shadow:0 14px 42px rgba(0,0,0,.3),0 0 26px rgba(193,18,31,.045);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font-family:"Poppins",sans-serif}
+    .brand{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:700;letter-spacing:-.6px;min-width:max-content}
+    .brand-logo{width:50px;height:50px;object-fit:contain}
+    .brand-text{font-family:"Poppins",sans-serif;font-size:26px;font-weight:750;letter-spacing:-1.15px;line-height:1;white-space:nowrap;background:linear-gradient(90deg,#e12a36 0%,#f1f2f5 68%,#f1f2f5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;align-items:center;gap:6px;margin-left:auto}
+    .nav-links a{font-family:"Poppins",sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:9px;position:relative;transition:.25s;color:#e5e7ed}
+    .nav-links a:not(.nav-cta):hover{background:rgba(255,255,255,.055);color:#ff5965}
+    .nav-cta{background:#b91020;color:#fff!important;border-radius:999px;padding:13px 21px;margin-left:7px}
+    .menu{display:none}
+    .section{padding:130px 5vw}
+    .about-home{position:relative;isolation:isolate;overflow:hidden;min-height:100vh;display:flex;align-items:center;background:radial-gradient(ellipse at 76% 24%,rgba(220,38,38,.22),transparent 38%),radial-gradient(ellipse at 18% 78%,rgba(249,115,22,.10),transparent 34%),radial-gradient(ellipse at 52% 48%,rgba(255,255,255,.035),transparent 52%),linear-gradient(118deg,#090b0f 0%,#111318 48%,#0b0d11 100%);padding-top:145px;padding-bottom:120px}
+    .about-home-grid{width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+    .about-home-copy{max-width:680px}
+    .section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a0a5af;font-weight:700;margin-bottom:28px}
+    .about-home-title,.about-home-text,.about-home-facts{opacity:0;transform:translate(24px,24px);filter:blur(5px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1.15s cubic-bezier(.22,1,.36,1),filter 1.15s cubic-bezier(.22,1,.36,1)}
+    .about-copy-revealed .section-label{opacity:1;transform:none;filter:blur(0)}
+    .about-copy-revealed .about-home-title{opacity:1;transform:none;filter:blur(0);transition-delay:.12s}
+    .about-copy-revealed .about-home-text{opacity:1;transform:none;filter:blur(0);transition-delay:.24s}
+    .about-copy-revealed .about-home-facts{opacity:1;transform:none;filter:blur(0);transition-delay:.36s}
+    .about-home-title{font-family:"Poppins",sans-serif;font-size:48px;line-height:1.15;letter-spacing:-1.5px;font-weight:850;color:#f7f7f8;margin:0 0 15px}
+    .about-home-title span{color:#dc2626}
+    .about-home-text{color:#aeb4bf;font-size:16.5px;line-height:1.8;max-width:600px;margin:25px 0;font-weight:500}
+    .about-home-image{min-height:520px;border-radius:28px;overflow:hidden;background:#171717;position:relative;box-shadow:0 28px 80px rgba(0,0,0,.42);cursor:default}
+    .about-home-image img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}
+    .about-home-image img.about-slide{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:cover;opacity:0;transition:opacity 1.25s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.2,.8,.2,1);will-change:opacity;transform:scale(1);cursor:zoom-in}
+    .about-home-image img.about-slide.is-active{opacity:1}
+    .about-home-image img.about-slide.is-zoomed{transform:scale(1.065);cursor:zoom-out}
+    .about-image-wrap{position:relative;overflow:hidden}
+    .about-image-wrap:before{content:"";position:absolute;z-index:4;top:-80%;left:-80%;width:260%;height:260%;background:#0b0d11;transform:translate(0,0) rotate(45deg);transform-origin:center;transition:transform 2.4s cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:transform}
+    .about-image-wrap.revealed:before{transform:translate(112%,112%) rotate(45deg)}
+    .about-mini-arrow{position:absolute;z-index:6;top:50%;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(12,14,18,.62);color:#fff;font-size:24px;line-height:1;cursor:pointer;opacity:.72;transform:translateY(-50%);transition:opacity .2s ease,background .2s ease}
+    .about-mini-arrow:hover{opacity:1;background:#c51f2b}
+    .about-mini-prev{left:14px}.about-mini-next{right:14px}
+    .about-mini-count{position:absolute;z-index:6;right:14px;bottom:14px;padding:6px 10px;border-radius:20px;background:rgba(12,14,18,.62);color:#fff;font:600 11px/1 sans-serif;letter-spacing:1px;pointer-events:none}
+    .about-home-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
+    .about-home-facts>div{display:flex;align-items:center;gap:10px;padding:6px 0;font-family:"Poppins",sans-serif;font-size:16px;font-weight:650;color:#e5e7eb}
+    .about-home-facts>div:before{content:"✓";display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#dc2626;color:#fff;font-size:13px;font-weight:700;line-height:1}
+    .footer{padding:28px 5vw;display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#777;background:#0b0d11}
+    @media(min-width:901px){.about-home-image img{position:absolute;top:0;left:0;width:100%;height:125%;min-height:0}.about-home-image img.about-slide{height:100%;min-height:0}}
+    @media(max-width:900px){.nav{width:calc(100% - 18px);height:76px;padding:0 12px 0 15px}.brand-logo{width:44px;height:44px}.brand-text{font-size:20px}.nav-links{gap:0}.nav-links a{font-size:11px;padding:10px 8px}.nav-cta{padding:11px 12px;margin-left:3px}.about-home-grid{grid-template-columns:1fr;gap:45px}.about-home{padding-top:135px;padding-bottom:85px}.about-home-image{min-height:0;height:auto;aspect-ratio:4/3}.about-home-image img{min-height:0;height:100%;aspect-ratio:4/3;object-fit:cover}.about-home-title{font-size:clamp(36px,7vw,48px)}}
+    @media(max-width:620px){.nav{top:10px;height:68px}.brand{gap:8px}.brand-logo{width:40px;height:40px}.brand-text{font-size:18px}.nav-links a{font-size:10px;padding:8px 5px}.nav-links a:not(.nav-cta){display:none}.nav-cta{font-size:10px!important;padding:10px 12px!important}.about-home{padding:115px 22px 70px}.about-home-title{font-size:36px;letter-spacing:-1px}.about-home-text{font-size:15px}.about-home-facts{gap:12px;margin-top:32px}.about-home-facts>div{font-size:12px;gap:7px}.about-home-facts>div:before{flex-basis:19px;width:19px;height:19px;font-size:11px}.about-home-image{border-radius:20px}.about-mini-arrow{width:34px;height:34px}.footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="DS Safety Systems home">
+      <img class="brand-logo" src="DSF_logo_small.png" alt="DS Safety Systems logo">
+      <span class="brand-text">DS Safety Systems</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="product.html">Products</a>
+      <a class="nav-cta" href="contact.html#quote-form">Get a Quote</a>
+    </nav>
+  </header>
+  <main>
+    <section class="section about-home" id="about">
+      <div class="about-home-grid">
+        <div class="about-home-copy">
+          <div class="section-label">Trust &amp; Company Highlights</div>
+          <h1 class="about-home-title">Dedicated to Protecting Lives &amp; Property in <span>New Delhi</span></h1>
+          <p class="about-home-text">Based in Govind Puri, New Delhi, DS Safety Systems delivers industry-leading fire protection solutions backed by over 15 years of professional experience. From supplying certified fire extinguishers and hydrant setups to managing comprehensive Annual Maintenance Contracts (AMC), our certified experts ensure your premises remain fully compliant and secure.</p>
+          <div class="about-home-facts">
+            <div><span>15+ Years Experience</span></div>
+            <div><span>BIS Certified Equipment</span></div>
+            <div><span>24/7 AMC Support</span></div>
+            <div><span>Expert Installation</span></div>
+          </div>
+        </div>
+        <div class="about-home-image about-image-wrap">
+          <img class="about-slide is-active" src="1st.png" alt="DS Safety Systems fire safety solutions">
+          <img class="about-slide" src="2nd.png" alt="DS Safety Systems fire safety solutions — second view" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <span>© <span id="year"></span> DS Safety Systems. All rights reserved.</span>
+    <a href="index.html">Back to Home →</a>
+  </footer>
+  <script>
+    document.getElementById("year").textContent=new Date().getFullYear();
+    const imageWrap=document.querySelector(".about-image-wrap");
+    const copy=document.querySelector(".about-home-copy");
+    const slides=[...document.querySelectorAll(".about-slide")];
+    let activeIndex=0;
+    const reveal=()=>{imageWrap.classList.add("revealed");copy.classList.add("about-copy-revealed")};
+    requestAnimationFrame(()=>requestAnimationFrame(reveal));
+    const selectSlide=(next)=>{
+      activeIndex=(next+slides.length)%slides.length;
+      slides.forEach((img,i)=>img.classList.toggle("is-active",i===activeIndex));
+      const count=imageWrap.querySelector(".about-mini-count");
+      if(count) count.textContent=(activeIndex+1)+" / "+slides.length;
+    };
+    if(slides.length>1){
+      const prev=document.createElement("button");
+      prev.type="button";prev.className="about-mini-arrow about-mini-prev";prev.setAttribute("aria-label","Previous About image");prev.innerHTML="&#8249;";
+      const next=document.createElement("button");
+      next.type="button";next.className="about-mini-arrow about-mini-next";next.setAttribute("aria-label","Next About image");next.innerHTML="&#8250;";
+      const count=document.createElement("span");count.className="about-mini-count";count.textContent="1 / "+slides.length;
+      imageWrap.append(prev,next,count);
+      prev.addEventListener("click",()=>selectSlide(activeIndex-1));
+      next.addEventListener("click",()=>selectSlide(activeIndex+1));
+      slides.forEach(img=>img.addEventListener("click",()=>img.classList.toggle("is-zoomed")));
+      setInterval(()=>selectSlide(activeIndex+1),4000);
+    }
+  </script>
+</body>
+</html>
