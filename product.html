@@ -179,40 +179,8 @@
 }
 </style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <style id="ds-shared-navbar">
-      .nav{position:fixed;z-index:100;top:22px;left:50%;transform:translateX(-50%);width:min(1280px,calc(100% - 40px));height:82px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,14,19,.88);border:1px solid rgba(255,255,255,.075);border-radius:20px;box-shadow:0 14px 42px rgba(0,0,0,.3),0 0 26px rgba(193,18,31,.045);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font-family:"Poppins",sans-serif}
-      .nav .brand{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:700;letter-spacing:-.6px;min-width:max-content;text-decoration:none}
-      .nav .brand-logo{width:50px;height:50px;object-fit:contain}
-      .nav .brand-text{font-family:"Poppins",sans-serif;font-size:26px;font-weight:750;letter-spacing:-1.15px;line-height:1;white-space:nowrap;background:linear-gradient(90deg,#e12a36 0%,#f1f2f5 68%,#f1f2f5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-      .nav .nav-links{display:flex;align-items:center;gap:6px;margin-left:auto}
-      .nav .nav-links a{font-family:"Poppins",sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:9px;position:relative;transition:.25s;color:#e5e7ed;text-decoration:none}
-      .nav .nav-links a:not(.nav-cta):hover{background:rgba(255,255,255,.055);color:#ff5965}
-      .nav .nav-links a:not(.nav-cta):after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:1.5px;background:#d93830;transform:scaleX(0);transition:.25s}
-      .nav .nav-links a:not(.nav-cta):hover:after{transform:scaleX(1)}
-      .nav .nav-links .nav-cta{background:#b91020;color:#fff;border:1px solid rgba(255,92,104,.22);border-radius:999px;padding:13px 21px;margin-left:7px;box-shadow:0 4px 16px rgba(185,16,32,.18)}
-      .nav .nav-links .nav-cta:hover{background:#d21c2b;transform:translateY(-1px);box-shadow:0 5px 20px rgba(210,28,43,.3)}
-      .nav .menu{display:none}
-      @media(max-width:900px){.nav{width:calc(100vw - 18px);height:76px;padding:0 10px 0 15px;border-radius:18px}.nav .brand-logo{width:44px;height:44px}.nav .brand-text{font-size:20px}.nav .menu{display:block;border:1px solid rgba(255,255,255,.12);background:#b91020;color:#fff;width:46px;height:46px;border-radius:12px;font-size:0;position:relative}.nav .menu:before,.nav .menu:after{content:"";position:absolute;left:12px;width:18px;height:1.5px;background:#fff;transition:.25s}.nav .menu:before{top:16px}.nav .menu:after{top:24px}.nav .menu.open:before{top:20px;transform:rotate(45deg)}.nav .menu.open:after{top:20px;transform:rotate(-45deg)}.nav .nav-links{display:none}.nav .nav-links.mobile-open{display:flex;position:absolute;top:78px;left:0;right:0;padding:10px;flex-direction:column;align-items:stretch;gap:4px;background:rgba(12,14,19,.98);border:1px solid rgba(255,255,255,.1);border-radius:18px;backdrop-filter:blur(25px)}.nav .nav-links.mobile-open a{padding:14px 15px;display:block;color:#e5e7ed}}
-    </style>
-</head>
-<body class="text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen transition-colors duration-300">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-label="DS Safety Systems home">
-        <img class="brand-logo" src="DSF_logo_small.png" alt="DS Safety Systems">
-        <span class="brand-text">DS Safety Systems</span>
-      </a>
-      <div class="nav-links" id="ds-product-nav-links">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
-        <a class="nav-cta" href="index.html#contact">Get a quote</a>
-      </div>
-      <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ds-product-nav-links">Menu</button>
-    </nav>
-
-
-    <!-- Top Floating Mini-Cart Indicator -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet"></head>
+<body class="text-slate-800 dark:text-slate-100 font-sans antialiased min-h-screen transition-colors duration-300"><!-- Top Floating Mini-Cart Indicator -->
     <div class="fixed top-5 right-5 z-40">
         <button id="cart-btn" class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 p-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 flex items-center justify-center">
             <i data-lucide="shopping-bag" class="w-5 h-5"></i>
@@ -998,14 +966,7 @@
 #product-grid .product-card .text-slate-600,
 #product-grid .product-card .dark\\:text-slate-300{color:#4b5563!important}
 #product-grid .product-card .border-t{border-color:#e5e7eb!important}
-</style>
-
-
-<script id="ds-product-navbar-menu">
-(()=>{const nav=document.querySelector('.nav');if(!nav)return;const btn=nav.querySelector('.menu');const links=nav.querySelector('.nav-links');btn.addEventListener('click',()=>{const open=links.classList.toggle('mobile-open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'Close menu':'Open menu')});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false')}));})();
-</script>
-
-<style id="ds-quickview-white-card">
+</style><style id="ds-quickview-white-card">
 /* Match the white product cards when a product is opened */
 #quickview-modal>div{background:#fff!important;border:1px solid #e5e7eb!important;color:#171717!important}
 #quickview-modal .dark\\:bg-slate-900,
@@ -1033,3 +994,36 @@
 
 </body>
 </html>
+
+<style id="ds-product-controls-and-quickview-white">
+/* Products page category/filter bar: white, not blue */
+#category-tabs .cat-btn,
+#category-tabs .cat-btn:hover,
+#category-tabs .cat-btn:focus,
+#category-tabs .cat-btn:active {
+  background:#fff!important;
+  color:#252a32!important;
+  border:1px solid #e2e5ea!important;
+  box-shadow:none!important;
+}
+#category-tabs .cat-btn[data-category="all"] {
+  background:#fff!important;
+  color:#b91020!important;
+  border:1px solid #b91020!important;
+  box-shadow:0 2px 8px rgba(185,16,32,.08)!important;
+}
+/* Opened product card: force all dark-mode blue/slate panels to white */
+#quickview-modal>div {background:#fff!important;border:1px solid #e5e7eb!important;color:#20242b!important}
+#quickview-modal [class*="dark:bg-slate-"] {background:#fff!important}
+#quickview-modal [class*="dark:text-white"],
+#quickview-modal [class*="dark:text-slate-100"],
+#quickview-modal [class*="dark:text-slate-200"],
+#quickview-modal [class*="dark:text-slate-300"] {color:#30343b!important}
+#quickview-modal [class*="dark:text-slate-400"] {color:#667085!important}
+#quickview-modal [class*="dark:border-slate-"] {border-color:#e5e7eb!important}
+#quickview-modal #close-modal {background:#fff!important;color:#374151!important;border-color:#e5e7eb!important}
+#quickview-modal #qv-title,
+#quickview-modal #qv-capacities p:last-child {color:#171717!important}
+#quickview-modal #qv-description,
+#quickview-modal #qv-features {color:#4b5563!important}
+</style>
