@@ -909,6 +909,47 @@
 </div>
 <script src="scroll-fx.js" defer></script>
 
+
+<style id="ds-product-remove-blue-surfaces">
+/* Replace blue/slate UI surfaces with clean white while preserving the dark page background */
+#category-tabs,
+#category-tabs > *,
+.product-card,
+.product-card .bg-slate-50,
+.product-card .dark\\:bg-slate-800\\/40,
+#quickview-modal > div,
+#quickview-modal .bg-slate-50,
+#quickview-modal .dark\\:bg-slate-800\\/50,
+#cart-drawer,
+#cart-drawer .bg-slate-50,
+#cart-drawer .dark\\:bg-slate-900\\/50,
+#empty-state,
+#search-input,
+#sort-select {
+  background-color:#fff !important;
+}
+#category-tabs .cat-btn:not([class*="bg-brand-600"]),
+#search-input,
+#sort-select,
+.product-card,
+#quickview-modal > div,
+#cart-drawer,
+#empty-state {
+  color:#252a32 !important;
+}
+#quickview-modal .text-slate-400,
+#quickview-modal .text-slate-500,
+#quickview-modal .text-slate-600,
+#quickview-modal .dark\\:text-slate-300,
+#quickview-modal .dark\\:text-slate-400,
+#cart-drawer .text-slate-400,
+#cart-drawer .text-slate-500,
+#cart-drawer .text-slate-600 {
+  color:#4b5563 !important;
+}
+#search-input::placeholder { color:#9ca3af !important; }
+</style>
+
 <style id="ds-product-category-tabs-white-red-active">
 /* Product category navigation: white tabs, DS red for the selected category */
 #category-tabs .cat-btn {
