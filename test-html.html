@@ -284,11 +284,6 @@
             closeQuoteModal();
             event.target.reset();
         }
-
-        // Open the same Instant Request modal when arriving from a Services enquiry button.
-        if (new URLSearchParams(window.location.search).get('openQuote') === '1') {
-            openQuoteModal();
-        }
     </script>
 </body>
 </html>
