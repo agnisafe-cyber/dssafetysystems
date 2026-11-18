@@ -1004,5 +1004,32 @@
 <script id="ds-product-navbar-menu">
 (()=>{const nav=document.querySelector('.nav');if(!nav)return;const btn=nav.querySelector('.menu');const links=nav.querySelector('.nav-links');btn.addEventListener('click',()=>{const open=links.classList.toggle('mobile-open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'Close menu':'Open menu')});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('mobile-open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false')}));})();
 </script>
+
+<style id="ds-quickview-white-card">
+/* Match the white product cards when a product is opened */
+#quickview-modal>div{background:#fff!important;border:1px solid #e5e7eb!important;color:#171717!important}
+#quickview-modal .dark\\:bg-slate-900,
+#quickview-modal .dark\\:bg-slate-800,
+#quickview-modal .dark\\:bg-slate-800\\/50,
+#quickview-modal .dark\\:bg-slate-700,
+#quickview-modal .dark\\:bg-slate-950\\/40{background-color:#fff!important}
+#quickview-modal .dark\\:text-white,
+#quickview-modal .dark\\:text-slate-100,
+#quickview-modal .dark\\:text-slate-200,
+#quickview-modal .dark\\:text-slate-300{color:#30343b!important}
+#quickview-modal .dark\\:text-slate-400{color:#667085!important}
+#quickview-modal .dark\\:text-brand-400{color:#b91020!important}
+#quickview-modal .dark\\:border-slate-800,
+#quickview-modal .dark\\:border-slate-700{border-color:#e5e7eb!important}
+#quickview-modal #close-modal{background:rgba(255,255,255,.94)!important;color:#374151!important;border-color:#e5e7eb!important}
+#quickview-modal .dark\\:bg-slate-800\\/90{background:rgba(255,255,255,.94)!important}
+#quickview-modal .dark\\:text-white{color:#30343b!important}
+#quickview-modal #qv-title,
+#quickview-modal #qv-capacities p:last-child{color:#171717!important}
+#quickview-modal #qv-description,
+#quickview-modal #qv-features{color:#4b5563!important}
+#quickview-modal .border-t{border-color:#e5e7eb!important}
+</style>
+
 </body>
 </html>
