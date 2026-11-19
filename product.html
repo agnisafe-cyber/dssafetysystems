@@ -253,6 +253,9 @@
                     <button type="button" id="qv-thumb-btn-2" onclick="selectQuickViewImage(1)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden">
                         <img id="qv-thumb-2" src="" alt="Product view 2" class="w-full h-full object-contain rounded-lg">
                     </button>
+                    <button type="button" id="qv-thumb-btn-3" onclick="selectQuickViewImage(2)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
+                        <img id="qv-thumb-3" src="" alt="Product view 3" class="w-full h-full object-contain rounded-lg">
+                    </button>
                 </div>
             </div>
 
@@ -646,14 +649,16 @@
             qvImage.src = images[currentQuickViewImageIndex];
             const firstThumb = document.getElementById('qv-thumb-btn-1');
             const secondThumb = document.getElementById('qv-thumb-btn-2');
+            const thirdThumb = document.getElementById('qv-thumb-btn-3');
             document.getElementById('qv-thumb-1').src = images[0];
             document.getElementById('qv-thumb-2').src = images[1] || images[0];
-            firstThumb.className = currentQuickViewImageIndex === 0
-                ? 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition'
-                : 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
-            secondThumb.className = currentQuickViewImageIndex === 1
-                ? 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition'
-                : 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
+            document.getElementById('qv-thumb-3').src = images[2] || images[0];
+            thirdThumb.style.display = images.length > 2 ? 'block' : 'none';
+            const activeClass = 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition';
+            const inactiveClass = 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
+            firstThumb.className = currentQuickViewImageIndex === 0 ? activeClass : inactiveClass;
+            secondThumb.className = currentQuickViewImageIndex === 1 ? activeClass : inactiveClass;
+            thirdThumb.className = currentQuickViewImageIndex === 2 ? activeClass : inactiveClass;
         }
 
         function selectQuickViewImage(index) {
@@ -678,9 +683,12 @@
             updateQuickViewImage(0);
 
             const thumbTwo = document.getElementById('qv-thumb-btn-2');
+            const thumbThree = document.getElementById('qv-thumb-btn-3');
             thumbTwo.style.display = galleryImages.length > 1 ? 'block' : 'none';
+            thumbThree.style.display = galleryImages.length > 2 ? 'block' : 'none';
             document.getElementById('qv-thumb-1').src = galleryImages[0];
             document.getElementById('qv-thumb-2').src = galleryImages[1] || galleryImages[0];
+            document.getElementById('qv-thumb-3').src = galleryImages[2] || galleryImages[0];
 
             qvTitle.textContent = product.name;
             qvCategory.textContent = product.category;
