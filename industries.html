@@ -689,3 +689,14 @@
 <script src="parallax-site.js?v=1" defer></script>
 </body>
 </html>
+
+<style id="ds-mobile-industries-fast-grid">
+@media (max-width: 640px) {
+  .industries-section .sector-card {
+    animation: none !important;
+    transition: border-color .18s ease, box-shadow .18s ease !important;
+  }
+  .industries-section .sector-card:nth-child(n) { animation-delay: 0s !important; }
+  .industries-section .text-center.max-w-3xl h1 { animation: none !important; }
+}
+</style>
