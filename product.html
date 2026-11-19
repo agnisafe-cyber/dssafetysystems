@@ -889,29 +889,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
 
-            // Reliable touch, pointer and keyboard activation for product cards
-            let cardPointerStart = null;
-            let lastTouchOpen = 0;
-            productGrid.addEventListener('pointerdown', (e) => {
-                const card = e.target.closest('.product-card');
-                if (card && !e.target.closest('button') && e.pointerType === 'touch') cardPointerStart = {x:e.clientX,y:e.clientY,id:card.dataset.productId};
-            }, {passive:true});
-            productGrid.addEventListener('pointerup', (e) => {
-                if (e.pointerType !== 'touch' || !cardPointerStart) return;
-                const start = cardPointerStart;
-                cardPointerStart = null;
-                if (Math.hypot(e.clientX-start.x,e.clientY-start.y) > 12) return;
-                const card = e.target.closest('.product-card');
-                if (!card || card.dataset.productId !== start.id) return;
-                e.preventDefault();
-                lastTouchOpen = Date.now();
-                openQuickView(Number(start.id));
-            });
+            // One delegated click handler works consistently for mouse, touch and mobile browsers
             productGrid.addEventListener('click', (e) => {
                 const card = e.target.closest('.product-card');
-                if (!card) return;
-                if (Date.now()-lastTouchOpen < 700) { e.preventDefault(); return; }
-                if (e.target.closest('button')) return;
+                if (!card || !productGrid.contains(card)) return;
+                // Keep gallery arrows, wishlist and enquiry buttons on their own actions
+                if (e.target.closest('button, a, input, select, textarea')) return;
                 openQuickView(Number(card.dataset.productId));
             });
             productGrid.addEventListener('keydown', (e) => {
@@ -1139,4 +1122,55 @@
   }
 }
 .product-card { touch-action: manipulation; }
+</style>
+<style id="ds-product-mobile-layout-and-gallery-fix">
+@media (max-width: 640px) {
+  #product-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+  #product-grid .product-card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px !important;
+    border-radius: 20px !important;
+    transform: none !important;
+  }
+  #product-grid .product-card > div:first-child {
+    height: 205px !important;
+    min-height: 205px !important;
+    padding: 6px !important;
+  }
+  #product-grid .product-card > div:first-child > img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+  #product-grid .product-card .p-5,
+  #product-grid .product-card .sm\:p-6 {
+    padding: 12px 8px 8px !important;
+  }
+  #product-grid .product-card h3 {
+    font-size: 17px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  #product-grid .product-card p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+  }
+  #product-grid .product-card button[aria-label="Previous product image"],
+  #product-grid .product-card button[aria-label="Next product image"] {
+    width: 38px !important;
+    height: 38px !important;
+    z-index: 30 !important;
+    touch-action: manipulation;
+  }
+  #product-grid .product-card button[aria-label="Previous product image"] { left: 7px !important; }
+  #product-grid .product-card button[aria-label="Next product image"] { right: 7px !important; }
+  #product-grid .product-card .pt-4 { padding-top: 10px !important; }
+}
+.product-card { -webkit-tap-highlight-color: transparent; }
 </style>
