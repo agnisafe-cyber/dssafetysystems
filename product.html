@@ -297,7 +297,8 @@
                         </ul>
                         <div id="qv-capacities" class="hidden mt-4 rounded-xl border border-red-500/25 bg-red-500/5 px-4 py-3 text-sm">
                             <p class="text-[11px] font-bold uppercase tracking-wider text-red-600 dark:text-red-400 mb-1">Available Capacities</p>
-                            <p class="font-bold text-slate-800 dark:text-white">2 KG <span class="text-red-500">·</span> 4 KG <span class="text-red-500">·</span> 6 KG <span class="text-red-500">·</span> 9 KG</p>
+                            <p id="qv-capacities-list" class="font-bold text-slate-800 dark:text-white">2 KG <span class="text-red-500">·</span> 4 KG <span class="text-red-500">·</span> 6 KG <span class="text-red-500">·</span> 9 KG</p>
+                            <p id="qv-capacity-note" class="hidden mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">CO₂ extinguishers are generally intended for Class B and electrical fire risks, not Class A fires.</p>
                         </div>
                     </div>
                 </div>
@@ -370,6 +371,7 @@
                 ],
                 cardImageIndex: 0,
                 badge: "Best Seller",
+                capacities: ["2 KG", "4 KG", "6 KG", "9 KG"],
                 features: ["Multi-Purpose ABC Dry Chemical Powder", "Suitable for Class A, B & C Fires", "Designed for Electrical Fire Risk Protection"],
                 description: "The ABC Dry Powder Fire Extinguisher delivers dependable, multipurpose fire protection against Class A, B and C fire risks, including electrical hazards. Built with a durable cylinder and effective dry chemical powder, it offers a reliable safety solution for factories, warehouses, offices, hotels, hospitals, commercial buildings and residential spaces."
             },
@@ -382,9 +384,11 @@
                 rating: 4.7,
                 reviews: 189,
                 image: "./co2.png",
-                badge: "CO2 Protection",
-                features: ["Carbon Dioxide (CO2) Fire Extinguishing Agent", "Suitable for Class B & Electrical Fire Risks", "Clean Agent Discharge Leaves No Residue", "Ideal for Offices, Server Rooms & Electrical Areas"],
-                description: "The CO2 Fire Extinguisher is designed for tackling flammable liquid and electrical fire risks. Its carbon dioxide discharge leaves no powder residue, making it suitable for areas containing sensitive electrical equipment, such as offices and server rooms. Select the appropriate capacity and installation based on the site's fire-safety requirements."
+                badge: "CO₂ Protection",
+                capacities: ["2 KG", "4.5 KG", "6.5 KG", "9 KG"],
+                capacityNote: "CO₂ extinguishers are generally intended for Class B and electrical fire risks, not Class A fires.",
+                features: ["High-Performance Carbon Dioxide (CO₂) Gas", "Suitable for Class B & Electrical Fires", "Clean Fire Suppression – No Powder Residue", "Ideal for Electrical Panels & Sensitive Equipment"],
+                description: "The CO₂ Fire Extinguisher delivers effective fire protection against Class B and electrical fire risks. Using carbon dioxide gas, it helps suppress fires without leaving behind powder residue, making it an ideal safety solution for electrical panels, server rooms, offices, factories, laboratories, commercial buildings and other areas containing sensitive electrical equipment."
             },
             {
                 id: 3,
@@ -680,7 +684,13 @@
 
             // Populate features
             const capacitiesPanel = document.getElementById('qv-capacities');
-            capacitiesPanel.classList.toggle('hidden', product.id !== 1);
+            capacitiesPanel.classList.toggle('hidden', !product.capacities || product.capacities.length === 0);
+            document.getElementById('qv-capacities-list').innerHTML = (product.capacities || []).map((capacity, index) =>
+                `${index ? '<span class="text-red-500"> · </span>' : ''}${capacity}`
+            ).join('');
+            const capacityNote = document.getElementById('qv-capacity-note');
+            capacityNote.textContent = product.capacityNote || '';
+            capacityNote.classList.toggle('hidden', !product.capacityNote);
 
             const featuresList = document.getElementById('qv-features');
             if (product.features && product.features.length > 0) {
