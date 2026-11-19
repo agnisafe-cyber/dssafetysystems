@@ -216,6 +216,38 @@
         .light-cinematic-glow {
             background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
+        @keyframes dsServiceCardBorderShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        #services-grid .service-card {
+            isolation: isolate;
+        }
+        #services-grid .service-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            padding: 1.5px;
+            border-radius: inherit;
+            pointer-events: none;
+            background: linear-gradient(110deg,
+                rgba(220,38,38,.08) 0%,
+                rgba(220,38,38,.08) 30%,
+                rgba(255,255,255,.98) 46%,
+                rgba(239,68,68,.95) 52%,
+                rgba(255,150,120,.9) 58%,
+                rgba(220,38,38,.08) 76%,
+                rgba(220,38,38,.08) 100%);
+            background-size: 200% 100%;
+            animation: dsServiceCardBorderShimmer 3.8s linear infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #services-grid .service-card::after { animation: none !important; }
+        }
     </style>
   <link rel="canonical" href="https://dssafetysystems.com/service.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
