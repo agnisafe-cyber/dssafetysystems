@@ -231,13 +231,13 @@
             </button>
 
             <!-- Product Image Section inside Modal (Background removed) -->
-            <div class="lg:w-1/2 p-6 sm:p-10 flex flex-col items-center justify-between relative min-h-[480px] lg:min-h-[580px]">
+            <div class="lg:w-1/2 p-5 sm:p-7 flex flex-col items-center justify-start self-start gap-3 relative min-h-0">
                 <span id="qv-badge" class="absolute top-6 left-6 z-10 bg-brand-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-md">
                     Sale
                 </span>
 
-                <div class="relative my-auto flex items-center justify-center w-full min-h-[360px] sm:min-h-[440px] lg:min-h-[500px] py-4">
-                    <img id="qv-image" src="" alt="Product" style="width:100%;max-width:680px;height:min(76vh,700px);max-height:76vh;object-fit:contain;border-radius:18px!important;clip-path:inset(0 round 18px);" class="w-full max-w-[680px] object-contain rounded-[18px] drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+                <div class="relative flex items-center justify-center w-full min-h-0 py-2">
+                    <img id="qv-image" src="" alt="Product" style="width:100%;max-width:560px;height:min(58vh,540px);max-height:540px;object-fit:contain;border-radius:18px!important;clip-path:inset(0 round 18px);" class="w-full max-w-[560px] object-contain rounded-[18px] drop-shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
                     <button type="button" onclick="stepQuickViewImage(-1)" aria-label="Previous product image" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center text-slate-700 dark:text-white hover:bg-white dark:hover:bg-slate-700 transition">
                         <i data-lucide="chevron-left" class="w-5 h-5"></i>
                     </button>
@@ -246,7 +246,7 @@
                     </button>
                 </div>
 
-                <div class="flex items-center gap-3 mt-3">
+                <div class="flex items-center gap-3 mt-1">
                     <button type="button" id="qv-thumb-btn-1" onclick="selectQuickViewImage(0)" class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition">
                         <img id="qv-thumb-1" src="" alt="Product view 1" class="w-full h-full object-contain rounded-lg">
                     </button>
