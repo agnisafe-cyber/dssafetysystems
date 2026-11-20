@@ -380,8 +380,8 @@
                 originalPrice: 249.99,
                 rating: 4.9,
                 reviews: 342,
-                image: "",
-                images: [],
+                image: "./abc9kg.jpg",
+                images: ["./abc9kg.jpg", "./abc6kg.jpg", "./abc4kg.jpg", "./abc2kg.jpg", "./abc1kg.jpg"],
                 badge: "Best Seller",
                 capacities: ["2 KG", "4 KG", "6 KG", "9 KG"],
                 features: ["Multi-Purpose ABC Dry Chemical Powder", "Suitable for Class A, B & C Fires", "Designed for Electrical Fire Risk Protection"],
@@ -566,7 +566,7 @@
                         </button>
 
                         <!-- Image -->
-                        ${product.id !== 1 ? `<img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:${product.id <= 3 ? '220%' : '145%'};height:${product.id <= 3 ? '220%' : '145%'};max-width:none;border-radius:14px!important;clip-path:inset(0 round 14px);" class="w-[145%] h-[145%] max-w-none object-contain rounded-[14px] overflow-hidden scale-100 transform group-hover:scale-[1.03] transition-transform duration-500 drop-shadow-xl">` : ""}
+                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:${product.id <= 3 ? '220%' : '145%'};height:${product.id <= 3 ? '220%' : '145%'};max-width:none;border-radius:14px!important;clip-path:inset(0 round 14px);" class="w-[145%] h-[145%] max-w-none object-contain rounded-[14px] overflow-hidden scale-100 transform group-hover:scale-[1.03] transition-transform duration-500 drop-shadow-xl">
 
                         ${product.images && product.images.length > 1 ? `
                             <button type="button" onclick="changeCardImage(event, ${product.id}, -1)" aria-label="Previous product image" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
