@@ -412,7 +412,7 @@
                 originalPrice: 150.00,
                 rating: 4.8,
                 reviews: 215,
-                image: "./foam9ltr.jpg",
+                image: "",
                 badge: "AFFF Protection",
                 features: ["High-Performance AFFF Foam-Based Fire Suppression", "Suitable for Class A & B Fires", "Forms a Protective Foam Blanket to Help Prevent Re-Ignition", "Ideal for Flammable Liquid & Solid Combustible Fire Risks"],
                 description: "The Foam-Based Fire Extinguisher (AFFF) delivers effective fire protection against Class A and B fire risks, including fires involving ordinary combustible materials and flammable liquids. Using Aqueous Film Forming Foam (AFFF) technology, it helps suppress flames and prevent re-ignition by forming a protective foam blanket over the burning surface. It is an ideal fire safety solution for factories, warehouses, petrol stations, workshops, commercial buildings, offices and storage facilities."
@@ -425,7 +425,7 @@
                 originalPrice: 99.99,
                 rating: 4.6,
                 reviews: 94,
-                image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80",
+                image: "",
                 badge: null,
                 features: ["360-Degree Omnidirectional Sound", "IPX7 Full Waterproofing", "18 Hours Battery Life", "Built-in Speakerphone Mic"],
                 description: "IPX7 waterproof rating, dual passive radiators for deep bass, and compact design built for outdoor adventures without compromising on rich audio depth."
@@ -438,7 +438,7 @@
                 originalPrice: 109.99,
                 rating: 4.9,
                 reviews: 412,
-                image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80",
+                image: "",
                 badge: "Popular",
                 features: ["Sub-1ms Ultra-Low Latency", "26,000 DPI Optical Sensor", "Ultra Light 63g Honeycomb Frame", "100% Virgin Grade PTFE Feet"],
                 description: "Sub-1ms latency, 26,000 DPI optical sensor, lightweight 63g chassis with PTFE feet for frictionless glides and pinpoint competitive gaming accuracy."
@@ -568,7 +568,7 @@
                         </button>
 
                         <!-- Image -->
-                        <img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:${product.id <= 3 ? '220%' : '145%'};height:${product.id <= 3 ? '220%' : '145%'};max-width:none;border-radius:14px!important;clip-path:inset(0 round 14px);" class="w-[145%] h-[145%] max-w-none object-contain rounded-[14px] overflow-hidden scale-100 transform group-hover:scale-[1.03] transition-transform duration-500 drop-shadow-xl">
+                        ${product.image ? `<img id="product-image-${product.id}" src="${product.images ? product.images[product.cardImageIndex || 0] : product.image}" alt="${product.name}" style="width:${product.id <= 3 ? '220%' : '145%'};height:${product.id <= 3 ? '220%' : '145%'};max-width:none;border-radius:14px!important;clip-path:inset(0 round 14px);" class="w-[145%] h-[145%] max-w-none object-contain rounded-[14px] overflow-hidden scale-100 transform group-hover:scale-[1.03] transition-transform duration-500 drop-shadow-xl">` : ""}
 
                         ${product.images && product.images.length > 1 ? `
                             <button type="button" onclick="changeCardImage(event, ${product.id}, -1)" aria-label="Previous product image" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center text-slate-700 dark:text-white hover:scale-105 transition">
