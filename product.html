@@ -246,15 +246,17 @@
                     </button>
                 </div>
 
-                <div class="flex items-center gap-3 mt-1">
-                    <button type="button" id="qv-thumb-btn-1" onclick="selectQuickViewImage(0)" class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition">
+                <div class="flex items-center gap-3 mt-1 flex-wrap">
+                    <button type="button" id="qv-thumb-btn-1" onclick="selectQuickViewImage(0)" class="w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition" >
                         <img id="qv-thumb-1" src="" alt="Product view 1" class="w-full h-full object-contain rounded-lg">
-                    </button>
-                    <button type="button" id="qv-thumb-btn-2" onclick="selectQuickViewImage(1)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden">
+                    </button><button type="button" id="qv-thumb-btn-2" onclick="selectQuickViewImage(1)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
                         <img id="qv-thumb-2" src="" alt="Product view 2" class="w-full h-full object-contain rounded-lg">
-                    </button>
-                    <button type="button" id="qv-thumb-btn-3" onclick="selectQuickViewImage(2)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
+                    </button><button type="button" id="qv-thumb-btn-3" onclick="selectQuickViewImage(2)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
                         <img id="qv-thumb-3" src="" alt="Product view 3" class="w-full h-full object-contain rounded-lg">
+                    </button><button type="button" id="qv-thumb-btn-4" onclick="selectQuickViewImage(3)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
+                        <img id="qv-thumb-4" src="" alt="Product view 4" class="w-full h-full object-contain rounded-lg">
+                    </button><button type="button" id="qv-thumb-btn-5" onclick="selectQuickViewImage(4)" class="w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden" style="display:none">
+                        <img id="qv-thumb-5" src="" alt="Product view 5" class="w-full h-full object-contain rounded-lg">
                     </button>
                 </div>
             </div>
@@ -647,18 +649,18 @@
             const images = product.images && product.images.length ? product.images : [product.image];
             currentQuickViewImageIndex = ((index % images.length) + images.length) % images.length;
             qvImage.src = images[currentQuickViewImageIndex];
-            const firstThumb = document.getElementById('qv-thumb-btn-1');
-            const secondThumb = document.getElementById('qv-thumb-btn-2');
-            const thirdThumb = document.getElementById('qv-thumb-btn-3');
-            document.getElementById('qv-thumb-1').src = images[0];
-            document.getElementById('qv-thumb-2').src = images[1] || images[0];
-            document.getElementById('qv-thumb-3').src = images[2] || images[0];
-            thirdThumb.style.display = images.length > 2 ? 'block' : 'none';
             const activeClass = 'w-16 h-16 rounded-xl border-2 border-brand-600 p-1 overflow-hidden transition';
             const inactiveClass = 'w-16 h-16 rounded-xl border border-slate-200 dark:border-slate-700 p-1 opacity-70 hover:opacity-100 transition overflow-hidden';
-            firstThumb.className = currentQuickViewImageIndex === 0 ? activeClass : inactiveClass;
-            secondThumb.className = currentQuickViewImageIndex === 1 ? activeClass : inactiveClass;
-            thirdThumb.className = currentQuickViewImageIndex === 2 ? activeClass : inactiveClass;
+            for (let i = 0; i < 5; i++) {
+                const thumbButton = document.getElementById(`qv-thumb-btn-${i + 1}`);
+                const thumbImage = document.getElementById(`qv-thumb-${i + 1}`);
+                if (!thumbButton || !thumbImage) continue;
+                thumbButton.style.display = i < images.length ? 'block' : 'none';
+                if (i < images.length) {
+                    thumbImage.src = images[i];
+                    thumbButton.className = currentQuickViewImageIndex === i ? activeClass : inactiveClass;
+                }
+            }
         }
 
         function selectQuickViewImage(index) {
@@ -682,13 +684,7 @@
             const galleryImages = product.images && product.images.length ? product.images : [product.image];
             updateQuickViewImage(0);
 
-            const thumbTwo = document.getElementById('qv-thumb-btn-2');
-            const thumbThree = document.getElementById('qv-thumb-btn-3');
-            thumbTwo.style.display = galleryImages.length > 1 ? 'block' : 'none';
-            thumbThree.style.display = galleryImages.length > 2 ? 'block' : 'none';
-            document.getElementById('qv-thumb-1').src = galleryImages[0];
-            document.getElementById('qv-thumb-2').src = galleryImages[1] || galleryImages[0];
-            document.getElementById('qv-thumb-3').src = galleryImages[2] || galleryImages[0];
+            updateQuickViewImage(0);
 
             qvTitle.textContent = product.name;
             qvCategory.textContent = product.category;
