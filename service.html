@@ -544,5 +544,70 @@
 }
 </style>
 
+
+<style id="ds-liquid-metal-service-cards">
+  #services-grid .service-card { isolation:isolate; }
+  #services-grid .service-card .ds-liquid-metal-border {
+    position:absolute; inset:0; z-index:1; padding:2px;
+    border-radius:inherit; overflow:hidden; pointer-events:none;
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    mask-composite:exclude;
+    opacity:.9; transition:opacity .3s ease;
+  }
+  #services-grid .service-card .ds-liquid-metal-border canvas {
+    display:block!important; position:absolute!important; inset:0!important;
+    width:100%!important; height:100%!important; border-radius:inherit!important;
+  }
+  #services-grid .service-card > *:not(.ds-liquid-metal-border) {
+    position:relative; z-index:2;
+  }
+  #services-grid .service-card:hover .ds-liquid-metal-border { opacity:1; }
+  @media (prefers-reduced-motion:reduce) {
+    #services-grid .service-card .ds-liquid-metal-border { opacity:.55; }
+  }
+</style>
+
+
+<script type="module" id="ds-liquid-metal-service-cards-script">
+  import { liquidMetalFragmentShader, ShaderMount } from "https://cdn.jsdelivr.net/npm/@paper-design/shaders/+esm";
+  const initServiceLiquidMetal = () => {
+    const cards = document.querySelectorAll("#services-grid .service-card");
+    cards.forEach((card) => {
+      if (card.querySelector(".ds-liquid-metal-border")) return;
+      const host = document.createElement("div");
+      host.className = "ds-liquid-metal-border";
+      host.setAttribute("aria-hidden", "true");
+      card.prepend(host);
+      try {
+        const mount = new ShaderMount(host, liquidMetalFragmentShader, {
+          u_repetition: 4,
+          u_softness: 0.5,
+          u_shiftRed: 0.3,
+          u_shiftBlue: 0.3,
+          u_distortion: 0,
+          u_contour: 0,
+          u_angle: 45,
+          u_scale: 8,
+          u_shape: 1,
+          u_offsetX: 0.1,
+          u_offsetY: -0.1
+        }, undefined, 0.6);
+        card.addEventListener("mouseenter", () => mount.setSpeed?.(1));
+        card.addEventListener("mouseleave", () => mount.setSpeed?.(0.6));
+      } catch (error) {
+        host.remove();
+        console.error("Service card liquid-metal effect could not initialize:", error);
+      }
+    });
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initServiceLiquidMetal, { once:true });
+  } else {
+    initServiceLiquidMetal();
+  }
+</script>
+
 </body>
 </html>
