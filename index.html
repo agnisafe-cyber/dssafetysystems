@@ -77,6 +77,28 @@
     .nav-links a:not(.nav-cta):hover:after{transform:scaleX(1)}
     .nav-cta{background:#b91020;color:#fff!important;border:1px solid rgba(255,92,104,.22)!important;border-radius:999px!important;padding:13px 21px!important;margin-left:7px;box-shadow:0 4px 16px rgba(185,16,32,.18)}
     .nav-cta:hover{background:#d21c2b!important;transform:translateY(-1px);box-shadow:0 5px 20px rgba(210,28,43,.3)}
+    @media (min-width:901px){
+      .nav-links .nav-cta{
+        position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+        gap:11px!important;min-height:48px!important;padding:0 20px 0 22px!important;margin-left:12px!important;
+        overflow:hidden!important;background:linear-gradient(110deg,#ed4149 0%,#c8172c 55%,#a90e24 100%)!important;
+        border:1px solid rgba(255,145,151,.42)!important;border-radius:12px!important;
+        color:#fff!important;font-size:13px!important;font-weight:700!important;letter-spacing:.25px!important;
+        box-shadow:0 7px 22px rgba(185,16,32,.25),inset 0 1px 0 rgba(255,255,255,.2)!important;
+        transition:transform .22s ease,box-shadow .22s ease,filter .22s ease!important;
+      }
+      .nav-links .nav-cta:after{
+        content:"↗";position:static!important;display:inline-grid!important;place-items:center!important;
+        width:23px;height:23px;border-radius:7px;background:rgba(255,255,255,.16);
+        color:#fff;font-size:15px;font-weight:700;transform:none!important;transition:transform .22s ease,background .22s ease;
+      }
+      .nav-links .nav-cta:hover{
+        transform:translateY(-2px)!important;filter:brightness(1.08)!important;
+        box-shadow:0 11px 28px rgba(185,16,32,.36),0 0 0 4px rgba(217,56,48,.09),inset 0 1px 0 rgba(255,255,255,.24)!important;
+      }
+      .nav-links .nav-cta:hover:after{transform:translate(2px,-2px)!important;background:rgba(255,255,255,.24)}
+      .nav-links .nav-cta:focus-visible{outline:2px solid #ff858b!important;outline-offset:4px}
+    }
     .menu{display:none}
 
     /* ============================================================
@@ -1663,9 +1685,9 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
             React.createElement("span",{className:"brand-text"},"DS Safety Systems")
           ),
           React.createElement("div",{className:"nav-links"},
+            React.createElement("a",{href:"#about"},"About"),
             React.createElement("a",{href:"#services"},"Services"),
             React.createElement("a",{href:"#ds-products-embed"},"Products"),
-            React.createElement("a",{href:"#about"},"About"),
             React.createElement("a",{href:"#contact"},"Contact"),
             React.createElement("a",{className:"nav-cta",href:"#contact"},"Get a quote"),
           ),
