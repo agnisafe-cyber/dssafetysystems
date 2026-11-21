@@ -639,5 +639,29 @@
   }
 </style>
 
+
+<style id="ds-service-card-red-shimmer-fix">
+@keyframes dsCardSweep {
+  0% { background-position: 180% 0; opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: .95; }
+  100% { background-position: -80% 0; opacity: 0; }
+}
+#services-grid .service-card::after {
+  inset: 0 !important; width: 100% !important; height: 100% !important;
+  left: 0 !important; top: 0 !important; transform: none !important;
+  background: linear-gradient(110deg,transparent 28%,rgba(220,38,38,.16) 40%,rgba(239,68,68,.72) 47%,#fff 50%,rgba(239,68,68,.82) 54%,rgba(185,28,28,.16) 62%,transparent 73%) !important;
+  background-size: 250% 100% !important;
+  filter: drop-shadow(0 0 8px rgba(220,38,38,.45)) !important;
+  animation: dsCardSweep 3.6s linear infinite !important;
+}
+#services-grid .service-card:nth-child(2)::after { animation-delay: .4s !important; }
+#services-grid .service-card:nth-child(3)::after { animation-delay: .8s !important; }
+#services-grid .service-card:nth-child(4)::after { animation-delay: 1.2s !important; }
+#services-grid .service-card:nth-child(5)::after { animation-delay: 1.6s !important; }
+#services-grid .service-card:nth-child(6)::after { animation-delay: 2s !important; }
+@media(prefers-reduced-motion:reduce){#services-grid .service-card::after{animation:none!important;display:none!important}}
+</style>
+
 </body>
 </html>
