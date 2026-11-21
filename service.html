@@ -216,29 +216,41 @@
         .light-cinematic-glow {
             background: radial-gradient(circle at 50% -20%, rgba(220, 38, 38, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
-        /* Hover light-sweep inspired by the supplied button, applied across each service card. */
+        /* Premium diagonal glass shimmer across each service card on hover. */
+        @keyframes dsServiceCardShine {
+            0% { left: -65%; opacity: 0; }
+            12% { opacity: .9; }
+            78% { opacity: .72; }
+            100% { left: 135%; opacity: 0; }
+        }
+        #services-grid .service-card {
+            isolation: isolate;
+        }
         #services-grid .service-card::after {
             content: "";
             position: absolute;
-            top: -18%;
-            left: -48%;
-            width: 34%;
-            height: 136%;
+            top: -35%;
+            left: -65%;
+            width: 48%;
+            height: 170%;
             z-index: 2;
             pointer-events: none;
             opacity: 0;
-            transform: translateX(-160%) skewX(-20deg);
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.72), rgba(255,255,255,.18), transparent);
-            transition: transform .95s cubic-bezier(.2,.7,.2,1), opacity .25s ease;
+            transform: skewX(-22deg);
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255,255,255,.08) 18%,
+                rgba(255,255,255,.72) 48%,
+                rgba(255,255,255,.22) 62%,
+                transparent 100%);
+            filter: blur(1px);
         }
         #services-grid .service-card:hover::after {
-            opacity: .8;
-            transform: translateX(470%) skewX(-20deg);
+            animation: dsServiceCardShine 1.15s cubic-bezier(.18,.68,.28,1) both;
         }
         @media (prefers-reduced-motion: reduce) {
             #services-grid .service-card::after {
-                transition: none !important;
-                transform: translateX(-160%) skewX(-20deg) !important;
+                animation: none !important;
                 opacity: 0 !important;
             }
         }
