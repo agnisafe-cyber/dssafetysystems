@@ -110,7 +110,7 @@
             transform: translateY(-8px);
         }
 
-        /* Subtle DS-red light sweep and glow across product cards */
+        /* Soft white-silver light sweep across product cards */
         .product-card {
             isolation: isolate;
             position: relative;
@@ -125,9 +125,9 @@
             background: linear-gradient(
                 112deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.015) 34%,
-                rgba(255, 190, 190, 0.22) 48%,
-                rgba(239, 68, 68, 0.10) 53%,
+                rgba(255, 255, 255, 0.02) 34%,
+                rgba(255, 255, 255, 0.24) 48%,
+                rgba(226, 232, 240, 0.12) 53%,
                 transparent 68%
             );
             transform: translateX(-115%);
@@ -138,7 +138,7 @@
             transform: translateX(115%);
         }
         .product-card:hover {
-            box-shadow: 0 18px 42px rgba(220, 38, 38, 0.14), 0 0 0 1px rgba(248, 113, 113, 0.22);
+            box-shadow: 0 18px 42px rgba(255, 255, 255, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.16);
         }
         @media (prefers-reduced-motion: reduce) {
             .product-card::before { transition: none; }
