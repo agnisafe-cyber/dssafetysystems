@@ -1206,38 +1206,4 @@
 </style>
 
 
-<style id="ds-product-card-light-red-shimmer">
-/* Soft red shimmer sweep across every product card on desktop and mobile */
-#product-grid .product-card {
-  position: relative;
-  isolation: isolate;
-}
-#product-grid .product-card::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: -45%;
-  left: -55%;
-  width: 34%;
-  height: 190%;
-  pointer-events: none;
-  transform: translateX(-160%) rotate(18deg);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(248, 113, 113, .08) 22%,
-    rgba(248, 113, 113, .24) 50%,
-    rgba(254, 202, 202, .30) 58%,
-    rgba(248, 113, 113, .10) 78%,
-    transparent 100%
-  );
-  animation: dsProductCardRedShimmer 5.2s ease-in-out infinite;
-}
-@keyframes dsProductCardRedShimmer {
-  0%, 12% { transform: translateX(-160%) rotate(18deg); }
-  72%, 100% { transform: translateX(510%) rotate(18deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  #product-grid .product-card::after { animation: none; opacity: .35; }
-}
-</style>
+
