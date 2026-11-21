@@ -554,7 +554,7 @@
     -webkit-mask-composite:xor;
     mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
     mask-composite:exclude;
-    opacity:0; transition:opacity .28s ease;
+    opacity:0; transition:opacity .22s ease;
   }
   #services-grid .service-card .ds-liquid-metal-border canvas {
     display:block!important; position:absolute!important; inset:0!important;
@@ -563,7 +563,14 @@
   #services-grid .service-card > *:not(.ds-liquid-metal-border) {
     position:relative; z-index:2;
   }
-  #services-grid .service-card.ds-liquid-metal-active .ds-liquid-metal-border { opacity:.78; }
+  #services-grid .service-card.ds-liquid-metal-active .ds-liquid-metal-border {
+    opacity:1;
+    filter: drop-shadow(0 0 3px rgba(255,255,255,.72)) drop-shadow(0 0 7px rgba(190,205,225,.48));
+  }
+  #services-grid .service-card.ds-liquid-metal-active {
+    border-color:rgba(210,220,235,.95)!important;
+    box-shadow:0 0 0 1px rgba(255,255,255,.18),0 12px 34px rgba(0,0,0,.16),0 0 22px rgba(200,215,235,.16);
+  }
   @media (prefers-reduced-motion:reduce) {
     #services-grid .service-card .ds-liquid-metal-border { transition:none; }
   }
@@ -583,13 +590,13 @@
       try {
         const mount = new ShaderMount(host, liquidMetalFragmentShader, {
           u_repetition: 3,
-          u_softness: 0.68,
-          u_shiftRed: 0.16,
-          u_shiftBlue: 0.16,
+          u_softness: 0.54,
+          u_shiftRed: 0.22,
+          u_shiftBlue: 0.22,
           u_distortion: 0,
           u_contour: 0,
           u_angle: 45,
-          u_scale: 10,
+          u_scale: 9,
           u_shape: 1,
           u_offsetX: 0.1,
           u_offsetY: -0.1
@@ -603,7 +610,7 @@
             otherCard.dispatchEvent(new CustomEvent("ds-liquid-metal-pause"));
           });
           card.classList.add("ds-liquid-metal-active");
-          mount.setSpeed?.(0.28);
+          mount.setSpeed?.(0.42);
         };
         const pause = () => {
           card.classList.remove("ds-liquid-metal-active");
