@@ -87,33 +87,32 @@
             transform: scaleX(1);
         }
 
-        /* Continuous champagne-silver orbit along the service-card borders */
+        /* Visible, continuous silver-champagne highlight tracing each service-card border */
         @keyframes serviceBorderOrbit {
             to { transform: rotate(360deg); }
         }
         #services-grid .service-card::after {
             content: "";
             position: absolute;
-            z-index: 1;
-            inset: -70%;
-            border-radius: 50%;
+            z-index: 3;
+            inset: 0;
+            padding: 1.5px;
+            border-radius: inherit;
             pointer-events: none;
             background: conic-gradient(
                 from 0deg,
-                transparent 0deg 268deg,
-                rgba(255,255,255,.18) 292deg,
-                rgba(253,230,138,.82) 310deg,
-                rgba(255,255,255,.72) 320deg,
-                transparent 340deg 360deg
+                transparent 0deg 285deg,
+                rgba(255,255,255,.28) 300deg,
+                rgba(253,230,138,.95) 312deg,
+                rgba(255,255,255,.95) 320deg,
+                transparent 337deg 360deg
             );
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-            animation: serviceBorderOrbit 9s linear infinite;
-            opacity: .72;
-        }
-        #services-grid .service-card > * {
-            position: relative;
-            z-index: 2;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: serviceBorderOrbit 5.5s linear infinite;
+            opacity: .9;
         }
         @media (prefers-reduced-motion: reduce) {
             #services-grid .service-card::after { animation: none !important; }
