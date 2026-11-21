@@ -109,6 +109,40 @@
         .product-card:hover {
             transform: translateY(-8px);
         }
+
+        /* Subtle DS-red light sweep and glow across product cards */
+        .product-card {
+            isolation: isolate;
+            position: relative;
+        }
+        .product-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            background: linear-gradient(
+                112deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.015) 34%,
+                rgba(255, 190, 190, 0.22) 48%,
+                rgba(239, 68, 68, 0.10) 53%,
+                transparent 68%
+            );
+            transform: translateX(-115%);
+            transition: transform 850ms cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .product-card:hover::before,
+        .product-card:focus-visible::before {
+            transform: translateX(115%);
+        }
+        .product-card:hover {
+            box-shadow: 0 18px 42px rgba(220, 38, 38, 0.14), 0 0 0 1px rgba(248, 113, 113, 0.22);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .product-card::before { transition: none; }
+        }
     
         /* Product page: replace blue primary button styling with DS red */
         button.bg-brand-600 {
