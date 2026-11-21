@@ -156,38 +156,6 @@
         button.shadow-brand-500\\/30 {
             --tw-shadow-color: rgba(220, 38, 38, 0.24) !important;
         }
-
-        /* DS Safety Systems — cinematic interactive 3D extinguisher experience */
-        #ds-3d-experience { position:relative; margin:0 auto 4.5rem; max-width:80rem; }
-        #ds-3d-experience .ds3d-shell { display:grid; grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr); gap:clamp(1.5rem,4vw,4rem); align-items:center; }
-        #ds-3d-experience .ds3d-copy { position:relative; z-index:2; }
-        #ds-3d-experience .ds3d-kicker { display:inline-flex; align-items:center; gap:.55rem; color:#ff7864; font-size:.7rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
-        #ds-3d-experience .ds3d-title { margin:1rem 0; color:#f8fafc; font-family:Outfit,Inter,sans-serif; font-size:clamp(2.15rem,4vw,3.65rem); font-weight:800; letter-spacing:-.045em; line-height:1.02; }
-        #ds-3d-experience .ds3d-title span { background:linear-gradient(100deg,#fff1ec 0%,#ff765d 48%,#ef303c 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        #ds-3d-experience .ds3d-description { max-width:31rem; color:#aeb7c4; font-size:.98rem; line-height:1.8; }
-        #ds-3d-experience .ds3d-actions { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.7rem; }
-        #ds-3d-experience .ds3d-action { min-height:46px; display:inline-flex; align-items:center; justify-content:center; gap:.55rem; border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:.7rem 1rem; color:#f8fafc; background:rgba(255,255,255,.045); font-size:.82rem; font-weight:750; transition:background .25s,border-color .25s,transform .25s; }
-        #ds-3d-experience .ds3d-action:hover { transform:translateY(-2px); border-color:rgba(255,91,76,.65); background:rgba(220,38,38,.13); }
-        #ds-3d-experience .ds3d-action.primary { border-color:#dc2626; background:linear-gradient(110deg,#e33432,#a91624); box-shadow:0 9px 28px rgba(220,38,38,.2); }
-        #ds-3d-experience .ds3d-hint { margin-top:1.1rem; color:#788493; font-size:.72rem; letter-spacing:.04em; }
-        #ds-3d-experience .ds3d-stage { position:relative; min-height:560px; overflow:hidden; isolation:isolate; border:1px solid rgba(255,255,255,.12); border-radius:28px; background:radial-gradient(ellipse at 50% 45%,rgba(164,33,31,.22),transparent 43%),radial-gradient(ellipse at 50% 100%,rgba(255,93,55,.12),transparent 44%),linear-gradient(145deg,#151820 0%,#090b10 62%,#11131a 100%); box-shadow:0 30px 90px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.06); }
-        #ds-3d-experience .ds3d-stage:before { content:""; position:absolute; inset:0; z-index:-1; opacity:.24; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:48px 48px; mask-image:linear-gradient(to bottom,transparent,#000 24%,#000 78%,transparent); transform:perspective(500px) rotateX(58deg) scale(1.5) translateY(23%); transform-origin:bottom; }
-        #ds-3d-experience .ds3d-stage:after { content:""; position:absolute; width:62%; aspect-ratio:1; left:19%; top:18%; z-index:-1; border:1px solid rgba(255,95,75,.16); border-radius:50%; box-shadow:0 0 0 32px rgba(255,95,75,.025),0 0 0 68px rgba(255,95,75,.018),0 0 75px rgba(255,68,55,.12); }
-        #ds-3d-experience .ds3d-stage-top { position:absolute; z-index:4; top:20px; left:22px; right:22px; display:flex; justify-content:space-between; align-items:center; color:#aeb7c4; font-size:.63rem; font-weight:800; letter-spacing:.16em; }
-        #ds-3d-experience .ds3d-live { display:inline-flex; align-items:center; gap:7px; color:#b7f7d2; letter-spacing:.12em; }
-        #ds-3d-experience .ds3d-live:before { content:""; width:7px; height:7px; border-radius:50%; background:#42d98b; box-shadow:0 0 12px #42d98b; }
-        #ds3d-model { position:absolute; inset:45px 0 34px; width:100%; height:calc(100% - 79px); background:transparent; --poster-color:transparent; --progress-bar-color:#f04444; --progress-bar-height:3px; --progress-mask:transparent; }
-        #ds-3d-experience .ds3d-floor-glow { position:absolute; left:20%; right:20%; bottom:10%; height:15%; border-radius:50%; background:rgba(239,54,43,.2); filter:blur(34px); pointer-events:none; }
-        #ds-3d-experience .ds3d-scanline { position:absolute; z-index:3; left:0; right:0; top:-18%; height:2px; opacity:0; pointer-events:none; background:linear-gradient(90deg,transparent,rgba(255,82,66,.2),#ff5c50,rgba(255,82,66,.2),transparent); box-shadow:0 0 18px 5px rgba(255,64,64,.34); }
-        #ds-3d-experience .ds3d-stage.is-scanning .ds3d-scanline { opacity:1; animation:ds3dScan 2.7s cubic-bezier(.4,0,.2,1) infinite; }
-        #ds-3d-experience .ds3d-stage.is-scanning:after { border-color:rgba(255,95,75,.38); box-shadow:0 0 0 32px rgba(255,95,75,.05),0 0 0 68px rgba(255,95,75,.03),0 0 90px rgba(255,68,55,.2); }
-        #ds-3d-experience .ds3d-stage-bottom { position:absolute; z-index:4; bottom:18px; left:22px; right:22px; display:flex; justify-content:space-between; gap:12px; color:#7f8998; font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
-        #ds-3d-experience .ds3d-stage-bottom strong { color:#d5dbe4; font-weight:800; }
-        #ds-3d-experience .ds3d-model-fallback { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#9ca3af; font-size:.8rem; text-align:center; padding:2rem; pointer-events:none; }
-        @keyframes ds3dScan { 0%{top:8%;} 100%{top:94%;} }
-        @media(max-width:900px) { #ds-3d-experience .ds3d-shell { grid-template-columns:1fr; gap:1.5rem; } #ds-3d-experience .ds3d-copy { max-width:42rem; } #ds-3d-experience .ds3d-stage { min-height:520px; } }
-        @media(max-width:600px) { #ds-3d-experience { margin-bottom:3rem; } #ds-3d-experience .ds3d-stage { min-height:430px; border-radius:22px; } #ds-3d-experience .ds3d-stage-top { top:15px; left:15px; right:15px; font-size:.55rem; } #ds-3d-experience .ds3d-stage-bottom { bottom:14px; left:15px; right:15px; font-size:.52rem; } #ds3d-model { inset:38px 0 28px; height:calc(100% - 66px); } #ds-3d-experience .ds3d-actions { gap:.55rem; } #ds-3d-experience .ds3d-action { flex:1 1 auto; padding:.65rem .75rem; font-size:.75rem; } }
-        @media(prefers-reduced-motion:reduce) { #ds-3d-experience .ds3d-stage.is-scanning .ds3d-scanline { animation:none; top:50%; } #ds-3d-experience .ds3d-action { transition:none; } }
     </style>
   <link rel="canonical" href="https://dssafetysystems.com/product.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -226,32 +194,6 @@
                 Explore reliable fire protection equipment and advanced safety solutions designed to safeguard people, protect property, and ensure lasting safety across commercial, industrial, and residential spaces.
             </p>
         </div>
-
-
-        <!-- DS Safety Systems: interactive 3D extinguisher showcase -->
-        <section id="ds-3d-experience" aria-labelledby="ds3d-heading">
-            <div class="ds3d-shell">
-                <div class="ds3d-copy">
-                    <span class="ds3d-kicker"><i data-lucide="scan-line" class="w-4 h-4"></i> Interactive 3D Experience</span>
-                    <h2 id="ds3d-heading" class="ds3d-title">Protection.<br><span>In every dimension.</span></h2>
-                    <p class="ds3d-description">Get a closer look at fire protection equipment. Explore the extinguisher in real 3D, rotate it from every angle, and activate a cinematic digital scan.</p>
-                    <div class="ds3d-actions">
-                        <button type="button" id="ds3d-rotate" class="ds3d-action primary" aria-pressed="true"><i data-lucide="rotate-3d" class="w-4 h-4"></i><span>Pause rotation</span></button>
-                        <button type="button" id="ds3d-scan" class="ds3d-action" aria-pressed="false"><i data-lucide="scan" class="w-4 h-4"></i><span>Digital scan</span></button>
-                    </div>
-                    <p class="ds3d-hint">DRAG TO ROTATE <span aria-hidden="true">·</span> SCROLL TO ZOOM <span aria-hidden="true">·</span> TOUCH FRIENDLY</p>
-                </div>
-                <div class="ds3d-stage" id="ds3d-stage">
-                    <div class="ds3d-stage-top"><span>DS SAFETY SYSTEMS / PRODUCT 01</span><span class="ds3d-live" id="ds3d-status">3D MODEL READY</span></div>
-                    <div class="ds3d-floor-glow" aria-hidden="true"></div>
-                    <model-viewer id="ds3d-model" src="assets/extinguisher.glb" alt="Interactive 3D fire extinguisher model from DS Safety Systems" camera-controls auto-rotate rotation-per-second="16deg" interaction-prompt="none" shadow-intensity="1.15" shadow-softness="0.9" exposure="1.08" environment-image="neutral" camera-orbit="0deg 75deg 2.8m" min-camera-orbit="auto 35deg 1.7m" max-camera-orbit="auto 105deg 5m" loading="eager" reveal="auto">
-                        <div class="ds3d-model-fallback" slot="poster">Loading interactive 3D model…</div>
-                    </model-viewer>
-                    <div class="ds3d-scanline" aria-hidden="true"></div>
-                    <div class="ds3d-stage-bottom"><span><strong>360°</strong> INTERACTIVE VIEW</span><span id="ds3d-mode-label">AUTO ROTATION ACTIVE</span></div>
-                </div>
-            </div>
-        </section>
 
         <!-- Filter & Search Controls Bar -->
         <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-white dark:bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm backdrop-blur-md">
@@ -1169,56 +1111,6 @@
   color:#252a32 !important;
 }
 </style>
-
-
-    <!-- Interactive 3D model viewer -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-    <script>
-    (() => {
-        const model = document.getElementById('ds3d-model');
-        const stage = document.getElementById('ds3d-stage');
-        const rotateButton = document.getElementById('ds3d-rotate');
-        const scanButton = document.getElementById('ds3d-scan');
-        const status = document.getElementById('ds3d-status');
-        const modeLabel = document.getElementById('ds3d-mode-label');
-        if (!model || !stage || !rotateButton || !scanButton) return;
-
-        let rotating = true;
-        let scanning = false;
-        const setRotation = (enabled) => {
-            rotating = enabled;
-            model.toggleAttribute('auto-rotate', enabled);
-            rotateButton.setAttribute('aria-pressed', String(enabled));
-            rotateButton.querySelector('span').textContent = enabled ? 'Pause rotation' : 'Auto rotate';
-            modeLabel.textContent = enabled ? 'AUTO ROTATION ACTIVE' : 'MANUAL VIEW';
-        };
-        rotateButton.addEventListener('click', () => setRotation(!rotating));
-        scanButton.addEventListener('click', () => {
-            scanning = !scanning;
-            stage.classList.toggle('is-scanning', scanning);
-            scanButton.setAttribute('aria-pressed', String(scanning));
-            scanButton.querySelector('span').textContent = scanning ? 'Stop scan' : 'Digital scan';
-            status.textContent = scanning ? 'SCANNING MODEL' : '3D MODEL READY';
-        });
-
-        const visibilityObserver = new IntersectionObserver((entries) => {
-            const visible = entries.some(entry => entry.isIntersecting);
-            if (!visible) model.pause();
-            else model.play();
-        }, { threshold: 0.12 });
-        visibilityObserver.observe(stage);
-
-        model.addEventListener('error', () => {
-            status.textContent = 'MODEL UNAVAILABLE';
-            modeLabel.textContent = 'CHECK MODEL FILE';
-        });
-        model.addEventListener('load', () => {
-            status.textContent = '3D MODEL READY';
-            model.play();
-        });
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setRotation(false);
-    })();
-    </script>
 
 </body>
 </html>
