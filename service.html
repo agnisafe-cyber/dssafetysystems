@@ -87,40 +87,36 @@
             transform: scaleX(1);
         }
 
-        /* Distinct champagne-amber light pass for service cards */
-        @keyframes serviceCardLightPass {
-            0% { transform: translateX(-230%) skewX(-18deg); opacity: 0; }
-            18% { opacity: .8; }
-            82% { opacity: .65; }
-            100% { transform: translateX(330%) skewX(-18deg); opacity: 0; }
+        /* Continuous champagne-silver orbit along the service-card borders */
+        @keyframes serviceBorderOrbit {
+            to { transform: rotate(360deg); }
         }
         #services-grid .service-card::after {
             content: "";
             position: absolute;
             z-index: 1;
-            top: -35%;
-            left: 0;
-            width: 38%;
-            height: 170%;
+            inset: -70%;
+            border-radius: 50%;
             pointer-events: none;
-            opacity: 0;
-            transform: translateX(-230%) skewX(-18deg);
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255,255,255,.12) 24%,
-                rgba(255,255,255,.78) 50%,
-                rgba(253,230,138,.34) 66%,
-                transparent 100%
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg 268deg,
+                rgba(255,255,255,.18) 292deg,
+                rgba(253,230,138,.82) 310deg,
+                rgba(255,255,255,.72) 320deg,
+                transparent 340deg 360deg
             );
-        }
-        #services-grid .service-card:hover::after,
-        #services-grid .service-card:focus-within::after {
-            animation: serviceCardLightPass 1.05s cubic-bezier(.22,.75,.25,1) both;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+            animation: serviceBorderOrbit 9s linear infinite;
+            opacity: .72;
         }
         #services-grid .service-card > * {
             position: relative;
             z-index: 2;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #services-grid .service-card::after { animation: none !important; }
         }
         #services-grid .service-card > div:first-child > div:first-child {
             transition: transform .35s ease, box-shadow .35s ease, background-color .3s ease, color .3s ease;
