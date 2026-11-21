@@ -554,7 +554,7 @@
     -webkit-mask-composite:xor;
     mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
     mask-composite:exclude;
-    opacity:0; transition:opacity .35s ease;
+    opacity:0; transition:opacity .28s ease;
   }
   #services-grid .service-card .ds-liquid-metal-border canvas {
     display:block!important; position:absolute!important; inset:0!important;
@@ -563,7 +563,7 @@
   #services-grid .service-card > *:not(.ds-liquid-metal-border) {
     position:relative; z-index:2;
   }
-  #services-grid .service-card.ds-liquid-metal-active .ds-liquid-metal-border { opacity:1; }
+  #services-grid .service-card.ds-liquid-metal-active .ds-liquid-metal-border { opacity:.78; }
   @media (prefers-reduced-motion:reduce) {
     #services-grid .service-card .ds-liquid-metal-border { transition:none; }
   }
@@ -582,24 +582,42 @@
       card.prepend(host);
       try {
         const mount = new ShaderMount(host, liquidMetalFragmentShader, {
-          u_repetition: 4,
-          u_softness: 0.5,
-          u_shiftRed: 0.3,
-          u_shiftBlue: 0.3,
+          u_repetition: 3,
+          u_softness: 0.68,
+          u_shiftRed: 0.16,
+          u_shiftBlue: 0.16,
           u_distortion: 0,
           u_contour: 0,
           u_angle: 45,
-          u_scale: 8,
+          u_scale: 10,
           u_shape: 1,
           u_offsetX: 0.1,
           u_offsetY: -0.1
         }, undefined, 0.6);
         mount.setSpeed?.(0);
-        card.addEventListener("click", (event) => {
-          if (event.target.closest("a, button")) return;
-          const isActive = card.classList.toggle("ds-liquid-metal-active");
-          mount.setSpeed?.(isActive ? 1 : 0);
+
+        const activate = () => {
+          cards.forEach((otherCard) => {
+            if (otherCard === card) return;
+            otherCard.classList.remove("ds-liquid-metal-active");
+            otherCard.dispatchEvent(new CustomEvent("ds-liquid-metal-pause"));
+          });
+          card.classList.add("ds-liquid-metal-active");
+          mount.setSpeed?.(0.28);
+        };
+        const pause = () => {
+          card.classList.remove("ds-liquid-metal-active");
+          mount.setSpeed?.(0);
+        };
+
+        card.addEventListener("pointerenter", activate);
+        card.addEventListener("pointerleave", pause);
+        card.addEventListener("pointerdown", activate);
+        card.addEventListener("pointerup", (event) => {
+          if (event.pointerType === "touch") pause();
         });
+        card.addEventListener("pointercancel", pause);
+        card.addEventListener("ds-liquid-metal-pause", pause);
       } catch (error) {
         host.remove();
         console.error("Service card liquid-metal effect could not initialize:", error);
