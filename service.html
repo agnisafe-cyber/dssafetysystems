@@ -68,37 +68,6 @@
             transform: translateY(-8px);
             box-shadow: 0 22px 48px rgba(15,23,42,.11), 0 0 0 1px rgba(220,38,38,.06);
         }
-        /* A single red shimmer travels around every edge of each service card. */
-        @keyframes serviceBorderShimmer {
-            to { transform: rotate(360deg); }
-        }
-        #services-grid .service-card::after {
-            content: "";
-            position: absolute;
-            z-index: 3;
-            inset: 0;
-            padding: 1.7px;
-            border-radius: inherit;
-            pointer-events: none;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg 66%,
-                rgba(220,38,38,.18) 73%,
-                rgba(239,68,68,.95) 78%,
-                rgba(254,202,202,1) 80%,
-                rgba(220,38,38,.65) 83%,
-                transparent 91% 100%
-            );
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: serviceBorderShimmer 5.5s linear infinite;
-            opacity: .95;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            #services-grid .service-card::after { animation: none !important; }
-        }
         #services-grid .service-card > div:first-child > div:first-child {
             transition: transform .35s ease, box-shadow .35s ease, background-color .3s ease, color .3s ease;
         }
