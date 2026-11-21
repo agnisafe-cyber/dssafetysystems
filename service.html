@@ -64,30 +64,11 @@
         #services-grid .service-card:nth-child(4) { animation-delay: .30s; }
         #services-grid .service-card:nth-child(5) { animation-delay: .38s; }
         #services-grid .service-card:nth-child(6) { animation-delay: .46s; }
-        #services-grid .service-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 8%;
-            width: 84%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(220,38,38,.7), rgba(251,146,60,.65), transparent);
-            opacity: 0;
-            transform: scaleX(.45);
-            transform-origin: center;
-            transition: opacity .35s ease, transform .35s ease;
-            pointer-events: none;
-        }
         #services-grid .service-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 22px 48px rgba(15,23,42,.11), 0 0 0 1px rgba(220,38,38,.06);
         }
-        #services-grid .service-card:hover::before {
-            opacity: 1;
-            transform: scaleX(1);
-        }
-
-        /* Evenly distributed silver-white shimmer around all four card edges */
+        /* A single red shimmer travels around every edge of each service card. */
         @keyframes serviceBorderShimmer {
             to { transform: rotate(360deg); }
         }
@@ -96,31 +77,24 @@
             position: absolute;
             z-index: 3;
             inset: 0;
-            padding: 1.6px;
+            padding: 1.7px;
             border-radius: inherit;
             pointer-events: none;
             background: conic-gradient(
                 from 0deg,
-                rgba(255,255,255,.38) 0deg,
-                rgba(255,255,255,.72) 28deg,
-                rgba(226,232,240,.32) 55deg,
-                rgba(255,255,255,.38) 90deg,
-                rgba(255,255,255,.78) 118deg,
-                rgba(226,232,240,.32) 145deg,
-                rgba(255,255,255,.38) 180deg,
-                rgba(255,255,255,.72) 208deg,
-                rgba(226,232,240,.32) 235deg,
-                rgba(255,255,255,.38) 270deg,
-                rgba(255,255,255,.78) 298deg,
-                rgba(226,232,240,.32) 325deg,
-                rgba(255,255,255,.38) 360deg
+                transparent 0deg 66%,
+                rgba(220,38,38,.18) 73%,
+                rgba(239,68,68,.95) 78%,
+                rgba(254,202,202,1) 80%,
+                rgba(220,38,38,.65) 83%,
+                transparent 91% 100%
             );
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: exclude;
-            animation: serviceBorderShimmer 12s linear infinite;
-            opacity: .82;
+            animation: serviceBorderShimmer 5.5s linear infinite;
+            opacity: .95;
         }
         @media (prefers-reduced-motion: reduce) {
             #services-grid .service-card::after { animation: none !important; }
