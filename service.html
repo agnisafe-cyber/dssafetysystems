@@ -554,7 +554,7 @@
     -webkit-mask-composite:xor;
     mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
     mask-composite:exclude;
-    opacity:.9; transition:opacity .3s ease;
+    opacity:0; transition:opacity .35s ease;
   }
   #services-grid .service-card .ds-liquid-metal-border canvas {
     display:block!important; position:absolute!important; inset:0!important;
@@ -563,9 +563,9 @@
   #services-grid .service-card > *:not(.ds-liquid-metal-border) {
     position:relative; z-index:2;
   }
-  #services-grid .service-card:hover .ds-liquid-metal-border { opacity:1; }
+  #services-grid .service-card.ds-liquid-metal-active .ds-liquid-metal-border { opacity:1; }
   @media (prefers-reduced-motion:reduce) {
-    #services-grid .service-card .ds-liquid-metal-border { opacity:.55; }
+    #services-grid .service-card .ds-liquid-metal-border { transition:none; }
   }
 </style>
 
@@ -594,8 +594,12 @@
           u_offsetX: 0.1,
           u_offsetY: -0.1
         }, undefined, 0.6);
-        card.addEventListener("mouseenter", () => mount.setSpeed?.(1));
-        card.addEventListener("mouseleave", () => mount.setSpeed?.(0.6));
+        mount.setSpeed?.(0);
+        card.addEventListener("click", (event) => {
+          if (event.target.closest("a, button")) return;
+          const isActive = card.classList.toggle("ds-liquid-metal-active");
+          mount.setSpeed?.(isActive ? 1 : 0);
+        });
       } catch (error) {
         host.remove();
         console.error("Service card liquid-metal effect could not initialize:", error);
