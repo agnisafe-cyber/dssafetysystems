@@ -598,5 +598,46 @@
   #services-grid .service-card a { padding: .6rem .8rem !important; font-size: .82rem !important; margin-top: 0 !important; }
 }
 </style>
+
+<style id="ds-service-card-red-shimmer">
+  @keyframes dsServiceCardRedSweep {
+    0% { transform: translateX(-160%) skewX(-20deg); opacity: 0; }
+    10% { opacity: .9; }
+    52% { opacity: .95; }
+    88% { opacity: .82; }
+    100% { transform: translateX(360%) skewX(-20deg); opacity: 0; }
+  }
+  #services-grid .service-card::after {
+    top: -20% !important;
+    left: 0 !important;
+    width: 34% !important;
+    height: 140% !important;
+    z-index: 2 !important;
+    opacity: 0 !important;
+    transform: translateX(-160%) skewX(-20deg) !important;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(220,38,38,.12) 16%,
+      rgba(239,68,68,.62) 38%,
+      rgba(255,255,255,.92) 50%,
+      rgba(220,38,38,.78) 62%,
+      rgba(185,28,28,.18) 84%,
+      transparent 100%) !important;
+    filter: blur(.35px) drop-shadow(0 0 7px rgba(220,38,38,.42)) !important;
+    animation: dsServiceCardRedSweep 3.4s ease-in-out infinite !important;
+  }
+  #services-grid .service-card:nth-child(2)::after { animation-delay: .45s !important; }
+  #services-grid .service-card:nth-child(3)::after { animation-delay: .9s !important; }
+  #services-grid .service-card:nth-child(4)::after { animation-delay: 1.35s !important; }
+  #services-grid .service-card:nth-child(5)::after { animation-delay: 1.8s !important; }
+  #services-grid .service-card:nth-child(6)::after { animation-delay: 2.25s !important; }
+  @media (prefers-reduced-motion: reduce) {
+    #services-grid .service-card::after {
+      animation: none !important;
+      display: none !important;
+    }
+  }
+</style>
+
 </body>
 </html>
