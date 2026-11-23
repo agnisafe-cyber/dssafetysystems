@@ -743,3 +743,69 @@
   .industries-section .text-center.max-w-3xl h1 { animation: none !important; }
 }
 </style>
+
+<style id="ds-industries-card-spotlight">
+/* Pointer-following spotlight is limited to the Industries We Serve cards. */
+.industries-section #industryCardsGrid .sector-card {
+  --industry-spot-x: 50%;
+  --industry-spot-y: 50%;
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease !important;
+}
+.industries-section #industryCardsGrid .sector-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background:
+    radial-gradient(145px circle at var(--industry-spot-x) var(--industry-spot-y),
+      rgba(255,92,48,.95), rgba(255,92,48,.25) 42%, transparent 72%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.industries-section #industryCardsGrid .sector-card.spotlight-active::after,
+.industries-section #industryCardsGrid .sector-card:hover::after,
+.industries-section #industryCardsGrid .sector-card:focus-visible::after {
+  opacity: 1;
+}
+.industries-section #industryCardsGrid .sector-card.spotlight-active,
+.industries-section #industryCardsGrid .sector-card:hover,
+.industries-section #industryCardsGrid .sector-card:focus-visible {
+  box-shadow: 0 14px 34px rgba(0,0,0,.18), 0 0 22px rgba(255,92,48,.12) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .industries-section #industryCardsGrid .sector-card { transition: none !important; }
+  .industries-section #industryCardsGrid .sector-card::after { transition: none !important; }
+}
+</style>
+<script id="ds-industries-card-spotlight-pointer">
+(() => {
+  if (window.__dsIndustrySpotlightBound) return;
+  window.__dsIndustrySpotlightBound = true;
+  const update = (event) => {
+    const card = event.target.closest('.industries-section #industryCardsGrid .sector-card');
+    document.querySelectorAll('.industries-section #industryCardsGrid .sector-card.spotlight-active')
+      .forEach((item) => { if (item !== card) item.classList.remove('spotlight-active'); });
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--industry-spot-x', (event.clientX - rect.left) + 'px');
+    card.style.setProperty('--industry-spot-y', (event.clientY - rect.top) + 'px');
+    card.classList.add('spotlight-active');
+  };
+  document.addEventListener('pointermove', update, { passive: true });
+  document.addEventListener('pointerdown', update, { passive: true });
+  document.addEventListener('pointerout', (event) => {
+    const card = event.target.closest && event.target.closest('.industries-section #industryCardsGrid .sector-card');
+    if (card && !card.contains(event.relatedTarget)) card.classList.remove('spotlight-active');
+  }, { passive: true });
+})();
+</script>
+
