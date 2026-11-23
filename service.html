@@ -246,6 +246,7 @@
 </style>
 
 <style id="ds-service-suite-quote-style">
+  /* Match the original Get a Quote box shimmer: a soft red horizontal light sweep. */
   @keyframes dsServiceSuiteShimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -261,9 +262,9 @@
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    background: linear-gradient(105deg, transparent 28%, rgba(239,68,68,.10) 48%, rgba(255,255,255,.58) 52%, rgba(239,68,68,.08) 56%, transparent 74%);
+    background: linear-gradient(90deg, transparent, rgba(220,38,38,.10), transparent);
     transform: translateX(-100%);
-    animation: dsServiceSuiteShimmer 2.8s ease-in-out infinite;
+    animation: dsServiceSuiteShimmer 2.5s infinite;
   }
   .service-suite-header .service-suite-tag,
   .service-suite-header .service-suite-title,
