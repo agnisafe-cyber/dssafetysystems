@@ -1,215 +1,92 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer Component - Transparent Background</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        /* Glassmorphism styling with fully transparent base */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-    </style>
-</head>
-<body class="bg-transparent text-gray-100">
-
-    <!-- ========================================================================= -->
-    <!-- START: MODULAR SITE FOOTER COMPONENT (FULLY TRANSPARENT BACKGROUND)       -->
-    <!-- ========================================================================= -->
-    <footer id="footer" class="relative bg-transparent text-gray-300 border-t border-gray-800/80 pt-16 pb-12 overflow-hidden">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
-            <!-- SECTION 2: MULTI-COLUMN NAVIGATION & BRANDING -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800/80">
-                
-                <!-- BRAND & SOCIAL COLUMN (4 Cols) -->
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <img src="DSF_logo_small.png" alt="DS Safety Systems logo" class="h-12 w-12 object-contain shrink-0">
-                        <span class="font-extrabold text-2xl tracking-tight text-white">DS Safety Systems</span>
-                    </div>
-
-                    <p class="text-gray-400 text-sm leading-relaxed pr-4">
-                        Reliable fire protection solutions designed to safeguard lives, property, and businesses. From certified fire safety equipment and expert installation to inspections and Annual Maintenance Contracts (AMC), DS Safety Systems helps keep your workplace protected and compliant.
-                    </p>
-
-                    <!-- Social Links -->
-                    <div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 block mb-3">Connect With Us</span>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="https://wa.me/918810565391?text=Hello%20DS%20Safety%20Systems%2C%20I%E2%80%99m%20interested%20in%20exploring%20your%20fire%20safety%20solutions.%20I%E2%80%99d%20appreciate%20it%20if%20your%20team%20could%20get%20in%20touch%20with%20me%20to%20discuss%20my%20requirements." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-green-500/20 hover:text-green-400 border border-gray-700/60 hover:border-green-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
-                                <i class="fab fa-whatsapp text-base"></i>
-                            </a>
-                            <a href="https://www.instagram.com/dssafetysystems/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-pink-500/20 hover:text-pink-400 border border-gray-700/60 hover:border-pink-500/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
-                                <i class="fab fa-instagram text-base"></i>
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61592615325737" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-600/20 hover:text-blue-500 border border-gray-700/60 hover:border-blue-600/40 flex items-center justify-center text-gray-400 transition-all duration-200 transform hover:-translate-y-1">
-                                <i class="fab fa-facebook-f text-base"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NAVIGATION COLUMNS (8 Cols divided into 3) -->
-                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
-                    
-                    <!-- Fire Safety Solutions -->
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Fire Safety</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="index.html#ds-products-embed" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Fire Safety Equipment</a></li>
-                            <li><a href="products-quote.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Product Catalogue</a></li>
-                            <li><a href="index.html#how-protection-premium" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">How Protection Works</a></li>
-                            <li><a href="industries.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Industries We Serve</a></li>
-                            <li><a href="contact.html#quote-form" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Request a Quote</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Company Links -->
-                    <div class="space-y-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Company</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="about.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">About DS Safety Systems</a></li>
-                            <li><a href="index.html#ds-client-stories-embed" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Client Testimonials</a></li>
-                            <li><a href="index.html#ds-industries-embed" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Industries We Protect</a></li>
-                            <li><a href="index.html#ds-products-embed" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Our Products</a></li>
-                            <li><a href="services.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Fire Safety Services</a></li>
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Contact Us</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Resources & Contact -->
-                    <div class="space-y-4 col-span-2 sm:col-span-1">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Get in Touch</h3>
-                        <ul class="space-y-2.5 text-sm">
-                            <li><a href="contact.html#quote-form" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Request a Consultation</a></li>
-                            <li><a href="https://wa.me/918810565391" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">WhatsApp: 88105 65391</a></li>
-                            <li><a href="mailto:Dssafetysystems@hotmail.com" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Email DS Safety Systems</a></li>
-                            <li><a href="contact.html" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Contact & Support</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- SECTION 4: COPYRIGHT & LEGAL FOOTNOTE -->
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-                <div class="flex flex-wrap items-center gap-1 text-center sm:text-left">
-                    <span>&copy; <span id="currentYear"></span> DS Safety Systems. All rights reserved.</span>
-                    <span class="hidden sm:inline mx-1">•</span>
-                    <span>Fire protection equipment, installation & AMC services.</span>
-                </div>
-
-                <div class="flex items-center space-x-6">
-                    <a href="index.html#ds-products-embed" class="hover:text-gray-300 transition-colors">Products</a>
-                    <a href="industries.html" class="hover:text-gray-300 transition-colors">Industries</a>
-                    <a href="contact.html#quote-form" class="hover:text-gray-300 transition-colors">Get a Quote</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-    <!-- ========================================================================= -->
-    <!-- END: MODULAR SITE FOOTER COMPONENT                                       -->
-    <!-- ========================================================================= -->
-
-    <!-- Back To Top Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button 
-            id="backToTopBtn" 
-            onclick="scrollToTop()" 
-            aria-label="Back to Top"
-            class="relative w-12 h-12 rounded-full bg-gray-900/80 text-white border border-gray-700 shadow-2xl backdrop-blur-md flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform opacity-0 translate-y-4 pointer-events-none group"
-        >
-            <i class="fas fa-arrow-up text-sm z-10 group-hover:-translate-y-0.5 transition-transform"></i>
-        </button>
+<!-- DS Safety Systems shared responsive footer -->
+<footer class="ds-footer" id="ds-site-footer">
+  <div class="ds-footer-shell ds-footer-cta-wrap">
+    <div class="ds-footer-cta">
+      <div class="ds-footer-cta-copy">
+        <span class="ds-footer-eyebrow">DS SAFETY SYSTEMS</span>
+        <h3>Need Fire Extinguisher Refilling, Installation, or Annual AMC?</h3>
+        <p>Serving factories, offices, buildings &amp; housing societies across Delhi NCR with ISI-approved equipment.</p>
+      </div>
+      <div class="ds-footer-actions">
+        <a href="tel:+919818701683" class="ds-footer-phone">+91 98187 01683</a>
+        <a href="get-quote.html" class="ds-footer-primary">Get a Free Quote <span aria-hidden="true">→</span></a>
+      </div>
     </div>
-
-    <!-- Toast Notification -->
-    <div id="toastContainer" class="fixed top-20 right-5 z-50 flex flex-col space-y-3 pointer-events-none"></div>
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        function handleNewsletter(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            if (emailInput.value.trim()) {
-                showToast(`Subscribed successfully with ${emailInput.value.trim()}! 🎉`);
-                emailInput.value = '';
-            }
-        }
-
-        function copyToClipboard(text, successMessage) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(successMessage || 'Copied to clipboard!');
-            });
-        }
-
-        function notifySocial(platform) {
-            showToast(`Opening ${platform} page...`);
-        }
-
-        function showToast(message) {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'pointer-events-auto flex items-center space-x-3 bg-gray-900/95 text-white border border-gray-700/80 px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-x-12 opacity-0 text-sm backdrop-blur-md';
-            toast.innerHTML = `
-                <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                <span>${message}</span>
-                <button onclick="this.parentElement.remove()" class="text-gray-400 hover:text-white ml-2">
-                    <i class="fas fa-times text-xs"></i>
-                </button>
-            `;
-            container.appendChild(toast);
-            setTimeout(() => toast.classList.remove('translate-x-12', 'opacity-0'), 10);
-            setTimeout(() => {
-                toast.classList.add('translate-x-12', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 3500);
-        }
-
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                backToTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+  </div>
+  <div class="ds-footer-shell ds-footer-grid">
+    <div class="ds-footer-brand">
+      <div class="ds-footer-brand-head">
+        <img src="DSF_logo_small.png" alt="DS Safety Systems logo">
+        <div><strong>DS Safety Systems</strong><span>Fire Protection &amp; AMC Specialists</span></div>
+      </div>
+      <p class="ds-footer-desc">Based in Govind Puri, New Delhi, DS Safety Systems delivers complete fire safety solutions backed by over 15 years of experience—from certified extinguishers and alarm systems to hydrant networks and preventive AMC.</p>
+      <div class="ds-footer-badges"><span class="ds-footer-badge-red">✓ ISI-Approved Equipment</span><span class="ds-footer-badge">15+ Years Experience</span></div>
+    </div>
+    <div class="ds-footer-col"><h4>Products</h4><ul>
+      <li><a href="product.html">Fire Extinguishers</a></li>
+      <li><a href="smoke-detector-detail.html">Smoke &amp; Heat Detectors</a></li>
+      <li><a href="fire-alarm-control-panel-detail.html">Fire Alarm Systems</a></li>
+      <li><a href="landing-hydrant-valve-detail.html">Hydrant Systems</a></li>
+      <li><a href="product.html">Sprinklers &amp; Pumps</a></li>
+    </ul></div>
+    <div class="ds-footer-col"><h4>Services</h4><ul>
+      <li><a href="service.html">Refilling &amp; Pressure Testing</a></li>
+      <li><a href="service.html">Annual Maintenance (AMC)</a></li>
+      <li><a href="service.html">System Installation</a></li>
+      <li><a href="service.html">Inspection &amp; Compliance</a></li>
+      <li><a href="about.html">About DS Safety Systems</a></li>
+    </ul></div>
+    <div class="ds-footer-col"><h4>Contact New Delhi</h4><ul class="ds-footer-contact">
+      <li>1st Floor, 1414/13, Govind Puri, Kalkaji, New Delhi, Delhi 110019</li>
+      <li><a class="ds-footer-contact-phone" href="tel:+919818701683">+91 98187 01683</a></li>
+      <li>Mon – Sun: 9:00 AM – 9:00 PM</li>
+      <li><a href="mailto:Dssafetysystems@hotmail.com">Dssafetysystems@hotmail.com</a></li>
+      <li><a href="https://dssafetysystems.com/">dssafetysystems.com</a></li>
+    </ul></div>
+  </div>
+  <div class="ds-footer-bottom"><div class="ds-footer-shell ds-footer-bottom-inner">
+    <p>© <span data-ds-footer-year></span> DS Safety Systems. All rights reserved. <span class="ds-footer-dot">•</span> Protection That Never Takes a Break.</p>
+    <nav aria-label="Footer legal links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="#top">Back to top ↑</a></nav>
+  </div></div>
+</footer>
+<style id="ds-shared-footer-styles">
+.ds-footer{--ds-red:#dc2626;position:relative;isolation:isolate;overflow:hidden;margin-top:64px;background:linear-gradient(180deg,#0b0d12 0%,#080a0f 100%);color:#e5e7eb;border-top:1px solid rgba(220,38,38,.72);font-family:inherit}
+.ds-footer:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 12% 12%,rgba(220,38,38,.12),transparent 34%),radial-gradient(ellipse at 88% 80%,rgba(249,115,22,.07),transparent 36%)}
+.ds-footer-shell{width:min(1200px,100%);margin:0 auto;padding-left:24px;padding-right:24px}
+.ds-footer-cta-wrap{padding-top:34px}
+.ds-footer-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;padding:26px 30px;border:1px solid rgba(255,255,255,.11);border-radius:16px;background:linear-gradient(115deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 16px 42px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.04)}
+.ds-footer-eyebrow{display:block;margin-bottom:7px;color:#f87171;font-size:10px;font-weight:800;letter-spacing:.19em}
+.ds-footer-cta h3{margin:0;color:#fff;font-size:clamp(16px,2vw,19px);font-weight:750;line-height:1.35}
+.ds-footer-cta p{margin:7px 0 0;color:#aab3c2;font-size:13px;line-height:1.6}
+.ds-footer-actions{display:flex;flex-wrap:wrap;gap:10px}
+.ds-footer-phone,.ds-footer-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 17px;border-radius:9px;text-decoration:none!important;font-size:13px;font-weight:700;transition:transform .2s,border-color .2s,background .2s}
+.ds-footer-phone{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.045);color:#f8fafc!important;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.ds-footer-primary{background:#dc2626;color:#fff!important;box-shadow:0 7px 20px rgba(220,38,38,.22)}
+.ds-footer-phone:hover,.ds-footer-primary:hover{transform:translateY(-2px)}
+.ds-footer-primary:hover{background:#b91c1c}
+.ds-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:36px;padding-top:48px;padding-bottom:44px}
+.ds-footer-brand-head{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.ds-footer-brand-head img{width:42px;height:42px;object-fit:contain;flex:none}
+.ds-footer-brand-head strong{display:block;color:#fff;font-size:16px;font-weight:800}
+.ds-footer-brand-head span{display:block;margin-top:3px;color:#f87171;font-size:11px;font-weight:650}
+.ds-footer-desc{max-width:390px;margin:0 0 17px;color:#9ca3af;font-size:13px;line-height:1.75}
+.ds-footer-badges{display:flex;flex-wrap:wrap;gap:8px}
+.ds-footer-badge-red,.ds-footer-badge{padding:5px 9px;border-radius:6px;font-size:10px;font-weight:700}
+.ds-footer-badge-red{border:1px solid rgba(220,38,38,.24);background:rgba(220,38,38,.12);color:#fca5a5}
+.ds-footer-badge{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);color:#cbd5e1}
+.ds-footer-col h4{margin:3px 0 15px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.ds-footer-col ul{display:grid;gap:11px;margin:0;padding:0;list-style:none;color:#9ca3af;font-size:12px;line-height:1.6}
+.ds-footer a{color:inherit;text-decoration:none;transition:color .18s}
+.ds-footer-col a:hover,.ds-footer-bottom a:hover{color:#fff}
+.ds-footer-contact-phone{color:#f8fafc!important;font-weight:750;font-variant-numeric:tabular-nums}
+.ds-footer-bottom{border-top:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.2);padding:16px 0}
+.ds-footer-bottom-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;color:#788292;font-size:11px}
+.ds-footer-bottom-inner p{margin:0}
+.ds-footer-dot{padding:0 5px;color:#dc6262}
+.ds-footer-bottom nav{display:flex;flex-wrap:wrap;gap:17px}
+@media(max-width:900px){.ds-footer-grid{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:560px){.ds-footer{margin-top:44px}.ds-footer-shell{padding-left:18px;padding-right:18px}.ds-footer-cta-wrap{padding-top:24px}.ds-footer-cta{padding:21px 18px}.ds-footer-actions{width:100%}.ds-footer-actions a{flex:1}.ds-footer-grid{grid-template-columns:1fr;gap:27px;padding-top:34px;padding-bottom:32px}.ds-footer-desc{max-width:none}.ds-footer-bottom-inner{align-items:flex-start;flex-direction:column}.ds-footer-bottom nav{gap:14px}}
+</style>
+<script>
+(function(){var y=document.querySelector('[data-ds-footer-year]');if(y)y.textContent=new Date().getFullYear();})();
+</script>
