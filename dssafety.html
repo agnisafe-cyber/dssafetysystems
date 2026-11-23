@@ -425,28 +425,28 @@
 <script src="scroll-fx.js" defer></script>
 
     <style id="ds-why-spotlight">
-      .why-card { position:relative !important; }
-      .why-card .ds-why-spotlight {
-        position:absolute; inset:0; z-index:3; pointer-events:none;
-        border-radius:inherit; opacity:0; transition:opacity .22s ease;
-        background:
-          radial-gradient(210px 210px at calc(var(--ds-spot-x, 0) * 1px) calc(var(--ds-spot-y, 0) * 1px),
-            rgba(255,126,35,.16), transparent 72%);
-        background-attachment:fixed;
-        mix-blend-mode:screen;
+      .why-card { position:relative !important; isolation:isolate !important; }
+      .why-card > .ds-why-spotlight {
+        position:absolute; inset:0; z-index:1; pointer-events:none;
+        border-radius:inherit; opacity:0; transition:opacity .18s ease;
+        background:radial-gradient(190px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+          rgba(255,125,35,.25), rgba(255,125,35,.10) 38%, transparent 72%);
       }
-      .why-card .ds-why-spotlight::before {
+      .why-card > :not(.ds-why-spotlight) { position:relative; z-index:2; }
+      .why-card > .ds-why-spotlight::after {
         content:""; position:absolute; inset:0; border-radius:inherit; padding:2px;
-        background:
-          radial-gradient(190px 190px at calc(var(--ds-spot-x, 0) * 1px) calc(var(--ds-spot-y, 0) * 1px),
-            rgba(255,139,48,.98), rgba(255,190,120,.48) 34%, transparent 72%);
-        background-attachment:fixed;
+        background:radial-gradient(155px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+          #ff8a24 0%, rgba(255,174,94,.8) 28%, transparent 72%);
         -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
         -webkit-mask-composite:xor; mask-composite:exclude;
       }
-      .why-card.ds-spotlight-active .ds-why-spotlight { opacity:1; }
-      @media (prefers-reduced-motion:reduce) {
-        .why-card .ds-why-spotlight { transition:none; }
+      .why-card.ds-spotlight-active > .ds-why-spotlight { opacity:1; }
+      .why-card.ds-spotlight-active {
+        border-color:rgba(255,138,36,.72) !important;
+        box-shadow:0 16px 36px rgba(0,0,0,.16),0 0 20px rgba(255,125,35,.14) !important;
+      }
+      @media(prefers-reduced-motion:reduce) {
+        .why-card > .ds-why-spotlight { transition:none; }
       }
     </style>
     <script id="ds-why-spotlight-pointer">
@@ -454,32 +454,34 @@
         const cards = Array.from(document.querySelectorAll('.why-card'));
         if (!cards.length) return;
         cards.forEach(card => {
-          const layer = document.createElement('span');
-          layer.className = 'ds-why-spotlight';
-          layer.setAttribute('aria-hidden', 'true');
-          card.appendChild(layer);
-        });
-        const update = (event) => {
-          cards.forEach(card => {
-            card.style.setProperty('--ds-spot-x', event.clientX.toFixed(1));
-            card.style.setProperty('--ds-spot-y', event.clientY.toFixed(1));
-          });
-        };
-        document.addEventListener('pointermove', update, { passive:true });
-        cards.forEach(card => {
-          card.addEventListener('pointerenter', () => {
+          if (!card.querySelector(':scope > .ds-why-spotlight')) {
+            const layer = document.createElement('span');
+            layer.className = 'ds-why-spotlight';
+            layer.setAttribute('aria-hidden', 'true');
+            card.prepend(layer);
+          }
+          const update = event => {
+            const rect = card.getBoundingClientRect();
+            const x = Math.max(0, Math.min(rect.width, event.clientX - rect.left));
+            const y = Math.max(0, Math.min(rect.height, event.clientY - rect.top));
+            card.style.setProperty('--spot-x', (x / rect.width * 100).toFixed(2) + '%');
+            card.style.setProperty('--spot-y', (y / rect.height * 100).toFixed(2) + '%');
+          };
+          card.addEventListener('pointerenter', event => {
             cards.forEach(item => item.classList.remove('ds-spotlight-active'));
+            update(event);
             card.classList.add('ds-spotlight-active');
           });
+          card.addEventListener('pointermove', update, {passive:true});
           card.addEventListener('pointerleave', () => card.classList.remove('ds-spotlight-active'));
           card.addEventListener('pointerdown', event => {
-            update(event);
             cards.forEach(item => item.classList.remove('ds-spotlight-active'));
+            update(event);
             card.classList.add('ds-spotlight-active');
           });
           card.addEventListener('pointerup', () => {
             if (window.matchMedia('(hover: none)').matches) {
-              window.setTimeout(() => card.classList.remove('ds-spotlight-active'), 650);
+              window.setTimeout(() => card.classList.remove('ds-spotlight-active'), 700);
             }
           });
         });
