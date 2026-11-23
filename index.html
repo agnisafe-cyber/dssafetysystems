@@ -2529,6 +2529,8 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
     host.appendChild(how);
     host.appendChild(why);
     host.appendChild(quote);
+    window.dsHomepageSectionsArranged = true;
+    document.dispatchEvent(new Event("ds-homepage-sections-arranged"));
     return true;
   };
   if (arrange()) return;
