@@ -1304,3 +1304,51 @@ section.max-w-7xl > div.flex.flex-col {
 
 
 
+
+
+<style id="ds-product-quickview-compact-mobile">
+@media (max-width: 767px) {
+  #quickview-modal {
+    align-items: center !important;
+    padding: max(6px, env(safe-area-inset-top)) 6px max(6px, env(safe-area-inset-bottom)) !important;
+  }
+  #quickview-modal > div {
+    width: 100% !important;
+    max-width: 520px !important;
+    max-height: calc(100dvh - 12px) !important;
+    max-height: calc(100vh - 12px) !important;
+    border-radius: 16px !important;
+  }
+  #quickview-modal > div > div:first-of-type {
+    padding: 10px 12px 4px !important;
+    gap: 5px !important;
+  }
+  #qv-image {
+    height: min(22vh, 170px) !important;
+    max-height: 170px !important;
+  }
+  #quickview-modal #qv-thumb-btn-1,
+  #quickview-modal #qv-thumb-btn-2,
+  #quickview-modal #qv-thumb-btn-3,
+  #quickview-modal #qv-thumb-btn-4,
+  #quickview-modal #qv-thumb-btn-5 {
+    width: 46px !important;
+    height: 46px !important;
+  }
+  #quickview-modal > div > div:nth-of-type(2) {
+    padding: 8px 14px 16px !important;
+    gap: 10px !important;
+  }
+  #quickview-modal #qv-title {
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+  #quickview-modal #close-modal {
+    top: 8px !important;
+    right: 8px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+</style>
