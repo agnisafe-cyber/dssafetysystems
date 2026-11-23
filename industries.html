@@ -263,40 +263,6 @@
 }
 
 </style>
-
-<style id="ds-industry-suite-shimmer">
-  @keyframes dsIndustrySuiteShimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-  .industries-section #industryCardsGrid .sector-card {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-  }
-  .industries-section #industryCardsGrid .sector-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    border-radius: inherit;
-    background: linear-gradient(105deg, transparent 28%, rgba(239,68,68,.10) 48%, rgba(255,255,255,.72) 52%, rgba(239,68,68,.08) 56%, transparent 74%);
-    transform: translateX(-100%);
-    animation: dsIndustrySuiteShimmer 2.8s ease-in-out infinite;
-  }
-  .industries-section #industryCardsGrid .sector-card > * {
-    position: relative;
-    z-index: 3;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .industries-section #industryCardsGrid .sector-card::after {
-      animation: none;
-      display: none;
-    }
-  }
-</style>
-
   <link rel="canonical" href="https://dssafetysystems.com/industries.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
