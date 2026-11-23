@@ -440,22 +440,6 @@
         -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
         -webkit-mask-composite:xor; mask-composite:exclude;
       }
-      .why-card > .ds-why-spotlight::before {
-        content:""; position:absolute; inset:-35% -65%; border-radius:inherit;
-        background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.04) 43%,
-          rgba(255,177,105,.30) 48%,rgba(255,255,255,.72) 50%,
-          rgba(255,142,55,.26) 53%,transparent 59%);
-        transform:translateX(-65%) rotate(0deg);
-        opacity:0;
-      }
-      .why-card.ds-spotlight-active > .ds-why-spotlight::before {
-        opacity:1; animation:dsWhyCardShimmer .95s cubic-bezier(.2,.65,.25,1) 1 both;
-      }
-      @keyframes dsWhyCardShimmer {
-        0% { transform:translateX(-65%); opacity:0; }
-        12% { opacity:1; }
-        100% { transform:translateX(65%); opacity:0; }
-      }
       .why-card.ds-spotlight-active > .ds-why-spotlight { opacity:1; }
       .why-card.ds-spotlight-active {
         border-color:rgba(255,138,36,.72) !important;
