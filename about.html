@@ -112,11 +112,7 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <span>© <span id="year"></span> DS Safety Systems. All rights reserved.</span>
-    <a href="index.html">Back to Home →</a>
-  </footer>
-  <script>
+<script>
     document.getElementById("year").textContent=new Date().getFullYear();
     const imageWrap=document.querySelector(".about-image-wrap");
     const copy=document.querySelector(".about-home-copy");
@@ -143,5 +139,6 @@
       setInterval(()=>selectSlide(activeIndex+1),4000);
     }
   </script>
+<script src="footer-loader.js" defer></script>
 </body>
 </html>
