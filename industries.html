@@ -261,6 +261,49 @@
 .industries-section #industryDetailPanel > div:first-child .bg-gradient-to-t {
   background-image:linear-gradient(to top,rgba(5,7,11,.96) 0%,rgba(5,7,11,.58) 52%,rgba(5,7,11,.08) 100%) !important;
 }
+
+/* Red edge shimmer for Industries cards — one card sweeps only while hovered/touched. */
+@keyframes dsIndustryRedBorderSweep {
+  0% { background-position:200% 0; opacity:0; }
+  12% { opacity:1; }
+  100% { background-position:-100% 0; opacity:0; }
+}
+.industries-section .sector-card {
+  position:relative !important;
+  isolation:isolate !important;
+  overflow:hidden !important;
+}
+.industries-section .sector-card::after {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:5 !important;
+  padding:1.5px !important;
+  border-radius:inherit !important;
+  pointer-events:none !important;
+  opacity:0 !important;
+  background:linear-gradient(105deg,transparent 0%,transparent 34%,rgba(220,38,38,.22) 43%,#dc2626 50%,rgba(255,105,105,.95) 54%,transparent 66%,transparent 100%) !important;
+  background-size:240% 100% !important;
+  background-position:200% 0 !important;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite:xor !important;
+  mask-composite:exclude !important;
+}
+.industries-section .sector-card:hover::after,
+.industries-section .sector-card:active::after,
+.industries-section .sector-card:focus-visible::after {
+  opacity:1 !important;
+  animation:dsIndustryRedBorderSweep 1.05s cubic-bezier(.22,.61,.36,1) 1 both !important;
+}
+.industries-section .sector-card:hover {
+  border-color:rgba(220,38,38,.62) !important;
+  box-shadow:0 16px 34px rgba(0,0,0,.16),0 0 22px rgba(220,38,38,.10) !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .industries-section .sector-card::after { display:none !important; animation:none !important; }
+}
+
 </style>
   <link rel="canonical" href="https://dssafetysystems.com/industries.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
