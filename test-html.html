@@ -153,6 +153,23 @@
         }
     </style>
 
+
+    /* Compact testimonial layout on phones without changing desktop sizing. */
+    @media (max-width: 640px) {
+      .success-stories-section { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      .success-stories-section > div { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .success-stories-section > div > div:first-child { margin-bottom: 1.75rem !important; }
+      .success-stories-section h1 { font-size: 1.75rem !important; line-height: 1.18 !important; }
+      .success-stories-section p { font-size: .875rem !important; line-height: 1.55 !important; }
+      .success-stories-section .grid { gap: 1rem !important; }
+      .success-stories-section .grid > div { padding: 1.25rem !important; border-radius: 1.1rem !important; }
+      .success-stories-section .grid > div .mb-4 { margin-bottom: .65rem !important; }
+      .success-stories-section .grid > div .mb-6 { margin-bottom: .8rem !important; }
+      .success-stories-section .grid > div .pt-4 { padding-top: .7rem !important; }
+      .success-stories-section .mt-16 { margin-top: 1.75rem !important; }
+      .success-stories-section button { padding: .8rem 1.15rem !important; font-size: .875rem !important; border-radius: .9rem !important; }
+    }
+
 </head>
 <body class="font-sans text-slate-200 flex flex-col min-h-screen bg-transparent">
 
