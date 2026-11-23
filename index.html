@@ -1063,6 +1063,66 @@
 
   
 
+
+<style id="ds-lightbeam-hero-button">
+  @property --ds-lightbeam-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @keyframes ds-lightbeam-spin {
+    to { --ds-lightbeam-angle: 360deg; }
+  }
+  .ds-hero-actions a.ds-hero-primary {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    border: 1px solid transparent !important;
+    border-radius: 11px !important;
+    background: #090b10 !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px rgba(225, 43, 37, .16), 0 8px 24px rgba(0,0,0,.24) !important;
+    transition: transform .25s ease, box-shadow .3s ease !important;
+  }
+  .ds-hero-actions a.ds-hero-primary::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(from var(--ds-lightbeam-angle), transparent 0%, #ff3b30 25%, #ffb15a 33%, #ff5a36 43%, transparent 58%, transparent 100%);
+    animation: ds-lightbeam-spin 3.2s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .ds-hero-actions a.ds-hero-primary::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 1px;
+    border-radius: 10px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255, 105, 55, .18), transparent 68%), #0b0d12;
+    opacity: .9;
+    transition: opacity .3s ease;
+    pointer-events: none;
+  }
+  .ds-hero-actions a.ds-hero-primary > * {
+    position: relative;
+    z-index: 1;
+  }
+  .ds-hero-actions a.ds-hero-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 0 26px rgba(255, 75, 43, .28), 0 10px 28px rgba(0,0,0,.3) !important;
+  }
+  .ds-hero-actions a.ds-hero-primary:hover::after { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .ds-hero-actions a.ds-hero-primary::before { animation: none; }
+  }
+</style>
+
 </head>
 <body>
 <div id="smooth-wrapper">
