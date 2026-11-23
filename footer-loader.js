@@ -2,6 +2,8 @@
 (async function(){
   /* The homepage embeds product.html in an iframe; keep that embedded catalog footer-free. */
   if(window.self !== window.top && new URLSearchParams(window.location.search).get('embed') === 'homepage-products-v8') return;
+  /* The homepage embeds get-quote.html too; its footer is supplied once by the parent page. */
+  if(window.self !== window.top && new URLSearchParams(window.location.search).get('embed') === 'homepage-quote') return;
   if(document.getElementById('ds-site-footer')) return;
   function waitForHomepageOrder(){
     if(!location.pathname.endsWith('/index.html') && location.pathname !== '/') return Promise.resolve();
