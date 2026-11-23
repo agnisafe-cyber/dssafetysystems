@@ -1,5 +1,7 @@
 /* Loads the shared DS Safety Systems footer after homepage sections are in their final order. */
 (async function(){
+  /* The homepage embeds product.html in an iframe; keep that embedded catalog footer-free. */
+  if(window.self !== window.top && new URLSearchParams(window.location.search).get('embed') === 'homepage-products-v8') return;
   if(document.getElementById('ds-site-footer')) return;
   function waitForHomepageOrder(){
     if(!location.pathname.endsWith('/index.html') && location.pathname !== '/') return Promise.resolve();
