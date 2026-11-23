@@ -430,7 +430,7 @@
         position:absolute; inset:0; z-index:1; pointer-events:none;
         border-radius:inherit; opacity:0; transition:opacity .18s ease;
         background:radial-gradient(190px circle at var(--spot-x, 50%) var(--spot-y, 50%),
-          rgba(255,125,35,.34), rgba(255,151,55,.16) 40%, transparent 72%);
+          rgba(255,125,35,.25), rgba(255,125,35,.10) 38%, transparent 72%);
       }
       .why-card > :not(.ds-why-spotlight) { position:relative; z-index:2; }
       .why-card > .ds-why-spotlight::after {
@@ -442,9 +442,9 @@
       }
       .why-card > .ds-why-spotlight::before {
         content:""; position:absolute; inset:-35% -65%; border-radius:inherit;
-        background:linear-gradient(112deg,transparent 35%,rgba(255,122,24,.10) 42%,
-          rgba(255,145,48,.88) 47%,rgba(255,196,92,.98) 50%,
-          rgba(255,112,20,.86) 53%,rgba(255,170,70,.12) 59%,transparent 65%);
+        background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.04) 43%,
+          rgba(255,177,105,.30) 48%,rgba(255,255,255,.72) 50%,
+          rgba(255,142,55,.26) 53%,transparent 59%);
         transform:translateX(-65%) rotate(0deg);
         opacity:0;
       }
@@ -458,8 +458,8 @@
       }
       .why-card.ds-spotlight-active > .ds-why-spotlight { opacity:1; }
       .why-card.ds-spotlight-active {
-        border-color:rgba(255,126,24,.88) !important;
-        box-shadow:0 16px 36px rgba(0,0,0,.16),0 0 24px rgba(255,125,35,.22) !important;
+        border-color:rgba(255,138,36,.72) !important;
+        box-shadow:0 16px 36px rgba(0,0,0,.16),0 0 20px rgba(255,125,35,.14) !important;
       }
       @media(prefers-reduced-motion:reduce) {
         .why-card > .ds-why-spotlight { transition:none; }
