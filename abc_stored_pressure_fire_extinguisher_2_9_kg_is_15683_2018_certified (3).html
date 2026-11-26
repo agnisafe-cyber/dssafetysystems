@@ -28,48 +28,83 @@
   </style>
 
   <style id="ds-abc-detail-light-theme">
-    /* Clean white card finish inspired by the Industries We Serve detail box */
+    /* DS Safety cinematic page atmosphere + clean white product panels */
     html, body {
-      min-height: 100%;
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-      background-image: none !important;
-      color: #172033 !important;
+      min-height:100%;
+      background:#080a0d !important;
+      background-color:#080a0d !important;
+      background-image:
+        radial-gradient(ellipse at 12% 18%,rgba(220,38,38,.19),transparent 30%),
+        radial-gradient(ellipse at 88% 56%,rgba(249,115,22,.11),transparent 28%),
+        radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.025),transparent 42%) !important;
+      background-attachment:fixed !important;
+      color:#f6f4ef !important;
     }
-    body, main, section { color: #172033 !important; }
-    #overview { background: #ffffff !important; }
-    .bg-white { background-color: #ffffff !important; }
-    .bg-zinc-50, .bg-slate-50 { background-color: #f9fafb !important; }
-    .bg-zinc-100, .bg-slate-100 { background-color: #f3f4f6 !important; }
-    .border-zinc-200, .border-zinc-300, .border-slate-200 {
-      border-color: #e2e8f0 !important;
+    body { margin:0; }
+    #overview {
+      background:transparent !important;
+      color:#f6f4ef !important;
     }
-    .text-zinc-900, .text-zinc-800, .text-zinc-700,
-    .text-slate-900, .text-slate-800, .text-slate-700 {
-      color: #172033 !important;
-    }
-    .text-zinc-600, .text-slate-600 { color: #5b6472 !important; }
-    .text-zinc-500, .text-zinc-400, .text-slate-500, .text-slate-400 {
-      color: #6b7280 !important;
-    }
-    /* Matching white panels, soft borders and restrained shadow */
+
+    /* White product gallery, information card and specification panels */
     #overview .lg\:col-span-7 > .relative.rounded-2xl,
-    #overview .lg\:col-span-5 > .bg-white {
-      background: #ffffff !important;
-      border-color: #e2e8f0 !important;
-      box-shadow: 0 12px 32px rgba(15,23,42,.08) !important;
+    #overview .lg\:col-span-5 > .bg-white,
+    #specifications .bg-white,
+    #specifications .lg\:col-span-8,
+    #specifications .lg\:col-span-4 {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+      background-image:none !important;
+      border-color:#e2e8f0 !important;
+      color:#172033 !important;
+      box-shadow:0 12px 32px rgba(0,0,0,.18) !important;
     }
-    #photoView, #threeView, #threeContainer {
-      background: #ffffff !important;
+    #overview .bg-white,
+    #overview .bg-white\/95,
+    #specifications .bg-white {
+      background-color:#ffffff !important;
+      color:#172033 !important;
     }
-    #threeContainer { border-color: #e2e8f0 !important; }
-    button { -webkit-tap-highlight-color: transparent; }
-    @media (prefers-reduced-motion: no-preference) {
-      #photoView img { transition: transform .25s ease; }
+    #photoView, #threeView, #threeContainer,
+    #overview .aspect-\[4\/3\],
+    #overview .sm\:aspect-\[5\/4\] {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+    }
+    #threeContainer { border-color:#e2e8f0 !important; }
+    #overview .text-zinc-900, #overview .text-zinc-800,
+    #overview .text-zinc-700, #overview .text-slate-900,
+    #overview .text-slate-800, #overview .text-slate-700,
+    #specifications .text-zinc-900, #specifications .text-zinc-800,
+    #specifications .text-zinc-700 {
+      color:#172033 !important;
+    }
+    #overview .text-zinc-600, #overview .text-slate-600,
+    #specifications .text-zinc-600 { color:#5b6472 !important; }
+    #overview .text-zinc-500, #overview .text-zinc-400,
+    #overview .text-slate-500, #overview .text-slate-400,
+    #specifications .text-zinc-500 { color:#6b7280 !important; }
+    #overview .border-zinc-200, #overview .border-zinc-300,
+    #specifications .border-zinc-200 {
+      border-color:#e2e8f0 !important;
+    }
+
+    /* Section heading sits on the dark atmospheric background */
+    #specifications > div:first-child h2 { color:#f6f4ef !important; }
+    #specifications > div:first-child > div > span { color:#f97316 !important; }
+    #specifications > div:first-child > div:last-child {
+      background:#ffffff !important;
+      color:#475569 !important;
+      border-color:#e2e8f0 !important;
+    }
+    #specifications > div:first-child > div:last-child strong { color:#172033 !important; }
+    button { -webkit-tap-highlight-color:transparent; }
+    @media(prefers-reduced-motion:no-preference) {
+      #photoView img { transition:transform .25s ease; }
     }
   </style>
 </head>
-<body class="bg-white text-zinc-900 antialiased pb-24 lg:pb-12">
+<body class="text-zinc-900 antialiased pb-24 lg:pb-12">
 
   <!-- Main Product Details Page -->
   <main id="overview" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
