@@ -1613,10 +1613,18 @@ const closeDetail=()=>{overlay.classList.remove("open");overlay.setAttribute("ar
         setGalleryImage(0,true);
         card.classList.add("active");overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";closeBtn.focus({preventScroll:true});
       };
-      productCards.forEach(card=>{
-        card.setAttribute("tabindex","0");card.setAttribute("role","button");card.setAttribute("aria-label","View product details");
-        card.addEventListener("click",e=>{if(e.target.closest(".buy-btn"))e.preventDefault();openDetail(card)});
-        card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail(card)}});
+      productCards.forEach((card,index)=>{
+        card.setAttribute("tabindex","0");card.setAttribute("role","link");
+        card.setAttribute("aria-label",index===0?"Open ABC Fire Extinguisher detail page":"View product details");
+        const openCard=()=>{
+          if(index===0){
+            window.location.href="./abc_stored_pressure_fire_extinguisher_2_9_kg_is_15683_2018_certified%20(3).html";
+            return;
+          }
+          openDetail(card);
+        };
+        card.addEventListener("click",e=>{if(e.target.closest(".buy-btn"))e.preventDefault();openCard()});
+        card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard()}});
       });
       prevBtn.addEventListener("click",()=>setGalleryImage(galleryIndex-1));
       nextBtn.addEventListener("click",()=>setGalleryImage(galleryIndex+1));
