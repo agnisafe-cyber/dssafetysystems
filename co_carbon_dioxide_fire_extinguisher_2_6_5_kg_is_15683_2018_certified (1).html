@@ -26,6 +26,138 @@
       cursor: grabbing;
     }
   </style>
+  <style id="ds-co2-detail-matching-theme">
+    /* DS Safety cinematic page atmosphere + clean white product panels */
+    html, body {
+      min-height:100%;
+      background:#080a0d !important;
+      background-color:#080a0d !important;
+      background-image:
+        radial-gradient(ellipse at 12% 18%,rgba(220,38,38,.19),transparent 30%),
+        radial-gradient(ellipse at 88% 56%,rgba(249,115,22,.11),transparent 28%),
+        radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.025),transparent 42%) !important;
+      background-attachment:fixed !important;
+      color:#f6f4ef !important;
+    }
+    body { margin:0; }
+    #overview {
+      background:transparent !important;
+      color:#f6f4ef !important;
+    }
+
+    /* White product gallery, information card and specification panels */
+    #overview .lg\:col-span-7 > .relative.rounded-2xl,
+    #overview .lg\:col-span-5 > .bg-white,
+    #specifications .bg-white,
+    #specifications .lg\:col-span-8 {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+      background-image:none !important;
+      border-color:#e2e8f0 !important;
+      color:#172033 !important;
+      box-shadow:0 12px 32px rgba(0,0,0,.18) !important;
+    }
+    /* Keep the stretched right grid wrapper transparent; only its card is white. */
+    #specifications .lg\:col-span-4 {
+      background:transparent !important;
+      background-color:transparent !important;
+      background-image:none !important;
+      box-shadow:none !important;
+    }
+    #overview .bg-white,
+    #overview .bg-white\/95,
+    #specifications .bg-white {
+      background-color:#ffffff !important;
+      color:#172033 !important;
+    }
+    #photoView, #threeView, #threeContainer,
+    #overview .aspect-\[4\/3\],
+    #overview .sm\:aspect-\[5\/4\] {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+    }
+    #threeContainer { border-color:#e2e8f0 !important; }
+    #overview .text-zinc-900, #overview .text-zinc-800,
+    #overview .text-zinc-700, #overview .text-slate-900,
+    #overview .text-slate-800, #overview .text-slate-700,
+    #specifications .text-zinc-900, #specifications .text-zinc-800,
+    #specifications .text-zinc-700 {
+      color:#172033 !important;
+    }
+    #overview .text-zinc-600, #overview .text-slate-600,
+    #specifications .text-zinc-600 { color:#5b6472 !important; }
+    #overview .text-zinc-500, #overview .text-zinc-400,
+    #overview .text-slate-500, #overview .text-slate-400,
+    #specifications .text-zinc-500 { color:#6b7280 !important; }
+    #overview .border-zinc-200, #overview .border-zinc-300,
+    #specifications .border-zinc-200 {
+      border-color:#e2e8f0 !important;
+    }
+
+    /* Applications section: readable light heading on dark site backdrop;
+       all class/environment cards stay white with dark readable copy. */
+    #applications { background:transparent !important; color:#f6f4ef !important; }
+    #applications > .mb-6 > span { color:#f97316 !important; }
+    #applications > .mb-6 h2 { color:#ffffff !important; }
+    #applications > .grid > .bg-white,
+    #applications > .bg-white,
+    #applications .bg-white {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+      background-image:none !important;
+      color:#172033 !important;
+      border-color:#e2e8f0 !important;
+    }
+    #applications .text-zinc-900,
+    #applications .text-zinc-800,
+    #applications .text-zinc-700,
+    #applications .text-zinc-600,
+    #applications .text-zinc-500,
+    #applications .text-zinc-400 {
+      color:#172033 !important;
+    }
+    #applications .text-zinc-500,
+    #applications .text-zinc-400 { color:#64748b !important; }
+    /* Section heading sits on the dark atmospheric background */
+    #specifications > div:first-child h2 { color:#f6f4ef !important; }
+    #specifications > div:first-child > div > span { color:#f97316 !important; }
+    #specifications > div:first-child > div:last-child {
+      background:#ffffff !important;
+      color:#475569 !important;
+      border-color:#e2e8f0 !important;
+    }
+    #specifications > div:first-child > div:last-child strong { color:#172033 !important; }
+    button { -webkit-tap-highlight-color:transparent; }
+    @media(prefers-reduced-motion:no-preference) {
+      #photoView img { transition:transform .25s ease; }
+    }
+    /* Match transparent CO2 template surfaces to the ABC page's white panels. */
+    #overview .bg-transparent,
+    #specifications .bg-transparent,
+    #applications .bg-transparent {
+      background:#ffffff !important;
+      background-color:#ffffff !important;
+      background-image:none !important;
+    }
+    #overview .bg-transparent,
+    #specifications .bg-transparent {
+      color:#172033 !important;
+      border-color:#e2e8f0 !important;
+    }
+    /* Keep the Detailed Parameter Matrix flush and level — remove the raised-card effect. */
+    #specifications .lg\\:col-span-8 {
+      box-shadow:none !important;
+      transform:none !important;
+      translate:none !important;
+      filter:none !important;
+      top:auto !important;
+      margin-top:0 !important;
+    }
+    #specifications .lg\\:col-span-8 > div:first-child {
+      box-shadow:none !important;
+      transform:none !important;
+    }
+  </style>
 </head>
 <body class="bg-transparent text-zinc-900 antialiased pb-24 lg:pb-12">
 
