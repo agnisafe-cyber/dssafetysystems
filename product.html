@@ -927,13 +927,23 @@
                 if (!card || !productGrid.contains(card)) return;
                 // Keep gallery arrows, wishlist and enquiry buttons on their own actions
                 if (e.target.closest('button, a, input, select, textarea')) return;
-                openQuickView(Number(card.dataset.productId));
+                const productId = Number(card.dataset.productId);
+                if (productId === 1) {
+                    window.location.href = './abc_stored_pressure_fire_extinguisher_2_9_kg_is_15683_2018_certified%20(3).html';
+                    return;
+                }
+                openQuickView(productId);
             });
             productGrid.addEventListener('keydown', (e) => {
                 const card = e.target.closest('.product-card');
                 if (card && (e.key === 'Enter' || e.key === ' ')) {
                     e.preventDefault();
-                    openQuickView(Number(card.dataset.productId));
+                    const productId = Number(card.dataset.productId);
+                    if (productId === 1) {
+                        window.location.href = './abc_stored_pressure_fire_extinguisher_2_9_kg_is_15683_2018_certified%20(3).html';
+                    } else {
+                        openQuickView(productId);
+                    }
                 }
             });
 
