@@ -28,36 +28,41 @@
   </style>
 
   <style id="ds-abc-detail-light-theme">
-    /* Bright, premium DS Safety product detail theme */
+    /* Clean white card finish inspired by the Industries We Serve detail box */
     html, body {
       min-height: 100%;
-      background: #f3f5f8 !important;
-      background-image:
-        radial-gradient(ellipse at 8% 8%, rgba(220,38,38,.055), transparent 32%),
-        radial-gradient(ellipse at 92% 54%, rgba(148,163,184,.12), transparent 38%),
-        linear-gradient(180deg, #f8fafc 0%, #f1f4f8 100%) !important;
-      background-attachment: fixed !important;
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
       color: #172033 !important;
     }
     body, main, section { color: #172033 !important; }
+    #overview { background: #ffffff !important; }
     .bg-white { background-color: #ffffff !important; }
-    .bg-zinc-50, .bg-slate-50 { background-color: #f8fafc !important; }
-    .bg-zinc-100, .bg-slate-100 { background-color: #eef2f6 !important; }
+    .bg-zinc-50, .bg-slate-50 { background-color: #f9fafb !important; }
+    .bg-zinc-100, .bg-slate-100 { background-color: #f3f4f6 !important; }
     .border-zinc-200, .border-zinc-300, .border-slate-200 {
-      border-color: #dce2ea !important;
+      border-color: #e2e8f0 !important;
     }
     .text-zinc-900, .text-zinc-800, .text-zinc-700,
     .text-slate-900, .text-slate-800, .text-slate-700 {
       color: #172033 !important;
     }
-    .text-zinc-600, .text-slate-600 { color: #475569 !important; }
+    .text-zinc-600, .text-slate-600 { color: #5b6472 !important; }
     .text-zinc-500, .text-zinc-400, .text-slate-500, .text-slate-400 {
-      color: #64748b !important;
+      color: #6b7280 !important;
+    }
+    /* Matching white panels, soft borders and restrained shadow */
+    #overview .lg\:col-span-7 > .relative.rounded-2xl,
+    #overview .lg\:col-span-5 > .bg-white {
+      background: #ffffff !important;
+      border-color: #e2e8f0 !important;
+      box-shadow: 0 12px 32px rgba(15,23,42,.08) !important;
     }
     #photoView, #threeView, #threeContainer {
-      background: radial-gradient(ellipse at 50% 42%, #ffffff 0%, #f1f4f8 78%) !important;
+      background: #ffffff !important;
     }
-    #threeContainer { border-color: #dce2ea !important; }
+    #threeContainer { border-color: #e2e8f0 !important; }
     button { -webkit-tap-highlight-color: transparent; }
     @media (prefers-reduced-motion: no-preference) {
       #photoView img { transition: transform .25s ease; }
