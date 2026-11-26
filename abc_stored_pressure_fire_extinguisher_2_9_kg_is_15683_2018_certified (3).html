@@ -132,6 +132,19 @@
     @media(prefers-reduced-motion:no-preference) {
       #photoView img { transition:transform .25s ease; }
     }
+    /* Keep the Detailed Parameter Matrix flush and level — remove the raised-card effect. */
+    #specifications .lg\\:col-span-8 {
+      box-shadow:none !important;
+      transform:none !important;
+      translate:none !important;
+      filter:none !important;
+      top:auto !important;
+      margin-top:0 !important;
+    }
+    #specifications .lg\\:col-span-8 > div:first-child {
+      box-shadow:none !important;
+      transform:none !important;
+    }
   </style>
 </head>
 <body class="text-zinc-900 antialiased pb-24 lg:pb-12">
