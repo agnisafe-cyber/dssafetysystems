@@ -2722,23 +2722,24 @@ html.ds-anim .ds-sec.ds-in{opacity:1;transform:none;will-change:auto}
     frame.title = 'DS Safety Systems footer';
     frame.src = new URL('./footer_ds_safety_systems_new_delhi.html', document.baseURI).href;
     frame.setAttribute('scrolling', 'no');
-    frame.style.cssText = 'display:block;width:100%;height:1250px;border:0;margin:0;padding:0;background:transparent;overflow:hidden;position:relative;z-index:6;';
+    frame.style.cssText = 'display:block;width:100%;height:1px;border:0;margin:0;padding:0;background:transparent;overflow:hidden;position:relative;z-index:6;';
     content.appendChild(frame);
     frame.addEventListener('load', () => {
       try {
         const doc = frame.contentDocument;
+        const footer = doc.querySelector('footer');
         const fit = () => {
-          const h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, doc.body.offsetHeight, doc.documentElement.offsetHeight);
-          if (h > 0) frame.style.height = (h + 8) + 'px';
+          if (!footer) return;
+          const h = Math.ceil(footer.getBoundingClientRect().height);
+          if (h > 0) frame.style.height = h + 'px';
           if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') window.ScrollTrigger.refresh();
         };
         fit();
         setTimeout(fit, 300);
         setTimeout(fit, 1000);
-        if ('ResizeObserver' in window) {
+        if ('ResizeObserver' in window && footer) {
           const observer = new ResizeObserver(fit);
-          observer.observe(doc.documentElement);
-          observer.observe(doc.body);
+          observer.observe(footer);
         }
       } catch (_) {}
     });
