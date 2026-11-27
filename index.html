@@ -1276,6 +1276,55 @@
 
 
 
+      <!-- Get a Quote page, placed at the very bottom after the product catalog -->
+      <section id="get-quote-embed" aria-label="Get a Quote" style="position:relative;width:100%;margin:0;padding:24px 0 0;overflow:hidden;background:radial-gradient(ellipse 60% 45% at 50% 0%,rgba(220,38,38,.16),transparent 72%),linear-gradient(180deg,#080a0f 0%,#05070b 100%);border-top:1px solid rgba(248,113,113,.22);box-shadow:0 -24px 70px rgba(220,38,38,.06)">
+        <iframe
+          id="get-quote-embed-frame"
+          src="get-quote.html?embed=homepage-quote"
+          title="DS Safety Systems — Get a Quote"
+          loading="eager"
+          scrolling="no"
+          style="display:block;width:100%;height:1800px;border:0;overflow:hidden;background:transparent"
+        ></iframe>
+      </section>
+      <script>
+        (() => {
+          const frame = document.getElementById("get-quote-embed-frame");
+          if (!frame) return;
+          let quoteResizeObserver;
+          const fitQuoteFrame = () => {
+            try {
+              const doc = frame.contentDocument;
+              if (!doc || !doc.body || !doc.documentElement) return;
+              /* Use the full content height so the bottom of the quote form is never clipped. */
+              const height = Math.max(
+                doc.body.scrollHeight,
+                doc.body.offsetHeight,
+                doc.documentElement.scrollHeight,
+                doc.documentElement.offsetHeight
+              );
+              if (height > 0 && Math.abs(parseInt(frame.style.height, 10) - height) > 2) {
+                frame.style.height = height + "px";
+              }
+            } catch (error) {}
+          };
+          frame.addEventListener("load", () => {
+            fitQuoteFrame();
+            const doc = frame.contentDocument;
+            if (doc && "ResizeObserver" in window) {
+              if (quoteResizeObserver) quoteResizeObserver.disconnect();
+              quoteResizeObserver = new ResizeObserver(fitQuoteFrame);
+              quoteResizeObserver.observe(doc.documentElement);
+              quoteResizeObserver.observe(doc.body);
+            }
+            window.setTimeout(fitQuoteFrame, 250);
+            window.setTimeout(fitQuoteFrame, 900);
+            window.setTimeout(fitQuoteFrame, 1800);
+          });
+          window.addEventListener("resize", fitQuoteFrame);
+        })();
+      </script>
+
     </div>
   </div>
 
