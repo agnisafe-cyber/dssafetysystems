@@ -1286,18 +1286,35 @@
         (() => {
           const frame = document.getElementById("get-quote-embed-frame");
           if (!frame) return;
+          let quoteResizeObserver;
           const fitQuoteFrame = () => {
             try {
               const doc = frame.contentDocument;
-              if (!doc) return;
-              const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight) - 200;
-              if (height > 0) frame.style.height = height + "px";
+              if (!doc || !doc.body || !doc.documentElement) return;
+              /* Use the full content height so the bottom of the quote form is never clipped. */
+              const height = Math.max(
+                doc.body.scrollHeight,
+                doc.body.offsetHeight,
+                doc.documentElement.scrollHeight,
+                doc.documentElement.offsetHeight
+              );
+              if (height > 0 && Math.abs(parseInt(frame.style.height, 10) - height) > 2) {
+                frame.style.height = height + "px";
+              }
             } catch (error) {}
           };
           frame.addEventListener("load", () => {
             fitQuoteFrame();
+            const doc = frame.contentDocument;
+            if (doc && "ResizeObserver" in window) {
+              if (quoteResizeObserver) quoteResizeObserver.disconnect();
+              quoteResizeObserver = new ResizeObserver(fitQuoteFrame);
+              quoteResizeObserver.observe(doc.documentElement);
+              quoteResizeObserver.observe(doc.body);
+            }
             window.setTimeout(fitQuoteFrame, 250);
             window.setTimeout(fitQuoteFrame, 900);
+            window.setTimeout(fitQuoteFrame, 1800);
           });
           window.addEventListener("resize", fitQuoteFrame);
         })();
