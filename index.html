@@ -1168,7 +1168,13 @@
               try {
                 const doc = frame.contentDocument;
                 if (!doc || !doc.body || !doc.documentElement) return;
-                const height = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, doc.body.offsetHeight, doc.documentElement.offsetHeight);
+                // Measure only the currently visible product view. Using scrollHeight here
+                // preserves the old catalogue height after opening a shorter detail view.
+                const activeView = doc.querySelector('#detailView:not(.hidden)') ||
+                                   doc.querySelector('#showcaseView:not(.hidden)');
+                if (!activeView) return;
+                const rect = activeView.getBoundingClientRect();
+                const height = Math.ceil(rect.bottom + (frame.contentWindow ? frame.contentWindow.scrollY : 0) + 2);
                 if (height > 0) frame.style.height = height + 'px';
               } catch (e) {}
             };
