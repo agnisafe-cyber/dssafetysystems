@@ -1297,12 +1297,13 @@
               const doc = frame.contentDocument;
               if (!doc || !doc.body || !doc.documentElement) return;
               /* Use the full content height so the bottom of the quote form is never clipped. */
-              const height = Math.max(
+              const contentHeight = Math.max(
                 doc.body.scrollHeight,
                 doc.body.offsetHeight,
                 doc.documentElement.scrollHeight,
                 doc.documentElement.offsetHeight
               );
+              const height = Math.max(0, contentHeight - 20);
               if (height > 0 && Math.abs(parseInt(frame.style.height, 10) - height) > 2) {
                 frame.style.height = height + "px";
               }
