@@ -65,6 +65,14 @@
     html[data-homepage-quote-embed="true"] main { flex-grow:0!important; padding-bottom:1rem!important; }
     html[data-homepage-quote-embed="true"] section.max-w-7xl { padding-bottom:0!important; }
   </style>
+  <style id="get-quote-bottom-spacing-fix">
+    /* Remove the oversized blank area after the quote form. */
+    body > main.max-w-7xl { padding-bottom: .5rem !important; }
+    html[data-homepage-quote-embed="true"] body > main.max-w-7xl { padding-bottom: 0 !important; }
+    @media (max-width: 640px) {
+      body > main.max-w-7xl { padding-bottom: .25rem !important; }
+    }
+  </style>
   <link rel="canonical" href="https://dssafetysystems.com/get-quote.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
