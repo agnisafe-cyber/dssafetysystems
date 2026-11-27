@@ -1176,6 +1176,22 @@
               fitProductFrame();
               window.setTimeout(fitProductFrame, 250);
               window.setTimeout(fitProductFrame, 900);
+              try {
+                const doc = frame.contentDocument;
+                if (doc && doc.body && window.ResizeObserver) {
+                  const productFrameResizeObserver = new ResizeObserver(() => {
+                    window.requestAnimationFrame(fitProductFrame);
+                  });
+                  productFrameResizeObserver.observe(doc.body);
+                  productFrameResizeObserver.observe(doc.documentElement);
+                }
+                if (doc && doc.body && window.MutationObserver) {
+                  const productFrameMutationObserver = new MutationObserver(() => {
+                    window.requestAnimationFrame(fitProductFrame);
+                  });
+                  productFrameMutationObserver.observe(doc.body, {childList:true,subtree:true,attributes:true});
+                }
+              } catch (e) {}
             });
             window.addEventListener('resize', fitProductFrame);
             section.appendChild(anchor);
