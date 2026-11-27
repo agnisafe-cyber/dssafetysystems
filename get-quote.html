@@ -66,9 +66,17 @@
     html[data-homepage-quote-embed="true"] section.max-w-7xl { padding-bottom:0!important; }
   </style>
   <style id="get-quote-bottom-spacing-fix">
-    /* Remove the oversized blank area after the quote form. */
-    body > main.max-w-7xl { padding-bottom: .5rem !important; }
-    html[data-homepage-quote-embed="true"] body > main.max-w-7xl { padding-bottom: 0 !important; }
+    /* Keep the quote page only as tall as its actual content. */
+    html, body { height: auto !important; }
+    body { min-height: 0 !important; }
+    body > main.max-w-7xl {
+      flex: 0 0 auto !important;
+      padding-bottom: .5rem !important;
+      margin-bottom: 0 !important;
+    }
+    html[data-homepage-quote-embed="true"] body > main.max-w-7xl {
+      padding-bottom: 0 !important;
+    }
     @media (max-width: 640px) {
       body > main.max-w-7xl { padding-bottom: .25rem !important; }
     }
