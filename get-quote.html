@@ -67,25 +67,27 @@
 <link rel="stylesheet" href="transitions.css?v=1">
 <script src="transitions.js?v=1"></script>
 
-  /* Tighter mobile spacing for the embedded Get a Quote page. */
-  @media (max-width: 640px) {
-    body { min-height: 0 !important; }
-    body > section.max-w-7xl { padding-top: 1rem !important; }
-    body > section.max-w-7xl > div { padding: 1.15rem !important; border-radius: 1.25rem !important; }
-    body > section.max-w-7xl h1 { font-size: 1.65rem !important; line-height: 1.2 !important; }
-    body > section.max-w-7xl p { margin-top: .65rem !important; font-size: .82rem !important; line-height: 1.5 !important; }
-    main.max-w-7xl { padding-top: 1.1rem !important; padding-bottom: 1.5rem !important; }
-    main.max-w-7xl > div { gap: 1rem !important; }
-    main .lg\\:col-span-5 > div { padding: 1rem !important; border-radius: 1.1rem !important; }
-    main .lg\\:col-span-5 > div > div { gap: 1rem !important; }
-    main .lg\\:col-span-5 .h-48 { height: 9rem !important; }
-    main .lg\\:col-span-7 { padding: 1.1rem !important; border-radius: 1.1rem !important; }
-    main .lg\\:col-span-7 h2 { font-size: 1.3rem !important; line-height: 1.25 !important; }
-    main .lg\\:col-span-7 form { gap: 1rem !important; }
-    main input, main select, main textarea { padding-top: .65rem !important; padding-bottom: .65rem !important; }
-    main textarea { min-height: 5rem !important; }
-    main #submitBtn { padding-top: .8rem !important; padding-bottom: .8rem !important; }
-  }
+<style id="get-quote-mobile-spacing">
+/* Tighter mobile spacing for the embedded Get a Quote page. */
+@media (max-width: 640px) {
+  body { min-height: 0 !important; }
+  body > section.max-w-7xl { padding-top: 1rem !important; }
+  body > section.max-w-7xl > div { padding: 1.15rem !important; border-radius: 1.25rem !important; }
+  body > section.max-w-7xl h1 { font-size: 1.65rem !important; line-height: 1.2 !important; }
+  body > section.max-w-7xl p { margin-top: .65rem !important; font-size: .82rem !important; line-height: 1.5 !important; }
+  main.max-w-7xl { padding-top: 1.1rem !important; padding-bottom: 1.5rem !important; }
+  main.max-w-7xl > div { gap: 1rem !important; }
+  main .lg\:col-span-5 > div { padding: 1rem !important; border-radius: 1.1rem !important; }
+  main .lg\:col-span-5 > div > div { gap: 1rem !important; }
+  main .lg\:col-span-5 .h-48 { height: 9rem !important; }
+  main .lg\:col-span-7 { padding: 1.1rem !important; border-radius: 1.1rem !important; }
+  main .lg\:col-span-7 h2 { font-size: 1.3rem !important; line-height: 1.25 !important; }
+  main .lg\:col-span-7 form { gap: 1rem !important; }
+  main input, main select, main textarea { padding-top: .65rem !important; padding-bottom: .65rem !important; }
+  main textarea { min-height: 5rem !important; }
+  main #submitBtn { padding-top: .8rem !important; padding-bottom: .8rem !important; }
+}
+</style>
 
 </head>
 <body class="bg-transparent text-gray-800 min-h-screen flex flex-col antialiased">
