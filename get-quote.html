@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (new URLSearchParams(window.location.search).get("embed") === "homepage-quote") {
+      document.documentElement.setAttribute("data-homepage-quote-embed", "true");
+    }
+  </script>
   <title>Request a Fire Safety Quote or Site Audit | DS Safety Systems</title>
   <meta name="description" content="Request a fire safety equipment quote or site audit from DS Safety Systems in New Delhi. Enquire about extinguishers, fire alarms, installation and maintenance.">
   
@@ -52,6 +57,13 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+  </style>
+  <style id="homepage-quote-embed-compact">
+    html[data-homepage-quote-embed="true"],
+    html[data-homepage-quote-embed="true"] body { height:auto!important; min-height:0!important; }
+    html[data-homepage-quote-embed="true"] body { display:block!important; }
+    html[data-homepage-quote-embed="true"] main { flex-grow:0!important; padding-bottom:1rem!important; }
+    html[data-homepage-quote-embed="true"] section.max-w-7xl { padding-bottom:0!important; }
   </style>
   <link rel="canonical" href="https://dssafetysystems.com/get-quote.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
