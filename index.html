@@ -2711,7 +2711,48 @@ html.ds-anim .ds-sec.ds-in{opacity:1;transform:none;will-change:auto}
 }
 </style>
 
-<!-- Shared footer loader removed; a new footer will be added separately. -->
+<!-- DS Safety Systems shared footer -->
+<style id="ds-shared-footer-frame-style">
+  #ds-shared-footer-frame{display:block;width:100%;height:900px;border:0;margin:0;padding:0;background:transparent;overflow:hidden}
+</style>
+<iframe
+  id="ds-shared-footer-frame"
+  src="./footer_ds_safety_systems_new_delhi.html"
+  title="DS Safety Systems footer"
+  loading="eager"
+  scrolling="no"
+  style="width:100%;border:0;display:block;background:transparent;overflow:hidden"
+></iframe>
+<script>
+  (() => {
+    const frame = document.getElementById('ds-shared-footer-frame');
+    if (!frame) return;
+    const fitFooter = () => {
+      try {
+        const doc = frame.contentDocument;
+        if (!doc || !doc.body || !doc.documentElement) return;
+        const height = Math.max(
+          doc.body.scrollHeight,
+          doc.body.offsetHeight,
+          doc.documentElement.scrollHeight,
+          doc.documentElement.offsetHeight
+        );
+        if (height > 0) frame.style.height = height + 'px';
+      } catch (_) {}
+    };
+    frame.addEventListener('load', () => {
+      fitFooter();
+      setTimeout(fitFooter, 250);
+      setTimeout(fitFooter, 900);
+      if (frame.contentWindow && 'ResizeObserver' in window) {
+        const observer = new ResizeObserver(fitFooter);
+        observer.observe(frame.contentDocument.documentElement);
+        observer.observe(frame.contentDocument.body);
+      }
+    });
+    window.addEventListener('resize', fitFooter, {passive:true});
+  })();
+</script>
 </body>
 </html>
 
